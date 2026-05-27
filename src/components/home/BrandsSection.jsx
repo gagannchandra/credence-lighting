@@ -110,7 +110,7 @@
 //   );
 // }
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import PageLink from "../ui/PageLink";
 
 const featuredLogos = [
   "/brands/al-othaim.png",
@@ -249,21 +249,17 @@ export default function BrandsSection() {
               →
             </span>
           </Link> */}
-          <Link
-  to="/brands"
-  onClick={() => {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }}
-  className="group border border-[#c8a96b]/40 text-[#c8a96b] px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-[#c8a96b] hover:text-black transition duration-500"
->
-  View All Partners
+          <PageLink
+            to="/brands"
+            returnHash="#brands"
+            className="group border border-[#c8a96b]/40 text-[#c8a96b] px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-[#c8a96b] hover:text-black transition duration-500"
+          >
+            View All Partners
 
-  <span className="inline-block ml-3 group-hover:translate-x-1 transition duration-300">
-    →
-  </span>
-</Link>
+            <span className="inline-block ml-3 group-hover:translate-x-1 transition duration-300">
+              →
+            </span>
+          </PageLink>
 
         </div>
 

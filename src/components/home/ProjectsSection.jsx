@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import PageLink from "../ui/PageLink";
 
 const projects = [
   {
@@ -81,7 +81,10 @@ const prevSlide = () => {
           transition={{ duration: 1.2 }}
           className="absolute inset-0"
         >
-          <Link to={`/project/${projects[current].id}`}>
+          <PageLink
+            to={`/project/${projects[current].id}`}
+            returnHash="#projects"
+          >
 
             {/* IMAGE */}
            <img
@@ -151,7 +154,7 @@ const prevSlide = () => {
               </motion.div>
 
             </motion.div>
-          </Link>
+          </PageLink>
         </motion.div>
 
       </AnimatePresence>

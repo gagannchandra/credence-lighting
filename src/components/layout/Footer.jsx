@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
+import logo2 from "../../assets/images/logo2.png";
 
 export default function Footer() {
   return (
@@ -16,9 +17,13 @@ export default function Footer() {
           {/* BRAND */}
           <div className="lg:col-span-2">
 
-            <p className="uppercase tracking-[0.4em] text-xs text-[#c8a96b] mb-6">
-              Credence Lighting
-            </p>
+            <Link to="/" className="inline-block mb-6">
+              <img
+                src={logo2}
+                alt="Credence Lighting"
+                className="h-12 md:h-14 w-auto object-contain"
+              />
+            </Link>
 
             <h3 className="text-4xl md:text-5xl font-serif leading-tight max-w-xl">
               Illuminating Spaces
@@ -44,23 +49,27 @@ export default function Footer() {
 
             <div className="space-y-5 text-white/60">
 
-              <a href="#home" className="block hover:text-white transition duration-300">
+              <a href="#home" className="block hover:text-white transition duration-300 touch-glow">
                 Home
               </a>
 
-              <a href="#about" className="block hover:text-white transition duration-300">
+              <a href="#about" className="block hover:text-white transition duration-300 touch-glow">
                 About
               </a>
 
-              <a href="#products" className="block hover:text-white transition duration-300">
+              <a href="#products" className="block hover:text-white transition duration-300 touch-glow">
                 Products
               </a>
 
-              <a href="#projects" className="block hover:text-white transition duration-300">
+              <a href="/downloads" className="block hover:text-white transition duration-300 touch-glow">
+                Downloads
+              </a>
+
+              <a href="#projects" className="block hover:text-white transition duration-300 touch-glow">
                 Projects
               </a>
 
-              <a href="#contact" className="block hover:text-white transition duration-300">
+              <a href="#contact" className="block hover:text-white transition duration-300 touch-glow">
                 Contact
               </a>
 

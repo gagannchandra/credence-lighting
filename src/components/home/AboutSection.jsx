@@ -130,7 +130,7 @@
 //   );
 // }
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { scrollToSection } from "../../utils/scrollUtils";
 
 export default function AboutSection() {
   return (
@@ -196,21 +196,21 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-6 mt-14 max-w-[1200px] mx-auto">
 
           {/* PRODUCTS CARD */}
-          <Link to="#products">
-
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              viewport={{ once: true }}
-              className="group relative overflow-hidden border border-white/10 rounded-[2.5rem] p-8 md:p-10 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center"
-            >
+          <motion.button
+            type="button"
+            onClick={() => scrollToSection("products")}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            viewport={{ once: true }}
+            className="group relative overflow-hidden border border-white/10 rounded-[2.5rem] p-8 md:p-10 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center w-full cursor-pointer"
+          >
 
               {/* HOVER GLOW */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
@@ -234,26 +234,24 @@ export default function AboutSection() {
                 →
               </div>
 
-            </motion.div>
-
-          </Link>
+          </motion.button>
 
           {/* PORTFOLIO CARD */}
-          <Link to="#projects">
-
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -10,
-                scale: 1.02,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              viewport={{ once: true }}
-              className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-[2.5rem] p-8 md:p-10 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center"
-            >
+          <motion.button
+            type="button"
+            onClick={() => scrollToSection("projects")}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{
+              y: -10,
+              scale: 1.02,
+            }}
+            transition={{
+              duration: 0.6,
+            }}
+            viewport={{ once: true }}
+            className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-[2.5rem] p-8 md:p-10 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center w-full cursor-pointer"
+          >
 
               {/* GOLD HOVER GLOW */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent" />
@@ -277,9 +275,7 @@ export default function AboutSection() {
                 →
               </div>
 
-            </motion.div>
-
-          </Link>
+          </motion.button>
 
         </div>
 

@@ -1,15 +1,32 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import {
+  getReturnState,
+  markPendingReturnScroll,
+} from "../../utils/navigationState";
 
 export default function BackButton() {
   const navigate = useNavigate();
 
+  const handleBack = () => {
+    const returnState = getReturnState();
+
+    if (returnState?.pathname) {
+      markPendingReturnScroll();
+      navigate(returnState.pathname);
+      return;
+    }
+
+    navigate(-1);
+  };
+
   return (
     <motion.button
+      type="button"
       whileHover={{ x: -4 }}
       whileTap={{ scale: 0.96 }}
-      onClick={() => navigate(-1)}
+      onClick={handleBack}
       className="
         fixed
         top-7

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo1 from "../../assets/images/logo1.png";
 
 export default function Loader() {
   return (
@@ -13,17 +14,14 @@ export default function Loader() {
       {/* CENTER CONTENT */}
       <div className="relative z-10 flex flex-col items-center">
 
-        {/* BRAND NAME */}
-        <motion.h1
+        <motion.img
+          src={logo1}
+          alt="Credence Lighting"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-          }}
-          className="text-white text-3xl md:text-6xl font-serif tracking-[0.25em] text-center"
-        >
-          CREDENCE LIGHTING
-        </motion.h1>
+          transition={{ duration: 1 }}
+          className="h-16 md:h-24 w-auto object-contain"
+        />
 
         {/* SUBTEXT */}
         <motion.p

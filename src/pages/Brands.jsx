@@ -1,7 +1,9 @@
+import { useLayoutEffect } from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
+import { scrollToTop } from "../utils/scrollUtils";
 
 const brands = [
   "/brands/al-othaim.png",
@@ -43,11 +45,20 @@ const brands = [
 ];
 
 export default function Brands() {
+  useLayoutEffect(() => {
+    scrollToTop(true);
+    requestAnimationFrame(() => scrollToTop(true));
+  }, []);
+
   return (
     <>
       <Navbar />
-         <BackButton />
-      <section className="relative min-h-screen bg-black overflow-hidden pt-40 pb-28">
+      <BackButton />
+
+      <section
+        id="brands-page-top"
+        className="relative min-h-screen bg-black overflow-hidden pt-40 pb-28"
+      >
 
         {/* BACKGROUND GLOW */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px]" />

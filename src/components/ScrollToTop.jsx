@@ -1,26 +1,23 @@
-// import { useLayoutEffect } from "react";
-// import { useLocation } from "react-router-dom";
-
-// export default function ScrollToTop() {
-//   const { pathname } = useLocation();
-
-//   useLayoutEffect(() => {
-//     window.scrollTo(0, 0);
-
-//     document.body.scrollTop = 0;
-//     document.documentElement.scrollTop = 0;
-//   }, [pathname]);
-
-//   return null;
-// }
 import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { hasPendingReturnScroll } from "../utils/navigationState";
+import { scrollToTop } from "../utils/scrollUtils";
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
-    window.scrollTo(0, 0);
+    if (hasPendingReturnScroll() && pathname === "/") {
+      return;
+    }
+
+    scrollToTop(true);
+
+    requestAnimationFrame(() => scrollToTop(true));
+
+    const timer = setTimeout(() => scrollToTop(true), 50);
+
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;

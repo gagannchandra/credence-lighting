@@ -1,33 +1,104 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import PageLink from "../ui/PageLink";
+import logo2 from "../../assets/images/logo2.png";
+import { scrollToSection } from "../../utils/scrollUtils";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [showFixedNavbar, setShowFixedNavbar] =
+    useState(false);
+  const showFixedNavbarRef = useRef(showFixedNavbar);
 
   const heroButtonRef = useRef(null);
   const topButtonRef = useRef(null);
+
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  useEffect(() => {
+    showFixedNavbarRef.current = showFixedNavbar;
+  }, [showFixedNavbar]);
 
   // prevents reopening instantly
   const [allowHoverOpen, setAllowHoverOpen] =
     useState(true);
 
-  // NAVBAR ON SCROLL
+  // SWITCH NAVBAR STYLE (Home hero vs other pages)
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+    let rafId = 0;
+
+    const compute = () => {
+      // Non-home pages: fixed navbar always.
+      if (!isHomePage) {
+        setShowFixedNavbar(true);
+        return;
+      }
+
+      // Home page: switch once the hero is scrolled away.
+      const heroEl = document.getElementById("hero");
+      if (!heroEl) {
+        setShowFixedNavbar(window.scrollY > 40);
+        return;
+      }
+
+      const rect = heroEl.getBoundingClientRect();
+      // Hysteresis reduces flicker near the boundary.
+      const ENTER_THRESHOLD = 90;
+      const EXIT_THRESHOLD = 120;
+
+      if (
+        !showFixedNavbarRef.current &&
+        rect.bottom <= ENTER_THRESHOLD
+      ) {
+        setShowFixedNavbar(true);
+        return;
+      }
+
+      if (
+        showFixedNavbarRef.current &&
+        rect.bottom > EXIT_THRESHOLD
+      ) {
+        setShowFixedNavbar(false);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleScrollOrResize = () => {
+      cancelAnimationFrame(rafId);
+      rafId = window.requestAnimationFrame(compute);
+    };
 
-    return () =>
+    handleScrollOrResize();
+
+    window.addEventListener(
+      "scroll",
+      handleScrollOrResize,
+      { passive: true }
+    );
+    window.addEventListener(
+      "resize",
+      handleScrollOrResize
+    );
+
+    return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener(
         "scroll",
-        handleScroll
+        handleScrollOrResize
       );
-  }, []);
+      window.removeEventListener(
+        "resize",
+        handleScrollOrResize
+      );
+    };
+  }, [isHomePage]);
+
+  // If style changes while menu is open, close it.
+  useEffect(() => {
+    if (showFixedNavbar && open) setOpen(false);
+  }, [showFixedNavbar, open]);
 
   // HOVER OPEN
   useEffect(() => {
@@ -87,52 +158,83 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: "Home", link: "#hero" },
-    { name: "About", link: "#about" },
-    { name: "Products", link: "#products" },
-    { name: "Brands", link: "#brands" },
-    { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
+    { name: "Home", to: "/#hero" },
+    { name: "About", to: "/#about" },
+    { name: "Brands", to: "/#brands" },
+    { name: "Products", to: "/#products" },
+    { name: "Projects", to: "/#projects" },
+    { name: "Contact", to: "/#contact" },
   ];
+
+  const desktopNavLinks = navItems;
 
   return (
     <>
       {/* TOP NAVBAR */}
       <motion.nav
-        initial={{ y: -100 }}
+        initial={false}
         animate={{
-          y: scrolled ? 0 : -100,
+          y: showFixedNavbar ? 0 : -110,
         }}
         transition={{
           duration: 0.5,
           ease: "easeInOut",
         }}
-        className="fixed top-0 left-0 w-full z-40"
+        className={`fixed top-0 left-0 w-full z-40 ${
+          showFixedNavbar
+            ? ""
+            : "pointer-events-none"
+        }`}
       >
-        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/30 backdrop-blur-xl px-6 py-4 flex items-center justify-between">
-
-          <a
-            href="#hero"
-            className="text-white tracking-[0.35em] uppercase text-sm"
+        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
+          {/* Logo + company name */}
+          <PageLink
+            to="/"
+            className="flex items-center gap-3 shrink-0"
           >
-            Credence Lighting
-          </a>
+            <img
+              src={logo2}
+              alt="Credence Lighting"
+              className="h-8 md:h-10 w-auto object-contain logo-glow"
+            />
+            <span className="hidden md:inline-flex font-serif text-white tracking-wide text-lg drop-shadow-[0_0_10px_rgba(200,169,107,0.25)]">
+              Credence Lighting
+            </span>
+          </PageLink>
 
+          {/* Desktop links */}
+          <div className="hidden md:flex items-center gap-8">
+            {desktopNavLinks.map((item) => (
+              <PageLink
+                key={item.name}
+                to={item.to}
+                onClick={(e) => {
+                  // When already on Home, ensure we scroll to the section.
+                  if (isHomePage && item.to.startsWith("/#")) {
+                    e.preventDefault();
+                    scrollToSection(item.to.slice(2));
+                  }
+                }}
+                className="text-white/80 hover:text-white transition duration-300 text-sm uppercase tracking-[0.08em] touch-glow"
+              >
+                {item.name}
+              </PageLink>
+            ))}
+          </div>
+
+          {/* Hamburger (mobile/tablet) */}
           <button
             ref={topButtonRef}
             onClick={() => setOpen(true)}
-            className="text-white"
+            className="md:hidden text-white touch-glow"
           >
-            <Menu
-              size={28}
-              strokeWidth={1.5}
-            />
+            <Menu size={28} strokeWidth={1.5} />
           </button>
         </div>
       </motion.nav>
 
       {/* HERO MENU BUTTON */}
-      {!scrolled && (
+      {!showFixedNavbar && (
         <motion.button
           ref={heroButtonRef}
           whileHover={{ scale: 1.1 }}
@@ -140,7 +242,7 @@ export default function Navbar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           onClick={() => setOpen(true)}
-          className="fixed top-7 right-7 z-50 text-white"
+          className="fixed top-7 right-7 z-50 text-white touch-glow"
         >
           <Menu
             size={34}
@@ -193,10 +295,8 @@ export default function Navbar() {
 
                 {navItems.map(
                   (item, index) => (
-                    <motion.a
+                    <motion.div
                       key={item.name}
-                      href={item.link}
-                      onClick={closeMenu}
                       initial={{
                         opacity: 0,
                         x: 80,
@@ -206,18 +306,28 @@ export default function Navbar() {
                         x: 0,
                       }}
                       transition={{
-                        delay:
-                          index * 0.08,
+                        delay: index * 0.08,
                       }}
-                      className="group flex items-center gap-4 text-5xl md:text-6xl text-white/90 hover:text-[#c8a96b] transition duration-300 font-serif"
                     >
-                      {item.name}
+                      <PageLink
+                        to={item.to}
+                        onClick={(e) => {
+                          if (isHomePage && item.to.startsWith("/#")) {
+                            e.preventDefault();
+                            scrollToSection(item.to.slice(2));
+                          }
+                          closeMenu();
+                        }}
+                        className="group flex items-center gap-4 text-5xl md:text-6xl text-white/90 hover:text-[#c8a96b] transition duration-300 font-serif touch-glow"
+                      >
+                        {item.name}
 
-                      <ArrowUpRight
-                        size={28}
-                        className="opacity-0 group-hover:opacity-100 transition duration-300"
-                      />
-                    </motion.a>
+                        <ArrowUpRight
+                          size={28}
+                          className="opacity-0 group-hover:opacity-100 transition duration-300"
+                        />
+                      </PageLink>
+                    </motion.div>
                   )
                 )}
 
@@ -228,7 +338,7 @@ export default function Navbar() {
   transition={{ delay: 0.5 }}
   className="pt-6"
 >
-                  <Link
+                  <PageLink
                     to="/downloads"
                     onClick={closeMenu}
                     className="inline-flex items-center gap-3 border border-[#c8a96b] px-6 py-3 uppercase tracking-[0.25em] text-[10px] text-[#c8a96b] hover:bg-[#c8a96b] hover:text-black transition duration-500"
@@ -238,7 +348,7 @@ export default function Navbar() {
                     <ArrowUpRight
                       size={16}
                     />
-                  </Link>
+                  </PageLink>
                 </motion.div>
 
               </div>
@@ -249,7 +359,6 @@ export default function Navbar() {
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ delay: 0.7 }}
-  text-4xl md:text-5xl
 >
   <div className="border-t border-white/10 pt-8">
     
