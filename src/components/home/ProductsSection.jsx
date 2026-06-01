@@ -55,17 +55,17 @@ export default function ProductsSection() {
   };
 
   return (
-    <section id="products" className="min-h-screen bg-[#f5f2eb] px-6 md:px-12 py-24">
+    <section id="products" className="min-h-screen bg-[#f5f2eb] px-4 md:px-12 py-20 md:py-24">
       <div className="max-w-[1500px] mx-auto">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
           <div>
             <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">What We Offer</p>
-            <h2 className="text-5xl md:text-7xl font-serif text-black leading-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-black leading-tight">
               Our Product <span className="italic text-[#c8a96b]">Range</span>
             </h2>
           </div>
 
-          <button onClick={handleEnquireClick} className="border border-[#c8a96b] text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs hover:bg-[#c8a96b] hover:text-white transition duration-500">
+          <button onClick={handleEnquireClick} className="w-full md:w-auto border border-[#c8a96b] text-[#c8a96b] px-6 py-4 tracking-[0.2em] uppercase text-xs hover:bg-[#c8a96b] hover:text-white transition duration-500">
             Enquire Now →
           </button>
         </div>

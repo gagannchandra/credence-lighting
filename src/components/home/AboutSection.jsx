@@ -157,11 +157,11 @@ export default function AboutSection() {
           viewport={{ once: true }}
         >
 
-          <h2 className="text-4xl md:text-6xl font-serif leading-tight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif leading-tight text-white">
             Credence: Aesthetics
           </h2>
 
-          <h3 className="italic text-[#c8a96b] text-4xl md:text-6xl font-serif mt-3 leading-none">
+          <h3 className="italic text-[#c8a96b] text-4xl sm:text-5xl md:text-6xl font-serif mt-3 leading-none">
             meets functionality
           </h3>
 

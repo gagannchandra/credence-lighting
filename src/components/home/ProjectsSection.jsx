@@ -14,7 +14,7 @@ function ProjectTile({ project, onClick }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -24 }}
       transition={{ duration: 0.6, ease }}
-      className="group relative w-full max-w-none overflow-hidden rounded-[2rem] h-[80vh] min-h-[520px] bg-[#0a0a0a] shadow-2xl cursor-pointer"
+      className="group relative w-full max-w-none overflow-hidden rounded-[2rem] h-[60vh] md:h-[80vh] min-h-[420px] md:min-h-[520px] bg-[#0a0a0a] shadow-2xl cursor-pointer"
       onClick={onClick}
     >
       <img

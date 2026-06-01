@@ -175,7 +175,7 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setInsideHero(true)}
       onMouseLeave={() => setInsideHero(false)}
-      className="relative h-screen w-full bg-black flex items-center justify-center overflow-hidden cursor-none"
+      className="relative h-screen w-full bg-black flex items-center justify-center overflow-hidden lg:cursor-none"
     >
       {/* B&W IMAGE */}
       <div className="absolute inset-0 z-0">
@@ -217,7 +217,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-white text-6xl md:text-8xl font-serif leading-none"
+          className="text-white text-4xl sm:text-5xl md:text-7xl font-serif leading-tight"
         >
           Luminous
         </motion.h1>
@@ -226,7 +226,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="italic text-[#c8a96b] text-6xl md:text-8xl font-serif mt-2"
+          className="italic text-[#c8a96b] text-4xl sm:text-5xl md:text-7xl font-serif mt-2"
         >
           Sophistication
         </motion.h2>

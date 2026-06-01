@@ -47,7 +47,7 @@ export default function GlobalPresence() {
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12">
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
           <div className="order-2 lg:order-1">
 

@@ -192,7 +192,7 @@ export default function ContactSection() {
   return (
 <section 
 id="contact"
-className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
+className="relative bg-[#0b0b0b] text-white px-4 md:px-16 py-20 md:py-24 overflow-hidden"
 >
 
   {/* BACKGROUND GLOW */}
@@ -241,7 +241,7 @@ className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between min-h-[620px]"
+        className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between min-h-[520px] md:min-h-[620px]"
       >
 
         {/* INNER GLOW */}
@@ -313,7 +313,7 @@ className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 1 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111111] p-8 md:p-12 min-h-[620px]"
+        className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111111] p-8 md:p-12 min-h-[520px] md:min-h-[620px]"
       >
 
         {/* GLOW */}

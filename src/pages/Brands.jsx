@@ -72,7 +72,7 @@ export default function Brands() {
               Trusted Collaborations
             </p>
 
-            <h1 className="text-5xl md:text-8xl font-serif text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif text-white leading-tight">
               Our Global
               <span className="italic text-[#c8a96b]">
                 {" "}Brand Partners
@@ -89,7 +89,7 @@ export default function Brands() {
           </div>
 
           {/* STATS */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-24">
 
             {[
               { number: "30+", label: "Partner Brands" },

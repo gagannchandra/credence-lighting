@@ -43,7 +43,7 @@ export default function Downloads() {
             Downloads
           </p>
 
-          <h1 className="text-5xl md:text-7xl font-serif leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">
             Company
             <span className="italic text-[#c8a96b]"> Resources</span>
           </h1>
@@ -53,7 +53,7 @@ export default function Downloads() {
             for your next commercial lighting project.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-20">
             {resources.map((item) => (
               <a
                 key={item.title}

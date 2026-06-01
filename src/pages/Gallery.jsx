@@ -24,7 +24,7 @@ export default function Gallery() {
   };
 
   return (
-    <section className="min-h-screen bg-black py-24 md:py-32 px-6 md:px-16">
+    <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -37,7 +37,7 @@ export default function Gallery() {
           <p className="uppercase tracking-[0.4em] text-xs text-[#d4b16a] mb-4">
             Gallery
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight">
             All Projects
           </h1>
         </motion.div>

@@ -147,7 +147,7 @@ export default function BrandsSection() {
             Trusted By
           </p>
 
-          <h2 className="text-5xl md:text-7xl font-serif text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight">
             Brands We
             <span className="italic text-[#c8a96b]">
               {" "}Work With
@@ -163,7 +163,7 @@ export default function BrandsSection() {
         </div>
 
         {/* STATS */}
-        <div className="flex flex-wrap items-center justify-center gap-10 mt-14 px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-14 px-6">
 
           {[
             { number: "30+", label: "Global Brands" },

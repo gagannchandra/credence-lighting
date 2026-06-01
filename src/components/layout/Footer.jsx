@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 py-16">
 
         {/* TOP */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* BRAND */}
           <div className="lg:col-span-2">
@@ -109,7 +109,7 @@ export default function Footer() {
 
     {/* SOCIALS */}
 {/* SOCIALS */}
-<div className="grid grid-cols-8 gap-4">
+<div className="grid grid-cols-4 md:grid-cols-8 gap-4">
 
   <motion.a
     whileHover={{ y: -3 }}
