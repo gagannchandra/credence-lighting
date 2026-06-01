@@ -9,27 +9,23 @@ const resources = [
     description:
       "Explore our premium architectural and commercial lighting solutions.",
     href: "/pdfs/catalogue.pdf",
+    download: true,
   },
   {
     title: "Company Profile",
     type: "PDF Document",
     description:
       "Learn about Credence Lighting, our global presence, and project expertise.",
-    href: "/pdfs/catalogue.pdf",
+    href: "/pdfs/credence%20profile.pdf",
+    download: true,
   },
   {
-    title: "Technical Specifications",
+    title: "Project Album",
     type: "PDF Document",
     description:
-      "Detailed specifications for commercial, hospitality, and facade lighting systems.",
-    href: "/pdfs/catalogue.pdf",
-  },
-  {
-    title: "Installation Guidelines",
-    type: "PDF Document",
-    description:
-      "Professional installation standards and best practices for lighting projects.",
-    href: "/pdfs/catalogue.pdf",
+      "A visual album showcasing our completed lighting and architectural projects.",
+    href: "/pdfs/album.pdf",
+    download: true,
   },
 ];
 
@@ -62,7 +58,7 @@ export default function Downloads() {
               <a
                 key={item.title}
                 href={item.href}
-                download
+                {...(item.download ? { download: true } : { target: "_blank", rel: "noreferrer" })}
                 className="group border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:border-[#c8a96b] transition duration-500 rounded-[1.5rem]"
               >
                 <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-6">

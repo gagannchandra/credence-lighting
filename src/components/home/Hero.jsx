@@ -83,15 +83,6 @@
 
 //       {/* CONTENT */}
 //       <div className="relative z-20 text-center px-6 max-w-5xl">
-//         <motion.p
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           className="uppercase tracking-[0.5em] text-[#c8a96b] text-xs mb-6"
-//         >
-//           Since 1993
-//         </motion.p>
-
 //         <motion.h1
 //           initial={{ opacity: 0, y: 60 }}
 //           animate={{ opacity: 1, y: 0 }}
@@ -222,15 +213,6 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-6 max-w-5xl">
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="uppercase tracking-[0.5em] text-[#c8a96b] text-xs mb-6"
-        >
-          Since 1993
-        </motion.p>
-
         <motion.h1
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}

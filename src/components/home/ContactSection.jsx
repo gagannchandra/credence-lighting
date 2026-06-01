@@ -151,15 +151,44 @@
 //   </section>
 // );
 // }
+import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  ArrowUpRight,
-} from "lucide-react";
 
 export default function ContactSection() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus({ type: "loading", message: "Sending your message..." });
+
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      setStatus({ type: "success", message: "Message sent successfully!" });
+      setForm({ name: "", email: "", phone: "", company: "", message: "" });
+    } else {
+      setStatus({ type: "error", message: data.message || "Failed to send message. Please try again." });
+    }
+  };
+
   return (
 <section 
 id="contact"
@@ -242,9 +271,9 @@ className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
                 Email
               </p>
 
-              <p className="text-xl text-white/80">
+              <a href="mailto:info@credencelighting.com" className="text-xl text-white/80 hover:text-[#c8a96b] transition duration-300">
                 info@credencelighting.com
-              </p>
+              </a>
             </div>
 
             <div>
@@ -307,33 +336,60 @@ className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
 
           </div>
 
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
 
             <div className="grid md:grid-cols-2 gap-5">
 
               <input
                 type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 placeholder="Your Name"
+                required
                 className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
               />
 
               <input
                 type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Email Address"
+                required
                 className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
               />
 
             </div>
 
-            <input
-              type="text"
-              placeholder="Company Name"
-              className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
-            />
+            <div className="grid md:grid-cols-2 gap-5">
+              <input
+                type="text"
+                name="phone"
+                value={form.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                required
+                className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+              />
+
+              <input
+                type="text"
+                name="company"
+                value={form.company}
+                onChange={handleChange}
+                placeholder="Company Name"
+                className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+              />
+            </div>
 
             <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
               rows="7"
               placeholder="Tell us about your project..."
+              required
               className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30 resize-none"
             />
 
@@ -341,9 +397,14 @@ className="relative bg-[#0b0b0b] text-white px-6 md:px-16 py-24 overflow-hidden"
               type="submit"
               className="group mt-4 bg-[#c8a96b] hover:bg-[#d8bb82] text-black px-10 py-5 rounded-2xl uppercase tracking-[0.25em] text-sm transition duration-500 flex items-center gap-3"
             >
-              Send Message →
-
+              {status.type === "loading" ? "Sending..." : "Send Message →"}
             </button>
+
+            {status.message && (
+              <p className={`text-sm ${status.type === "success" ? "text-[#a3ff8f]" : status.type === "error" ? "text-[#ff9e9e]" : "text-white/80"}`}>
+                {status.message}
+              </p>
+            )}
 
           </form>
 

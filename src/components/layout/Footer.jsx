@@ -109,26 +109,45 @@ export default function Footer() {
 
     {/* SOCIALS */}
 {/* SOCIALS */}
-<div className="flex items-center gap-4">
+<div className="grid grid-cols-8 gap-4">
+
+  <motion.a
+    whileHover={{ y: -3 }}
+    href="https://www.youtube.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+      <path d="M10 8l6 4-6 4V8z" />
+      <path fillRule="evenodd" d="M20 5.5a3 3 0 0 0-2.12-.88H6.12A3 3 0 0 0 4 5.5 3 3 0 0 0 3.5 8.9v6.2a3 3 0 0 0 .5 2.4 3 3 0 0 0 2.12.88h11.76a3 3 0 0 0 2.12-.88 3 3 0 0 0 .5-2.4V8.9a3 3 0 0 0-.5-2.4z" clipRule="evenodd" />
+    </svg>
+  </motion.a>
 
   <motion.a
     whileHover={{ y: -3 }}
     href="https://www.instagram.com/credencelighting/"
     target="_blank"
     rel="noopener noreferrer"
-    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300 text-sm"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
   >
-    IG
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <path d="M16 11.37a4 4 0 1 1-7.99.37 4 4 0 0 1 7.99-.37z" />
+      <path d="M17.5 6.5h.01" />
+    </svg>
   </motion.a>
 
   <motion.a
     whileHover={{ y: -3 }}
-    href="https://www.linkedin.com/company/credence-lighting-llc/"
+    href="https://www.facebook.com"
     target="_blank"
     rel="noopener noreferrer"
-    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300 text-sm"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
   >
-    IN
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 12a10 10 0 1 0-11.5 9.86v-6.98h-2.2V12h2.2V9.8c0-2.17 1.28-3.37 3.24-3.37.94 0 1.92.17 1.92.17v2.12h-1.09c-1.08 0-1.42.67-1.42 1.35V12h2.42l-.39 2.88h-2.03v6.98A10 10 0 0 0 22 12Z" />
+    </svg>
   </motion.a>
 
   <motion.a
@@ -136,9 +155,47 @@ export default function Footer() {
     href="https://twitter.com"
     target="_blank"
     rel="noopener noreferrer"
-    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300 text-sm"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
   >
-    X
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 5.76a8.28 8.28 0 0 1-2.36.65 4.12 4.12 0 0 0 1.8-2.27 8.26 8.26 0 0 1-2.6.98 4.12 4.12 0 0 0-7 3.75A11.7 11.7 0 0 1 3.16 4.7a4.12 4.12 0 0 0 1.28 5.5 4.07 4.07 0 0 1-1.86-.51v.05a4.12 4.12 0 0 0 3.3 4.04 4.12 4.12 0 0 1-1.85.07 4.12 4.12 0 0 0 3.84 2.86A8.27 8.27 0 0 1 2 19.54 11.67 11.67 0 0 0 8.29 21c7.55 0 11.68-6.25 11.68-11.67 0-.18-.01-.35-.02-.53A8.36 8.36 0 0 0 22 5.76Z" />
+    </svg>
+  </motion.a>
+
+  <motion.a
+    whileHover={{ y: -3 }}
+    href="https://www.linkedin.com/company/credence-lighting-llc/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4.98 3.5A2.5 2.5 0 1 0 4.98 8.5 2.5 2.5 0 0 0 4.98 3.5Zm.02 5.13H2.5V21h4.98V8.63H5Zm7.64 0h-4.7V21h4.7v-6.34c0-3.4 4.35-3.67 4.35 0V21h4.7v-7.42c0-6.32-6.8-6.08-9.05-2.55V8.63Z" />
+    </svg>
+  </motion.a>
+
+  <motion.a
+    whileHover={{ y: -3 }}
+    href="/gallery"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
+  >
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
+    </svg>
+  </motion.a>
+
+  <motion.a
+    whileHover={{ y: -3 }}
+    href="/downloads"
+    className="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition duration-300"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h16v16H4z" />
+      <path d="M8 12l4 4 4-4" />
+      <path d="M12 8v8" />
+    </svg>
   </motion.a>
 
 </div>

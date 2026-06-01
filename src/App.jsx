@@ -99,6 +99,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import ProductDetails from "./pages/ProductDetails";
 import NotFound from "./pages/NotFound";
 import Brands from "./pages/Brands";
+import Gallery from "./pages/Gallery";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
 
@@ -134,10 +135,14 @@ if (loading) {
           element={<ProductDetails />}
         />
 
+        
+
         <Route
           path="/downloads"
           element={<Downloads />}
         />
+
+        <Route path="/gallery" element={<Gallery />} />
 
         <Route
           path="/brands"

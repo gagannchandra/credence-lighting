@@ -91,26 +91,32 @@ export default function GlobalPresence() {
             >
               <div className="relative w-full h-full border border-white/10 bg-white/[0.03] backdrop-blur-xl rounded-[32px] overflow-hidden flex items-center justify-center">
 
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 z-10 pointer-events-none" />
 
                 <div className="flex items-center justify-center w-full h-full">
                   <Globe
                     ref={globeRef}
-                    globeImageUrl="https://unpkg.com/three-globe/example/img/earth-dark.jpg"
+                    globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+                    globeCloudsUrl="https://unpkg.com/three-globe/example/img/earth-clouds.png"
+                    bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
+                    bumpScale={0.5}
                     backgroundColor="rgba(0,0,0,0)"
                     pointsData={points}
-                    pointAltitude={0.02}
-                    pointRadius={0.5}
-                    pointColor={() => "#c8a96b"}
+                    pointAltitude={0.06}
+                    pointRadius={0.75}
+                    pointColor={() => "#f7e1a0"}
+                    pointLabel={(d) => d.name}
+                    pointTransitionDuration={2000}
                     atmosphereColor="#c8a96b"
                     atmosphereAltitude={0.12}
                     labelsData={points}
                     labelLat={(d) => d.lat}
                     labelLng={(d) => d.lng}
                     labelText={(d) => d.name}
-                    labelSize={1}
-                    labelDotRadius={0.3}
+                    labelSize={1.4}
+                    labelDotRadius={0.5}
                     labelColor={() => "#ffffff"}
+                    labelResolution={2}
                     width={globeSize.width}
                     height={globeSize.height}
                   />
