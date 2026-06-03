@@ -173,19 +173,30 @@ export default function ContactSection() {
     event.preventDefault();
     setStatus({ type: "loading", message: "Sending your message..." });
 
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok && data.success) {
-      setStatus({ type: "success", message: "Message sent successfully!" });
-      setForm({ name: "", email: "", phone: "", company: "", message: "" });
-    } else {
-      setStatus({ type: "error", message: data.message || "Failed to send message. Please try again." });
+      if (response.ok && data.success) {
+        setStatus({ type: "success", message: "Message sent successfully!" });
+        setForm({ name: "", email: "", phone: "", company: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again.",
+      });
     }
   };
 
