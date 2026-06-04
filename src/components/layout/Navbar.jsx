@@ -234,6 +234,22 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* HERO SCREEN LOGO */}
+      {!showFixedNavbar && (
+        <div className="fixed top-4 left-4 z-40">
+          <PageLink
+            to="/"
+            className="flex items-center gap-3 shrink-0"
+          >
+            <img
+              src={logo2}
+              alt="Credence Lighting"
+              className="h-8 md:h-10 w-auto object-contain logo-glow"
+            />
+          </PageLink>
+        </div>
+      )}
+
       {/* HERO MENU BUTTON */}
       {!showFixedNavbar && (
         <motion.button
