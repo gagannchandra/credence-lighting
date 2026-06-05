@@ -100,50 +100,7 @@ export default function Navbar() {
     if (showFixedNavbar && open) setOpen(false);
   }, [showFixedNavbar, open]);
 
-  // HOVER OPEN
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!allowHoverOpen || open) return;
-
-      const checkProximity = (ref) => {
-        if (!ref.current) return false;
-
-        const rect =
-          ref.current.getBoundingClientRect();
-
-        const centerX =
-          rect.left + rect.width / 2;
-
-        const centerY =
-          rect.top + rect.height / 2;
-
-        const distance = Math.sqrt(
-          Math.pow(e.clientX - centerX, 2) +
-            Math.pow(e.clientY - centerY, 2)
-        );
-
-        return distance < 70;
-      };
-
-      if (
-        checkProximity(heroButtonRef) ||
-        checkProximity(topButtonRef)
-      ) {
-        setOpen(true);
-      }
-    };
-
-    window.addEventListener(
-      "mousemove",
-      handleMouseMove
-    );
-
-    return () =>
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
-  }, [allowHoverOpen, open]);
+  // HOVER OPEN removed to prevent accidental navbar opening on mouse proximity
 
   // CLOSE MENU
   const closeMenu = () => {
@@ -189,7 +146,13 @@ export default function Navbar() {
         <div className="mx-auto mt-4 w-full max-w-[1600px] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-4 sm:px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
           {/* Logo + company name */}
           <PageLink
-            to="/"
+            to="/#hero"
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                scrollToSection("hero");
+              }
+            }}
             className="flex items-center gap-3 shrink-0"
           >
             <img
@@ -238,7 +201,13 @@ export default function Navbar() {
       {!showFixedNavbar && (
         <div className="fixed top-4 left-4 z-40">
           <PageLink
-            to="/"
+            to="/#hero"
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault();
+                scrollToSection("hero");
+              }
+            }}
             className="flex items-center gap-3 shrink-0"
           >
             <img
