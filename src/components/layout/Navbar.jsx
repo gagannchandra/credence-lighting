@@ -11,6 +11,7 @@ export default function Navbar() {
   const [showFixedNavbar, setShowFixedNavbar] =
     useState(false);
   const showFixedNavbarRef = useRef(showFixedNavbar);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
 
   const heroButtonRef = useRef(null);
   const topButtonRef = useRef(null);
@@ -97,10 +98,55 @@ export default function Navbar() {
 
   // If style changes while menu is open, close it.
   useEffect(() => {
-    if (showFixedNavbar && open) setOpen(false);
+    if (showFixedNavbar && open) {
+      setTimeout(() => setOpen(false), 0);
+    }
   }, [showFixedNavbar, open]);
 
-  // HOVER OPEN removed to prevent accidental navbar opening on mouse proximity
+  // HOVER OPEN
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!allowHoverOpen || open || isLogoHovered) return;
+
+      const checkProximity = (ref) => {
+        if (!ref.current) return false;
+
+        const rect =
+          ref.current.getBoundingClientRect();
+
+        const centerX =
+          rect.left + rect.width / 2;
+
+        const centerY =
+          rect.top + rect.height / 2;
+
+        const distance = Math.sqrt(
+          Math.pow(e.clientX - centerX, 2) +
+            Math.pow(e.clientY - centerY, 2)
+        );
+
+        return distance < 70;
+      };
+
+      if (
+        checkProximity(heroButtonRef) ||
+        checkProximity(topButtonRef)
+      ) {
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener(
+      "mousemove",
+      handleMouseMove
+    );
+
+    return () =>
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
+      );
+  }, [allowHoverOpen, open]);
 
   // CLOSE MENU
   const closeMenu = () => {
@@ -143,9 +189,10 @@ export default function Navbar() {
             : "pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-4 w-full max-w-[1600px] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-4 sm:px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
+        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
           {/* Logo + company name */}
           <PageLink
+          
             to="/#hero"
             onClick={(e) => {
               if (isHomePage) {
@@ -189,17 +236,15 @@ export default function Navbar() {
           <button
             ref={topButtonRef}
             onClick={() => setOpen(true)}
-            className="md:hidden text-white touch-glow p-3 rounded-full border border-white/10"
-            aria-label="Open menu"
+            className="md:hidden text-white touch-glow"
           >
             <Menu size={28} strokeWidth={1.5} />
           </button>
         </div>
       </motion.nav>
-
-      {/* HERO SCREEN LOGO */}
+{/* HERO SCREEN LOGO */}
       {!showFixedNavbar && (
-        <div className="fixed top-4 left-4 z-40">
+        <div className="fixed top-6 left-8 z-40">
           <PageLink
             to="/#hero"
             onClick={(e) => {
@@ -208,17 +253,18 @@ export default function Navbar() {
                 scrollToSection("hero");
               }
             }}
+            onMouseEnter={() => setIsLogoHovered(true)}
+            onMouseLeave={() => setIsLogoHovered(false)}
             className="flex items-center gap-3 shrink-0"
           >
             <img
               src={logo2}
               alt="Credence Lighting"
-              className="h-8 md:h-10 w-auto object-contain logo-glow"
+              className="h-8 md:h-12 w-auto object-contain logo-glow"
             />
           </PageLink>
         </div>
       )}
-
       {/* HERO MENU BUTTON */}
       {!showFixedNavbar && (
         <motion.button
@@ -260,7 +306,7 @@ export default function Navbar() {
                 damping: 25,
                 stiffness: 180,
               }}
-              className="fixed top-0 right-0 h-screen w-full md:w-1/2 bg-black/90 backdrop-blur-2xl border-l border-white/10 z-50 flex flex-col px-6 sm:px-10 md:px-16 py-7 overflow-y-auto"
+              className="fixed top-0 right-0 h-screen w-full md:w-1/2 bg-black/80 backdrop-blur-2xl border-l border-white/10 z-50 flex flex-col px-10 md:px-16 py-7 overflow-y-auto"
             >
               {/* GLOW */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#c8a96b]/10 blur-[160px]" />
@@ -304,7 +350,7 @@ export default function Navbar() {
                           }
                           closeMenu();
                         }}
-                        className="group flex items-center gap-4 text-4xl sm:text-5xl md:text-6xl text-white/90 hover:text-[#c8a96b] transition duration-300 font-serif touch-glow"
+                        className="group flex items-center gap-4 text-5xl md:text-6xl text-white/90 hover:text-[#c8a96b] transition duration-300 font-serif touch-glow"
                       >
                         {item.name}
 
