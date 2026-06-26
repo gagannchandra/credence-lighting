@@ -64,6 +64,21 @@ export default function ProductsSection() {
     }
   }, [active, filteredProducts.length]);
 
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (active === "All") return;
+      if (e.key === "ArrowLeft") {
+        setActiveProductIndex((prev) => (prev === 0 ? filteredProducts.length - 1 : prev - 1));
+      } else if (e.key === "ArrowRight") {
+        setActiveProductIndex((prev) => (prev === filteredProducts.length - 1 ? 0 : prev + 1));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [active, filteredProducts.length]);
+
   // Bento Box Layout configurations for 'All' view
   const getBentoClasses = (index) => {
     const patterns = [
