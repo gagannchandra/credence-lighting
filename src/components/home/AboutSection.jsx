@@ -182,14 +182,15 @@ export default function AboutSection() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
           viewport={{ once: true }}
-          className="max-w-3xl mx-auto mt-8 text-white/60 text-lg leading-9"
+          className="max-w-4xl mx-auto mt-8 text-white/60 text-lg leading-9"
         >
-          At Credence Lighting, we understand the pivotal role
-          that lighting plays in enhancing the ambiance,
-          functionality, and aesthetics of your commercial
-          spaces. We deliver innovative lighting solutions
-          designed to combine performance, elegance, and
-          architectural excellence.
+          At Credence Lighting, we bring spaces to life through light and sound. We work hand-in-hand 
+          with consultants, developers, and contractors across commercial, hospitality, and residential 
+          projects to craft environments people truly love to experience. By carefully blending the best 
+          international and regional brands, we curate lighting and audio solutions that hit the perfect 
+          sweet spot between stunning design, reliable performance, and practical budgets. For us, it’s all 
+          about taking the complexity out of the process—ensuring a seamless journey that results in spaces 
+          that look and sound absolutely incredible.
         </motion.p>
 
         {/* CARDS */}

@@ -171,18 +171,24 @@ export default function ProductsSection() {
             {/* Right Side - Product Image */}
             <AnimatePresence mode="wait">
               <motion.div
-                key={currentProduct.id}
+                key={currentProduct?.id || 'empty-product'}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.5 }}
                 className="relative rounded-3xl overflow-hidden h-96 md:h-full md:min-h-[500px] shadow-2xl"
               >
-                <img
-                  src={currentProduct.image}
-                  alt={currentProduct.title}
-                  className="w-full h-full object-cover"
-                />
+                {currentProduct ? (
+                  <img
+                    src={currentProduct.image}
+                    alt={currentProduct.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                    <span className="text-gray-400">No images available</span>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
           </motion.div>
