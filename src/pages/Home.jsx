@@ -6,6 +6,7 @@ import { scrollToSection } from "../utils/scrollUtils";
 
 import Hero from "../components/home/Hero";
 import AboutSection from "../components/home/AboutSection";
+import ServicesSection from "../components/home/ServicesSection";
 import ProductsSection from "../components/home/ProductsSection";
 import BrandsSection from "../components/home/BrandsSection";
 import GlobalPresence from "../components/home/GlobalPresence";
@@ -33,9 +34,9 @@ export default function Home() {
 
       <AboutSection />
 
-      <ProductsSection />
+      <ServicesSection />
 
-      
+      <ProductsSection />
 
       <GlobalPresence />
         <BrandsSection />
