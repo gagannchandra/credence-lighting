@@ -35,7 +35,6 @@ export default function ProductsSection() {
   const [activeProductIndex, setActiveProductIndex] = useState(0);
 
   const filteredProducts = active === "All" ? products.slice(0, 6) : products.filter((item) => item.category === active);
-  const currentProduct = filteredProducts[activeProductIndex] || filteredProducts[0];
 
   // Representative product for each category (used in All view)
   const representativeProducts = categories
@@ -65,7 +64,7 @@ export default function ProductsSection() {
     }
   }, [active, filteredProducts.length]);
 
-  // Bento Box Layout configurations for 'All' view (Perfect Rectangle for 8 items)
+  // Bento Box Layout configurations for 'All' view
   const getBentoClasses = (index) => {
     const patterns = [
       "md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2", // Item 0
@@ -73,8 +72,8 @@ export default function ProductsSection() {
       "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 2
       "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2", // Item 3
       "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 4
-      "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1", // Item 5 (Changed to 2x1 to fill the gap)
-      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 6 (Changed to 1x1)
+      "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1", // Item 5
+      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 6
       "md:col-span-2 md:row-span-1 lg:col-span-4 lg:row-span-1", // Item 7
     ];
     return patterns[index % 8];
@@ -190,72 +189,98 @@ export default function ProductsSection() {
               </AnimatePresence>
             </motion.div>
           ) : (
-            // Featured View for Specific Category - Snapchat Style
-            <motion.div
-              key={active}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full h-[70vh] min-h-[600px] rounded-[2.5rem] overflow-hidden group select-none"
-            >
-              {/* Massive Background Image */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentProduct?.id || 'empty'}
-                  initial={{ opacity: 0, scale: 1.05 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 z-0"
-                >
-                  {currentProduct ? (
+            // Featured View for Specific Category - Continuous Coverflow Carousel
+            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-[2.5rem]">
+              {filteredProducts.map((item, index) => {
+                const total = filteredProducts.length;
+                let diff = index - activeProductIndex;
+                
+                // Normalize diff to be between -total/2 and total/2 for infinite wrapping
+                if (diff > total / 2) diff -= total;
+                if (diff < -total / 2) diff += total;
+
+                const isCenter = Math.abs(diff) < 0.5; // diff === 0
+                const isLeft = diff >= -1.5 && diff <= -0.5; // diff === -1
+                const isRight = diff >= 0.5 && diff <= 1.5; // diff === 1
+                
+                const isVisible = isCenter || isLeft || isRight;
+
+                // Calculate X position based on relative distance
+                let xPos = "0%";
+                if (isLeft) xPos = "-85%";
+                else if (isRight) xPos = "85%";
+                else if (diff < -1) xPos = "-150%";
+                else if (diff > 1) xPos = "150%";
+
+                return (
+                  <motion.div
+                    key={item.id}
+                    initial={false}
+                    animate={{
+                      x: xPos,
+                      scale: isCenter ? 1 : 0.8,
+                      opacity: isVisible ? (isCenter ? 1 : 0.35) : 0,
+                      zIndex: isCenter ? 30 : isVisible ? 20 : 0,
+                    }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
+                    style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
+                    onClick={() => {
+                      if (isLeft) handlePrev();
+                      if (isRight) handleNext();
+                    }}
+                  >
                     <img
-                      src={currentProduct.image}
-                      alt={currentProduct.title}
+                      src={item.image}
+                      alt={item.title}
                       className="w-full h-full object-cover pointer-events-none"
                     />
-                  ) : (
-                    <div className="w-full h-full bg-[#111]" />
-                  )}
-                  {/* Gradient Overlays for Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none" />
-                </motion.div>
-              </AnimatePresence>
 
-              {/* Snapchat-style click zones */}
-              <div className="absolute inset-0 z-10 flex cursor-pointer">
-                <div 
-                  className="w-1/2 h-full opacity-0 hover:opacity-10 transition-opacity flex items-center justify-start pl-8" 
-                  onClick={handlePrev}
-                >
-                  {/* Optional visual hint on hover (left edge) */}
-                  <div className="w-24 h-full bg-gradient-to-r from-white to-transparent" />
-                </div>
-                <div 
-                  className="w-1/2 h-full opacity-0 hover:opacity-10 transition-opacity flex items-center justify-end pr-8" 
-                  onClick={handleNext}
-                >
-                  {/* Optional visual hint on hover (right edge) */}
-                  <div className="w-24 h-full bg-gradient-to-l from-white to-transparent" />
-                </div>
-              </div>
+                    <AnimatePresence>
+                      {isCenter && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4 }}
+                          className="absolute inset-0 z-10"
+                        >
+                          {/* Gradient Overlays for Text Readability */}
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/90 pointer-events-none" />
 
-              {/* Top Left Topic Overlay */}
-              <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-[#c8a96b]" />
-                <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
-                  {active} Collection
-                </p>
-              </div>
+                          {/* Snapchat-style click zones for center image */}
+                          <div className="absolute inset-0 z-10 flex cursor-pointer">
+                            <div 
+                              className="w-1/2 h-full flex items-center justify-start" 
+                              onClick={handlePrev}
+                            />
+                            <div 
+                              className="w-1/2 h-full flex items-center justify-end" 
+                              onClick={handleNext}
+                            />
+                          </div>
 
-              {/* Bottom Description Overlay */}
-              <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-4xl">
-                <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg">
-                  {categoryDescriptions[active]}
-                </p>
-              </div>
-            </motion.div>
+                          {/* Top Left Topic Overlay */}
+                          <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-[#c8a96b]" />
+                            <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
+                              {active} Collection
+                            </p>
+                          </div>
+
+                          {/* Bottom Description Overlay */}
+                          <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-2xl">
+                            <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg">
+                              {categoryDescriptions[active]}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </div>
           )}
         </div>
       </div>
