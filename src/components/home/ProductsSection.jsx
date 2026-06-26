@@ -14,18 +14,20 @@ const categories = [
   "Strech Ceiling",
   "Automation",
   "Retail",
+  "Audio",
 ];
 
 const categoryDescriptions = {
-  Indoor: "Explore our luxury indoor lighting systems designed for modern architectural spaces, premium interiors, commercial environments, and immersive experiences.",
-  Outdoor: "Premium outdoor lighting solutions for facades, landscapes, and exterior architectural applications.",
-  Hospitality: "Elegant lighting for hotels, restaurants, lounges, and hospitality venues.",
-  Facade: "Architectural lighting systems for building facades and exterior lighting wash effects.",
-  Entertainment: "Professional entertainment and stage lighting for events, concerts, and performances.",
-  "LED Screen": "High-resolution LED video walls and display screens for advertising and events.",
-  "Strech Ceiling": "Modern stretch ceiling systems with integrated lighting solutions.",
-  Automation: "Smart lighting control systems with voice, app, and sensor capabilities.",
-  Retail: "Retail and custom lighting solutions including neon sign systems.",
+  Indoor: "Indoor Lighting offers a vast range of modern lighting products designed for residential, commercial, and architectural interiors. Powered by advanced lighting technology, our solutions deliver superior efficiency, comfort, and visual performance. Built with high-quality, reliable, and durable components, our indoor lighting ensures long-lasting performance and consistent results.",
+  Outdoor: "Outdoor Lighting is designed to enhance exteriors with power, precision, and durability. Our extensive range of outdoor lighting solutions combines advanced technology with robust engineering to deliver high performance in all environments. Built to withstand harsh conditions, our fixtures are high-quality, reliable, and long-lasting, ensuring consistent illumination and visual impact over time.",
+  Hospitality: "Hospitality Lighting enhances ambience and guest experience through a wide range of refined lighting solutions. Powered by advanced technology, our lighting delivers visual comfort, elegance, and efficiency. Built with high-quality, reliable, and durable components, it ensures lasting performance.",
+  Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects. Built with high-quality, reliable, and durable components, our facade lighting ensures long-lasting performance in all conditions.",
+  Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere. Built with high-quality, reliable, and durable components, our lighting performs flawlessly in demanding entertainment environments.",
+  "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance. Built with high-quality, reliable, and durable components, they ensure long-lasting visuals and consistent operation.",
+  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results. Built with high-quality, reliable, and durable materials, they ensure long-lasting performance and visual elegance.",
+  Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control. Built with high-quality, reliable, and durable components, they ensure smooth operation and long-term performance.",
+  Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency. Built with high-quality, reliable, and durable components, our retail lighting ensures consistent performance and lasting impact.",
+  Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support to ensure outstanding sound performance and reliability.",
 };
 
 export default function ProductsSection() {
@@ -79,9 +81,8 @@ export default function ProductsSection() {
                 setActive(item);
                 setActiveProductIndex(0);
               }}
-              className={`px-6 py-3 text-xs uppercase tracking-[0.2em] border transition duration-300 ${
-                active === item ? "bg-[#c8a96b] text-white border-[#c8a96b]" : "border-black/10 text-black/60 hover:border-[#c8a96b] hover:text-[#c8a96b]"
-              }`}
+              className={`px-6 py-3 text-xs uppercase tracking-[0.2em] border transition duration-300 ${active === item ? "bg-[#c8a96b] text-white border-[#c8a96b]" : "border-black/10 text-black/60 hover:border-[#c8a96b] hover:text-[#c8a96b]"
+                }`}
             >
               {item}
             </button>
@@ -182,13 +183,6 @@ export default function ProductsSection() {
                   alt={currentProduct.title}
                   className="w-full h-full object-cover"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h4 className="text-white text-3xl md:text-4xl font-serif">{currentProduct.title}</h4>
-                  <p className="text-[#d4b16a] text-sm tracking-[0.2em] uppercase mt-3">{currentProduct.subtitle}</p>
-                </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>

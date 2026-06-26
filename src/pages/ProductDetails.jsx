@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 // Import category images
-import indoor10 from "../assets/images/indoor/10.jpg";
-import outdoor19 from "../assets/images/outdoor/19.jpg";
-import hospitality29 from "../assets/images/hospitality/29.jpg";
-import facade37 from "../assets/images/facade/37.jpg";
-import entertainment48 from "../assets/images/entertainment/48.jpg";
-import ledscreen56 from "../assets/images/led-screen/56.jpg";
-import strech64 from "../assets/images/strech-ceiling/64.jpg";
-import automation88 from "../assets/images/Home Automation/88.jpg";
-import retail72 from "../assets/images/Retail Lighting/72.jpg";
+import indoor10 from "../assets/images/indoor/1.png";
+import outdoor19 from "../assets/images/outdoor/1.png";
+import hospitality29 from "../assets/images/hospitality/1.png";
+import facade37 from "../assets/images/facade/1.png";
+import entertainment48 from "../assets/images/entertainment/1.png";
+import ledscreen56 from "../assets/images/led-screen/1.png";
+import strech64 from "../assets/images/strech-ceiling/20C9BA80-EAC4-4F42-B725-D901580BB9B7.png";
+import automation88 from "../assets/images/Home Automation/1.jpeg";
+import retail72 from "../assets/images/Retail Lighting/1.png";
 
 const productCategories = [
   {
