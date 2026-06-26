@@ -96,12 +96,7 @@ export default function Navbar() {
     };
   }, [isHomePage]);
 
-  // If style changes while menu is open, close it.
-  useEffect(() => {
-    if (showFixedNavbar && open) {
-      setTimeout(() => setOpen(false), 0);
-    }
-  }, [showFixedNavbar, open]);
+
 
   // HOVER OPEN
   useEffect(() => {
