@@ -173,6 +173,7 @@ export default function ProductsSection() {
                     <img
                       src={item.image}
                       alt={item.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
                     />
 
@@ -233,6 +234,7 @@ export default function ProductsSection() {
                     <img
                       src={item.image}
                       alt={item.title}
+                      loading="lazy"
                       className="w-full h-full object-cover pointer-events-none"
                     />
 

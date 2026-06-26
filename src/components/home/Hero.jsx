@@ -6,8 +6,8 @@ import {
   useTransform,
 } from "framer-motion";
 
-import bgHorizontal from "../../assets/images/homepage/horizontal.png";
-import bgVertical from "../../assets/images/homepage/vertical.jpg";
+import bgHorizontal from "../../assets/images/homepage/horizontal.webp";
+import bgVertical from "../../assets/images/homepage/vertical.webp";
 
 export default function Hero() {
   const containerRef = useRef(null);
