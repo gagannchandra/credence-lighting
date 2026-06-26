@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import products from "../../data/products";
 import { scrollToSection } from "../../utils/scrollUtils";
@@ -18,16 +18,16 @@ const categories = [
 ];
 
 const categoryDescriptions = {
-  Indoor: "Indoor Lighting offers a vast range of modern lighting products designed for residential, commercial, and architectural interiors. Powered by advanced lighting technology, our solutions deliver superior efficiency, comfort, and visual performance. Built with high-quality, reliable, and durable components, our indoor lighting ensures long-lasting performance and consistent results.",
-  Outdoor: "Outdoor Lighting is designed to enhance exteriors with power, precision, and durability. Our extensive range of outdoor lighting solutions combines advanced technology with robust engineering to deliver high performance in all environments. Built to withstand harsh conditions, our fixtures are high-quality, reliable, and long-lasting, ensuring consistent illumination and visual impact over time.",
-  Hospitality: "Hospitality Lighting enhances ambience and guest experience through a wide range of refined lighting solutions. Powered by advanced technology, our lighting delivers visual comfort, elegance, and efficiency. Built with high-quality, reliable, and durable components, it ensures lasting performance.",
-  Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects. Built with high-quality, reliable, and durable components, our facade lighting ensures long-lasting performance in all conditions.",
-  Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere. Built with high-quality, reliable, and durable components, our lighting performs flawlessly in demanding entertainment environments.",
-  "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance. Built with high-quality, reliable, and durable components, they ensure long-lasting visuals and consistent operation.",
-  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results. Built with high-quality, reliable, and durable materials, they ensure long-lasting performance and visual elegance.",
-  Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control. Built with high-quality, reliable, and durable components, they ensure smooth operation and long-term performance.",
-  Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency. Built with high-quality, reliable, and durable components, our retail lighting ensures consistent performance and lasting impact.",
-  Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support to ensure outstanding sound performance and reliability.",
+  Indoor: "Indoor Lighting offers a vast range of modern lighting products designed for residential, commercial, and architectural interiors. Powered by advanced lighting technology, our solutions deliver superior efficiency, comfort, and visual performance.",
+  Outdoor: "Outdoor Lighting is designed to enhance exteriors with power, precision, and durability. Our extensive range of outdoor lighting solutions combines advanced technology with robust engineering to deliver high performance in all environments.",
+  Hospitality: "Hospitality Lighting enhances ambience and guest experience through a wide range of refined lighting solutions. Powered by advanced technology, our lighting delivers visual comfort, elegance, and efficiency.",
+  Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects.",
+  Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere.",
+  "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance.",
+  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
+  Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control.",
+  Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency.",
+  Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
 };
 
 export default function ProductsSection() {
@@ -52,147 +52,212 @@ export default function ProductsSection() {
   };
 
   const handleEnquireClick = () => {
-    // Scroll to Contact section on the page
     scrollToSection("contact");
   };
 
-  return (
-    <section id="products" className="min-h-screen bg-[#f5f2eb] px-4 md:px-12 py-20 md:py-24">
-      <div className="max-w-[1500px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-          <div>
-            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">What We Offer</p>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-black leading-tight">
-              Our Product <span className="italic text-[#c8a96b]">Range</span>
-            </h2>
-          </div>
+  // Auto-slide for category view
+  useEffect(() => {
+    if (active !== "All" && filteredProducts.length > 1) {
+      const interval = setInterval(() => {
+        setActiveProductIndex((prev) => (prev === filteredProducts.length - 1 ? 0 : prev + 1));
+      }, 5000); // 5 seconds auto-slide
+      return () => clearInterval(interval);
+    }
+  }, [active, filteredProducts.length]);
 
-          <button onClick={handleEnquireClick} className="w-full md:w-auto border border-[#c8a96b] text-[#c8a96b] px-6 py-4 tracking-[0.2em] uppercase text-xs hover:bg-[#c8a96b] hover:text-white transition duration-500">
-            Enquire Now →
-          </button>
+  // Bento Box Layout configurations for 'All' view (Perfect Rectangle for 8 items)
+  const getBentoClasses = (index) => {
+    const patterns = [
+      "md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2", // Item 0
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 1
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 2
+      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2", // Item 3
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 4
+      "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1", // Item 5 (Changed to 2x1 to fill the gap)
+      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 6 (Changed to 1x1)
+      "md:col-span-2 md:row-span-1 lg:col-span-4 lg:row-span-1", // Item 7
+    ];
+    return patterns[index % 8];
+  };
+
+  return (
+    <section id="products" className="min-h-screen bg-[#050505] text-white px-4 md:px-12 py-20 md:py-24 relative overflow-hidden">
+      
+      {/* Background Decorative Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[150px] opacity-10" />
+        <div className="absolute top-[60%] -left-[10%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-10" />
+      </div>
+
+      <div className="max-w-[1500px] mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
+              Premium Collection
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-[1.1] tracking-tight">
+              Our Product <span className="italic text-[#c8a96b] font-light">Range</span>
+            </h2>
+          </motion.div>
+
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, backgroundColor: "#c8a96b", color: "#000" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleEnquireClick} 
+            className="w-full md:w-auto border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full flex items-center justify-center gap-3 group"
+          >
+            Enquire Now 
+            <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
+          </motion.button>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap gap-3 mb-16">
-          {categories.map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                setActive(item);
-                setActiveProductIndex(0);
-              }}
-              className={`px-6 py-3 text-xs uppercase tracking-[0.2em] border transition duration-300 ${active === item ? "bg-[#c8a96b] text-white border-[#c8a96b]" : "border-black/10 text-black/60 hover:border-[#c8a96b] hover:text-[#c8a96b]"
+        {/* Category Filters with Sliding Indicator */}
+        <div className="flex flex-wrap gap-2 mb-20 relative z-20">
+          {categories.map((item) => {
+            const isActive = active === item;
+            return (
+              <button
+                key={item}
+                onClick={() => {
+                  setActive(item);
+                  setActiveProductIndex(0);
+                }}
+                className={`relative px-6 py-3 text-xs uppercase tracking-[0.15em] transition-colors duration-300 rounded-full overflow-hidden ${
+                  isActive ? "text-black font-semibold" : "text-white/60 hover:text-white"
                 }`}
-            >
-              {item}
-            </button>
-          ))}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryIndicator"
+                    className="absolute inset-0 bg-gradient-to-r from-[#d4b16a] to-[#b89b5e] shadow-[0_0_20px_rgba(200,169,107,0.4)]"
+                    style={{ borderRadius: 9999 }}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{item}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Display Mode: All vs Category */}
-        {active === "All" ? (
-          // Tile Grid View for All Categories (one representative image each)
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="wait">
-              {representativeProducts.map((item, index) => (
+        <div className="min-h-[600px]">
+          {active === "All" ? (
+            // Bento Grid View for All Categories
+            <motion.div 
+              layout 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
+            >
+              <AnimatePresence mode="wait">
+                {representativeProducts.slice(0, 8).map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
+                    onClick={() => {
+                      setActive(item.category);
+                      setActiveProductIndex(0);
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+
+                    <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="uppercase tracking-[0.3em] text-[10px] text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        Explore Collection
+                      </p>
+                      <h3 className="text-white text-2xl md:text-3xl font-serif leading-tight">{item.category}</h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          ) : (
+            // Featured View for Specific Category - Snapchat Style
+            <motion.div
+              key={active}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative w-full h-[70vh] min-h-[600px] rounded-[2.5rem] overflow-hidden group select-none"
+            >
+              {/* Massive Background Image */}
+              <AnimatePresence mode="wait">
                 <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  key={currentProduct?.id || 'empty'}
+                  initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                  className="group relative overflow-hidden rounded-2xl cursor-pointer h-80 shadow-lg hover:shadow-2xl transition-all duration-300"
-                  onClick={() => {
-                    setActive(item.category);
-                    setActiveProductIndex(0);
-                  }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 z-0"
                 >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-white text-2xl font-serif">{item.category}</h3>
-                    <p className="text-[#d4b16a] text-xs tracking-[0.2em] uppercase mt-2">View {item.category}</p>
-                  </div>
+                  {currentProduct ? (
+                    <img
+                      src={currentProduct.image}
+                      alt={currentProduct.title}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#111]" />
+                  )}
+                  {/* Gradient Overlays for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90 pointer-events-none" />
                 </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          // Featured View for Specific Category
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-          >
-            {/* Left Side - Info & Navigation */}
-            <div className="flex flex-col justify-center">
-              <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">Premium Collection</p>
-              <h3 className="text-5xl md:text-6xl font-serif text-black leading-tight mb-8">
-                {active} <span className="italic text-[#c8a96b]">Solutions</span>
-              </h3>
+              </AnimatePresence>
 
-              <p className="text-black/60 text-lg leading-8 mb-12">
-                {categoryDescriptions[active]}
-              </p>
-
-              {/* Navigation Arrows */}
-              <div className="flex gap-4">
-                <button
+              {/* Snapchat-style click zones */}
+              <div className="absolute inset-0 z-10 flex cursor-pointer">
+                <div 
+                  className="w-1/2 h-full opacity-0 hover:opacity-10 transition-opacity flex items-center justify-start pl-8" 
                   onClick={handlePrev}
-                  className="w-12 h-12 rounded-full border-2 border-[#c8a96b] text-[#c8a96b] flex items-center justify-center hover:bg-[#c8a96b] hover:text-white transition duration-300"
-                  aria-label="Previous product"
                 >
-                  ←
-                </button>
-                <button
+                  {/* Optional visual hint on hover (left edge) */}
+                  <div className="w-24 h-full bg-gradient-to-r from-white to-transparent" />
+                </div>
+                <div 
+                  className="w-1/2 h-full opacity-0 hover:opacity-10 transition-opacity flex items-center justify-end pr-8" 
                   onClick={handleNext}
-                  className="w-12 h-12 rounded-full border-2 border-[#c8a96b] text-[#c8a96b] flex items-center justify-center hover:bg-[#c8a96b] hover:text-white transition duration-300"
-                  aria-label="Next product"
                 >
-                  →
-                </button>
+                  {/* Optional visual hint on hover (right edge) */}
+                  <div className="w-24 h-full bg-gradient-to-l from-white to-transparent" />
+                </div>
               </div>
 
-              {/* Product Counter */}
-              <p className="text-sm text-black/50 mt-8">
-                Showing {activeProductIndex + 1} of {filteredProducts.length}
-              </p>
-            </div>
+              {/* Top Left Topic Overlay */}
+              <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-[#c8a96b]" />
+                <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
+                  {active} Collection
+                </p>
+              </div>
 
-            {/* Right Side - Product Image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentProduct?.id || 'empty-product'}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-                className="relative rounded-3xl overflow-hidden h-96 md:h-full md:min-h-[500px] shadow-2xl"
-              >
-                {currentProduct ? (
-                  <img
-                    src={currentProduct.image}
-                    alt={currentProduct.title}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    <span className="text-gray-400">No images available</span>
-                  </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-        )}
+              {/* Bottom Description Overlay */}
+              <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-4xl">
+                <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg">
+                  {categoryDescriptions[active]}
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </div>
       </div>
     </section>
   );
