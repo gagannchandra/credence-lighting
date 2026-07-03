@@ -129,7 +129,7 @@ export default function GlobalPresence() {
 
     // --- LEFT SIDE (dx < 0) ---
     { lat: 43.6532, lng: -79.3832, city: "Toronto", country: "Canada", dx: -220, dy: -135 },
-    { lat: 48.8566, lng: 2.3522, city: "Paris", country: "France", dx: -180, dy: -90 },
+    { lat: 41.9028, lng: 12.4964, city: "Rome", country: "Italy", dx: -180, dy: -90 },
     { lat: 29.3759, lng: 47.9774, city: "Kuwait City", country: "Kuwait", dx: -160, dy: -45 },
     { lat: 25.2854, lng: 51.5310, city: "Doha", country: "Qatar", dx: -120, dy: 0 },
     { lat: 26.2235, lng: 50.5822, city: "Manama", country: "Bahrain", dx: -160, dy: 45 },
@@ -158,7 +158,7 @@ export default function GlobalPresence() {
 
           {/* LEFT */}
           <div className="md:col-span-5 relative z-20 xl:pl-8">
-            <p className="uppercase tracking-[0.4em] text-[10px] text-[#C8A46A] mb-6 font-medium">
+            <p className="uppercase tracking-[0.4em] text-xs text-[#C8A46A] mb-6 font-medium">
               Worldwide Reach
             </p>
 
@@ -169,13 +169,15 @@ export default function GlobalPresence() {
             
             <div className="w-16 h-[1px] bg-[#C8A46A]/30 my-8"></div>
 
-            <p className="text-[#F3F1EC]/50 max-w-[340px] leading-relaxed font-light text-[14px]">
-              Delivering premium lighting experiences across
-              the world's most exclusive commercial, hospitality,
-              and architectural destinations.
+            <p className="text-[#F3F1EC]/60 max-w-[420px] leading-relaxed font-light text-base md:text-lg mb-10">
+              We engineer bespoke architectural lighting solutions and deliver transformative visual experiences for the world's most exclusive commercial and hospitality destinations.
             </p>
             
-            <a href="/projects" className="inline-flex items-center gap-6 text-[10px] tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-14 uppercase hover:text-white transition-all font-medium group">
+            <p className="text-[11px] md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
+              UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
+            </p>
+            
+            <a href="/projects" className="inline-flex items-center gap-6 text-[11px] tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-14 uppercase hover:text-white transition-all font-medium group">
               Explore Our Projects
               <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
             </a>
