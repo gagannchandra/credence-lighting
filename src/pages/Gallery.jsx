@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import BackButton from "../components/ui/BackButton";
 import Lightbox from "../components/ui/Lightbox";
@@ -105,8 +105,14 @@ export default function Gallery() {
           images={lightboxImages}
           index={lightboxIndex}
           onClose={() => setLightboxOpen(false)}
-          onPrev={() => setLightboxIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length)}
-          onNext={() => setLightboxIndex((prev) => (prev + 1) % lightboxImages.length)}
+          onPrev={() => {
+            if (lightboxImages.length === 0) return;
+            setLightboxIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+          }}
+          onNext={() => {
+            if (lightboxImages.length === 0) return;
+            setLightboxIndex((prev) => (prev + 1) % lightboxImages.length);
+          }}
         />
       )}
     </section>

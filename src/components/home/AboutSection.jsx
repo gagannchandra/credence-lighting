@@ -130,9 +130,11 @@
 //   );
 // }
 import { motion } from "framer-motion";
-import { scrollToSection } from "../../utils/scrollUtils";
+import { useNavigate } from "react-router-dom";
 
 export default function AboutSection() {
+  const navigate = useNavigate();
+
   return (
     <section
       id="about"
@@ -199,7 +201,7 @@ export default function AboutSection() {
           {/* PRODUCTS CARD */}
           <motion.button
             type="button"
-            onClick={() => scrollToSection("products")}
+            onClick={() => navigate("/products")}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{
@@ -240,7 +242,7 @@ export default function AboutSection() {
           {/* PORTFOLIO CARD */}
           <motion.button
             type="button"
-            onClick={() => scrollToSection("projects")}
+            onClick={() => navigate("/projects")}
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{

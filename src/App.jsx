@@ -100,6 +100,11 @@ import ProductDetails from "./pages/ProductDetails";
 import NotFound from "./pages/NotFound";
 import Brands from "./pages/Brands";
 import Gallery from "./pages/Gallery";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import Projects from "./pages/Projects";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
 
@@ -137,17 +142,21 @@ if (loading) {
 
         
 
-        <Route
-          path="/downloads"
-          element={<Downloads />}
-        />
+        <Route path="/downloads" element={<Downloads />} />
 
         <Route path="/gallery" element={<Gallery />} />
 
-        <Route
-          path="/brands"
-          element={<Brands />}
-        />
+        <Route path="/brands" element={<Brands />} />
+
+        <Route path="/about" element={<About />} />
+        
+        <Route path="/products" element={<Products />} />
+        
+        <Route path="/projects" element={<Projects />} />
+        
+        <Route path="/services" element={<Services />} />
+        
+        <Route path="/contact" element={<Contact />} />
 
         <Route
           path="*"

@@ -32,17 +32,17 @@ export default function Home() {
 
       <Hero />
 
-      <AboutSection />
+      <AboutSection preview={true} />
 
-      <ServicesSection />
+      <ServicesSection preview={true} />
 
-      <ProductsSection />
+      <ProductsSection preview={true} />
 
       <GlobalPresence />
-        <BrandsSection />
-      <ProjectsSection />
+        <BrandsSection preview={true} />
+      <ProjectsSection preview={true} />
 
-      <ContactSection />
+      <ContactSection preview={true} />
 
       <Footer />
     </>

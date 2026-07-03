@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Wrench, Monitor, ClipboardList, Settings, Headset, Briefcase } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-export default function ServicesSection() {
+export default function ServicesSection({ preview = false }) {
+  const navigate = useNavigate();
   const services = [
     {
       title: "Requirement Analysis",
@@ -77,7 +79,7 @@ export default function ServicesSection() {
 
         {/* SERVICES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-          {services.map((service, index) => {
+          {(preview ? services.slice(0, 3) : services).map((service, index) => {
             const Icon = service.icon;
             return (
               <motion.div
@@ -110,6 +112,22 @@ export default function ServicesSection() {
             );
           })}
         </div>
+
+        {preview && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <button
+              onClick={() => navigate("/services")}
+              className="px-8 py-4 border border-[#c8a96b]/40 text-[#c8a96b] tracking-[0.2em] uppercase text-xs rounded-full hover:bg-[#c8a96b] hover:text-black transition-colors duration-500"
+            >
+              Learn More
+            </button>
+          </motion.div>
+        )}
 
       </div>
     </section>

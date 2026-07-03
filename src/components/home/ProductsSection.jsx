@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import products from "../../data/products";
-import { scrollToSection } from "../../utils/scrollUtils";
+import { useNavigate, useLocation } from "react-router-dom";
+import { saveReturnState } from "../../utils/navigationState";
 
 const categories = [
   "All",
@@ -30,9 +31,18 @@ const categoryDescriptions = {
   Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
 };
 
-export default function ProductsSection() {
-  const [active, setActive] = useState("All");
+export default function ProductsSection({ preview = false }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [active, setActive] = useState(location.state?.selectedCategory || "All");
   const [activeProductIndex, setActiveProductIndex] = useState(0);
+
+  useEffect(() => {
+    if (location.state?.selectedCategory) {
+      setActive(location.state.selectedCategory);
+      setActiveProductIndex(0);
+    }
+  }, [location.state?.selectedCategory]);
 
   const filteredProducts = active === "All" ? products.slice(0, 6) : products.filter((item) => item.category === active);
 
@@ -51,7 +61,7 @@ export default function ProductsSection() {
   };
 
   const handleEnquireClick = () => {
-    scrollToSection("contact");
+    navigate("/contact");
   };
 
   // Auto-slide for category view
@@ -67,6 +77,7 @@ export default function ProductsSection() {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
       if (active === "All") return;
       if (e.key === "ArrowLeft") {
         setActiveProductIndex((prev) => (prev === 0 ? filteredProducts.length - 1 : prev - 1));
@@ -242,6 +253,10 @@ export default function ProductsSection() {
                     className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
                     style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
                     onClick={() => {
+                      if (isCenter) {
+                        saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+                        navigate(`/product/${item.id}`);
+                      }
                       if (isLeft) handlePrev();
                       if (isRight) handleNext();
                     }}
@@ -287,9 +302,18 @@ export default function ProductsSection() {
 
                           {/* Bottom Description Overlay */}
                           <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-2xl">
-                            <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg">
+                            <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg mb-4">
                               {categoryDescriptions[active]}
                             </p>
+                            <div className="pointer-events-auto inline-block">
+                                <button onClick={(e) => {
+                                  e.stopPropagation();
+                                  saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+                                  navigate(`/product/${item.id}`);
+                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
+                                  View Product Details
+                                </button>
+                            </div>
                           </div>
                         </motion.div>
                       )}

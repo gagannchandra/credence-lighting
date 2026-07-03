@@ -1,4 +1,4 @@
-﻿import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
@@ -28,11 +28,18 @@ export default function ProjectDetails() {
   }
 
   return (
-    <main className="bg-[#f5f2eb] min-h-screen">
+    <main className="bg-[#050505] min-h-screen text-white relative">
+      
+      {/* Background Decorative Gradient */}
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
+        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.07]" />
+      </div>
+
       <BackButton />
 
       {/* HERO */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden z-10">
         <motion.img
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -43,7 +50,7 @@ export default function ProjectDetails() {
         />
 
         <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent" />
 
         <div className="absolute bottom-12 left-8 md:left-16 z-10 max-w-3xl">
           <motion.p
@@ -83,7 +90,7 @@ export default function ProjectDetails() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               onClick={() => navigate(`/project/${previousProject.id}`)}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/50 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] transition duration-300"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] hover:bg-white/5 backdrop-blur-sm transition-all duration-300"
               aria-label="Previous project"
             >
               <span className="text-xl md:text-2xl">←</span>
@@ -95,7 +102,7 @@ export default function ProjectDetails() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               onClick={() => navigate(`/project/${nextProject.id}`)}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/50 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] transition duration-300"
+              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] hover:bg-white/5 backdrop-blur-sm transition-all duration-300"
               aria-label="Next project"
             >
               <span className="text-xl md:text-2xl">→</span>
@@ -105,7 +112,7 @@ export default function ProjectDetails() {
       </section>
 
       {/* OVERVIEW + GALLERY */}
-      <section className="w-full px-4 md:px-8 lg:px-12 py-10 md:py-14">
+      <section className="relative w-full px-4 md:px-8 lg:px-12 py-16 md:py-24 z-10">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -115,10 +122,10 @@ export default function ProjectDetails() {
             className="max-w-3xl"
           >
             <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-4">Project Overview</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-black mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-white mb-6">
               Intelligent <span className="italic text-[#c8a96b]">Lighting</span>
             </h2>
-            <p className="text-black/75 text-base md:text-lg leading-8">{project.description}</p>
+            <p className="text-white/70 text-base md:text-lg leading-8">{project.description}</p>
           </motion.div>
 
           <motion.div
@@ -126,19 +133,19 @@ export default function ProjectDetails() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid gap-4 md:grid-cols-3 mt-10"
+            className="grid gap-4 md:grid-cols-3 mt-14"
           >
-            <div className="rounded-[1.75rem] bg-white p-5 md:p-6 shadow-xl border border-black/10">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-2">Location</p>
-              <p className="text-black/75 text-sm md:text-base">{project.location}</p>
+            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
+              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Location</p>
+              <p className="text-white/80 text-sm md:text-base font-medium">{project.location}</p>
             </div>
-            <div className="rounded-[1.75rem] bg-white p-5 md:p-6 shadow-xl border border-black/10">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-2">Category</p>
-              <p className="text-black/75 text-sm md:text-base">{project.category}</p>
+            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
+              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Category</p>
+              <p className="text-white/80 text-sm md:text-base font-medium">{project.category}</p>
             </div>
-            <div className="rounded-[1.75rem] bg-white p-5 md:p-6 shadow-xl border border-black/10">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-2">Year</p>
-              <p className="text-black/75 text-sm md:text-base">{project.year}</p>
+            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
+              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Year</p>
+              <p className="text-white/80 text-sm md:text-base font-medium">{project.year}</p>
             </div>
           </motion.div>
 
@@ -147,9 +154,9 @@ export default function ProjectDetails() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             viewport={{ once: true }}
-            className="mt-10"
+            className="mt-20"
           >
-            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">Project Gallery</p>
+            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-8">Project Gallery</p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {project.gallery.map((image, index) => (
                 <button
@@ -159,13 +166,13 @@ export default function ProjectDetails() {
                     setLightboxIndex(index);
                     setLightboxOpen(true);
                   }}
-                  className="overflow-hidden rounded-[1.75rem] group cursor-pointer"
+                  className="overflow-hidden rounded-[1.75rem] group cursor-pointer border border-white/5"
                   aria-label={`Open ${project.name} gallery image ${index + 1}`}
                 >
                   <img
                     src={image}
                     alt={`${project.name} gallery ${index + 1}`}
-                    className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-[1.05] opacity-80 group-hover:opacity-100"
                   />
                 </button>
               ))}
@@ -179,8 +186,14 @@ export default function ProjectDetails() {
           images={project.gallery}
           index={lightboxIndex}
           onClose={() => setLightboxOpen(false)}
-          onPrev={() => setLightboxIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length)}
-          onNext={() => setLightboxIndex((prev) => (prev + 1) % project.gallery.length)}
+          onPrev={() => {
+            if (project.gallery.length === 0) return;
+            setLightboxIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+          }}
+          onNext={() => {
+            if (project.gallery.length === 0) return;
+            setLightboxIndex((prev) => (prev + 1) % project.gallery.length);
+          }}
         />
       )}
     </main>
