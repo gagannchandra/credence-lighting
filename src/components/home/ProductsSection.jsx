@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import products from "../../data/products";
-import { scrollToSection } from "../../utils/scrollUtils";
+import { useNavigate, useLocation } from "react-router-dom";
+import { saveReturnState } from "../../utils/navigationState";
 
 const categories = [
   "All",
@@ -14,26 +15,36 @@ const categories = [
   "Strech Ceiling",
   "Automation",
   "Retail",
+  "Audio",
 ];
 
 const categoryDescriptions = {
-  Indoor: "Explore our luxury indoor lighting systems designed for modern architectural spaces, premium interiors, commercial environments, and immersive experiences.",
-  Outdoor: "Premium outdoor lighting solutions for facades, landscapes, and exterior architectural applications.",
-  Hospitality: "Elegant lighting for hotels, restaurants, lounges, and hospitality venues.",
-  Facade: "Architectural lighting systems for building facades and exterior lighting wash effects.",
-  Entertainment: "Professional entertainment and stage lighting for events, concerts, and performances.",
-  "LED Screen": "High-resolution LED video walls and display screens for advertising and events.",
-  "Strech Ceiling": "Modern stretch ceiling systems with integrated lighting solutions.",
-  Automation: "Smart lighting control systems with voice, app, and sensor capabilities.",
-  Retail: "Retail and custom lighting solutions including neon sign systems.",
+  Indoor: "Indoor Lighting offers a vast range of modern lighting products designed for residential, commercial, and architectural interiors. Powered by advanced lighting technology, our solutions deliver superior efficiency, comfort, and visual performance.",
+  Outdoor: "Outdoor Lighting is designed to enhance exteriors with power, precision, and durability. Our extensive range of outdoor lighting solutions combines advanced technology with robust engineering to deliver high performance in all environments.",
+  Hospitality: "Hospitality Lighting enhances ambience and guest experience through a wide range of refined lighting solutions. Powered by advanced technology, our lighting delivers visual comfort, elegance, and efficiency.",
+  Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects.",
+  Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere.",
+  "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance.",
+  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
+  Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control.",
+  Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency.",
+  Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
 };
 
-export default function ProductsSection() {
-  const [active, setActive] = useState("All");
+export default function ProductsSection({ preview = false }) {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [active, setActive] = useState(location.state?.selectedCategory || "All");
   const [activeProductIndex, setActiveProductIndex] = useState(0);
 
+  useEffect(() => {
+    if (location.state?.selectedCategory) {
+      setActive(location.state.selectedCategory);
+      setActiveProductIndex(0);
+    }
+  }, [location.state?.selectedCategory]);
+
   const filteredProducts = active === "All" ? products.slice(0, 6) : products.filter((item) => item.category === active);
-  const currentProduct = filteredProducts[activeProductIndex] || filteredProducts[0];
 
   // Representative product for each category (used in All view)
   const representativeProducts = categories
@@ -50,149 +61,269 @@ export default function ProductsSection() {
   };
 
   const handleEnquireClick = () => {
-    // Scroll to Contact section on the page
-    scrollToSection("contact");
+    navigate("/contact");
+  };
+
+  // Auto-slide for category view
+  useEffect(() => {
+    if (active !== "All" && filteredProducts.length > 1) {
+      const interval = setInterval(() => {
+        setActiveProductIndex((prev) => (prev === filteredProducts.length - 1 ? 0 : prev + 1));
+      }, 5000); // 5 seconds auto-slide
+      return () => clearInterval(interval);
+    }
+  }, [active, filteredProducts.length]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+      if (active === "All") return;
+      if (e.key === "ArrowLeft") {
+        setActiveProductIndex((prev) => (prev === 0 ? filteredProducts.length - 1 : prev - 1));
+      } else if (e.key === "ArrowRight") {
+        setActiveProductIndex((prev) => (prev === filteredProducts.length - 1 ? 0 : prev + 1));
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [active, filteredProducts.length]);
+
+  // Bento Box Layout configurations for 'All' view
+  const getBentoClasses = (index) => {
+    const patterns = [
+      "md:col-span-2 md:row-span-1 lg:col-span-2 lg:row-span-2", // Item 0
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 1
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 2
+      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-2", // Item 3
+      "md:col-span-1 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 4
+      "md:col-span-1 md:row-span-1 lg:col-span-2 lg:row-span-1", // Item 5
+      "md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1", // Item 6
+      "md:col-span-2 md:row-span-1 lg:col-span-4 lg:row-span-1", // Item 7
+    ];
+    return patterns[index % 8];
   };
 
   return (
-    <section id="products" className="min-h-screen bg-[#f5f2eb] px-4 md:px-12 py-20 md:py-24">
-      <div className="max-w-[1500px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-          <div>
-            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">What We Offer</p>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-black leading-tight">
-              Our Product <span className="italic text-[#c8a96b]">Range</span>
-            </h2>
-          </div>
+    <section id="products" className="min-h-screen bg-[#050505] text-white px-4 md:px-12 py-20 md:py-24 relative overflow-hidden">
+      
+      {/* Background Decorative Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[150px] opacity-10" />
+        <div className="absolute top-[60%] -left-[10%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-10" />
+      </div>
 
-          <button onClick={handleEnquireClick} className="w-full md:w-auto border border-[#c8a96b] text-[#c8a96b] px-6 py-4 tracking-[0.2em] uppercase text-xs hover:bg-[#c8a96b] hover:text-white transition duration-500">
-            Enquire Now →
-          </button>
+      <div className="max-w-[1500px] mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
+              Premium Collection
+            </p>
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-[1.1] tracking-tight">
+              Our Product <span className="italic text-[#c8a96b] font-light">Range</span>
+            </h2>
+          </motion.div>
+
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.05, backgroundColor: "#c8a96b", color: "#000" }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleEnquireClick} 
+            className="w-full md:w-auto border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full flex items-center justify-center gap-3 group"
+          >
+            Enquire Now 
+            <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
+          </motion.button>
         </div>
 
-        {/* Category Filters */}
-        <div className="flex flex-wrap gap-3 mb-16">
-          {categories.map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                setActive(item);
-                setActiveProductIndex(0);
-              }}
-              className={`px-6 py-3 text-xs uppercase tracking-[0.2em] border transition duration-300 ${
-                active === item ? "bg-[#c8a96b] text-white border-[#c8a96b]" : "border-black/10 text-black/60 hover:border-[#c8a96b] hover:text-[#c8a96b]"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
+        {/* Category Filters with Sliding Indicator */}
+        <div className="flex flex-wrap gap-2 mb-20 relative z-20">
+          {categories.map((item) => {
+            const isActive = active === item;
+            return (
+              <button
+                key={item}
+                onClick={() => {
+                  setActive(item);
+                  setActiveProductIndex(0);
+                }}
+                className={`relative px-6 py-3 text-xs uppercase tracking-[0.15em] transition-colors duration-300 rounded-full overflow-hidden ${
+                  isActive ? "text-black font-semibold" : "text-white/60 hover:text-white"
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeCategoryIndicator"
+                    className="absolute inset-0 bg-gradient-to-r from-[#d4b16a] to-[#b89b5e] shadow-[0_0_20px_rgba(200,169,107,0.4)]"
+                    style={{ borderRadius: 9999 }}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+                <span className="relative z-10">{item}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Display Mode: All vs Category */}
-        {active === "All" ? (
-          // Tile Grid View for All Categories (one representative image each)
-          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="wait">
-              {representativeProducts.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.45, delay: index * 0.04 }}
-                  className="group relative overflow-hidden rounded-2xl cursor-pointer h-80 shadow-lg hover:shadow-2xl transition-all duration-300"
-                  onClick={() => {
-                    setActive(item.category);
-                    setActiveProductIndex(0);
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                  />
+        <div className="min-h-[600px]">
+          {active === "All" ? (
+            // Bento Grid View for All Categories
+            <motion.div 
+              layout 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
+            >
+              <AnimatePresence mode="wait">
+                {representativeProducts.slice(0, 8).map((item, index) => (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
+                    onClick={() => {
+                      setActive(item.category);
+                      setActiveProductIndex(0);
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.08] opacity-80 group-hover:opacity-100"
+                    />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-white text-2xl font-serif">{item.category}</h3>
-                    <p className="text-[#d4b16a] text-xs tracking-[0.2em] uppercase mt-2">View {item.category}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          // Featured View for Specific Category
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-          >
-            {/* Left Side - Info & Navigation */}
-            <div className="flex flex-col justify-center">
-              <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">Premium Collection</p>
-              <h3 className="text-5xl md:text-6xl font-serif text-black leading-tight mb-8">
-                {active} <span className="italic text-[#c8a96b]">Solutions</span>
-              </h3>
+                    <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="uppercase tracking-[0.3em] text-[10px] text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        Explore Collection
+                      </p>
+                      <h3 className="text-white text-2xl md:text-3xl font-serif leading-tight">{item.category}</h3>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+          ) : (
+            // Featured View for Specific Category - Continuous Coverflow Carousel
+            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-[2.5rem]">
+              {filteredProducts.map((item, index) => {
+                const total = filteredProducts.length;
+                let diff = index - activeProductIndex;
+                
+                // Normalize diff to be between -total/2 and total/2 for infinite wrapping
+                if (diff > total / 2) diff -= total;
+                if (diff < -total / 2) diff += total;
 
-              <p className="text-black/60 text-lg leading-8 mb-12">
-                {categoryDescriptions[active]}
-              </p>
+                const isCenter = Math.abs(diff) < 0.5; // diff === 0
+                const isLeft = diff >= -1.5 && diff <= -0.5; // diff === -1
+                const isRight = diff >= 0.5 && diff <= 1.5; // diff === 1
+                
+                const isVisible = isCenter || isLeft || isRight;
 
-              {/* Navigation Arrows */}
-              <div className="flex gap-4">
-                <button
-                  onClick={handlePrev}
-                  className="w-12 h-12 rounded-full border-2 border-[#c8a96b] text-[#c8a96b] flex items-center justify-center hover:bg-[#c8a96b] hover:text-white transition duration-300"
-                  aria-label="Previous product"
-                >
-                  ←
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="w-12 h-12 rounded-full border-2 border-[#c8a96b] text-[#c8a96b] flex items-center justify-center hover:bg-[#c8a96b] hover:text-white transition duration-300"
-                  aria-label="Next product"
-                >
-                  →
-                </button>
-              </div>
+                // Calculate X position based on relative distance
+                let xPos = "0%";
+                if (isLeft) xPos = "-85%";
+                else if (isRight) xPos = "85%";
+                else if (diff < -1) xPos = "-150%";
+                else if (diff > 1) xPos = "150%";
 
-              {/* Product Counter */}
-              <p className="text-sm text-black/50 mt-8">
-                Showing {activeProductIndex + 1} of {filteredProducts.length}
-              </p>
+                return (
+                  <motion.div
+                    key={item.id}
+                    initial={false}
+                    animate={{
+                      x: xPos,
+                      scale: isCenter ? 1 : 0.8,
+                      opacity: isVisible ? (isCenter ? 1 : 0.35) : 0,
+                      zIndex: isCenter ? 30 : isVisible ? 20 : 0,
+                    }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
+                    style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
+                    onClick={() => {
+                      if (isCenter) {
+                        saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+                        navigate(`/product/${item.id}`);
+                      }
+                      if (isLeft) handlePrev();
+                      if (isRight) handleNext();
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+
+                    <AnimatePresence>
+                      {isCenter && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4 }}
+                          className="absolute inset-0 z-10"
+                        >
+                          {/* Gradient Overlays for Text Readability */}
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/90 pointer-events-none" />
+
+                          {/* Snapchat-style click zones for center image */}
+                          <div className="absolute inset-0 z-10 flex cursor-pointer">
+                            <div 
+                              className="w-1/2 h-full flex items-center justify-start" 
+                              onClick={handlePrev}
+                            />
+                            <div 
+                              className="w-1/2 h-full flex items-center justify-end" 
+                              onClick={handleNext}
+                            />
+                          </div>
+
+                          {/* Top Left Topic Overlay */}
+                          <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
+                            <span className="w-8 h-[1px] bg-[#c8a96b]" />
+                            <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
+                              {active} Collection
+                            </p>
+                          </div>
+
+                          {/* Bottom Description Overlay */}
+                          <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-2xl">
+                            <p className="text-white/90 text-sm md:text-lg leading-[1.8] font-light shadow-black drop-shadow-lg mb-4">
+                              {categoryDescriptions[active]}
+                            </p>
+                            <div className="pointer-events-auto inline-block">
+                                <button onClick={(e) => {
+                                  e.stopPropagation();
+                                  saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+                                  navigate(`/product/${item.id}`);
+                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
+                                  View Product Details
+                                </button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
             </div>
-
-            {/* Right Side - Product Image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentProduct.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.5 }}
-                className="relative rounded-3xl overflow-hidden h-96 md:h-full md:min-h-[500px] shadow-2xl"
-              >
-                <img
-                  src={currentProduct.image}
-                  alt={currentProduct.title}
-                  className="w-full h-full object-cover"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <h4 className="text-white text-3xl md:text-4xl font-serif">{currentProduct.title}</h4>
-                  <p className="text-[#d4b16a] text-sm tracking-[0.2em] uppercase mt-3">{currentProduct.subtitle}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
-        )}
+          )}
+        </div>
       </div>
     </section>
   );

@@ -25,3 +25,7 @@ dist-ssr
 
 .vercel
 .env*
+
+# I defined it hehe ~gagannchandra
+
+.temp/

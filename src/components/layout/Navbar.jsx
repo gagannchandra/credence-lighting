@@ -96,12 +96,7 @@ export default function Navbar() {
     };
   }, [isHomePage]);
 
-  // If style changes while menu is open, close it.
-  useEffect(() => {
-    if (showFixedNavbar && open) {
-      setTimeout(() => setOpen(false), 0);
-    }
-  }, [showFixedNavbar, open]);
+
 
   // HOVER OPEN
   useEffect(() => {
@@ -161,12 +156,14 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: "Home", to: "/#hero" },
-    { name: "About", to: "/#about" },
-    { name: "Brands", to: "/#brands" },
-    { name: "Products", to: "/#products" },
-    { name: "Projects", to: "/#projects" },
-    { name: "Contact", to: "/#contact" },
+    { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
+    { name: "Brands", to: "/brands" },
+    { name: "Products", to: "/products" },
+    { name: "Projects", to: "/projects" },
+    { name: "Blog", to: "/blog" },
+    { name: "FAQ", to: "/faq" },
+    { name: "Contact", to: "/contact" },
   ];
 
   const desktopNavLinks = navItems;
@@ -191,17 +188,10 @@ export default function Navbar() {
       >
         <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
           {/* Logo + company name */}
-          <PageLink
-          
-            to="/#hero"
-            onClick={(e) => {
-              if (isHomePage) {
-                e.preventDefault();
-                scrollToSection("hero");
-              }
-            }}
-            className="flex items-center gap-3 shrink-0"
-          >
+            <PageLink
+              to="/"
+              className="flex items-center gap-3 shrink-0"
+            >
             <img
               src={logo2}
               alt="Credence Lighting"
@@ -218,13 +208,6 @@ export default function Navbar() {
               <PageLink
                 key={item.name}
                 to={item.to}
-                onClick={(e) => {
-                  // When already on Home, ensure we scroll to the section.
-                  if (isHomePage && item.to.startsWith("/#")) {
-                    e.preventDefault();
-                    scrollToSection(item.to.slice(2));
-                  }
-                }}
                 className="text-white/80 hover:text-white transition duration-300 text-sm uppercase tracking-[0.08em] touch-glow"
               >
                 {item.name}
@@ -246,13 +229,7 @@ export default function Navbar() {
       {!showFixedNavbar && (
         <div className="fixed top-6 left-8 z-40">
           <PageLink
-            to="/#hero"
-            onClick={(e) => {
-              if (isHomePage) {
-                e.preventDefault();
-                scrollToSection("hero");
-              }
-            }}
+            to="/"
             onMouseEnter={() => setIsLogoHovered(true)}
             onMouseLeave={() => setIsLogoHovered(false)}
             className="flex items-center gap-3 shrink-0"
@@ -343,13 +320,7 @@ export default function Navbar() {
                     >
                       <PageLink
                         to={item.to}
-                        onClick={(e) => {
-                          if (isHomePage && item.to.startsWith("/#")) {
-                            e.preventDefault();
-                            scrollToSection(item.to.slice(2));
-                          }
-                          closeMenu();
-                        }}
+                        onClick={closeMenu}
                         className="group flex items-center gap-4 text-5xl md:text-6xl text-white/90 hover:text-[#c8a96b] transition duration-300 font-serif touch-glow"
                       >
                         {item.name}

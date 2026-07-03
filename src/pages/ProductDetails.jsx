@@ -1,192 +1,122 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useParams, useNavigate } from "react-router-dom";
+import BackButton from "../components/ui/BackButton";
+import PageLink from "../components/ui/PageLink";
 
-// Import category images
-import indoor10 from "../assets/images/indoor/10.jpg";
-import outdoor19 from "../assets/images/outdoor/19.jpg";
-import hospitality29 from "../assets/images/hospitality/29.jpg";
-import facade37 from "../assets/images/facade/37.jpg";
-import entertainment48 from "../assets/images/entertainment/48.jpg";
-import ledscreen56 from "../assets/images/led-screen/56.jpg";
-import strech64 from "../assets/images/strech-ceiling/64.jpg";
-import automation88 from "../assets/images/Home Automation/88.jpg";
-import retail72 from "../assets/images/Retail Lighting/72.jpg";
-
-const productCategories = [
-  {
-    id: 1,
-    title: "LED Downlights",
-    subtitle: "RECESSED • SURFACE • ADJUSTABLE",
-    image: indoor10,
-    category: "Indoor",
-    span: "large",
-  },
-  {
-    id: 2,
-    title: "Track & Spotlights",
-    subtitle: "RETAIL • GALLERY • COMMERCIAL",
-    image: outdoor19,
-    category: "Outdoor",
-    span: "small",
-  },
-  {
-    id: 3,
-    title: "Facade Lighting",
-    subtitle: "ARCHITECTURAL • BUILDING WASH",
-    image: facade37,
-    category: "Facade",
-    span: "large",
-  },
-  {
-    id: 4,
-    title: "LED Video Walls",
-    subtitle: "EVENTS • STAGES • ADVERTISING",
-    image: ledscreen56,
-    category: "LED Screen",
-    span: "medium",
-  },
-  {
-    id: 5,
-    title: "Smart Controls",
-    subtitle: "VOICE • APP • SENSOR",
-    image: automation88,
-    category: "Automation",
-    span: "small",
-  },
-  {
-    id: 6,
-    title: "Neon Sign Systems",
-    subtitle: "CUSTOM • RETAIL • BRANDING",
-    image: retail72,
-    category: "Retail",
-    span: "small",
-  },
-  {
-    id: 7,
-    title: "Hospitality Lighting",
-    subtitle: "HOTELS • RESTAURANTS • LOUNGES",
-    image: hospitality29,
-    category: "Hospitality",
-    span: "medium",
-  },
-  {
-    id: 8,
-    title: "Entertainment Lighting",
-    subtitle: "THEATERS • CLUBS • VENUES",
-    image: entertainment48,
-    category: "Entertainment",
-    span: "small",
-  },
-  {
-    id: 9,
-    title: "Stretch Ceiling Systems",
-    subtitle: "MODERN • SEAMLESS • ELEGANT",
-    image: strech64,
-    category: "Stretch Ceiling",
-    span: "small",
-  },
-];
+import products from "../data/products";
 
 export default function ProductDetails() {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [hoveredId, setHoveredId] = useState(null);
 
-  const handleCategoryClick = (category) => {
-    // Navigate or filter products by category
-    navigate("/", { state: { selectedCategory: category } });
-  };
+  const product = products.find((item) => item.id === Number(id));
+
+  const currentIndex = products.findIndex((item) => item.id === Number(id));
+  const previousProduct = currentIndex > 0 ? products[currentIndex - 1] : null;
+  const nextProduct = currentIndex < products.length - 1 ? products[currentIndex + 1] : null;
+
+  if (!product) {
+    return (
+      <div className="h-screen bg-[#f5f2eb] flex items-center justify-center text-black text-3xl font-serif">
+        Product Not Found
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-[#f5f2eb]">
-      {/* Header */}
-      <div className="bg-black text-white py-20 px-6 md:px-12">
-        <div className="max-w-[1500px] mx-auto">
-          <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6">Our Collection</p>
-          <h1 className="text-5xl md:text-7xl font-serif">
-            Premium <span className="italic text-[#c8a96b]">Lighting Solutions</span>
-          </h1>
-          <p className="text-white/70 text-lg mt-6 max-w-2xl">
-            Explore our comprehensive range of professional lighting products designed for every space and application.
-          </p>
+    <main className="bg-[#f5f2eb] min-h-screen relative overflow-hidden">
+      <BackButton />
+
+      <section className="relative pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto min-h-[90vh] flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+        {/* LEFT: Image */}
+        <div className="w-full md:w-1/2 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full max-w-xl rounded-2xl overflow-hidden shadow-2xl relative"
+          >
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
         </div>
-      </div>
 
-      {/* Product Grid */}
-      <div className="px-6 md:px-12 py-20">
-        <div className="max-w-[1500px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[300px]">
-            {productCategories.map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                onClick={() => handleCategoryClick(product.category)}
-                onMouseEnter={() => setHoveredId(product.id)}
-                onMouseLeave={() => setHoveredId(null)}
-                className={`group relative overflow-hidden rounded-lg cursor-pointer shadow-lg transition-all duration-300 hover:shadow-2xl ${
-                  product.span === "large" ? "md:col-span-2 md:row-span-2" : ""
-                } ${product.span === "medium" ? "md:col-span-2" : ""}`}
-              >
-                {/* Image */}
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+        {/* RIGHT: Details */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="uppercase tracking-[0.35em] text-xs text-[#b89b5e] mb-4"
+          >
+            {product.category}
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-black text-5xl md:text-6xl lg:text-7xl font-serif leading-tight mb-6"
+          >
+            {product.title}
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-black/60 uppercase tracking-[0.2em] text-xs md:text-sm mb-10"
+          >
+            {product.subtitle}
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-black/70 text-base md:text-lg leading-relaxed mb-12 max-w-xl"
+          >
+            Discover our premium {product.title}, designed specifically for {product.category.toLowerCase()} applications. Engineered for performance and aesthetic excellence, it seamlessly integrates into modern spaces.
+          </motion.div>
 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent transition-all duration-300" />
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <motion.div
-                    initial={{ opacity: 1, y: 0 }}
-                    animate={{
-                      opacity: hoveredId === product.id ? 1 : 1,
-                      y: hoveredId === product.id ? -10 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-serif leading-tight">
-                      {product.title}
-                    </h3>
-                    <p className="text-[#d4b16a] text-xs md:text-sm tracking-[0.2em] uppercase mt-3 md:mt-4">
-                      {product.subtitle}
-                    </p>
-                  </motion.div>
-
-                  {/* Hover indicator */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredId === product.id ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="mt-4 text-[#c8a96b] text-xs uppercase tracking-[0.15em] font-semibold"
-                  >
-                    Explore →
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <PageLink
+              to="/"
+              returnHash="#contact"
+              className="inline-block bg-[#c8a96b] text-black px-10 py-4 tracking-[0.2em] uppercase text-sm font-semibold hover:bg-[#b89b5e] transition duration-300 shadow-xl"
+            >
+              Enquire Now
+            </PageLink>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section */}
-      <div className="bg-black text-white py-20 px-6 md:px-12">
-        <div className="max-w-[1500px] mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-serif mb-6">
-            Need a Custom Solution?
-          </h2>
-          <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-            Our expert team is ready to help you find the perfect lighting solution for your project.
-          </p>
-          <button className="bg-[#c8a96b] text-black px-10 py-4 tracking-[0.2em] uppercase text-sm font-semibold hover:bg-[#d4b16a] transition duration-300">
-            Get in Touch
+      {/* Navigation Controls */}
+      <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 flex gap-4 z-10">
+        {previousProduct && (
+          <button
+            onClick={() => navigate(`/product/${previousProduct.id}`)}
+            className="w-12 h-12 rounded-full border border-black/20 text-black flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition-all duration-300 bg-white/50 backdrop-blur-md"
+            aria-label="Previous product"
+          >
+            <span className="text-xl">←</span>
           </button>
-        </div>
+        )}
+        {nextProduct && (
+          <button
+            onClick={() => navigate(`/product/${nextProduct.id}`)}
+            className="w-12 h-12 rounded-full border border-black/20 text-black flex items-center justify-center hover:border-[#c8a96b] hover:text-[#c8a96b] transition-all duration-300 bg-white/50 backdrop-blur-md"
+            aria-label="Next product"
+          >
+            <span className="text-xl">→</span>
+          </button>
+        )}
       </div>
-    </div>
+    </main>
   );
 }
