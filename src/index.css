@@ -23,6 +23,41 @@ body {
   color: #c8a96b;
 }
 
+/* Premium Metallic Text Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #e8d096 0%, #c8a96b 50%, #a68442 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.silver-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Fluid Typography */
+.text-fluid-h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-fluid-h2 {
+  font-size: clamp(2rem, 4vw + 1rem, 4.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.text-fluid-p {
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.125rem);
+  line-height: 1.6;
+}
+
 .glass {
   backdrop-filter: blur(20px);
   background: rgba(255,255,255,0.05);
@@ -46,6 +81,22 @@ body {
     filter: drop-shadow(
       0 0 10px rgba(200, 169, 107, 0.55)
     );
+  }
+}
+
+/* Hover glow for desktop */
+@media (hover: hover) and (pointer: fine) {
+  .hover-glow {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .hover-glow:hover {
+    text-shadow: 0 0 20px rgba(200, 169, 107, 0.6);
+  }
+  .hover-scale {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
   }
 }
 

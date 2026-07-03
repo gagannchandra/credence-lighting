@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import PageLink from "../ui/PageLink";
+import Magnetic from "../ui/Magnetic";
 import logo2 from "../../assets/images/logo2.webp";
 
 export default function Navbar() {
@@ -181,7 +182,7 @@ export default function Navbar() {
             : "pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
+        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/5 bg-[#030408]/60 backdrop-blur-2xl px-6 py-4 flex items-center justify-between shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
           {/* Logo + company name */}
             <PageLink
               to="/"
@@ -200,25 +201,28 @@ export default function Navbar() {
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <PageLink
-                key={item.name}
-                to={item.to}
-                className="text-white/80 hover:text-white transition duration-300 text-sm uppercase tracking-[0.08em] touch-glow"
-              >
-                {item.name}
-              </PageLink>
+              <Magnetic key={item.name}>
+                <PageLink
+                  to={item.to}
+                  className="text-white/80 hover:text-[#c8a96b] hover:font-semibold transition-all duration-300 text-sm uppercase tracking-[0.08em] hover-glow inline-block"
+                >
+                  {item.name}
+                </PageLink>
+              </Magnetic>
             ))}
           </div>
 
           {/* Hamburger (mobile/tablet) */}
-          <button
-            aria-label="Open Menu"
-            ref={topButtonRef}
-            onClick={() => setOpen(true)}
-            className="md:hidden text-white touch-glow"
-          >
-            <Menu size={28} strokeWidth={1.5} />
-          </button>
+          <Magnetic>
+            <button
+              aria-label="Open Menu"
+              ref={topButtonRef}
+              onClick={() => setOpen(true)}
+              className="md:hidden text-white touch-glow flex items-center justify-center p-2"
+            >
+              <Menu size={28} strokeWidth={1.5} />
+            </button>
+          </Magnetic>
         </div>
       </motion.nav>
 {/* HERO SCREEN LOGO */}
@@ -240,20 +244,23 @@ export default function Navbar() {
       )}
       {/* HERO MENU BUTTON */}
       {!showFixedNavbar && (
-        <motion.button
-          ref={heroButtonRef}
-          whileHover={{ scale: 1.1 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          onClick={() => setOpen(true)}
-          className="fixed top-7 right-7 z-50 text-white touch-glow"
-        >
-          <Menu
-            size={34}
-            strokeWidth={1.5}
-          />
-        </motion.button>
+        <div className="fixed top-7 right-7 z-50">
+          <Magnetic>
+            <motion.button
+              ref={heroButtonRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              onClick={() => setOpen(true)}
+              className="text-white hover:text-[#c8a96b] transition-colors p-2"
+            >
+              <Menu
+                size={34}
+                strokeWidth={1.5}
+              />
+            </motion.button>
+          </Magnetic>
+        </div>
       )}
 
       {/* MENU */}

@@ -80,7 +80,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="min-h-screen bg-[#050505] text-white px-4 md:px-12 py-20 md:py-24 relative overflow-hidden">
+    <section id="projects" className="min-h-screen bg-[#050505] text-white px-4 md:px-12 py-24 md:py-32 relative overflow-hidden">
       
       {/* Background Decorative Gradient */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -99,8 +99,8 @@ export default function ProjectsSection() {
             <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
               Portfolio
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-[1.1] tracking-tight">
-              Featured <span className="italic text-[#c8a96b] font-light">Projects</span>
+            <h2 className="text-fluid-h2 font-serif text-white">
+              Featured <span className="italic gold-gradient-text font-light">Projects</span>
             </h2>
           </motion.div>
 

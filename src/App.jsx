@@ -3,6 +3,8 @@ import { useEffect, useState, lazy, Suspense } from "react";
 import Loader from "./components/ui/Loader";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
+import SmoothScroll from "./components/ui/SmoothScroll";
+import CustomCursor from "./components/ui/CustomCursor";
 const Home = lazy(() => import("./pages/Home"));
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
@@ -37,7 +39,8 @@ export default function App() {
   }
 
   return (
-    <>
+    <SmoothScroll>
+      <CustomCursor />
       <ScrollToTop />
 
       <Suspense fallback={<Loader />}>
@@ -63,6 +66,6 @@ export default function App() {
       </Suspense>
 
       <WhatsappFloat />
-    </>
+    </SmoothScroll>
   );
 }
