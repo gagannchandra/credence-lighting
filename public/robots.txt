@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /404
+Disallow: /*404*
+Disallow: /api/
 
 Sitemap: https://credencelighting.com/sitemap.xml

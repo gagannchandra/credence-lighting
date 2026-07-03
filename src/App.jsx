@@ -1,112 +1,20 @@
-// // import { Routes, Route } from "react-router-dom";
-
-// // import Navbar from "./components/Navbar";
-// // import Hero from "./components/Hero";
-// // import AboutSection from "./components/AboutSection";
-// // import ProductsSection from "./components/ProductsSection";
-// // import ProjectsSection from "./components/ProjectsSection";
-// // import Downloads from "./pages/Downloads";
-// // import ProjectDetails from "./pages/ProjectDetails";
-// // import ContactSection from "./components/ContactSection";
-// // import BrandsSection from "./components/BrandsSection";
-// // import Footer from "./components/Footer";
-// // import GlobalPresence from "./components/GlobalPresence";
-
-// // function Home() {
-// //   return (
-// //     <>
-// //       <Navbar />
-// //       <Hero />
-// //       <AboutSection />
-// //       <ProductsSection />
-// //       <BrandsSection />
-// //       <GlobalPresence/>
-// //       <ProjectsSection />
-// //       <ContactSection />
-// //       <Footer />
-// //     </>
-// //   );
-// // }
-
-// // export default function App() {
-// //   return (
-// //     <Routes>
-// //       <Route path="/" element={<Home />} />
-
-// //       <Route
-// //         path="/project/:id"
-// //         element={<ProjectDetails />}
-// //       />
-// //       <Route
-// //   path="/downloads"
-// //   element={<Downloads />}
-// // />
-// //     </Routes>
-// //   );
-// // }
-// import { Routes, Route } from "react-router-dom";
-
-// import Home from "./pages/Home";
-// import Downloads from "./pages/Downloads";
-// import ProjectDetails from "./pages/ProjectDetails";
-// import ProductDetails from "./pages/ProductDetails";
-// import NotFound from "./pages/NotFound";
-// import Brands from "./pages/Brands";
-// import ScrollToTop from "./components/ScrollToTop";
-// import WhatsappFloat from "./components/ui/WhatsappFloat";
-
-// export default function App() {
-//   return (
-//        <>
-//       <ScrollToTop />
-//     <Routes>
-//       <Route path="/" element={<Home />} />
-
-//       <Route
-//         path="/project/:id"
-//         element={<ProjectDetails />}
-//       />
-
-//       <Route
-//         path="/product/:id"
-//         element={<ProductDetails />}
-//       />
-
-//       <Route
-//         path="/downloads"
-//         element={<Downloads />}
-//       />
-//       <Route
-//   path="/brands"
-//   element={<Brands />}
-// />
-
-//       <Route
-//         path="*"
-//         element={<NotFound />}
-//       />
-//     </Routes>
-//      <WhatsappFloat />
-//         </>
-//   );
-// }
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Loader from "./components/ui/Loader";
-import Home from "./pages/Home";
-import Downloads from "./pages/Downloads";
-import ProjectDetails from "./pages/ProjectDetails";
-import ProductDetails from "./pages/ProductDetails";
-import NotFound from "./pages/NotFound";
-import Brands from "./pages/Brands";
-import Gallery from "./pages/Gallery";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import Projects from "./pages/Projects";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
+const Home = lazy(() => import("./pages/Home"));
+const Downloads = lazy(() => import("./pages/Downloads"));
+const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const Brands = lazy(() => import("./pages/Brands"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const About = lazy(() => import("./pages/About"));
+const Products = lazy(() => import("./pages/Products"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Services = lazy(() => import("./pages/Services"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
@@ -146,7 +54,6 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           
-          {/* New Routes */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/faq" element={<Faq />} />

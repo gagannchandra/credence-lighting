@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import PageLink from "../ui/PageLink";
-import logo2 from "../../assets/images/logo2.png";
-import { scrollToSection } from "../../utils/scrollUtils";
+import logo2 from "../../assets/images/logo2.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -96,8 +95,6 @@ export default function Navbar() {
     };
   }, [isHomePage]);
 
-
-
   // HOVER OPEN
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -141,7 +138,7 @@ export default function Navbar() {
         "mousemove",
         handleMouseMove
       );
-  }, [allowHoverOpen, open]);
+  }, [allowHoverOpen, open, isLogoHovered]);
 
   // CLOSE MENU
   const closeMenu = () => {
@@ -165,8 +162,6 @@ export default function Navbar() {
     { name: "FAQ", to: "/faq" },
     { name: "Contact", to: "/contact" },
   ];
-
-  const desktopNavLinks = navItems;
 
   return (
     <>
@@ -204,7 +199,7 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {desktopNavLinks.map((item) => (
+            {navItems.map((item) => (
               <PageLink
                 key={item.name}
                 to={item.to}
@@ -217,6 +212,7 @@ export default function Navbar() {
 
           {/* Hamburger (mobile/tablet) */}
           <button
+            aria-label="Open Menu"
             ref={topButtonRef}
             onClick={() => setOpen(true)}
             className="md:hidden text-white touch-glow"
@@ -290,6 +286,7 @@ export default function Navbar() {
 
               {/* CLOSE */}
               <button
+                aria-label="Close Menu"
                 onClick={closeMenu}
                 className="absolute top-8 right-8 text-white z-20"
               >
@@ -356,7 +353,6 @@ export default function Navbar() {
 
               </div>
 
-              {/* FOOTER */}
               {/* FOOTER */}
 <motion.div
   initial={{ opacity: 0 }}

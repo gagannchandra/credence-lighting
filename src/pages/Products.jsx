@@ -3,6 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ProductsSection from "../components/home/ProductsSection";
 import { scrollToTop } from "../utils/scrollUtils";
+import SEO from "../components/seo/SEO";
 
 export default function Products() {
   useLayoutEffect(() => {
@@ -12,6 +13,7 @@ export default function Products() {
 
   return (
     <>
+      <SEO title="Products | Credence Lighting" description="Explore our catalog of premium lighting products and fixtures." />
       <Navbar />
       <div className="bg-black pt-10">
         <ProductsSection />

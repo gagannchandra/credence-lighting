@@ -8,6 +8,13 @@ export default function NotFound() {
     y: 50,
   });
 
+  const particles = [...Array(18)].map(() => ({
+    // eslint-disable-next-line react-hooks/purity
+    left: `${Math.random() * 100}%`,
+    // eslint-disable-next-line react-hooks/purity
+    top: `${Math.random() * 100}%`,
+  }));
+
   useEffect(() => {
     const moveLight = (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
@@ -38,7 +45,7 @@ export default function NotFound() {
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       {/* FLOATING PARTICLES */}
-      {[...Array(18)].map((_, i) => (
+      {particles.map((pos, i) => (
         <motion.div
           key={i}
           animate={{
@@ -50,10 +57,7 @@ export default function NotFound() {
             repeat: Infinity,
           }}
           className="absolute w-1 h-1 bg-[#c8a96b] rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
+          style={pos}
         />
       ))}
 

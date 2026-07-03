@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { ArrowLeft, Clock, Calendar, User, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import SEO from "../components/seo/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";

@@ -3,6 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
 import { scrollToSection } from "../utils/scrollUtils";
+import SEO from "../components/seo/SEO";
 
 import Hero from "../components/home/Hero";
 import AboutSection from "../components/home/AboutSection";
@@ -27,6 +28,7 @@ export default function Home() {
 
   return (
     <>
+      <SEO />
       <ReturnScrollHandler />
       <Navbar />
 

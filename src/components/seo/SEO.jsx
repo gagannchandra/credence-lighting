@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
 
 export default function SEO({
-  title = "Credence Lighting",
+  title = "Credence Lighting | Premium Architectural & Commercial Lighting",
   description = "Luxury Interior and Commercial Lighting Solutions.",
   name = "Credence Lighting",
   type = "website",
   url = "https://credencelighting.com", // Replace with real domain when live
-  image = "https://credencelighting.com/logo2.png", // Replace with real image url
+  image = "https://credencelighting.com/logo2.webp", // Replace with real image url
   schema = null,
 }) {
   return (

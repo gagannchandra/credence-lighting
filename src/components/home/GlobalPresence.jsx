@@ -57,8 +57,11 @@ export default function GlobalPresence() {
       globeMaterial.opacity = 0.9; // Hide the back dots slightly for depth
       globeMaterial.shininess = 1; 
 
-      // Clear default lighting
-      scene.children = scene.children.filter(obj => !(obj.isLight));
+      // Clear default lighting safely
+      if (scene && scene.children) {
+        const lights = scene.children.filter(obj => obj.isLight);
+        lights.forEach(light => scene.remove(light));
+      }
 
       // Studio Lighting
       const keyLight = new THREE.DirectionalLight('#D4AF37', 5); 

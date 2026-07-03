@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/images/logo2.png";
+import logo2 from "../../assets/images/logo2.webp";
 
 export default function Footer() {
   return (
@@ -130,7 +130,6 @@ export default function Footer() {
   <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
     {/* SOCIALS */}
-{/* SOCIALS */}
 <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
 
   <motion.a

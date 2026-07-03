@@ -15,7 +15,7 @@ const categoryDescriptions = {
   "Retail Lighting": "Dynamic retail lighting solutions designed to enhance product visibility and create an engaging shopping environment."
 };
 
-export default function ProjectsSection({ preview = false }) {
+export default function ProjectsSection() {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState("All");

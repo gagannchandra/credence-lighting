@@ -1,47 +1,48 @@
 import { useLayoutEffect } from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import SEO from "../components/seo/SEO";
 import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
 import { scrollToTop } from "../utils/scrollUtils";
 
 const brands = [
-  "/brands/al-othaim.png",
-  "/brands/fitness-first.png",
-  "/brands/fabyland.png",
-  "/brands/emaar.png",
-  "/brands/fun-city.png",
-  "/brands/gemo.png",
-  "/brands/ground-control.png",
-  "/brands/xtreme.png",
-  "/brands/flipped.png",
-  "/brands/funco.png",
-  "/brands/lpme.png",
-  "/brands/adventureland.png",
-  "/brands/jumble.png",
-  "/brands/orangeseeds.png",
-  "/brands/nike.png",
-  "/brands/cheeky-monkeys.png",
-  "/brands/accessories.png",
-  "/brands/columbia.png",
-  "/brands/candelite.png",
-  "/brands/timberland.png",
-  "/brands/ikea.png",
-  "/brands/dubai-properties.png",
-  "/brands/majid.png",
-  "/brands/hugo-boss.png",
-  "/brands/damac.png",
-  "/brands/good-health.png",
-  "/brands/vans.png",
-  "/brands/sandro.png",
-  "/brands/converse.png",
-  "/brands/maisons.png",
-  "/brands/sunnsand.png",
-  "/brands/temperly.png",
-  "/brands/gmg.png",
-  "/brands/naramilano.png",
-  "/brands/al-futtaim.png",
-  "/brands/zadig.png",
+  "/brands/al-othaim.webp",
+  "/brands/fitness-first.webp",
+  "/brands/fabyland.webp",
+  "/brands/emaar.webp",
+  "/brands/fun-city.webp",
+  "/brands/gemo.webp",
+  "/brands/ground-control.webp",
+  "/brands/xtreme.webp",
+  "/brands/flipped.webp",
+  "/brands/funco.webp",
+  "/brands/lpme.webp",
+  "/brands/adventureland.webp",
+  "/brands/jumble.webp",
+  "/brands/orangeseeds.webp",
+  "/brands/nike.webp",
+  "/brands/cheeky-monkeys.webp",
+  "/brands/accessories.webp",
+  "/brands/columbia.webp",
+  "/brands/candelite.webp",
+  "/brands/timberland.webp",
+  "/brands/ikea.webp",
+  "/brands/dubai-properties.webp",
+  "/brands/majid.webp",
+  "/brands/hugo-boss.webp",
+  "/brands/damac.webp",
+  "/brands/good-health.webp",
+  "/brands/vans.webp",
+  "/brands/sandro.webp",
+  "/brands/converse.webp",
+  "/brands/maisons.webp",
+  "/brands/sunnsand.webp",
+  "/brands/temperly.webp",
+  "/brands/gmg.webp",
+  "/brands/naramilano.webp",
+  "/brands/al-futtaim.webp",
+  "/brands/zadig.webp",
 ];
 
 export default function Brands() {
@@ -52,6 +53,7 @@ export default function Brands() {
 
   return (
     <>
+      <SEO title="Our Brands | Credence Lighting" description="View the premium lighting brands and partners we work with globally." />
       <Navbar />
       <BackButton />
 

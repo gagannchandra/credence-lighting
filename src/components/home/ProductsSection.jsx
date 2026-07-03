@@ -31,18 +31,21 @@ const categoryDescriptions = {
   Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
 };
 
-export default function ProductsSection({ preview = false }) {
+export default function ProductsSection() {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState(location.state?.selectedCategory || "All");
   const [activeProductIndex, setActiveProductIndex] = useState(0);
 
-  useEffect(() => {
+  const [prevLocationKey, setPrevLocationKey] = useState(location.key);
+
+  if (location.key !== prevLocationKey) {
+    setPrevLocationKey(location.key);
     if (location.state?.selectedCategory) {
       setActive(location.state.selectedCategory);
       setActiveProductIndex(0);
     }
-  }, [location.state?.selectedCategory]);
+  }
 
   const filteredProducts = active === "All" ? products.slice(0, 6) : products.filter((item) => item.category === active);
 
