@@ -93,16 +93,30 @@ export default function Footer() {
             </p>
 
             <div className="space-y-5 text-white/60">
-
-              <p>
-                Dubai Investment Park,
+              <a 
+                href="https://maps.app.goo.gl/ec2HMCDNXYtYviV7A" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:text-[#c8a96b] transition-colors duration-300"
+              >
+                <strong>Credence Lighting LLC</strong>
                 <br />
-                Dubai, UAE
-              </p>
+                Unit E77, Arabtec Eastern Model
+                <br />
+                <span className="text-white/40">(Near Al Ramla Supermarket)</span>
+                <br />
+                Dubai Investment Park 1
+                <br />
+                Dubai, United Arab Emirates
+              </a>
 
-              <p>info@credencelighting.com</p>
+              <a href="mailto:info@credencelighting.com" className="block hover:text-[#c8a96b] transition-colors duration-300">
+                info@credencelighting.com
+              </a>
 
-              <p>+971 564 965 660</p>
+              <a href="tel:+971564965660" className="block hover:text-[#c8a96b] transition-colors duration-300">
+                +971 564 965 660
+              </a>
 
             </div>
 

@@ -272,7 +272,9 @@ export default function ContactSection() {
                   </p>
 
                   <div className="space-y-2 text-xl text-white/80">
-                    <p>+971 564 965 660</p>
+                    <a href="tel:+971564965660" className="block hover:text-[#c8a96b] transition duration-300">
+                      +971 564 965 660
+                    </a>
                   </div>
                 </div>
 
@@ -290,14 +292,22 @@ export default function ContactSection() {
                   <p className="text-white/30 uppercase tracking-[0.25em] text-xs mb-4">
                     Location
                   </p>
-
-                  <p className="text-white/70 leading-8">
-                    Arabtec Eastern Model,
+                  <a 
+                    href="https://maps.app.goo.gl/ec2HMCDNXYtYviV7A" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block text-white/70 leading-8 hover:text-[#c8a96b] transition-colors duration-300"
+                  >
+                    <strong className="text-white">Credence Lighting LLC</strong>
                     <br />
-                    Dubai Investment Park,
+                    Unit E77, Arabtec Eastern Model
                     <br />
-                    Dubai, UAE
-                  </p>
+                    <span className="text-white/40">(Near Al Ramla Supermarket)</span>
+                    <br />
+                    Dubai Investment Park 1
+                    <br />
+                    Dubai, United Arab Emirates
+                  </a>
                 </div>
 
               </div>
