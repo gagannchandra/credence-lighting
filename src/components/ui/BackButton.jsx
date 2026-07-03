@@ -1,29 +1,40 @@
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   getReturnState,
+  clearReturnState,
   markPendingReturnScroll,
 } from "../../utils/navigationState";
 
-export default function BackButton() {
+export default function BackButton({ fallback }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleBack = () => {
     const returnState = getReturnState();
 
     if (returnState?.pathname) {
       markPendingReturnScroll();
+      clearReturnState(); // Clear the state so it doesn't contaminate future back clicks
       navigate(returnState.pathname);
       return;
     }
 
-    if (window.history.length > 1) {
+    // location.key is "default" on the very first page load of a tab.
+    // If it's not default, we have internal app history to go back to.
+    if (location.key !== "default") {
       navigate(-1);
       return;
     }
 
-    navigate("/gallery");
+    // If we landed directly on this page (no history), determine a smart fallback
+    let defaultFallback = "/";
+    if (location.pathname.startsWith("/product")) defaultFallback = "/products";
+    else if (location.pathname.startsWith("/project")) defaultFallback = "/projects";
+    else if (location.pathname.startsWith("/blog")) defaultFallback = "/blog";
+
+    navigate(fallback || defaultFallback);
   };
 
   return (
