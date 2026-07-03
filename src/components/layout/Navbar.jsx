@@ -161,6 +161,8 @@ export default function Navbar() {
     { name: "Brands", to: "/brands" },
     { name: "Products", to: "/products" },
     { name: "Projects", to: "/projects" },
+    { name: "Blog", to: "/blog" },
+    { name: "FAQ", to: "/faq" },
     { name: "Contact", to: "/contact" },
   ];
 

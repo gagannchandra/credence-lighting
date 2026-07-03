@@ -7,13 +7,17 @@ import "./index.css";
 import "./styles/globals.css";
 import "./styles/animations.css";
 
+import { HelmetProvider } from "react-helmet-async";
+
 // DISABLE BROWSER SCROLL MEMORY
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </HelmetProvider>
 );

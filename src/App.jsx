@@ -91,7 +91,7 @@
 //   );
 // }
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import Loader from "./components/ui/Loader";
 import Home from "./pages/Home";
 import Downloads from "./pages/Downloads";
@@ -108,61 +108,52 @@ import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
 
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+const Faq = lazy(() => import("./pages/Faq"));
+
 export default function App() {
   const location = useLocation();
-const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 2500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-if (loading) {
-  return <Loader />;
-}
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <ScrollToTop />
 
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
+      <Suspense fallback={<Loader />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/downloads" element={<Downloads />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/contact" element={<Contact />} />
+          
+          {/* New Routes */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+          <Route path="/faq" element={<Faq />} />
 
-        <Route
-          path="/project/:id"
-          element={<ProjectDetails />}
-        />
-
-        <Route
-          path="/product/:id"
-          element={<ProductDetails />}
-        />
-
-        
-
-        <Route path="/downloads" element={<Downloads />} />
-
-        <Route path="/gallery" element={<Gallery />} />
-
-        <Route path="/brands" element={<Brands />} />
-
-        <Route path="/about" element={<About />} />
-        
-        <Route path="/products" element={<Products />} />
-        
-        <Route path="/projects" element={<Projects />} />
-        
-        <Route path="/services" element={<Services />} />
-        
-        <Route path="/contact" element={<Contact />} />
-
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
 
       <WhatsappFloat />
     </>

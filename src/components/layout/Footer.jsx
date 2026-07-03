@@ -69,6 +69,14 @@ export default function Footer() {
                 Projects
               </Link>
 
+              <Link to="/blog" className="block hover:text-white transition duration-300 touch-glow">
+                Blog
+              </Link>
+
+              <Link to="/faq" className="block hover:text-white transition duration-300 touch-glow">
+                FAQ
+              </Link>
+
               <Link to="/#contact" className="block hover:text-white transition duration-300 touch-glow">
                 Contact
               </Link>
