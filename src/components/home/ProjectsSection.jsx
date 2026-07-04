@@ -223,7 +223,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                     onClick={() => {
                       if (isCenter) {
                         saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                        navigate(`/project/${item.slug}`);
+                        navigate(`/projects/${item.slug}`);
                       }
                       if (isLeft) handlePrev();
                       if (isRight) handleNext();
@@ -266,7 +266,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                             onClick={(e) => { 
                               e.stopPropagation(); 
                               saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                              navigate(`/project/${item.slug}`); 
+                              navigate(`/projects/${item.slug}`); 
                             }}
                           >
                           </div>
@@ -293,7 +293,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                             <div className="mt-6 pointer-events-auto inline-block">
                                 <button onClick={() => {
                                   saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                                  navigate(`/project/${item.slug}`);
+                                  navigate(`/projects/${item.slug}`);
                                 }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
                                   View Project Details
                                 </button>

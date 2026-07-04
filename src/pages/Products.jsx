@@ -36,7 +36,10 @@ export default function Products() {
 
   return (
     <PageTransition>
-      <SEO title="Products | Credence Lighting" description="Explore our catalog of premium lighting products and fixtures." />
+      <SEO 
+        title="Premium Lighting Collections | Indoor, Outdoor & Facade Lighting" 
+        description="Browse our exclusive collections of high-end lighting products. From luxury chandeliers to advanced architectural LEDs, discover the perfect luminaire for your project." 
+      />
       <Navbar />
 
       <div className="relative min-h-screen bg-black overflow-hidden pt-32 pb-10">
@@ -71,7 +74,7 @@ export default function Products() {
                     </div>
                     <div className="flex items-center gap-4">
                       <Link 
-                        to={`/collection/${slugify(category)}`}
+                        to={`/products/${slugify(category)}`}
                         onClick={() => scrollToTop()}
                         className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                       >
@@ -106,7 +109,7 @@ export default function Products() {
                 
                 <div className="mt-8 flex flex-col sm:flex-row justify-center md:hidden w-full gap-4">
                   <Link 
-                    to={`/collection/${slugify(category)}`}
+                    to={`/products/${slugify(category)}`}
                     onClick={() => scrollToTop()}
                     className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                   >

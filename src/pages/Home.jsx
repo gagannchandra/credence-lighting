@@ -29,7 +29,35 @@ export default function Home() {
 
   return (
     <PageTransition>
-      <SEO />
+      <SEO 
+        title="Credence Lighting | Premium Architectural & Commercial Lighting"
+        description="Credence Lighting provides bespoke architectural, commercial, and residential luxury lighting solutions. Elevate your spaces with premium craftsmanship."
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Credence Lighting",
+            "url": "https://credencelighting.com",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://credencelighting.com/products?search={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Credence Lighting",
+            "url": "https://credencelighting.com",
+            "logo": "https://credencelighting.com/logo2.webp",
+            "sameAs": [
+              "https://www.facebook.com/credencelighting",
+              "https://www.instagram.com/credencelighting",
+              "https://www.linkedin.com/company/credencelighting"
+            ]
+          }
+        ]}
+      />
       <ReturnScrollHandler />
       <Navbar />
 

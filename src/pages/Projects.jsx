@@ -30,7 +30,10 @@ export default function Projects() {
 
   return (
     <PageTransition>
-      <SEO title="Projects | Credence Lighting" description="View our portfolio of successful architectural lighting projects." />
+      <SEO 
+        title="Luxury Lighting Projects | Commercial & Residential Portfolio" 
+        description="Explore Credence Lighting's portfolio of premium architectural and commercial lighting projects. See how our bespoke lighting solutions transform elite spaces." 
+      />
       <Navbar />
       
       <div className="relative min-h-screen bg-black overflow-hidden pt-32 pb-10">
@@ -63,7 +66,7 @@ export default function Projects() {
                   </div>
                   <div className="flex items-center gap-4">
                     <Link 
-                      to={`/project/${project.slug}`}
+                      to={`/projects/${project.slug}`}
                       onClick={() => scrollToTop()}
                       className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                     >
@@ -102,7 +105,7 @@ export default function Projects() {
               
               <div className="mt-8 flex flex-col sm:flex-row justify-center md:hidden w-full gap-4">
                 <Link 
-                  to={`/project/${project.slug}`}
+                  to={`/projects/${project.slug}`}
                   onClick={() => scrollToTop()}
                   className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                 >

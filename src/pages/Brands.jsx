@@ -54,7 +54,10 @@ export default function Brands() {
 
   return (
     <PageTransition>
-      <SEO title="Our Brands | Credence Lighting" description="View the premium lighting brands and partners we work with globally." />
+      <SEO 
+        title="Global Brand Partners | Credence Lighting Collaborations" 
+        description="Credence Lighting partners with internationally recognized brands, hospitality groups, and architectural innovators across the globe." 
+      />
       <Navbar />
       <BackButton />
 

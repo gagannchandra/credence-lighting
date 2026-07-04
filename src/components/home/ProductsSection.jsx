@@ -252,7 +252,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                     onClick={() => {
                       if (isCenter) {
                         saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
-                        navigate(`/collection/${slugify(item.category)}`);
+                        navigate(`/products/${slugify(item.category)}`);
                       }
                       if (isLeft) handlePrev();
                       if (isRight) handleNext();
@@ -306,7 +306,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                                 <button onClick={(e) => {
                                   e.stopPropagation();
                                   saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
-                                  navigate(`/collection/${slugify(item.category)}`);
+                                  navigate(`/products/${slugify(item.category)}`);
                                 }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
                                   View Collection Details
                                 </button>

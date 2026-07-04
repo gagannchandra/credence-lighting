@@ -27,7 +27,10 @@ export default function Gallery() {
 
   return (
     <PageTransition>
-      <SEO title="Gallery | Credence Lighting" description="Browse our photo gallery of stunning lighting designs and installations." />
+      <SEO 
+        title="Lighting Design Gallery | Credence Lighting" 
+        description="Browse our photo gallery of stunning luxury lighting designs, custom luminaires, and architectural lighting installations." 
+      />
       <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />
       <div className="max-w-7xl mx-auto">

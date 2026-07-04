@@ -15,7 +15,10 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <SEO title="Contact Us | Credence Lighting" description="Get in touch with our team for your next commercial lighting project." />
+      <SEO 
+        title="Contact Credence Lighting | Luxury Lighting Consultants" 
+        description="Get in touch with Credence Lighting for bespoke architectural and commercial lighting solutions. Book a consultation with our expert lighting designers." 
+      />
       <Navbar />
       <div className="bg-black pt-10">
         <ContactSection />

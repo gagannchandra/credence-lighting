@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
 import projects from "../data/projects";
+import SEO from "../components/seo/SEO";
 
 export default function ProjectDetails() {
   const { slug } = useParams();
@@ -15,7 +16,7 @@ export default function ProjectDetails() {
       const oldId = Number(slug);
       const oldProject = projects.find((item) => item.id === oldId);
       if (oldProject) {
-        navigate(`/project/${oldProject.slug}`, { replace: true });
+        navigate(`/projects/${oldProject.slug}`, { replace: true });
       }
     }
   }, [slug, navigate]);
@@ -91,6 +92,11 @@ export default function ProjectDetails() {
 
   return (
     <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+      <SEO 
+        title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
+        description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
+        image={project.hero}
+      />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
@@ -245,7 +251,7 @@ export default function ProjectDetails() {
           <button
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/project/${previousProject.slug}`);
+              navigate(`/projects/${previousProject.slug}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous project"
@@ -257,7 +263,7 @@ export default function ProjectDetails() {
           <button
              onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/project/${nextProject.slug}`);
+              navigate(`/projects/${nextProject.slug}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next project"

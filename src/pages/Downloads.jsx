@@ -2,6 +2,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import BackButton from "../components/ui/BackButton";
 import PageTransition from "../components/ui/motion/PageTransition";
+import SEO from "../components/seo/SEO";
 
 const resources = [
   {
@@ -34,6 +35,10 @@ export default function Downloads() {
   return (
     <PageTransition>
       <div className="bg-black text-white min-h-screen">
+        <SEO 
+          title="Downloads & Resources | Credence Lighting" 
+          description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
+        />
         <Navbar />
       <BackButton />
 

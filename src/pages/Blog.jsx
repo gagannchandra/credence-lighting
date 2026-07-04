@@ -43,8 +43,8 @@ export default function Blog() {
     <PageTransition>
       <div className="bg-[#050505] min-h-screen">
         <SEO 
-        title="Lighting Design Blog & Insights | Credence Lighting" 
-        description="Explore the latest trends, tips, and insights in architectural, commercial, and residential lighting design."
+        title="Luxury Lighting Design Blog & Insights | Credence Lighting" 
+        description="Explore expert insights, architectural lighting trends, and inspiration from Credence Lighting's premium design team."
       />
       
       <Navbar />

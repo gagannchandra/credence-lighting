@@ -135,8 +135,8 @@ export default function Faq() {
     <PageTransition>
       <div className="bg-[#050505] min-h-screen">
         <SEO 
-        title="Frequently Asked Questions | Credence Lighting" 
-        description="Find answers to common questions about our lighting services, products, installation, and design consultations."
+        title="FAQ | Premium Architectural Lighting Solutions | Credence Lighting" 
+        description="Find answers to common questions regarding our luxury lighting services, product specifications, custom design, and global project installations."
         schema={faqSchema}
       />
       

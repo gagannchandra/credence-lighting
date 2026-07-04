@@ -117,7 +117,7 @@ export default function CategoryCarousel({ items, isProduct = false, isSplitLayo
                   {!isProduct && !hideLinkOverlay && (
                     <div className="absolute bottom-8 left-0 right-0 flex justify-center z-20 pointer-events-auto">
                       <Link 
-                        to={`/project/${item.slug}`} 
+                        to={`/projects/${item.slug}`} 
                         className="bg-black/30 backdrop-blur-md border border-white/20 text-white px-8 py-3 rounded-full text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-colors shadow-2xl"
                       >
                         View Project Details

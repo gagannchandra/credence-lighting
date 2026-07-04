@@ -5,6 +5,7 @@ import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
 import products from "../data/products";
 import { slugify } from "../utils/routeUtils";
+import SEO from "../components/seo/SEO";
 
 const categoriesList = [
   "Indoor",
@@ -105,6 +106,11 @@ export default function ProductDetails() {
 
   return (
     <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+      <SEO 
+        title={`${matchedCategory} Lighting Collection | Credence Lighting`}
+        description={`Explore our premium ${matchedCategory.toLowerCase()} lighting collection. Discover luxury ${sampleProduct.title.toLowerCase()}s engineered for uncompromised performance and aesthetic excellence.`}
+        image={sampleProduct.image}
+      />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
@@ -237,7 +243,7 @@ export default function ProductDetails() {
           <button
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/collection/${slugify(previousCategory)}`);
+              navigate(`/products/${slugify(previousCategory)}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous collection"
@@ -249,7 +255,7 @@ export default function ProductDetails() {
           <button
              onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/collection/${slugify(nextCategory)}`);
+              navigate(`/products/${slugify(nextCategory)}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next collection"

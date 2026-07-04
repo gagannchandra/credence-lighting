@@ -15,7 +15,10 @@ export default function About() {
 
   return (
     <PageTransition>
-      <SEO title="About Us | Credence Lighting" description="Learn more about Credence Lighting and our premium architectural lighting solutions." />
+      <SEO 
+        title="About Credence Lighting | Premium Lighting Manufacturers & Designers" 
+        description="Discover the legacy of Credence Lighting. We are pioneers in bespoke architectural, commercial, and residential luxury lighting, merging innovation with timeless craftsmanship." 
+      />
       <Navbar />
       <div className="relative bg-black pt-10 pb-20 overflow-hidden">
         {/* SHARED BACKGROUND GLOW */}
