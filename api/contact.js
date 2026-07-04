@@ -1,8 +1,44 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let resend = null;
+if (process.env.RESEND_API_KEY) {
+  resend = new Resend(process.env.RESEND_API_KEY);
+}
+
+const rateLimitMap = new Map();
 
 export default async function handler(req, res) {
+  if (!resend) {
+    return res.status(500).json({
+      success: false,
+      message: "Email service is not configured (missing API key).",
+    });
+  }
+
+  // Rate Limiting Logic (In-Memory per instance)
+  const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress || "unknown";
+  const now = Date.now();
+  const windowMs = 60 * 60 * 1000; // 1 hour
+  
+  if (!rateLimitMap.has(ip)) {
+    rateLimitMap.set(ip, { count: 1, firstRequest: now });
+  } else {
+    const data = rateLimitMap.get(ip);
+    if (now - data.firstRequest > windowMs) {
+      // Reset window
+      rateLimitMap.set(ip, { count: 1, firstRequest: now });
+    } else {
+      data.count += 1;
+      if (data.count > 3) {
+        return res.status(429).json({
+          success: false,
+          message: "Too many requests. Please try again later.",
+        });
+      }
+      rateLimitMap.set(ip, data);
+    }
+  }
+
   if (req.method !== "POST") {
     return res.status(405).json({
       success: false,

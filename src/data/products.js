@@ -1,118 +1,118 @@
 
 // Indoor Images
-import Indoor1 from "../assets/images/indoor/1.png";
-import Indoor2 from "../assets/images/indoor/2.png";
-import Indoor3 from "../assets/images/indoor/3.png";
-import Indoor4 from "../assets/images/indoor/4.png";
-import Indoor5 from "../assets/images/indoor/5.png";
-import Indoor6 from "../assets/images/indoor/6.png";
-import Indoor7 from "../assets/images/indoor/7.png";
+import Indoor1 from "../assets/images/indoor/1.webp";
+import Indoor2 from "../assets/images/indoor/2.webp";
+import Indoor3 from "../assets/images/indoor/3.webp";
+import Indoor4 from "../assets/images/indoor/4.webp";
+import Indoor5 from "../assets/images/indoor/5.webp";
+import Indoor6 from "../assets/images/indoor/6.webp";
+import Indoor7 from "../assets/images/indoor/7.webp";
 
 // Outdoor Images
-import Outdoor1 from "../assets/images/outdoor/1.png";
-import Outdoor2 from "../assets/images/outdoor/2.png";
-import Outdoor3 from "../assets/images/outdoor/3.png";
-import Outdoor4 from "../assets/images/outdoor/4.png";
-import Outdoor5 from "../assets/images/outdoor/5.png";
-import Outdoor6 from "../assets/images/outdoor/6.png";
-import Outdoor7 from "../assets/images/outdoor/7.png";
-import Outdoor8 from "../assets/images/outdoor/8.png";
+import Outdoor1 from "../assets/images/outdoor/1.webp";
+import Outdoor2 from "../assets/images/outdoor/2.webp";
+import Outdoor3 from "../assets/images/outdoor/3.webp";
+import Outdoor4 from "../assets/images/outdoor/4.webp";
+import Outdoor5 from "../assets/images/outdoor/5.webp";
+import Outdoor6 from "../assets/images/outdoor/6.webp";
+import Outdoor7 from "../assets/images/outdoor/7.webp";
+import Outdoor8 from "../assets/images/outdoor/8.webp";
 
 // Hospitality Images
-import Hospitality1 from "../assets/images/hospitality/1.png";
-import Hospitality2 from "../assets/images/hospitality/10.jpeg";
-import Hospitality3 from "../assets/images/hospitality/2.png";
-import Hospitality4 from "../assets/images/hospitality/3.png";
-import Hospitality5 from "../assets/images/hospitality/4.png";
-import Hospitality6 from "../assets/images/hospitality/5.png";
-import Hospitality7 from "../assets/images/hospitality/6.jpeg";
-import Hospitality8 from "../assets/images/hospitality/7.jpeg";
-import Hospitality9 from "../assets/images/hospitality/8.jpeg";
-import Hospitality10 from "../assets/images/hospitality/9.jpeg";
+import Hospitality1 from "../assets/images/hospitality/1.webp";
+import Hospitality2 from "../assets/images/hospitality/10.webp";
+import Hospitality3 from "../assets/images/hospitality/2.webp";
+import Hospitality4 from "../assets/images/hospitality/3.webp";
+import Hospitality5 from "../assets/images/hospitality/4.webp";
+import Hospitality6 from "../assets/images/hospitality/5.webp";
+import Hospitality7 from "../assets/images/hospitality/6.webp";
+import Hospitality8 from "../assets/images/hospitality/7.webp";
+import Hospitality9 from "../assets/images/hospitality/8.webp";
+import Hospitality10 from "../assets/images/hospitality/9.webp";
 
 // Facade Images
-import Facade1 from "../assets/images/facade/1.png";
-import Facade2 from "../assets/images/facade/10.jpeg";
-import Facade3 from "../assets/images/facade/11.jpeg";
-import Facade4 from "../assets/images/facade/12.jpeg";
-import Facade5 from "../assets/images/facade/2.png";
-import Facade6 from "../assets/images/facade/3.jpeg";
-import Facade7 from "../assets/images/facade/4.jpeg";
-import Facade8 from "../assets/images/facade/5.jpeg";
-import Facade9 from "../assets/images/facade/6.jpeg";
-import Facade10 from "../assets/images/facade/7.jpeg";
-import Facade11 from "../assets/images/facade/8.jpeg";
-import Facade12 from "../assets/images/facade/9.jpeg";
+import Facade1 from "../assets/images/facade/1.webp";
+import Facade2 from "../assets/images/facade/10.webp";
+import Facade3 from "../assets/images/facade/11.webp";
+import Facade4 from "../assets/images/facade/12.webp";
+import Facade5 from "../assets/images/facade/2.webp";
+import Facade6 from "../assets/images/facade/3.webp";
+import Facade7 from "../assets/images/facade/4.webp";
+import Facade8 from "../assets/images/facade/5.webp";
+import Facade9 from "../assets/images/facade/6.webp";
+import Facade10 from "../assets/images/facade/7.webp";
+import Facade11 from "../assets/images/facade/8.webp";
+import Facade12 from "../assets/images/facade/9.webp";
 
 // Entertainment Images
-import Entertainment1 from "../assets/images/entertainment/1.png";
-import Entertainment2 from "../assets/images/entertainment/10.jpeg";
-import Entertainment3 from "../assets/images/entertainment/11.jpeg";
-import Entertainment4 from "../assets/images/entertainment/12.jpeg";
-import Entertainment5 from "../assets/images/entertainment/13.jpeg";
-import Entertainment6 from "../assets/images/entertainment/14.jpeg";
-import Entertainment7 from "../assets/images/entertainment/2.jpeg";
-import Entertainment8 from "../assets/images/entertainment/3.jpeg";
-import Entertainment9 from "../assets/images/entertainment/4.jpeg";
-import Entertainment10 from "../assets/images/entertainment/5.jpeg";
-import Entertainment11 from "../assets/images/entertainment/6.jpeg";
-import Entertainment12 from "../assets/images/entertainment/7.jpeg";
-import Entertainment13 from "../assets/images/entertainment/8.jpeg";
-import Entertainment14 from "../assets/images/entertainment/9.jpeg";
+import Entertainment1 from "../assets/images/entertainment/1.webp";
+import Entertainment2 from "../assets/images/entertainment/10.webp";
+import Entertainment3 from "../assets/images/entertainment/11.webp";
+import Entertainment4 from "../assets/images/entertainment/12.webp";
+import Entertainment5 from "../assets/images/entertainment/13.webp";
+import Entertainment6 from "../assets/images/entertainment/14.webp";
+import Entertainment7 from "../assets/images/entertainment/2.webp";
+import Entertainment8 from "../assets/images/entertainment/3.webp";
+import Entertainment9 from "../assets/images/entertainment/4.webp";
+import Entertainment10 from "../assets/images/entertainment/5.webp";
+import Entertainment11 from "../assets/images/entertainment/6.webp";
+import Entertainment12 from "../assets/images/entertainment/7.webp";
+import Entertainment13 from "../assets/images/entertainment/8.webp";
+import Entertainment14 from "../assets/images/entertainment/9.webp";
 
 // LED Screen Images
-import LEDScreen1 from "../assets/images/led-screen/1.png";
-import LEDScreen2 from "../assets/images/led-screen/2.png";
-import LEDScreen3 from "../assets/images/led-screen/3.png";
-import LEDScreen4 from "../assets/images/led-screen/4.png";
-import LEDScreen5 from "../assets/images/led-screen/5.png";
-import LEDScreen6 from "../assets/images/led-screen/6.jpeg";
-import LEDScreen7 from "../assets/images/led-screen/7.jpeg";
-import LEDScreen8 from "../assets/images/led-screen/8.jpeg";
+import LEDScreen1 from "../assets/images/led-screen/1.webp";
+import LEDScreen2 from "../assets/images/led-screen/2.webp";
+import LEDScreen3 from "../assets/images/led-screen/3.webp";
+import LEDScreen4 from "../assets/images/led-screen/4.webp";
+import LEDScreen5 from "../assets/images/led-screen/5.webp";
+import LEDScreen6 from "../assets/images/led-screen/6.webp";
+import LEDScreen7 from "../assets/images/led-screen/7.webp";
+import LEDScreen8 from "../assets/images/led-screen/8.webp";
 
 // Strech Ceiling Images
-import StrechCeiling1 from "../assets/images/strech-ceiling/20C9BA80-EAC4-4F42-B725-D901580BB9B7.png";
-import StrechCeiling2 from "../assets/images/strech-ceiling/4E0995DA-5A01-4BAE-BCAF-4F3896703E59.png";
-import StrechCeiling3 from "../assets/images/strech-ceiling/B04744AD-C9D2-4D78-9D3C-73F53D2F53C1.png";
-import StrechCeiling4 from "../assets/images/strech-ceiling/CE7BEAC8-AC08-416D-9FC1-879A3FE491F7.png";
-import StrechCeiling5 from "../assets/images/strech-ceiling/IMG_0124.jpeg";
-import StrechCeiling6 from "../assets/images/strech-ceiling/IMG_0126.jpeg";
-import StrechCeiling7 from "../assets/images/strech-ceiling/IMG_0127.jpeg";
+import StrechCeiling1 from "../assets/images/strech-ceiling/20C9BA80-EAC4-4F42-B725-D901580BB9B7.webp";
+import StrechCeiling2 from "../assets/images/strech-ceiling/4E0995DA-5A01-4BAE-BCAF-4F3896703E59.webp";
+import StrechCeiling3 from "../assets/images/strech-ceiling/B04744AD-C9D2-4D78-9D3C-73F53D2F53C1.webp";
+import StrechCeiling4 from "../assets/images/strech-ceiling/CE7BEAC8-AC08-416D-9FC1-879A3FE491F7.webp";
+import StrechCeiling5 from "../assets/images/strech-ceiling/IMG_0124.webp";
+import StrechCeiling6 from "../assets/images/strech-ceiling/IMG_0126.webp";
+import StrechCeiling7 from "../assets/images/strech-ceiling/IMG_0127.webp";
 
 // Automation Images
-import Automation1 from "../assets/images/Home Automation/1.jpeg";
-import Automation2 from "../assets/images/Home Automation/10.jpeg";
-import Automation3 from "../assets/images/Home Automation/2.jpeg";
-import Automation4 from "../assets/images/Home Automation/3.jpeg";
-import Automation5 from "../assets/images/Home Automation/4.jpeg";
-import Automation6 from "../assets/images/Home Automation/5.jpeg";
-import Automation7 from "../assets/images/Home Automation/6.jpeg";
-import Automation8 from "../assets/images/Home Automation/7.jpeg";
-import Automation9 from "../assets/images/Home Automation/8.jpeg";
-import Automation10 from "../assets/images/Home Automation/9.jpeg";
+import Automation1 from "../assets/images/Home Automation/1.webp";
+import Automation2 from "../assets/images/Home Automation/10.webp";
+import Automation3 from "../assets/images/Home Automation/2.webp";
+import Automation4 from "../assets/images/Home Automation/3.webp";
+import Automation5 from "../assets/images/Home Automation/4.webp";
+import Automation6 from "../assets/images/Home Automation/5.webp";
+import Automation7 from "../assets/images/Home Automation/6.webp";
+import Automation8 from "../assets/images/Home Automation/7.webp";
+import Automation9 from "../assets/images/Home Automation/8.webp";
+import Automation10 from "../assets/images/Home Automation/9.webp";
 
 // Retail Images
-import Retail1 from "../assets/images/Retail Lighting/1.png";
-import Retail2 from "../assets/images/Retail Lighting/2.jpeg";
-import Retail3 from "../assets/images/Retail Lighting/3.jpeg";
-import Retail4 from "../assets/images/Retail Lighting/4.jpeg";
-import Retail5 from "../assets/images/Retail Lighting/5.jpeg";
-import Retail6 from "../assets/images/Retail Lighting/6.jpeg";
-import Retail7 from "../assets/images/Retail Lighting/7.jpeg";
+import Retail1 from "../assets/images/Retail Lighting/1.webp";
+import Retail2 from "../assets/images/Retail Lighting/2.webp";
+import Retail3 from "../assets/images/Retail Lighting/3.webp";
+import Retail4 from "../assets/images/Retail Lighting/4.webp";
+import Retail5 from "../assets/images/Retail Lighting/5.webp";
+import Retail6 from "../assets/images/Retail Lighting/6.webp";
+import Retail7 from "../assets/images/Retail Lighting/7.webp";
 
 // Sound Images
-import Sound1 from "../assets/images/sound/1.jpeg";
-import Sound2 from "../assets/images/sound/10.jpeg";
-import Sound3 from "../assets/images/sound/11.jpeg";
-import Sound4 from "../assets/images/sound/12.jpeg";
-import Sound5 from "../assets/images/sound/2.jpeg";
-import Sound6 from "../assets/images/sound/3.jpeg";
-import Sound7 from "../assets/images/sound/4.jpeg";
-import Sound8 from "../assets/images/sound/5.jpeg";
-import Sound9 from "../assets/images/sound/6.jpeg";
-import Sound10 from "../assets/images/sound/7.jpeg";
-import Sound11 from "../assets/images/sound/8.jpeg";
-import Sound12 from "../assets/images/sound/9.jpeg";
+import Sound1 from "../assets/images/sound/1.webp";
+import Sound2 from "../assets/images/sound/10.webp";
+import Sound3 from "../assets/images/sound/11.webp";
+import Sound4 from "../assets/images/sound/12.webp";
+import Sound5 from "../assets/images/sound/2.webp";
+import Sound6 from "../assets/images/sound/3.webp";
+import Sound7 from "../assets/images/sound/4.webp";
+import Sound8 from "../assets/images/sound/5.webp";
+import Sound9 from "../assets/images/sound/6.webp";
+import Sound10 from "../assets/images/sound/7.webp";
+import Sound11 from "../assets/images/sound/8.webp";
+import Sound12 from "../assets/images/sound/9.webp";
 
 const products = [
   // Indoor

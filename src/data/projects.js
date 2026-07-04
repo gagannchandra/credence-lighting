@@ -1,26 +1,27 @@
-import mytown140 from "../assets/images/mytown/140.png";
-import mytown141 from "../assets/images/mytown/141.jpg";
-import mytown145 from "../assets/images/mytown/145.jpg";
-import mytown146 from "../assets/images/mytown/146.jpg";
-import mytown148 from "../assets/images/mytown/148.jpg";
+import mytown140 from "../assets/images/mytown/140.webp";
+import mytown141 from "../assets/images/mytown/141.webp";
+import mytown145 from "../assets/images/mytown/145.webp";
+import mytown146 from "../assets/images/mytown/146.webp";
+import mytown148 from "../assets/images/mytown/148.webp";
 
-import gc154 from "../assets/images/ground-control/154.jpg";
-import gc155 from "../assets/images/ground-control/155.jpg";
+import gc154 from "../assets/images/ground-control/154.webp";
+import gc155 from "../assets/images/ground-control/155.webp";
 
-import funtura134 from "../assets/images/Funtura/134.jpg";
-import funtura135 from "../assets/images/Funtura/135.jpg";
+import funtura134 from "../assets/images/Funtura/134.webp";
+import funtura135 from "../assets/images/Funtura/135.webp";
 
-import xtreme136 from "../assets/images/xtremezone/136.jpg";
-import xtreme137 from "../assets/images/xtremezone/137.jpg";
+import xtreme136 from "../assets/images/xtremezone/136.webp";
+import xtreme137 from "../assets/images/xtremezone/137.webp";
 
-import xtremez144 from "../assets/images/xtremez/144.jpg";
+import xtremez144 from "../assets/images/xtremez/144.webp";
 
-import smarvy150 from "../assets/images/Smarvy Spot/150.jpg";
-import smarvy151 from "../assets/images/Smarvy Spot/151.jpg";
+import smarvy150 from "../assets/images/Smarvy Spot/150.webp";
+import smarvy151 from "../assets/images/Smarvy Spot/151.webp";
 
 const projects = [
   {
     id: 1,
+    slug: "my-town",
     name: "My Town",
     location: "Multiple Locations, Saudi Arabia",
     year: "2024",
@@ -32,6 +33,7 @@ const projects = [
 
   {
     id: 2,
+    slug: "ground-control",
     name: "Ground Control",
     location: "Galleria Mall, Bahrain",
     year: "2024",
@@ -43,6 +45,7 @@ const projects = [
 
   {
     id: 3,
+    slug: "funtura",
     name: "Funtura",
     location: "Al Atyaf Mall, Riyadh",
     year: "2024",
@@ -54,6 +57,7 @@ const projects = [
 
   {
     id: 4,
+    slug: "xtreme-zone",
     name: "Xtreme Zone",
     location: "Al Shifa, Dammam, Saudi Arabia",
     year: "2024",
@@ -65,6 +69,7 @@ const projects = [
 
   {
     id: 5,
+    slug: "xtreme-z",
     name: "Xtreme Z",
     location: "Riyadh, Saudi Arabia",
     year: "2024",
@@ -76,6 +81,7 @@ const projects = [
 
   {
     id: 6,
+    slug: "smarvy-spot",
     name: "Smarvy Spot",
     location: "Alamer Mall, Al-Ahsa, Saudi Arabia",
     year: "2024",

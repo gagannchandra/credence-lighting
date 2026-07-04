@@ -1,14 +1,24 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function NotFound() {
+  const shouldReduceMotion = useReducedMotion();
   const [position, setPosition] = useState({
     x: 50,
     y: 50,
   });
 
+  const particles = [...Array(18)].map(() => ({
+    // eslint-disable-next-line react-hooks/purity
+    left: `${Math.random() * 100}%`,
+    // eslint-disable-next-line react-hooks/purity
+    top: `${Math.random() * 100}%`,
+  }));
+
   useEffect(() => {
+    if (shouldReduceMotion) return;
     const moveLight = (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
@@ -21,10 +31,11 @@ export default function NotFound() {
     return () => {
       window.removeEventListener("mousemove", moveLight);
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
+    <PageTransition>
+      <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
 
       {/* INTERACTIVE LIGHT */}
       <div
@@ -38,7 +49,7 @@ export default function NotFound() {
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       {/* FLOATING PARTICLES */}
-      {[...Array(18)].map((_, i) => (
+      {!shouldReduceMotion && particles.map((pos, i) => (
         <motion.div
           key={i}
           animate={{
@@ -50,10 +61,7 @@ export default function NotFound() {
             repeat: Infinity,
           }}
           className="absolute w-1 h-1 bg-[#c8a96b] rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
+          style={pos}
         />
       ))}
 
@@ -92,7 +100,7 @@ export default function NotFound() {
             delay: 0.3,
             duration: 1,
           }}
-          className="text-3xl md:text-7xl text-white font-serif leading-tight"
+          className="text-fluid-h1 text-white font-serif "
         >
           Power
           <span className="italic text-[#c8a96b]">
@@ -108,7 +116,7 @@ export default function NotFound() {
             delay: 0.6,
             duration: 1,
           }}
-          className="mt-8 text-white/50 text-lg md:text-xl leading-8 max-w-3xl mx-auto"
+          className="mt-8 text-white/50 text-lg md:text-xl leading-[1.8] max-w-3xl mx-auto"
         >
           The lighting system couldn’t locate the requested
           destination. The pathway appears disconnected from
@@ -189,6 +197,7 @@ export default function NotFound() {
 
       </div>
 
-    </section>
+      </section>
+    </PageTransition>
   );
 }

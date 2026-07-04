@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import BackButton from "../components/ui/BackButton";
 import Lightbox from "../components/ui/Lightbox";
+import SEO from "../components/seo/SEO";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 import projects from "../data/projects";
 
@@ -24,7 +26,12 @@ export default function Gallery() {
   };
 
   return (
-    <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
+    <PageTransition>
+      <SEO 
+        title="Lighting Design Gallery | Credence Lighting" 
+        description="Browse our photo gallery of stunning luxury lighting designs, custom luminaires, and architectural lighting installations." 
+      />
+      <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -37,7 +44,7 @@ export default function Gallery() {
           <p className="uppercase tracking-[0.4em] text-xs text-[#d4b16a] mb-4">
             Gallery
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight">
+          <h1 className="text-fluid-h1 font-serif text-white">
             All Projects
           </h1>
         </motion.div>
@@ -63,7 +70,7 @@ export default function Gallery() {
                   <p className="uppercase tracking-[0.2em] text-xs text-[#d4b16a] mb-3">
                     {project.category}
                   </p>
-                  <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
+                  <h2 className="text-fluid-h1 font-serif text-white ">
                     {project.name}
                   </h2>
                   <p className="text-white/60 max-w-2xl">
@@ -116,5 +123,6 @@ export default function Gallery() {
         />
       )}
     </section>
+    </PageTransition>
   );
 }

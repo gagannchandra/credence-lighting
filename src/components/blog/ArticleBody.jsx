@@ -16,7 +16,7 @@ export default function ArticleBody({ blocks }) {
               <h2 
                 key={index} 
                 id={block.content.toLowerCase().replace(/[^a-z0-9]+/g, '-')} 
-                className="text-3xl md:text-4xl font-serif text-[#c8a96b] mt-12 mb-6"
+                className="text-fluid-h2 font-serif text-[#c8a96b] mt-12 mb-6"
               >
                 {block.content}
               </h2>

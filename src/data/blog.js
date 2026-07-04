@@ -1,8 +1,8 @@
-import mytown141 from "../assets/images/mytown/141.jpg";
-import gc154 from "../assets/images/ground-control/154.jpg";
-import funtura134 from "../assets/images/Funtura/134.jpg";
-import xtreme136 from "../assets/images/xtremezone/136.jpg";
-import smarvy150 from "../assets/images/Smarvy Spot/150.jpg";
+import mytown141 from "../assets/images/mytown/141.webp";
+import gc154 from "../assets/images/ground-control/154.webp";
+import funtura134 from "../assets/images/Funtura/134.webp";
+import xtreme136 from "../assets/images/xtremezone/136.webp";
+import smarvy150 from "../assets/images/Smarvy Spot/150.webp";
 
 export const blogPosts = [
   {

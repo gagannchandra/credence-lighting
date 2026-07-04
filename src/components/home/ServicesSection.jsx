@@ -1,9 +1,8 @@
-import { motion } from "framer-motion";
 import { Wrench, Monitor, ClipboardList, Settings, Headset, Briefcase } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import TextReveal from "../ui/motion/TextReveal";
+import FadeUp from "../ui/motion/FadeUp";
 
-export default function ServicesSection({ preview = false }) {
-  const navigate = useNavigate();
+export default function ServicesSection() {
   const services = [
     {
       title: "Requirement Analysis",
@@ -38,56 +37,35 @@ export default function ServicesSection({ preview = false }) {
   ];
 
   return (
-    <section id="services" className="relative py-24 bg-black text-white flex flex-col items-center overflow-hidden px-6">
-      {/* BACKGROUND GLOW */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
-        <div className="w-[900px] h-[500px] bg-[#c8a96b]/5 blur-[180px]" />
-      </div>
-
+    <section id="services" className="relative pb-24 text-white flex flex-col items-center px-6">
       <div className="relative z-10 max-w-[1400px] w-full mx-auto">
         
         {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-6xl font-serif text-white uppercase tracking-wide">
-              OUR <span className="text-[#c8a96b]">SERVICES</span>
-            </h2>
-            <div className="w-24 h-[1px] bg-[#c8a96b]/40 mx-auto mt-6 mb-10" />
-          </motion.div>
+        <div className="text-center max-w-4xl mx-auto mb-16 pt-10 border-t border-white/10">
+          <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap justify-center gap-2">
+            <TextReveal text="How We" /> <TextReveal text="Deliver Excellence" delay={2} className="italic gold-gradient-text" />
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-white/70 text-lg md:text-xl leading-relaxed text-center"
-          >
-            End-to-end delivery from design to commissioning.{" "}
-            <span className="text-white font-medium">Complete system validation and documentation.</span>{" "}
-            Strong after-sales support, including{" "}
-            <span className="text-white font-medium">maintenance, warranty, and AMC</span>.{" "}
-            Powered by advanced lighting technology and LED screens. Proven projects across the{" "}
-            <span className="text-white font-medium">UAE and GCC</span>. Commitment to{" "}
-            <span className="text-white font-medium">reliability, trust, and service excellence.</span>
-          </motion.p>
+          <FadeUp delay={4}>
+            <p className="text-white/60 text-lg leading-relaxed text-center mt-8">
+              End-to-end delivery from design to commissioning.{" "}
+              <span className="text-white/80 font-medium">Complete system validation and documentation.</span>{" "}
+              Strong after-sales support, including{" "}
+              <span className="text-white/80 font-medium">maintenance, warranty, and AMC</span>.{" "}
+              Powered by advanced lighting technology and LED screens. Proven projects across the{" "}
+              <span className="text-white/80 font-medium">UAE and GCC</span>.
+            </p>
+          </FadeUp>
         </div>
 
         {/* SERVICES GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-          {(preview ? services.slice(0, 3) : services).map((service, index) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <FadeUp
                 key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.6 }}
-                viewport={{ once: true }}
+                delay={index * 2}
                 className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500"
               >
                 {/* HOVER GLOW */}
@@ -103,31 +81,15 @@ export default function ServicesSection({ preview = false }) {
                     <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-white/60 text-base leading-[1.8]">
                       {service.description}
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </FadeUp>
             );
           })}
         </div>
-
-        {preview && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <button
-              onClick={() => navigate("/services")}
-              className="px-8 py-4 border border-[#c8a96b]/40 text-[#c8a96b] tracking-[0.2em] uppercase text-xs rounded-full hover:bg-[#c8a96b] hover:text-black transition-colors duration-500"
-            >
-              Learn More
-            </button>
-          </motion.div>
-        )}
 
       </div>
     </section>

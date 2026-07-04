@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import PageTransition from "../components/ui/motion/PageTransition";
 import BlogCard from "../components/blog/BlogCard";
 import BlogFeatured from "../components/blog/BlogFeatured";
 import BlogFilterBar from "../components/blog/BlogFilterBar";
@@ -39,10 +40,11 @@ export default function Blog() {
   }, [activeCategory, searchQuery, featuredPost]);
 
   return (
-    <div className="bg-[#050505] min-h-screen">
-      <SEO 
-        title="Lighting Design Blog & Insights | Credence Lighting" 
-        description="Explore the latest trends, tips, and insights in architectural, commercial, and residential lighting design."
+    <PageTransition>
+      <div className="bg-[#050505] min-h-screen">
+        <SEO 
+        title="Luxury Lighting Design Blog & Insights | Credence Lighting" 
+        description="Explore expert insights, architectural lighting trends, and inspiration from Credence Lighting's premium design team."
       />
       
       <Navbar />
@@ -53,7 +55,7 @@ export default function Blog() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-serif text-white mb-6"
+            className="text-fluid-h1 font-serif text-white mb-6"
           >
             Insights & <span className="text-[#c8a96b]">Inspiration</span>
           </motion.h1>
@@ -107,6 +109,7 @@ export default function Blog() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

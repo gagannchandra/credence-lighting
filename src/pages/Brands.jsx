@@ -1,47 +1,49 @@
 import { useLayoutEffect } from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import SEO from "../components/seo/SEO";
 import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
 import { scrollToTop } from "../utils/scrollUtils";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 const brands = [
-  "/brands/al-othaim.png",
-  "/brands/fitness-first.png",
-  "/brands/fabyland.png",
-  "/brands/emaar.png",
-  "/brands/fun-city.png",
-  "/brands/gemo.png",
-  "/brands/ground-control.png",
-  "/brands/xtreme.png",
-  "/brands/flipped.png",
-  "/brands/funco.png",
-  "/brands/lpme.png",
-  "/brands/adventureland.png",
-  "/brands/jumble.png",
-  "/brands/orangeseeds.png",
-  "/brands/nike.png",
-  "/brands/cheeky-monkeys.png",
-  "/brands/accessories.png",
-  "/brands/columbia.png",
-  "/brands/candelite.png",
-  "/brands/timberland.png",
-  "/brands/ikea.png",
-  "/brands/dubai-properties.png",
-  "/brands/majid.png",
-  "/brands/hugo-boss.png",
-  "/brands/damac.png",
-  "/brands/good-health.png",
-  "/brands/vans.png",
-  "/brands/sandro.png",
-  "/brands/converse.png",
-  "/brands/maisons.png",
-  "/brands/sunnsand.png",
-  "/brands/temperly.png",
-  "/brands/gmg.png",
-  "/brands/naramilano.png",
-  "/brands/al-futtaim.png",
-  "/brands/zadig.png",
+  "/brands/al-othaim.webp",
+  "/brands/fitness-first.webp",
+  "/brands/fabyland.webp",
+  "/brands/emaar.webp",
+  "/brands/fun-city.webp",
+  "/brands/gemo.webp",
+  "/brands/ground-control.webp",
+  "/brands/xtreme.webp",
+  "/brands/flipped.webp",
+  "/brands/funco.webp",
+  "/brands/lpme.webp",
+  "/brands/adventureland.webp",
+  "/brands/jumble.webp",
+  "/brands/orangeseeds.webp",
+  "/brands/nike.webp",
+  "/brands/cheeky-monkeys.webp",
+  "/brands/accessories.webp",
+  "/brands/columbia.webp",
+  "/brands/candelite.webp",
+  "/brands/timberland.webp",
+  "/brands/ikea.webp",
+  "/brands/dubai-properties.webp",
+  "/brands/majid.webp",
+  "/brands/hugo-boss.webp",
+  "/brands/damac.webp",
+  "/brands/good-health.webp",
+  "/brands/vans.webp",
+  "/brands/sandro.webp",
+  "/brands/converse.webp",
+  "/brands/maisons.webp",
+  "/brands/sunnsand.webp",
+  "/brands/temperly.webp",
+  "/brands/gmg.webp",
+  "/brands/naramilano.webp",
+  "/brands/al-futtaim.webp",
+  "/brands/zadig.webp",
 ];
 
 export default function Brands() {
@@ -51,7 +53,11 @@ export default function Brands() {
   }, []);
 
   return (
-    <>
+    <PageTransition>
+      <SEO 
+        title="Global Brand Partners | Credence Lighting Collaborations" 
+        description="Credence Lighting partners with internationally recognized brands, hospitality groups, and architectural innovators across the globe." 
+      />
       <Navbar />
       <BackButton />
 
@@ -72,14 +78,14 @@ export default function Brands() {
               Trusted Collaborations
             </p>
 
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif text-white leading-tight">
+            <h1 className="text-fluid-h1 font-serif text-white">
               Our Global
               <span className="italic text-[#c8a96b]">
                 {" "}Brand Partners
               </span>
             </h1>
 
-            <p className="mt-10 text-white/50 text-lg leading-8">
+            <p className="mt-10 text-white/50 text-lg leading-[1.8]">
               We proudly collaborate with internationally recognized
               brands, entertainment destinations, retail leaders,
               hospitality groups, and architectural innovators across
@@ -101,7 +107,7 @@ export default function Brands() {
                 key={item.label}
                 className="border border-white/10 bg-white/[0.03] backdrop-blur-xl rounded-[30px] p-10 text-center"
               >
-                <h3 className="text-4xl md:text-5xl text-white font-serif">
+                <h3 className="text-fluid-h2 text-white font-serif">
                   {item.number}
                 </h3>
 
@@ -157,6 +163,6 @@ export default function Brands() {
       </section>
 
       <Footer />
-    </>
+    </PageTransition>
   );
 }   

@@ -6,6 +6,7 @@ import SEO from "../components/seo/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import FaqAccordionGroup from "../components/faq/FaqAccordionGroup";
+import PageTransition from "../components/ui/motion/PageTransition";
 import { faqData, faqCategories } from "../data/faq";
 
 export default function Faq() {
@@ -131,10 +132,11 @@ export default function Faq() {
   }, [isManualScrolling]);
 
   return (
-    <div className="bg-[#050505] min-h-screen">
-      <SEO 
-        title="Frequently Asked Questions | Credence Lighting" 
-        description="Find answers to common questions about our lighting services, products, installation, and design consultations."
+    <PageTransition>
+      <div className="bg-[#050505] min-h-screen">
+        <SEO 
+        title="FAQ | Premium Architectural Lighting Solutions | Credence Lighting" 
+        description="Find answers to common questions regarding our luxury lighting services, product specifications, custom design, and global project installations."
         schema={faqSchema}
       />
       
@@ -153,7 +155,7 @@ export default function Faq() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-serif text-white mb-6"
+            className="text-fluid-h1 font-serif text-white mb-6"
           >
             How can we <span className="text-[#c8a96b]">help you?</span>
           </motion.h1>
@@ -264,6 +266,7 @@ export default function Faq() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

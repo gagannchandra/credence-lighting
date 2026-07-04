@@ -1,6 +1,8 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import BackButton from "../components/ui/BackButton";
+import PageTransition from "../components/ui/motion/PageTransition";
+import SEO from "../components/seo/SEO";
 
 const resources = [
   {
@@ -31,8 +33,13 @@ const resources = [
 
 export default function Downloads() {
   return (
-    <div className="bg-black text-white min-h-screen">
-      <Navbar />
+    <PageTransition>
+      <div className="bg-black text-white min-h-screen">
+        <SEO 
+          title="Downloads & Resources | Credence Lighting" 
+          description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
+        />
+        <Navbar />
       <BackButton />
 
       <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
@@ -43,12 +50,12 @@ export default function Downloads() {
             Downloads
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">
+          <h1 className="text-fluid-h1 font-serif ">
             Company
             <span className="italic text-[#c8a96b]"> Resources</span>
           </h1>
 
-          <p className="mt-8 text-white/50 max-w-2xl text-lg leading-8">
+          <p className="mt-8 text-white/50 max-w-2xl text-lg leading-[1.8]">
             Access catalogues, company profiles, and technical documents
             for your next commercial lighting project.
           </p>
@@ -79,6 +86,7 @@ export default function Downloads() {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

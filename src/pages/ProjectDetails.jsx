@@ -1,201 +1,277 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
-import Lightbox from "../components/ui/Lightbox";
-
+import PageLink from "../components/ui/PageLink";
 import projects from "../data/projects";
+import SEO from "../components/seo/SEO";
 
 export default function ProjectDetails() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
-  const project = projects.find((item) => item.id === Number(id));
+  // Handle backward compatibility for numeric IDs
+  useEffect(() => {
+    if (!isNaN(slug) && !isNaN(parseFloat(slug))) {
+      const oldId = Number(slug);
+      const oldProject = projects.find((item) => item.id === oldId);
+      if (oldProject) {
+        navigate(`/projects/${oldProject.slug}`, { replace: true });
+      }
+    }
+  }, [slug, navigate]);
 
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const currentIndex = projects.findIndex((item) => item.slug === slug || item.id === Number(slug));
+  const project = projects[currentIndex];
 
-  const currentIndex = projects.findIndex((item) => item.id === Number(id));
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
+  const [isTextExpanded, setIsTextExpanded] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Reset text expansion and slider when changing project
+  useEffect(() => {
+    setIsTextExpanded(false);
+    setActiveImageIndex(0);
+  }, [slug]);
+
+  const handlePrev = () => {
+    if (!project) return;
+    setDirection(-1);
+    setActiveImageIndex((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    if (!project) return;
+    setDirection(1);
+    setActiveImageIndex((prev) => (prev === project.gallery.length - 1 ? 0 : prev + 1));
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      zIndex: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+      zIndex: 0
+    })
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isHovered) return;
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isHovered, project]);
+
   if (!project) {
     return (
-      <div className="h-screen bg-black flex items-center justify-center text-white text-3xl">
+      <div className="h-screen bg-[#050505] flex flex-col items-center justify-center text-white text-3xl font-serif">
+        <BackButton />
         Project Not Found
       </div>
     );
   }
 
+  // Create items array for CategoryCarousel
+  const galleryItems = project.gallery.map((img, idx) => ({ id: idx, hero: img }));
+
   return (
-    <main className="bg-[#050505] min-h-screen text-white relative">
-      
+    <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+      <SEO 
+        title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
+        description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
+        image={project.hero}
+      />
       {/* Background Decorative Gradient */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
         <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
         <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.07]" />
       </div>
-
+      
       <BackButton />
 
-      {/* HERO */}
-      <section className="relative h-screen overflow-hidden z-10">
-        <motion.img
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-          src={project.hero}
-          alt={project.name}
-          className="w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/20 to-transparent" />
-
-        <div className="absolute bottom-12 left-8 md:left-16 z-10 max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="uppercase tracking-[0.35em] text-xs text-[#d4b16a] mb-4"
-          >
-            Our Recent Projects
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-white text-6xl md:text-7xl lg:text-8xl font-serif leading-tight mb-6"
-          >
-            {project.name}
-          </motion.h1>
+      <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+        {/* LEFT: Single Image Slider */}
+        <div className="w-full md:w-1/2 flex items-center justify-center relative">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-wrap items-center gap-4 md:gap-8 text-white/80 text-sm md:text-base"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-xl h-[50vh] sm:h-[60vh] md:h-[80vh] rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 relative z-10 bg-black"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset }) => {
+              if (offset.x < -50) handleNext();
+              else if (offset.x > 50) handlePrev();
+            }}
           >
-            <span>{project.location}</span>
-            <span className="inline-block w-1 h-1 rounded-full bg-[#d4b16a]" />
-            <span className="uppercase tracking-[0.2em] text-[#d4b16a] text-xs md:text-sm">{project.category}</span>
-            <span className="inline-block w-1 h-1 rounded-full bg-[#d4b16a]" />
-            <span>{project.year}</span>
-          </motion.div>
-        </div>
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                key={activeImageIndex}
+                src={project.gallery[activeImageIndex]}
+                alt={`${project.name} - Gallery Image ${activeImageIndex + 1}`}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
 
-        <div className="absolute bottom-8 md:bottom-16 right-8 md:right-16 flex gap-4 z-10">
-          {previousProject && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              onClick={() => navigate(`/project/${previousProject.id}`)}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] hover:bg-white/5 backdrop-blur-sm transition-all duration-300"
-              aria-label="Previous project"
-            >
-              <span className="text-xl md:text-2xl">←</span>
-            </motion.button>
-          )}
-          {nextProject && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              onClick={() => navigate(`/project/${nextProject.id}`)}
-              className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:border-[#d4b16a] hover:text-[#d4b16a] hover:bg-white/5 backdrop-blur-sm transition-all duration-300"
-              aria-label="Next project"
-            >
-              <span className="text-xl md:text-2xl">→</span>
-            </motion.button>
-          )}
-        </div>
-      </section>
-
-      {/* OVERVIEW + GALLERY */}
-      <section className="relative w-full px-4 md:px-8 lg:px-12 py-16 md:py-24 z-10">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-3xl"
-          >
-            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-4">Project Overview</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif leading-tight text-white mb-6">
-              Intelligent <span className="italic text-[#c8a96b]">Lighting</span>
-            </h2>
-            <p className="text-white/70 text-base md:text-lg leading-8">{project.description}</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="grid gap-4 md:grid-cols-3 mt-14"
-          >
-            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Location</p>
-              <p className="text-white/80 text-sm md:text-base font-medium">{project.location}</p>
+            <div className="absolute inset-0 bg-white/5 pointer-events-none z-10" />
+            
+            {/* Click zones */}
+            <div className="absolute inset-0 z-20 flex cursor-pointer">
+               <div className="w-1/2 h-full" onClick={handlePrev} />
+               <div className="w-1/2 h-full" onClick={handleNext} />
             </div>
-            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Category</p>
-              <p className="text-white/80 text-sm md:text-base font-medium">{project.category}</p>
-            </div>
-            <div className="rounded-[1.75rem] bg-white/[0.03] backdrop-blur-xl p-6 md:p-8 shadow-xl border border-white/10 hover:border-white/20 transition-colors duration-500">
-              <p className="uppercase tracking-[0.35em] text-[10px] text-[#b89b5e] mb-3">Year</p>
-              <p className="text-white/80 text-sm md:text-base font-medium">{project.year}</p>
-            </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="mt-20"
-          >
-            <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-8">Project Gallery</p>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {project.gallery.map((image, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => {
-                    setLightboxIndex(index);
-                    setLightboxOpen(true);
-                  }}
-                  className="overflow-hidden rounded-[1.75rem] group cursor-pointer border border-white/5"
-                  aria-label={`Open ${project.name} gallery image ${index + 1}`}
-                >
-                  <img
-                    src={image}
-                    alt={`${project.name} gallery ${index + 1}`}
-                    className="w-full h-72 md:h-80 object-cover transition-transform duration-700 group-hover:scale-[1.05] opacity-80 group-hover:opacity-100"
-                  />
-                </button>
+            {/* Indicator dots */}
+            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-30 pointer-events-none">
+              {project.gallery.map((_, idx) => (
+                <div key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeImageIndex ? 'w-6 bg-[#c8a96b]' : 'w-2 bg-white/30'}`} />
               ))}
             </div>
           </motion.div>
+          {/* Accent element behind image */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-[38rem] h-[53vh] sm:h-[63vh] md:h-[83vh] border border-[#c8a96b]/20 rounded-xl z-0 pointer-events-none hidden md:block" />
+        </div>
+
+        {/* RIGHT: Details */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            className="uppercase tracking-[0.4em] text-xs font-semibold text-[#b89b5e] mb-5 flex items-center gap-3"
+          >
+            <span className="w-8 h-[1px] bg-[#b89b5e]"></span>
+            {project.category}
+          </motion.p>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+            className="text-white text-fluid-h1 font-serif mb-6"
+          >
+            {project.name}
+          </motion.h1>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+            className="flex flex-wrap gap-4 items-center text-white/50 uppercase tracking-[0.2em] text-xs md:text-xs mb-10 font-medium"
+          >
+            <span>{project.location}</span>
+            <span className="w-1 h-1 rounded-full bg-[#c8a96b]" />
+            <span>{project.year}</span>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            className="mb-12 max-w-[600px]"
+          >
+            <p className="text-white/80 text-base md:text-lg leading-[1.8] font-light mb-10 text-justify">
+              {project.description}
+            </p>
+              
+            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-[#c8a96b]/50 before:via-[#c8a96b]/20 before:to-transparent pl-8">
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  To craft a luminous environment that transcends basic illumination, merging architectural integrity with emotional resonance. We aimed to create a space that feels alive, adapting to the natural rhythm of its inhabitants while accentuating the structural grandeur.
+                </p>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  Deploying a meticulously curated selection of advanced, low-glare luminaires and intelligent control systems. Our design seamlessly integrates into the spatial geometry, ensuring that light acts as a subtle architectural material rather than a mere utility, eliminating harsh shadows and visual noise.
+                </p>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  A breathtaking, immersive atmosphere that redefines the luxury experience. The dynamic lighting landscape not only elevates the aesthetic brilliance of the environment but also establishes a new paradigm for sustainable, human-centric design.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8, ease: "easeOut" }}
+          >
+            <PageLink
+              to="/contact"
+              className="inline-flex items-center justify-center bg-white/5 border border-white/10 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-[#c8a96b] hover:border-[#c8a96b] hover:text-black transition-all duration-500 shadow-xl rounded-sm group"
+            >
+              Enquire Now
+              <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </PageLink>
+          </motion.div>
         </div>
       </section>
 
-      {lightboxOpen && (
-        <Lightbox
-          images={project.gallery}
-          index={lightboxIndex}
-          onClose={() => setLightboxOpen(false)}
-          onPrev={() => {
-            if (project.gallery.length === 0) return;
-            setLightboxIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
-          }}
-          onNext={() => {
-            if (project.gallery.length === 0) return;
-            setLightboxIndex((prev) => (prev + 1) % project.gallery.length);
-          }}
-        />
-      )}
+      {/* Navigation Controls */}
+      <div className="fixed bottom-6 right-6 md:bottom-12 md:right-12 flex gap-3 md:gap-4 z-40 mix-blend-difference">
+        {previousProject && (
+          <button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+              navigate(`/projects/${previousProject.slug}`);
+            }}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            aria-label="Previous project"
+          >
+            <span className="text-xl leading-none -translate-y-[1px]">←</span>
+          </button>
+        )}
+        {nextProject && (
+          <button
+             onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+              navigate(`/projects/${nextProject.slug}`);
+            }}
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            aria-label="Next project"
+          >
+            <span className="text-xl leading-none -translate-y-[1px]">→</span>
+          </button>
+        )}
+      </div>
     </main>
   );
 }

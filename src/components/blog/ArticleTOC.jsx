@@ -4,9 +4,9 @@ export default function ArticleTOC({ blocks }) {
   const [activeId, setActiveId] = useState("");
   const headings = blocks.filter(b => b.type === "heading2" || b.type === "heading3");
 
-  if (headings.length === 0) return null;
-
   useEffect(() => {
+    if (headings.length === 0) return;
+
     const handleScroll = () => {
       const headingElements = headings.map(h => {
         const id = h.content.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -29,6 +29,8 @@ export default function ArticleTOC({ blocks }) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [headings]);
+
+  if (headings.length === 0) return null;
 
   const scrollToHeading = (id) => {
     const el = document.getElementById(id);

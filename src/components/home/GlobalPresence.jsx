@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
+import TextReveal from "../ui/motion/TextReveal";
+import FadeUp from "../ui/motion/FadeUp";
 
 export default function GlobalPresence() {
   const globeRef = useRef();
@@ -12,17 +14,22 @@ export default function GlobalPresence() {
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [hexData, setHexData] = useState([]);
 
-  // Fetch GeoJSON for the dotted continents
   useEffect(() => {
-    fetch('https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
+    const controller = new AbortController();
+    fetch('https://raw.githubusercontent.com/vasturiano/react-globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson', { signal: controller.signal })
       .then(res => res.json())
       .then(countries => {
         setHexData(countries.features);
+      })
+      .catch(err => {
+        if (err.name !== 'AbortError') console.error(err);
       });
+    return () => controller.abort();
   }, []);
 
   useEffect(() => {
-    if (!globeRef.current) return;
+    const currentGlobe = globeRef.current;
+    if (!currentGlobe) return;
 
     let animationFrameId;
     let time = 0;
@@ -44,8 +51,8 @@ export default function GlobalPresence() {
       controls.enableZoom = false;
       controls.enablePan = false;
       
-      // Cinematic angle (zoom out slightly on mobile)
-      const alt = window.innerWidth < 768 ? 2.6 : 2.1;
+      // Cinematic angle (adjusted for larger canvas scale to keep globe same visual size)
+      const alt = window.innerWidth < 768 ? 3.8 : 2.9;
       globeRef.current.pointOfView({ lat: 25, lng: 55, altitude: alt });
 
       const scene = globeRef.current.scene();
@@ -57,8 +64,11 @@ export default function GlobalPresence() {
       globeMaterial.opacity = 0.9; // Hide the back dots slightly for depth
       globeMaterial.shininess = 1; 
 
-      // Clear default lighting
-      scene.children = scene.children.filter(obj => !(obj.isLight));
+      // Clear default lighting safely
+      if (scene && scene.children) {
+        const lights = scene.children.filter(obj => obj.isLight);
+        lights.forEach(light => scene.remove(light));
+      }
 
       // Studio Lighting
       const keyLight = new THREE.DirectionalLight('#D4AF37', 5); 
@@ -94,10 +104,38 @@ export default function GlobalPresence() {
     };
 
     // Small delay ensures textures and geometries are initialized
-    setTimeout(initCinematicRender, 150);
+    const initTimer = setTimeout(initCinematicRender, 150);
 
     return () => {
+      clearTimeout(initTimer);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      
+      if (currentGlobe) {
+        const scene = currentGlobe.scene();
+        const renderer = currentGlobe.renderer();
+        
+        if (scene) {
+          scene.traverse(object => {
+            if (object.isMesh) {
+              if (object.geometry) object.geometry.dispose();
+              if (object.material) {
+                if (Array.isArray(object.material)) {
+                  object.material.forEach(m => m.dispose());
+                } else {
+                  object.material.dispose();
+                }
+              }
+            }
+            if (object.isLight && object.dispose) {
+              object.dispose();
+            }
+          });
+        }
+        
+        if (renderer) {
+          renderer.dispose();
+        }
+      }
     };
   }, []);
 
@@ -108,9 +146,9 @@ export default function GlobalPresence() {
       const width = containerRef.current.offsetWidth;
       const isMobile = window.innerWidth < 768;
       
-      // Smaller visual scale on mobile to prevent extreme cropping
-      const scale = isMobile ? 1.1 : 1.3; 
-      const size = Math.min(width * scale, 1200);
+      // Much larger canvas scale to prevent label clipping, altitude adjusted to match
+      const scale = isMobile ? 1.6 : 1.8; 
+      const size = Math.min(width * scale, 1800);
       setGlobeSize({ width: size, height: size });
     };
 
@@ -169,50 +207,61 @@ export default function GlobalPresence() {
     }));
 
   return (
-    <section className="relative bg-[#050505] py-20 md:py-32 overflow-hidden flex items-center min-h-screen md:min-h-[90vh]">
-      
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 md:left-2/3 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-[radial-gradient(circle,rgba(200,164,106,0.08)_0%,rgba(0,0,0,0)_60%)] rounded-full blur-3xl pointer-events-none" />
-
+    <section className="relative bg-transparent z-10 py-20 md:py-32 overflow-hidden flex items-center min-h-screen md:min-h-[90vh]">
       <div className="relative z-10 w-full max-w-[1500px] mx-auto px-6 md:px-16">
         <div className="grid md:grid-cols-12 gap-8 items-center">
 
           {/* LEFT */}
+          {/* LEFT */}
           <div className="md:col-span-5 relative z-20 xl:pl-8 flex flex-col items-center md:items-start text-center md:text-left mb-12 md:mb-0">
-            <p className="uppercase tracking-[0.4em] text-xs text-[#C8A46A] mb-6 font-medium">
-              Worldwide Reach
-            </p>
+            <FadeUp delay={0}>
+              <p className="uppercase tracking-[0.4em] text-xs text-[#C8A46A] mb-6 font-medium">
+                Worldwide Reach
+              </p>
+            </FadeUp>
 
-            <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif text-[#F3F1EC] leading-[1.05] tracking-tight mb-2">
-              Global<br/>
-              <span className="italic text-[#C8A46A]">Presence</span>
+            <h2 className="text-fluid-h1 font-serif text-[#F3F1EC] leading-[1.05] tracking-tight mb-2 flex flex-col gap-2">
+              <TextReveal text="Global" />
+              <TextReveal text="Presence" delay={2} className="italic text-[#C8A46A]" />
             </h2>
             
             <div className="w-16 h-[1px] bg-[#C8A46A]/30 my-6 md:my-8"></div>
 
-            <p className="text-[#F3F1EC]/60 max-w-[420px] leading-relaxed font-light text-base md:text-lg mb-8 md:mb-10">
-              We engineer bespoke architectural lighting solutions and deliver transformative visual experiences for the world's most exclusive commercial and hospitality destinations.
-            </p>
+            <FadeUp delay={4}>
+              <p className="text-[#F3F1EC]/60 max-w-[420px] leading-relaxed font-light text-base md:text-lg mb-0 md:mb-10">
+                We engineer bespoke architectural lighting solutions and deliver transformative visual experiences for the world's most exclusive commercial and hospitality destinations.
+              </p>
+            </FadeUp>
             
-            <p className="text-[10px] md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
-              UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
-            </p>
-            
-            <a href="/projects" className="inline-flex items-center gap-6 text-[11px] tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group">
-              Explore Our Projects
-              <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
-            </a>
+            {/* DESKTOP ONLY BOTTOM CONTENT */}
+            <div className="hidden md:block w-full">
+              <FadeUp delay={6}>
+                <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
+                  UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
+                </p>
+              </FadeUp>
+              
+              <FadeUp delay={8}>
+                <a 
+                  href="/projects" 
+                  className="inline-flex items-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group"
+                >
+                  Explore Our Projects
+                  <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </a>
+              </FadeUp>
+            </div>
           </div>
 
           {/* RIGHT */}
           <div className="md:col-span-7 flex items-center justify-center w-full min-w-0 relative z-10 md:translate-x-[5%]">
             <div
               ref={containerRef}
-              className="relative w-full aspect-square flex items-center justify-center cursor-pointer"
+              className="relative w-full aspect-square flex items-center justify-center cursor-pointer group"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="relative w-full h-full flex items-center justify-center">
+              <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
                 <Globe
                   ref={globeRef}
                   backgroundColor="rgba(0,0,0,0)"
@@ -248,13 +297,6 @@ export default function GlobalPresence() {
                       <div style="position: relative; display: flex; align-items: center; justify-content: center;">
                         <div style="position: relative; width: 4px; height: 4px; display: flex; align-items: center; justify-content: center; mix-blend-mode: screen;">
                           <div style="position: absolute; width: 2px; height: 2px; background: #FFF; border-radius: 50%;"></div>
-                          <style>
-                            @keyframes luxuryBreatheScale {
-                              0% { transform: scale(1); opacity: 0.15; }
-                              50% { transform: scale(2.8); opacity: 0.7; }
-                              100% { transform: scale(1); opacity: 0.15; }
-                            }
-                          </style>
                           <div style="position: absolute; width: 6px; height: 6px; background: #C8A46A; border-radius: 50%; box-shadow: 0 0 12px 2px rgba(200, 164, 106, 0.8); animation: luxuryBreatheScale 3s ease-in-out infinite;"></div>
                         </div>
 
@@ -263,7 +305,7 @@ export default function GlobalPresence() {
                           <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(200, 164, 106, 0.5)" stroke-width="0.5" />
                         </svg>
                         
-                        <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+                        <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
                           <div style="color: #FFF; font-family: 'Inter', sans-serif; font-size: ${isMobile ? '9px' : '11px'}; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; white-space: nowrap;">
                             ${d.city}
                           </div>
@@ -282,6 +324,25 @@ export default function GlobalPresence() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* BOTTOM CONTENT (MOBILE ONLY) */}
+        <div className="md:hidden mt-12 flex flex-col items-center text-center relative z-20">
+          <FadeUp delay={6}>
+            <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[600px]">
+              UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
+            </p>
+          </FadeUp>
+          
+          <FadeUp delay={8}>
+            <a 
+              href="/projects" 
+              className="inline-flex items-center justify-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-8 md:mt-10 uppercase hover:text-white transition-all font-medium group"
+            >
+              Explore Our Projects
+              <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
+            </a>
+          </FadeUp>
         </div>
       </div>
     </section>

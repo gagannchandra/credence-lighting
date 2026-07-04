@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import PageLink from "../ui/PageLink";
-import logo2 from "../../assets/images/logo2.png";
-import { scrollToSection } from "../../utils/scrollUtils";
+import Magnetic from "../ui/Magnetic";
+import logo2 from "../../assets/images/logo2.webp";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -18,6 +18,14 @@ export default function Navbar() {
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
 
   useEffect(() => {
     showFixedNavbarRef.current = showFixedNavbar;
@@ -96,52 +104,45 @@ export default function Navbar() {
     };
   }, [isHomePage]);
 
-
-
   // HOVER OPEN
   useEffect(() => {
+    let rafId = null;
+
     const handleMouseMove = (e) => {
       if (!allowHoverOpen || open || isLogoHovered) return;
+      
+      if (rafId) return;
 
-      const checkProximity = (ref) => {
-        if (!ref.current) return false;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        
+        const checkProximity = (ref) => {
+          if (!ref.current) return false;
 
-        const rect =
-          ref.current.getBoundingClientRect();
+          const rect = ref.current.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
 
-        const centerX =
-          rect.left + rect.width / 2;
+          const distance = Math.sqrt(
+            Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2)
+          );
 
-        const centerY =
-          rect.top + rect.height / 2;
+          return distance < 70;
+        };
 
-        const distance = Math.sqrt(
-          Math.pow(e.clientX - centerX, 2) +
-            Math.pow(e.clientY - centerY, 2)
-        );
-
-        return distance < 70;
-      };
-
-      if (
-        checkProximity(heroButtonRef) ||
-        checkProximity(topButtonRef)
-      ) {
-        setOpen(true);
-      }
+        if (checkProximity(heroButtonRef) || checkProximity(topButtonRef)) {
+          setOpen(true);
+        }
+      });
     };
 
-    window.addEventListener(
-      "mousemove",
-      handleMouseMove
-    );
+    window.addEventListener("mousemove", handleMouseMove);
 
-    return () =>
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
-  }, [allowHoverOpen, open]);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [allowHoverOpen, open, isLogoHovered]);
 
   // CLOSE MENU
   const closeMenu = () => {
@@ -166,8 +167,6 @@ export default function Navbar() {
     { name: "Contact", to: "/contact" },
   ];
 
-  const desktopNavLinks = navItems;
-
   return (
     <>
       {/* TOP NAVBAR */}
@@ -186,10 +185,11 @@ export default function Navbar() {
             : "pointer-events-none"
         }`}
       >
-        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/10 bg-black/35 backdrop-blur-xl px-6 py-4 flex items-center justify-between shadow-[0_20px_60px_rgba(0,0,0,0.55)]">
+        <div className="mx-auto mt-4 w-[92%] rounded-2xl border border-white/5 bg-[#030408]/60 backdrop-blur-2xl px-6 py-4 flex items-center justify-between shadow-[0_30px_80px_rgba(0,0,0,0.8)]">
           {/* Logo + company name */}
             <PageLink
               to="/"
+              onClick={handleLogoClick}
               className="flex items-center gap-3 shrink-0"
             >
             <img
@@ -204,32 +204,37 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {desktopNavLinks.map((item) => (
-              <PageLink
-                key={item.name}
-                to={item.to}
-                className="text-white/80 hover:text-white transition duration-300 text-sm uppercase tracking-[0.08em] touch-glow"
-              >
-                {item.name}
-              </PageLink>
+            {navItems.map((item) => (
+              <Magnetic key={item.name}>
+                <PageLink
+                  to={item.to}
+                  className="text-white/80 hover:text-[#c8a96b] hover:font-semibold transition-all duration-300 text-sm uppercase tracking-[0.08em] hover-glow inline-block"
+                >
+                  {item.name}
+                </PageLink>
+              </Magnetic>
             ))}
           </div>
 
           {/* Hamburger (mobile/tablet) */}
-          <button
-            ref={topButtonRef}
-            onClick={() => setOpen(true)}
-            className="md:hidden text-white touch-glow"
-          >
-            <Menu size={28} strokeWidth={1.5} />
-          </button>
+          <Magnetic>
+            <button
+              aria-label="Open Menu"
+              ref={topButtonRef}
+              onClick={() => setOpen(true)}
+              className="md:hidden text-white touch-glow flex items-center justify-center p-2"
+            >
+              <Menu size={28} strokeWidth={1.5} />
+            </button>
+          </Magnetic>
         </div>
       </motion.nav>
-{/* HERO SCREEN LOGO */}
+      {/* HERO SCREEN LOGO */}
       {!showFixedNavbar && (
         <div className="fixed top-6 left-8 z-40">
           <PageLink
             to="/"
+            onClick={handleLogoClick}
             onMouseEnter={() => setIsLogoHovered(true)}
             onMouseLeave={() => setIsLogoHovered(false)}
             className="flex items-center gap-3 shrink-0"
@@ -244,37 +249,40 @@ export default function Navbar() {
       )}
       {/* HERO MENU BUTTON */}
       {!showFixedNavbar && (
-        <motion.button
-          ref={heroButtonRef}
-          whileHover={{ scale: 1.1 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          onClick={() => setOpen(true)}
-          className="fixed top-7 right-7 z-50 text-white touch-glow"
-        >
-          <Menu
-            size={34}
-            strokeWidth={1.5}
-          />
-        </motion.button>
+        <div className="fixed top-7 right-7 z-50">
+          <Magnetic>
+            <motion.button
+              ref={heroButtonRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              onClick={() => setOpen(true)}
+              className="text-white hover:text-[#c8a96b] transition-colors p-2"
+            >
+              <Menu
+                size={34}
+                strokeWidth={1.5}
+              />
+            </motion.button>
+          </Magnetic>
+        </div>
       )}
 
       {/* MENU */}
       <AnimatePresence>
         {open && (
-          <>
-            {/* OVERLAY */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeMenu}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
-            />
-
-            {/* PANEL */}
-            <motion.div
+          <motion.div
+            key="menu-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMenu}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+          />
+        )}
+        {open && (
+          <motion.div
+            key="menu-panel"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -290,6 +298,7 @@ export default function Navbar() {
 
               {/* CLOSE */}
               <button
+                aria-label="Close Menu"
                 onClick={closeMenu}
                 className="absolute top-8 right-8 text-white z-20"
               >
@@ -344,7 +353,7 @@ export default function Navbar() {
                   <PageLink
                     to="/downloads"
                     onClick={closeMenu}
-                    className="inline-flex items-center gap-3 border border-[#c8a96b] px-6 py-3 uppercase tracking-[0.25em] text-[10px] text-[#c8a96b] hover:bg-[#c8a96b] hover:text-black transition duration-500"
+                    className="inline-flex items-center gap-3 border border-[#c8a96b] px-6 py-3 uppercase tracking-[0.25em] text-xs text-[#c8a96b] hover:bg-[#c8a96b] hover:text-black transition duration-500"
                   >
                     Downloads
 
@@ -356,7 +365,6 @@ export default function Navbar() {
 
               </div>
 
-              {/* FOOTER */}
               {/* FOOTER */}
 <motion.div
   initial={{ opacity: 0 }}
@@ -372,8 +380,7 @@ export default function Navbar() {
   </div>
 </motion.div>
 
-            </motion.div>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
