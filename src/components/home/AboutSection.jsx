@@ -141,7 +141,7 @@ export default function AboutSection({ preview = false }) {
             </p>
           </FadeUp>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-[1200px] mx-auto text-left">
+          <div className="grid md:grid-cols-2 gap-6 max-w-[800px] mx-auto text-left">
 
           {/* PRODUCTS CARD */}
           <FadeUp delay={4} className="h-full">
@@ -149,28 +149,24 @@ export default function AboutSection({ preview = false }) {
               <button
                 type="button"
                 onClick={() => navigate("/products")}
-                className="group relative overflow-hidden border border-white/10 rounded-[2.5rem] p-8 md:p-10 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[320px] flex flex-col items-center justify-center w-full cursor-pointer"
+                className="group relative overflow-hidden border border-white/10 rounded-3xl p-6 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
               >
 
                   {/* HOVER GLOW */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
 
                   {/* INNER GOLD GLOW */}
-                  <div className="absolute w-[250px] h-[220px] bg-white/5 blur-[120px] opacity-0 group-hover:opacity-100 transition duration-700" />
+                  <div className="absolute w-[150px] h-[150px] bg-white/5 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
 
-                  <p className="relative z-10 tracking-[0.45em] uppercase text-xs text-white/40">
+                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-white/40">
                     Discover
                   </p>
 
-                  <h4 className="relative z-10 mt-6 text-fluid-h2 font-serif text-white tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-white tracking-[0.05em]">
                     Explore Products
                   </h4>
 
-                  <p className="relative z-10 mt-5 text-sm text-white/45 leading-7">
-                    Discover our recent lighting collections
-                  </p>
-
-                  <div className="relative z-10 mt-8 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
+                  <div className="relative z-10 mt-3 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
                     →
                   </div>
 
@@ -184,28 +180,24 @@ export default function AboutSection({ preview = false }) {
               <button
                 type="button"
                 onClick={() => navigate("/projects")}
-                className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-[2.5rem] p-8 md:p-10 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[320px] flex flex-col items-center justify-center w-full cursor-pointer"
+                className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-3xl p-6 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
               >
 
                   {/* GOLD HOVER GLOW */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent" />
 
                   {/* GOLD AMBIENT */}
-                  <div className="absolute w-[250px] h-[220px] bg-[#c8a96b]/10 blur-[120px] opacity-0 group-hover:opacity-100 transition duration-700" />
+                  <div className="absolute w-[150px] h-[150px] bg-[#c8a96b]/10 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
 
-                  <p className="relative z-10 tracking-[0.45em] uppercase text-xs text-[#c8a96b]/60">
+                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-[#c8a96b]/60">
                     Showcase
                   </p>
 
-                  <h4 className="relative z-10 mt-6 text-fluid-h2 font-serif text-[#c8a96b] tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-[#c8a96b] tracking-[0.05em]">
                     View Portfolio
                   </h4>
 
-                  <p className="relative z-10 mt-5 text-sm text-[#c8a96b]/55 leading-7">
-                    Explore our completed lighting projects
-                  </p>
-
-                  <div className="relative z-10 mt-8 text-2xl text-[#c8a96b]/60 group-hover:translate-x-2 transition duration-500">
+                  <div className="relative z-10 mt-3 text-2xl text-[#c8a96b]/60 group-hover:translate-x-2 transition duration-500">
                     →
                   </div>
 
