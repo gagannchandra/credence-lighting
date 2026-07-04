@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import logo1 from "../../assets/images/logo1.webp";
 
 export default function Loader() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden">
 
@@ -17,9 +19,9 @@ export default function Loader() {
         <motion.img
           src={logo1}
           alt="Credence Lighting"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 1 }}
           className="h-16 md:h-24 w-auto object-contain"
         />
 
@@ -28,8 +30,8 @@ export default function Loader() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
-            delay: 0.4,
-            duration: 1,
+            delay: shouldReduceMotion ? 0 : 0.4,
+            duration: shouldReduceMotion ? 0 : 1,
           }}
           className="mt-5 text-[#c8a96b] uppercase tracking-[0.45em] text-[10px] md:text-xs text-center"
         >
@@ -41,13 +43,13 @@ export default function Loader() {
 
           <motion.div
             initial={{ x: "-100%" }}
-            animate={{ x: "250%" }}
+            animate={{ x: shouldReduceMotion ? "0%" : "250%" }}
             transition={{
               duration: 1.5,
-              repeat: Infinity,
+              repeat: shouldReduceMotion ? 0 : Infinity,
               ease: "linear",
             }}
-            className="h-full w-24 bg-[#c8a96b]"
+            className={`h-full bg-[#c8a96b] ${shouldReduceMotion ? 'w-full' : 'w-24'}`}
           />
 
         </div>
@@ -55,10 +57,10 @@ export default function Loader() {
         {/* LOADING */}
         <motion.p
           initial={{ opacity: 0 }}
-          animate={{ opacity: [0.3, 1, 0.3] }}
+          animate={{ opacity: shouldReduceMotion ? 1 : [0.3, 1, 0.3] }}
           transition={{
             duration: 2,
-            repeat: Infinity,
+            repeat: shouldReduceMotion ? 0 : Infinity,
           }}
           className="mt-6 text-white/40 uppercase tracking-[0.35em] text-[10px]"
         >

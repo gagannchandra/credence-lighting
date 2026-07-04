@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import logo2 from "../../assets/images/logo2.webp";
+import FadeUp from "../ui/motion/FadeUp";
+import TextReveal from "../ui/motion/TextReveal";
 
 export default function Footer() {
   return (
@@ -17,31 +19,33 @@ export default function Footer() {
           {/* BRAND */}
           <div className="lg:col-span-2">
 
-            <Link to="/" className="inline-block mb-6">
-              <img
-                src={logo2}
-                alt="Credence Lighting"
-                className="h-12 md:h-14 w-auto object-contain"
-              />
-            </Link>
+            <FadeUp delay={0}>
+              <Link to="/" className="inline-block mb-6">
+                <img
+                  src={logo2}
+                  alt="Credence Lighting"
+                  className="h-12 md:h-14 w-auto object-contain"
+                />
+              </Link>
+            </FadeUp>
 
-            <h3 className="text-4xl md:text-5xl font-serif leading-tight max-w-xl">
-              Illuminating Spaces
-              <span className="italic text-[#c8a96b]">
-                {" "}With Elegance
-              </span>
+            <h3 className="text-4xl md:text-5xl font-serif leading-tight max-w-xl flex flex-wrap gap-2">
+              <TextReveal text="Illuminating Spaces" />
+              <TextReveal text="With Elegance" delay={2} className="italic text-[#c8a96b]" />
             </h3>
 
-            <p className="mt-8 text-white/50 leading-8 max-w-xl">
-              Premium architectural and commercial lighting
-              solutions crafted to elevate atmosphere,
-              functionality, and spatial identity.
-            </p>
+            <FadeUp delay={4}>
+              <p className="mt-8 text-white/50 leading-8 max-w-xl">
+                Premium architectural and commercial lighting
+                solutions crafted to elevate atmosphere,
+                functionality, and spatial identity.
+              </p>
+            </FadeUp>
 
           </div>
 
           {/* LINKS */}
-          <div>
+          <FadeUp delay={2}>
 
             <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-8">
               Navigation
@@ -83,10 +87,10 @@ export default function Footer() {
 
             </div>
 
-          </div>
+          </FadeUp>
 
           {/* CONTACT */}
-          <div>
+          <FadeUp delay={4}>
 
             <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-8">
               Contact
@@ -120,7 +124,7 @@ export default function Footer() {
 
             </div>
 
-          </div>
+          </FadeUp>
 
         </div>
 

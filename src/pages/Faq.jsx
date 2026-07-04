@@ -6,6 +6,7 @@ import SEO from "../components/seo/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import FaqAccordionGroup from "../components/faq/FaqAccordionGroup";
+import PageTransition from "../components/ui/motion/PageTransition";
 import { faqData, faqCategories } from "../data/faq";
 
 export default function Faq() {
@@ -131,8 +132,9 @@ export default function Faq() {
   }, [isManualScrolling]);
 
   return (
-    <div className="bg-[#050505] min-h-screen">
-      <SEO 
+    <PageTransition>
+      <div className="bg-[#050505] min-h-screen">
+        <SEO 
         title="Frequently Asked Questions | Credence Lighting" 
         description="Find answers to common questions about our lighting services, products, installation, and design consultations."
         schema={faqSchema}
@@ -264,6 +266,7 @@ export default function Faq() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "../components/seo/SEO";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import PageTransition from "../components/ui/motion/PageTransition";
 import BlogCard from "../components/blog/BlogCard";
 import BlogFeatured from "../components/blog/BlogFeatured";
 import BlogFilterBar from "../components/blog/BlogFilterBar";
@@ -39,8 +40,9 @@ export default function Blog() {
   }, [activeCategory, searchQuery, featuredPost]);
 
   return (
-    <div className="bg-[#050505] min-h-screen">
-      <SEO 
+    <PageTransition>
+      <div className="bg-[#050505] min-h-screen">
+        <SEO 
         title="Lighting Design Blog & Insights | Credence Lighting" 
         description="Explore the latest trends, tips, and insights in architectural, commercial, and residential lighting design."
       />
@@ -107,6 +109,7 @@ export default function Blog() {
       </main>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import projects from "../../data/projects";
 import { useNavigate, useLocation } from "react-router-dom";
 import { saveReturnState } from "../../utils/navigationState";
+import { duration, ease } from "../../utils/motion";
+import TextReveal from "../ui/motion/TextReveal";
+import FadeUp from "../ui/motion/FadeUp";
 
 const uniqueCategories = Array.from(new Set(projects.map((p) => p.category)));
 const categories = ["All", ...uniqueCategories];
@@ -15,7 +18,7 @@ const categoryDescriptions = {
   "Retail Lighting": "Dynamic retail lighting solutions designed to enhance product visibility and create an engaging shopping environment."
 };
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ hideHeader = false, preview = false }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState("All");
@@ -80,43 +83,35 @@ export default function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="min-h-screen bg-[#050505] text-white px-4 md:px-12 py-24 md:py-32 relative overflow-hidden">
-      
-      {/* Background Decorative Gradient */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-10" />
-        <div className="absolute -bottom-[20%] right-[10%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-10" />
-      </div>
+    <section id="projects" className="text-white px-4 md:px-12 py-24 md:py-32 relative overflow-hidden bg-transparent z-10">
 
       <div className="max-w-[1500px] mx-auto relative z-10">
+        {!hideHeader && (
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
-              Portfolio
-            </p>
-            <h2 className="text-fluid-h2 font-serif text-white">
-              Featured <span className="italic gold-gradient-text font-light">Projects</span>
+          <div>
+            <FadeUp delay={0}>
+              <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
+                Portfolio
+              </p>
+            </FadeUp>
+            <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap gap-2">
+              <TextReveal text="Featured" /> <TextReveal text="Projects" delay={2} className="italic gold-gradient-text font-light" />
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.button 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05, backgroundColor: "#c8a96b", color: "#000" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={handleViewAllClick} 
-            className="w-full md:w-auto border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full flex items-center justify-center gap-3 group"
-          >
-            View Gallery
-            <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
-          </motion.button>
+          <FadeUp delay={4}>
+            <motion.button 
+              whileHover={{ scale: 1.05, backgroundColor: "#c8a96b", color: "#000", transition: { duration: 0.4, ease: ease.standard } }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleViewAllClick} 
+              className="w-full md:w-auto border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full flex items-center justify-center gap-3 group"
+            >
+              View Gallery
+              <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
+            </motion.button>
+          </FadeUp>
         </div>
+        )}
 
         {/* Category Filters with Sliding Indicator */}
         <div className="flex flex-wrap gap-2 mb-20 relative z-20">
@@ -152,7 +147,6 @@ export default function ProjectsSection() {
           {active === "All" ? (
             // Bento Grid View for All Categories
             <motion.div 
-              layout 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
             >
               <AnimatePresence mode="wait">
@@ -163,7 +157,7 @@ export default function ProjectsSection() {
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    transition={{ duration: 0.6, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: duration.standard, delay: index * 0.05, ease: ease.standard }}
                     className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
                     onClick={() => {
                       setActive(item.category);
@@ -223,7 +217,7 @@ export default function ProjectsSection() {
                       opacity: isVisible ? (isCenter ? 1 : 0.35) : 0,
                       zIndex: isCenter ? 30 : isVisible ? 20 : 0,
                     }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: duration.standard, ease: ease.standard }}
                     className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
                     style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
                     onClick={() => {

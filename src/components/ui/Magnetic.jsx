@@ -1,31 +1,42 @@
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useSpring, useMotionValue } from "framer-motion";
 
-export default function Magnetic({ children }) {
+export default function Magnetic({ children, intensity = 0.25 }) {
   const ref = useRef(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const shouldReduceMotion = useReducedMotion();
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { stiffness: 150, damping: 15, mass: 0.1 };
+  const smoothX = useSpring(x, springConfig);
+  const smoothY = useSpring(y, springConfig);
 
   const handleMouse = (e) => {
+    if (shouldReduceMotion) return;
     const { clientX, clientY } = e;
     const { height, width, left, top } = ref.current.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
     const middleY = clientY - (top + height / 2);
-    setPosition({ x: middleX * 0.25, y: middleY * 0.25 });
+    x.set(middleX * intensity);
+    y.set(middleY * intensity);
   };
 
   const reset = () => {
-    setPosition({ x: 0, y: 0 });
+    if (shouldReduceMotion) return;
+    x.set(0);
+    y.set(0);
   };
 
-  const { x, y } = position;
+  if (shouldReduceMotion) {
+    return <div ref={ref}>{children}</div>;
+  }
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={reset}
-      animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 100, damping: 10, mass: 0.5 }}
+      style={{ x: smoothX, y: smoothY }}
     >
       {children}
     </motion.div>

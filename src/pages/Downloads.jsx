@@ -1,6 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import BackButton from "../components/ui/BackButton";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 const resources = [
   {
@@ -31,8 +32,9 @@ const resources = [
 
 export default function Downloads() {
   return (
-    <div className="bg-black text-white min-h-screen">
-      <Navbar />
+    <PageTransition>
+      <div className="bg-black text-white min-h-screen">
+        <Navbar />
       <BackButton />
 
       <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
@@ -79,6 +81,7 @@ export default function Downloads() {
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </PageTransition>
   );
 }

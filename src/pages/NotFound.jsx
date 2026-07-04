@@ -1,8 +1,10 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function NotFound() {
+  const shouldReduceMotion = useReducedMotion();
   const [position, setPosition] = useState({
     x: 50,
     y: 50,
@@ -16,6 +18,7 @@ export default function NotFound() {
   }));
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
     const moveLight = (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
@@ -28,10 +31,11 @@ export default function NotFound() {
     return () => {
       window.removeEventListener("mousemove", moveLight);
     };
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
+    <PageTransition>
+      <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
 
       {/* INTERACTIVE LIGHT */}
       <div
@@ -45,7 +49,7 @@ export default function NotFound() {
       <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
 
       {/* FLOATING PARTICLES */}
-      {particles.map((pos, i) => (
+      {!shouldReduceMotion && particles.map((pos, i) => (
         <motion.div
           key={i}
           animate={{
@@ -193,6 +197,7 @@ export default function NotFound() {
 
       </div>
 
-    </section>
+      </section>
+    </PageTransition>
   );
 }

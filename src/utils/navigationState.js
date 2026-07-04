@@ -4,7 +4,7 @@ const PENDING_SCROLL_KEY = "credence_pending_scroll";
 export function saveReturnState(state) {
   const payload = {
     pathname: state.pathname ?? "/",
-    scrollY: state.scrollY ?? 0,
+    scrollY: state.scrollY ?? (window.lenis ? window.lenis.scroll : window.scrollY) ?? 0,
     hash: state.hash ?? "",
   };
 

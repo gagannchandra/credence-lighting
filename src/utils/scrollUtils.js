@@ -1,9 +1,10 @@
 export function scrollToTop(immediate = true) {
-  const behavior = immediate ? "auto" : "smooth";
-
-  window.scrollTo({ top: 0, left: 0, behavior });
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
+  if (window.lenis) {
+    window.lenis.scrollTo(0, { immediate });
+  } else {
+    const behavior = immediate ? "auto" : "smooth";
+    window.scrollTo({ top: 0, left: 0, behavior });
+  }
 }
 
 export function scrollToSection(sectionId) {
@@ -11,7 +12,12 @@ export function scrollToSection(sectionId) {
 
   if (!element) return;
 
-  element.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (window.lenis) {
+    window.lenis.scrollTo(element, { duration: 1.2 });
+  } else {
+    element.scrollIntoView({ behavior: "auto", block: "start" });
+  }
+
   window.history.replaceState(null, "", `#${sectionId}`);
 }
 
@@ -20,13 +26,21 @@ export function restoreScrollPosition({ hash, scrollY }) {
     const element = document.querySelector(hash);
 
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (window.lenis) {
+        window.lenis.scrollTo(element, { immediate: true });
+      } else {
+        element.scrollIntoView({ behavior: "auto", block: "start" });
+      }
       return true;
     }
   }
 
   if (typeof scrollY === "number") {
-    window.scrollTo({ top: scrollY, left: 0, behavior: "smooth" });
+    if (window.lenis) {
+      window.lenis.scrollTo(scrollY, { immediate: true });
+    } else {
+      window.scrollTo({ top: scrollY, left: 0, behavior: "auto" });
+    }
     return true;
   }
 

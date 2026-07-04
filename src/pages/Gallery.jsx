@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import BackButton from "../components/ui/BackButton";
 import Lightbox from "../components/ui/Lightbox";
 import SEO from "../components/seo/SEO";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 import projects from "../data/projects";
 
@@ -25,7 +26,7 @@ export default function Gallery() {
   };
 
   return (
-    <>
+    <PageTransition>
       <SEO title="Gallery | Credence Lighting" description="Browse our photo gallery of stunning lighting designs and installations." />
       <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />
@@ -119,6 +120,6 @@ export default function Gallery() {
         />
       )}
     </section>
-    </>
+    </PageTransition>
   );
 }

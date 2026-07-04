@@ -5,6 +5,8 @@ import ContactSection from "../components/home/ContactSection";
 import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
+import PageTransition from "../components/ui/motion/PageTransition";
+
 export default function Contact() {
   useLayoutEffect(() => {
     scrollToTop(true);
@@ -12,13 +14,13 @@ export default function Contact() {
   }, []);
 
   return (
-    <>
+    <PageTransition>
       <SEO title="Contact Us | Credence Lighting" description="Get in touch with our team for your next commercial lighting project." />
       <Navbar />
       <div className="bg-black pt-10">
         <ContactSection />
       </div>
       <Footer />
-    </>
+    </PageTransition>
   );
 }

@@ -5,6 +5,7 @@ import SEO from "../components/seo/SEO";
 import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
 import { scrollToTop } from "../utils/scrollUtils";
+import PageTransition from "../components/ui/motion/PageTransition";
 
 const brands = [
   "/brands/al-othaim.webp",
@@ -52,7 +53,7 @@ export default function Brands() {
   }, []);
 
   return (
-    <>
+    <PageTransition>
       <SEO title="Our Brands | Credence Lighting" description="View the premium lighting brands and partners we work with globally." />
       <Navbar />
       <BackButton />
@@ -159,6 +160,6 @@ export default function Brands() {
       </section>
 
       <Footer />
-    </>
+    </PageTransition>
   );
 }   
