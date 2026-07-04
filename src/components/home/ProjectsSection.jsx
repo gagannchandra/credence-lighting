@@ -90,7 +90,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
           <div>
             <FadeUp delay={0}>
-              <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
+              <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6 font-semibold">
                 Portfolio
               </p>
             </FadeUp>
@@ -174,7 +174,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
                     <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="uppercase tracking-[0.3em] text-[10px] text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                         {item.category}
                       </p>
                       <h3 className="text-white text-2xl md:text-3xl font-serif leading-tight">{item.name}</h3>
@@ -223,7 +223,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                     onClick={() => {
                       if (isCenter) {
                         saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                        navigate(`/project/${item.id}`);
+                        navigate(`/project/${item.slug}`);
                       }
                       if (isLeft) handlePrev();
                       if (isRight) handleNext();
@@ -266,7 +266,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                             onClick={(e) => { 
                               e.stopPropagation(); 
                               saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                              navigate(`/project/${item.id}`); 
+                              navigate(`/project/${item.slug}`); 
                             }}
                           >
                           </div>
@@ -274,27 +274,27 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
                           {/* Top Left Topic Overlay */}
                           <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
                             <span className="w-8 h-[1px] bg-[#c8a96b]" />
-                            <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
+                            <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] font-semibold drop-shadow-md">
                               {active}
                             </p>
                           </div>
 
                           {/* Bottom Description Overlay */}
                           <div className="absolute bottom-8 left-8 right-8 md:bottom-12 md:left-12 md:right-12 z-20 pointer-events-none max-w-2xl">
-                            <h3 className="text-3xl md:text-5xl font-serif text-white mb-4">{item.name}</h3>
+                            <h3 className="text-fluid-h2 font-serif text-white mb-4">{item.name}</h3>
                             <div className="flex flex-wrap items-center gap-3 text-white/70 text-xs md:text-sm mb-4">
                               <span>{item.location}</span>
                               <span className="inline-block w-1 h-1 rounded-full bg-[#d4b16a]" />
                               <span>{item.year}</span>
                             </div>
-                            <p className="text-white/90 text-sm md:text-base leading-[1.6] font-light shadow-black drop-shadow-lg line-clamp-2 md:line-clamp-none">
+                            <p className="text-white/90 text-sm md:text-base leading-[1.8] font-light shadow-black drop-shadow-lg line-clamp-2 md:line-clamp-none">
                               {categoryDescriptions[active] || item.description}
                             </p>
                             <div className="mt-6 pointer-events-auto inline-block">
                                 <button onClick={() => {
                                   saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
-                                  navigate(`/project/${item.id}`);
-                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
+                                  navigate(`/project/${item.slug}`);
+                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
                                   View Project Details
                                 </button>
                             </div>

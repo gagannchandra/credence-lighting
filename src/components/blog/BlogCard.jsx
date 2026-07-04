@@ -19,7 +19,7 @@ export default function BlogCard({ post, index }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full">
-          <span className="text-[10px] uppercase tracking-wider text-[#c8a96b] font-medium">
+          <span className="text-xs uppercase tracking-wider text-[#c8a96b] font-medium">
             {post.category}
           </span>
         </div>
@@ -44,7 +44,7 @@ export default function BlogCard({ post, index }) {
           </h3>
         </Link>
         
-        <p className="text-white/60 text-sm leading-relaxed mb-6 line-clamp-3 flex-grow">
+        <p className="text-white/60 text-base leading-[1.8] mb-6 line-clamp-3 flex-grow">
           {post.excerpt}
         </p>
 

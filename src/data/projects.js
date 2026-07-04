@@ -21,6 +21,7 @@ import smarvy151 from "../assets/images/Smarvy Spot/151.webp";
 const projects = [
   {
     id: 1,
+    slug: "my-town",
     name: "My Town",
     location: "Multiple Locations, Saudi Arabia",
     year: "2024",
@@ -32,6 +33,7 @@ const projects = [
 
   {
     id: 2,
+    slug: "ground-control",
     name: "Ground Control",
     location: "Galleria Mall, Bahrain",
     year: "2024",
@@ -43,6 +45,7 @@ const projects = [
 
   {
     id: 3,
+    slug: "funtura",
     name: "Funtura",
     location: "Al Atyaf Mall, Riyadh",
     year: "2024",
@@ -54,6 +57,7 @@ const projects = [
 
   {
     id: 4,
+    slug: "xtreme-zone",
     name: "Xtreme Zone",
     location: "Al Shifa, Dammam, Saudi Arabia",
     year: "2024",
@@ -65,6 +69,7 @@ const projects = [
 
   {
     id: 5,
+    slug: "xtreme-z",
     name: "Xtreme Z",
     location: "Riyadh, Saudi Arabia",
     year: "2024",
@@ -76,6 +81,7 @@ const projects = [
 
   {
     id: 6,
+    slug: "smarvy-spot",
     name: "Smarvy Spot",
     location: "Alamer Mall, Al-Ahsa, Saudi Arabia",
     year: "2024",

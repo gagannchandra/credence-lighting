@@ -75,14 +75,14 @@ export default function Brands() {
               Trusted Collaborations
             </p>
 
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif text-white leading-tight">
+            <h1 className="text-fluid-h1 font-serif text-white">
               Our Global
               <span className="italic text-[#c8a96b]">
                 {" "}Brand Partners
               </span>
             </h1>
 
-            <p className="mt-10 text-white/50 text-lg leading-8">
+            <p className="mt-10 text-white/50 text-lg leading-[1.8]">
               We proudly collaborate with internationally recognized
               brands, entertainment destinations, retail leaders,
               hospitality groups, and architectural innovators across
@@ -104,7 +104,7 @@ export default function Brands() {
                 key={item.label}
                 className="border border-white/10 bg-white/[0.03] backdrop-blur-xl rounded-[30px] p-10 text-center"
               >
-                <h3 className="text-4xl md:text-5xl text-white font-serif">
+                <h3 className="text-fluid-h2 text-white font-serif">
                   {item.number}
                 </h3>
 

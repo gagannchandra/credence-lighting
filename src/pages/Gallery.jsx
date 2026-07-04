@@ -41,7 +41,7 @@ export default function Gallery() {
           <p className="uppercase tracking-[0.4em] text-xs text-[#d4b16a] mb-4">
             Gallery
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight">
+          <h1 className="text-fluid-h1 font-serif text-white">
             All Projects
           </h1>
         </motion.div>
@@ -67,7 +67,7 @@ export default function Gallery() {
                   <p className="uppercase tracking-[0.2em] text-xs text-[#d4b16a] mb-3">
                     {project.category}
                   </p>
-                  <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight">
+                  <h2 className="text-fluid-h1 font-serif text-white ">
                     {project.name}
                   </h2>
                   <p className="text-white/60 max-w-2xl">

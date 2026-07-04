@@ -42,11 +42,11 @@ export default function Projects() {
             <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
               Our Portfolio
             </p>
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif text-white leading-tight">
+            <h1 className="text-fluid-h1 font-serif text-white">
               Featured
               <span className="italic text-[#c8a96b]"> Projects</span>
             </h1>
-            <p className="mt-10 text-white/50 text-lg leading-8">
+            <p className="mt-10 text-white/50 text-lg leading-[1.8]">
               Explore our diverse portfolio of premium lighting projects across commercial, hospitality, residential, and retail sectors. From the initial concept design to final commissioning, our team meticulously crafts immersive environments. Browse through our selected works below to see how we bring spaces to life with precision, innovative technology, and creative vision.
             </p>
           </div>
@@ -59,11 +59,11 @@ export default function Projects() {
                 <div className="border-b border-white/10 pb-4 md:pb-6 mb-4 md:mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
                   <div className="flex items-center gap-4 md:gap-6">
                     <div className="w-8 md:w-12 h-[1px] bg-[#c8a96b]" />
-                    <h2 className="text-3xl md:text-5xl font-serif text-white tracking-wide">{project.name}</h2>
+                    <h2 className="text-fluid-h2 font-serif text-white">{project.name}</h2>
                   </div>
                   <div className="flex items-center gap-4">
                     <Link 
-                      to={`/project/${project.id}`}
+                      to={`/project/${project.slug}`}
                       onClick={() => scrollToTop()}
                       className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                     >
@@ -82,7 +82,7 @@ export default function Projects() {
                 
                 <div className="w-full pr-0 md:pr-8 pl-0 md:pl-[72px] mt-4 md:mt-0 flex flex-col gap-2 mb-8">
                   <p className="text-[#c8a96b] text-sm uppercase tracking-widest font-medium">{project.location}</p>
-                  <p className={`text-white/70 text-sm md:text-lg leading-relaxed font-light text-justify transition-all duration-300 ${!expandedCategories[project.id] ? 'line-clamp-2 md:line-clamp-none' : ''}`}>
+                  <p className={`text-white/70 text-base md:text-lg leading-[1.8] font-light text-justify transition-all duration-300 ${!expandedCategories[project.id] ? 'line-clamp-2 md:line-clamp-none' : ''}`}>
                     {project.description}
                   </p>
                   <button 
@@ -102,16 +102,16 @@ export default function Projects() {
               
               <div className="mt-8 flex flex-col sm:flex-row justify-center md:hidden w-full gap-4">
                 <Link 
-                  to={`/project/${project.id}`}
+                  to={`/project/${project.slug}`}
                   onClick={() => scrollToTop()}
-                  className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
+                  className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
                 >
                   View Project
                 </Link>
                 <Link 
                   to="/contact"
                   onClick={() => scrollToTop()}
-                  className="w-full inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-6 py-3 tracking-[0.2em] uppercase text-[10px] sm:text-xs transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
+                  className="w-full inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
                 >
                   Enquire Now
                   <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>

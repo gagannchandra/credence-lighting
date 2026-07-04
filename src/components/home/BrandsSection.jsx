@@ -38,13 +38,13 @@ export default function BrandsSection() {
             </p>
           </FadeUp>
 
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-tight flex flex-wrap justify-center gap-2">
+          <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center gap-2">
             <TextReveal text="Brands We" />
             <TextReveal text="Work With" delay={2} className="italic text-[#c8a96b]" />
           </h2>
 
           <FadeUp delay={4}>
-            <p className="mt-8 text-white/50 max-w-2xl mx-auto leading-8">
+            <p className="mt-8 text-white/50 max-w-2xl mx-auto leading-[1.8]">
               Collaborating with globally recognized brands,
               entertainment destinations, retail leaders,
               and architectural innovators across multiple countries.
@@ -60,7 +60,7 @@ export default function BrandsSection() {
             { number: "1000+", label: "Installations" },
           ].map((item, i) => (
             <FadeUp key={item.label} delay={6 + i * 2} className="text-center">
-              <h3 className="text-4xl md:text-5xl text-white font-serif">
+              <h3 className="text-fluid-h2 text-white font-serif">
                 {item.number}
               </h3>
               <p className="text-white/40 uppercase tracking-[0.3em] text-xs mt-3">

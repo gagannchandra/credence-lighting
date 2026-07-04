@@ -33,7 +33,7 @@ export default function Loader() {
             delay: shouldReduceMotion ? 0 : 0.4,
             duration: shouldReduceMotion ? 0 : 1,
           }}
-          className="mt-5 text-[#c8a96b] uppercase tracking-[0.45em] text-[10px] md:text-xs text-center"
+          className="mt-5 text-[#c8a96b] uppercase tracking-[0.45em] text-xs md:text-xs text-center"
         >
           Innovative Lighting • Integrated Solutions
         </motion.p>
@@ -62,7 +62,7 @@ export default function Loader() {
             duration: 2,
             repeat: shouldReduceMotion ? 0 : Infinity,
           }}
-          className="mt-6 text-white/40 uppercase tracking-[0.35em] text-[10px]"
+          className="mt-6 text-white/40 uppercase tracking-[0.35em] text-xs"
         >
           Initializing Experience
         </motion.p>

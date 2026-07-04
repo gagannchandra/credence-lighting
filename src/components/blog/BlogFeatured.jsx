@@ -38,12 +38,12 @@ export default function BlogFeatured({ post }) {
           </div>
 
           <Link to={`/blog/${post.slug}`}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-white/90 mb-4 group-hover:text-[#c8a96b] transition-colors duration-300">
+            <h2 className="text-fluid-h2 font-serif text-white/90 mb-4 group-hover:text-[#c8a96b] transition-colors duration-300">
               {post.title}
             </h2>
           </Link>
 
-          <p className="text-white/60 text-sm md:text-base leading-relaxed mb-8">
+          <p className="text-white/60 text-base md:text-lg leading-[1.8] mb-8">
             {post.excerpt}
           </p>
 

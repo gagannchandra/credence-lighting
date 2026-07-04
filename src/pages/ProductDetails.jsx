@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
 import products from "../data/products";
+import { slugify } from "../utils/routeUtils";
 
 const categoriesList = [
   "Indoor",
@@ -32,31 +33,52 @@ const categoryDescriptions = {
 };
 
 export default function ProductDetails() {
-  const { categoryName } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   
-  const decodedCategory = decodeURIComponent(categoryName);
-  const categoryProducts = products.filter((item) => item.category === decodedCategory);
+  // Backward compatibility: might still get raw name like "LED%20Screen"
+  const matchedCategory = categoriesList.find(c => slugify(c) === slug) || decodeURIComponent(slug);
+  const categoryProducts = products.filter((item) => item.category === matchedCategory);
 
-  const currentIndex = categoriesList.findIndex(c => c === decodedCategory);
+  const currentIndex = categoriesList.findIndex(c => c === matchedCategory);
   const previousCategory = currentIndex > 0 ? categoriesList[currentIndex - 1] : null;
   const nextCategory = currentIndex < categoriesList.length - 1 ? categoriesList[currentIndex + 1] : null;
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isTextExpanded, setIsTextExpanded] = useState(false);
 
   // Reset index when changing category
   useEffect(() => {
     setActiveImageIndex(0);
-  }, [decodedCategory]);
+  }, [matchedCategory]);
 
   const handlePrev = () => {
+    setDirection(-1);
     setActiveImageIndex((prev) => (prev === 0 ? categoryProducts.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
+    setDirection(1);
     setActiveImageIndex((prev) => (prev === categoryProducts.length - 1 ? 0 : prev + 1));
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      zIndex: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+      zIndex: 0
+    })
   };
 
   useEffect(() => {
@@ -109,15 +131,20 @@ export default function ProductDetails() {
               else if (offset.x > 50) handlePrev();
             }}
           >
-            <AnimatePresence>
+            <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 key={activeImageIndex}
                 src={categoryProducts[activeImageIndex].image}
                 alt={categoryProducts[activeImageIndex].title}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </AnimatePresence>
@@ -150,14 +177,14 @@ export default function ProductDetails() {
             className="uppercase tracking-[0.4em] text-xs font-semibold text-[#b89b5e] mb-5 flex items-center gap-3"
           >
             <span className="w-8 h-[1px] bg-[#b89b5e]"></span>
-            {decodedCategory} Collection
+            {matchedCategory} Collection
           </motion.p>
           
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-serif leading-[1.1] mb-6 tracking-tight"
+            className="text-white text-fluid-h1 font-serif mb-6"
           >
             {sampleProduct.title}
           </motion.h1>
@@ -177,8 +204,8 @@ export default function ProductDetails() {
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
             className="mb-12 max-w-[500px]"
           >
-            <p className={`text-white/70 text-sm sm:text-base md:text-lg leading-[1.8] font-light transition-all duration-300 ${!isTextExpanded ? 'line-clamp-3 md:line-clamp-none' : ''}`}>
-              {categoryDescriptions[decodedCategory] || `Discover our premium ${sampleProduct.title}, curated specifically for ${decodedCategory.toLowerCase()} applications. Engineered for uncompromised performance and aesthetic excellence, it seamlessly integrates into modern luxury spaces.`}
+            <p className={`text-white/70 text-base md:text-lg leading-[1.8] font-light transition-all duration-300 ${!isTextExpanded ? 'line-clamp-3 md:line-clamp-none' : ''}`}>
+              {categoryDescriptions[matchedCategory] || `Discover our premium ${sampleProduct.title}, curated specifically for ${matchedCategory.toLowerCase()} applications. Engineered for uncompromised performance and aesthetic excellence, it seamlessly integrates into modern luxury spaces.`}
             </p>
             <button 
               onClick={() => setIsTextExpanded(!isTextExpanded)}
@@ -210,7 +237,7 @@ export default function ProductDetails() {
           <button
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/collection/${previousCategory}`);
+              navigate(`/collection/${slugify(previousCategory)}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous collection"
@@ -222,7 +249,7 @@ export default function ProductDetails() {
           <button
              onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/collection/${nextCategory}`);
+              navigate(`/collection/${slugify(nextCategory)}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next collection"

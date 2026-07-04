@@ -45,12 +45,12 @@ export default function Downloads() {
             Downloads
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif leading-tight">
+          <h1 className="text-fluid-h1 font-serif ">
             Company
             <span className="italic text-[#c8a96b]"> Resources</span>
           </h1>
 
-          <p className="mt-8 text-white/50 max-w-2xl text-lg leading-8">
+          <p className="mt-8 text-white/50 max-w-2xl text-lg leading-[1.8]">
             Access catalogues, company profiles, and technical documents
             for your next commercial lighting project.
           </p>

@@ -353,7 +353,7 @@ export default function Navbar() {
                   <PageLink
                     to="/downloads"
                     onClick={closeMenu}
-                    className="inline-flex items-center gap-3 border border-[#c8a96b] px-6 py-3 uppercase tracking-[0.25em] text-[10px] text-[#c8a96b] hover:bg-[#c8a96b] hover:text-black transition duration-500"
+                    className="inline-flex items-center gap-3 border border-[#c8a96b] px-6 py-3 uppercase tracking-[0.25em] text-xs text-[#c8a96b] hover:bg-[#c8a96b] hover:text-black transition duration-500"
                   >
                     Downloads
 

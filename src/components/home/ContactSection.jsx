@@ -67,14 +67,14 @@ export default function ContactSection() {
               </p>
             </FadeUp>
 
-            <h2 className="text-5xl md:text-7xl font-serif leading-[1] flex flex-wrap gap-2">
+            <h2 className="text-fluid-h1 font-serif  flex flex-wrap gap-2">
               <TextReveal text="Let’s Create" />
               <TextReveal text="Something Exceptional" delay={2} className="italic text-[#c8a96b] block mt-2 w-full" />
             </h2>
           </div>
 
           <FadeUp delay={4}>
-            <p className="max-w-xl text-white/55 leading-8 text-lg">
+            <p className="max-w-xl text-white/55 leading-[1.8] text-lg">
               We collaborate with visionary brands, architects,
               and developers to craft premium lighting experiences
               that elevate atmosphere and redefine spatial identity.
@@ -132,7 +132,7 @@ export default function ContactSection() {
                     href="https://maps.app.goo.gl/ec2HMCDNXYtYviV7A" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="block text-white/70 leading-8 hover:text-[#c8a96b] transition-colors duration-300"
+                    className="block text-white/70 leading-[1.8] hover:text-[#c8a96b] transition-colors duration-300"
                   >
                     <strong className="text-white">Credence Lighting LLC</strong>
                     <br />
@@ -153,7 +153,7 @@ export default function ContactSection() {
             {/* BOTTOM TEXT */}
             <div className="relative z-10 mt-16 pt-8 border-t border-white/10">
 
-              <p className="text-white/40 leading-8">
+              <p className="text-white/40 leading-[1.8]">
                 Premium architectural and commercial
                 lighting solutions crafted with precision,
                 elegance, and innovation.
@@ -177,12 +177,16 @@ export default function ContactSection() {
                   Start A Conversation
                 </p>
 
-                <h3 className="text-4xl md:text-5xl font-serif leading-tight">
+                <h3 className="text-fluid-h1 font-serif mb-4">
                   Tell Us About
                   <span className="italic text-[#c8a96b]">
                     {" "}Your Vision
                   </span>
                 </h3>
+                
+                <p className="text-white/40 text-sm tracking-wide">
+                  Our dedicated team of lighting specialists typically responds within 24 hours.
+                </p>
 
               </div>
 

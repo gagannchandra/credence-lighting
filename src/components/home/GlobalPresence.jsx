@@ -220,7 +220,7 @@ export default function GlobalPresence() {
               </p>
             </FadeUp>
 
-            <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] font-serif text-[#F3F1EC] leading-[1.05] tracking-tight mb-2 flex flex-col gap-2">
+            <h2 className="text-fluid-h1 font-serif text-[#F3F1EC] leading-[1.05] tracking-tight mb-2 flex flex-col gap-2">
               <TextReveal text="Global" />
               <TextReveal text="Presence" delay={2} className="italic text-[#C8A46A]" />
             </h2>
@@ -236,7 +236,7 @@ export default function GlobalPresence() {
             {/* DESKTOP ONLY BOTTOM CONTENT */}
             <div className="hidden md:block w-full">
               <FadeUp delay={6}>
-                <p className="text-[10px] md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
+                <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
                   UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
                 </p>
               </FadeUp>
@@ -244,7 +244,7 @@ export default function GlobalPresence() {
               <FadeUp delay={8}>
                 <a 
                   href="/projects" 
-                  className="inline-flex items-center gap-6 text-[11px] tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group"
+                  className="inline-flex items-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group"
                 >
                   Explore Our Projects
                   <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
@@ -329,7 +329,7 @@ export default function GlobalPresence() {
         {/* BOTTOM CONTENT (MOBILE ONLY) */}
         <div className="md:hidden mt-12 flex flex-col items-center text-center relative z-20">
           <FadeUp delay={6}>
-            <p className="text-[10px] md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[600px]">
+            <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[600px]">
               UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
             </p>
           </FadeUp>
@@ -337,7 +337,7 @@ export default function GlobalPresence() {
           <FadeUp delay={8}>
             <a 
               href="/projects" 
-              className="inline-flex items-center justify-center gap-6 text-[11px] tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-8 md:mt-10 uppercase hover:text-white transition-all font-medium group"
+              className="inline-flex items-center justify-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-8 md:mt-10 uppercase hover:text-white transition-all font-medium group"
             >
               Explore Our Projects
               <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>

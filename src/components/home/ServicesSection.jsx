@@ -42,7 +42,7 @@ export default function ServicesSection() {
         
         {/* HEADER */}
         <div className="text-center max-w-4xl mx-auto mb-16 pt-10 border-t border-white/10">
-          <h2 className="text-4xl md:text-5xl font-serif text-white tracking-wide flex flex-wrap justify-center gap-2">
+          <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap justify-center gap-2">
             <TextReveal text="How We" /> <TextReveal text="Deliver Excellence" delay={2} className="italic gold-gradient-text" />
           </h2>
 
@@ -81,7 +81,7 @@ export default function ServicesSection() {
                     <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed">
+                    <p className="text-white/60 text-base leading-[1.8]">
                       {service.description}
                     </p>
                   </div>

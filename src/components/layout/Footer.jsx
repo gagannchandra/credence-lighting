@@ -29,13 +29,13 @@ export default function Footer() {
               </Link>
             </FadeUp>
 
-            <h3 className="text-4xl md:text-5xl font-serif leading-tight max-w-xl flex flex-wrap gap-2">
+            <h3 className="text-fluid-h1 font-serif  max-w-xl flex flex-wrap gap-2">
               <TextReveal text="Illuminating Spaces" />
               <TextReveal text="With Elegance" delay={2} className="italic text-[#c8a96b]" />
             </h3>
 
             <FadeUp delay={4}>
-              <p className="mt-8 text-white/50 leading-8 max-w-xl">
+              <p className="mt-8 text-white/50 leading-[1.8] max-w-xl">
                 Premium architectural and commercial lighting
                 solutions crafted to elevate atmosphere,
                 functionality, and spatial identity.
@@ -234,7 +234,7 @@ export default function Footer() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }}
-  className="group uppercase tracking-[0.3em] text-[10px] text-white/50 hover:text-[#c8a96b] transition duration-300 flex items-center gap-2"
+  className="group uppercase tracking-[0.3em] text-xs text-white/50 hover:text-[#c8a96b] transition duration-300 flex items-center gap-2"
 >
   Back To Top
 
@@ -252,7 +252,7 @@ export default function Footer() {
       © 2026 Credence Lighting LLC. All Rights Reserved.
     </p>
 
-    <p className="uppercase tracking-[0.3em] text-[10px] text-white/15">
+    <p className="uppercase tracking-[0.3em] text-xs text-white/15">
       Crafted With Precision
     </p>
 

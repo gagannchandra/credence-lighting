@@ -100,7 +100,7 @@ export default function NotFound() {
             delay: 0.3,
             duration: 1,
           }}
-          className="text-3xl md:text-7xl text-white font-serif leading-tight"
+          className="text-fluid-h1 text-white font-serif "
         >
           Power
           <span className="italic text-[#c8a96b]">
@@ -116,7 +116,7 @@ export default function NotFound() {
             delay: 0.6,
             duration: 1,
           }}
-          className="mt-8 text-white/50 text-lg md:text-xl leading-8 max-w-3xl mx-auto"
+          className="mt-8 text-white/50 text-lg md:text-xl leading-[1.8] max-w-3xl mx-auto"
         >
           The lighting system couldn’t locate the requested
           destination. The pathway appears disconnected from

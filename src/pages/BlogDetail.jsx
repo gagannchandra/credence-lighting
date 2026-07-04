@@ -93,7 +93,7 @@ export default function BlogDetail() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight"
+            className="text-fluid-h1 font-serif text-white mb-8 "
           >
             {post.title}
           </motion.h1>

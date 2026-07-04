@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import products from "../../data/products";
 import { useNavigate, useLocation } from "react-router-dom";
 import { saveReturnState } from "../../utils/navigationState";
+import { slugify } from "../../utils/routeUtils";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
 import HoverLift from "../ui/motion/HoverLift";
@@ -118,11 +119,11 @@ export default function ProductsSection({ hideHeader = false, preview = false })
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
           <div>
             <FadeUp delay={0}>
-              <p className="uppercase tracking-[0.4em] text-[11px] text-[#b89b5e] mb-6 font-semibold">
+              <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6 font-semibold">
                 Premium Collection
               </p>
             </FadeUp>
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-serif text-white leading-[1.1] tracking-tight flex flex-wrap gap-2">
+            <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap gap-2">
               <TextReveal text="Our Product" /> <TextReveal text="Range" delay={2} className="italic text-[#c8a96b] font-light" />
             </h2>
           </div>
@@ -202,7 +203,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
                     <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="uppercase tracking-[0.3em] text-[10px] text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                         Explore Collection
                       </p>
                       <h3 className="text-white text-2xl md:text-3xl font-serif leading-tight">{item.category}</h3>
@@ -251,7 +252,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                     onClick={() => {
                       if (isCenter) {
                         saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
-                        navigate(`/collection/${item.category}`);
+                        navigate(`/collection/${slugify(item.category)}`);
                       }
                       if (isLeft) handlePrev();
                       if (isRight) handleNext();
@@ -291,7 +292,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                           {/* Top Left Topic Overlay */}
                           <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
                             <span className="w-8 h-[1px] bg-[#c8a96b]" />
-                            <p className="uppercase tracking-[0.3em] text-[11px] text-[#c8a96b] font-semibold drop-shadow-md">
+                            <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] font-semibold drop-shadow-md">
                               {active} Collection
                             </p>
                           </div>
@@ -305,8 +306,8 @@ export default function ProductsSection({ hideHeader = false, preview = false })
                                 <button onClick={(e) => {
                                   e.stopPropagation();
                                   saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
-                                  navigate(`/collection/${item.category}`);
-                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-[10px] md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
+                                  navigate(`/collection/${slugify(item.category)}`);
+                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
                                   View Collection Details
                                 </button>
                             </div>

@@ -1,27 +1,81 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
-import CategoryCarousel from "../components/gallery/CategoryCarousel";
 import projects from "../data/projects";
 
 export default function ProjectDetails() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
 
-  const currentIndex = projects.findIndex((item) => item.id === Number(id));
+  // Handle backward compatibility for numeric IDs
+  useEffect(() => {
+    if (!isNaN(slug) && !isNaN(parseFloat(slug))) {
+      const oldId = Number(slug);
+      const oldProject = projects.find((item) => item.id === oldId);
+      if (oldProject) {
+        navigate(`/project/${oldProject.slug}`, { replace: true });
+      }
+    }
+  }, [slug, navigate]);
+
+  const currentIndex = projects.findIndex((item) => item.slug === slug || item.id === Number(slug));
   const project = projects[currentIndex];
 
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
   const [isTextExpanded, setIsTextExpanded] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Reset text expansion when changing project
+  // Reset text expansion and slider when changing project
   useEffect(() => {
     setIsTextExpanded(false);
-  }, [id]);
+    setActiveImageIndex(0);
+  }, [slug]);
+
+  const handlePrev = () => {
+    if (!project) return;
+    setDirection(-1);
+    setActiveImageIndex((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    if (!project) return;
+    setDirection(1);
+    setActiveImageIndex((prev) => (prev === project.gallery.length - 1 ? 0 : prev + 1));
+  };
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      zIndex: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+      zIndex: 0
+    })
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isHovered) return;
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isHovered, project]);
 
   if (!project) {
     return (
@@ -46,19 +100,61 @@ export default function ProjectDetails() {
       <BackButton />
 
       <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center gap-12 lg:gap-24">
-        {/* LEFT: CategoryCarousel Slider */}
+        {/* LEFT: Single Image Slider */}
         <div className="w-full md:w-1/2 flex items-center justify-center relative">
-          <CategoryCarousel 
-            items={galleryItems} 
-            isProduct={false} 
-            isSplitLayout={true} 
-            hideLinkOverlay={true}
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full max-w-xl h-[50vh] sm:h-[60vh] md:h-[80vh] rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 relative z-10 bg-black"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(e, { offset }) => {
+              if (offset.x < -50) handleNext();
+              else if (offset.x > 50) handlePrev();
+            }}
+          >
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.img
+                key={activeImageIndex}
+                src={project.gallery[activeImageIndex]}
+                alt={`${project.name} - Gallery Image ${activeImageIndex + 1}`}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 }
+                }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
+
+            <div className="absolute inset-0 bg-white/5 pointer-events-none z-10" />
+            
+            {/* Click zones */}
+            <div className="absolute inset-0 z-20 flex cursor-pointer">
+               <div className="w-1/2 h-full" onClick={handlePrev} />
+               <div className="w-1/2 h-full" onClick={handleNext} />
+            </div>
+
+            {/* Indicator dots */}
+            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-30 pointer-events-none">
+              {project.gallery.map((_, idx) => (
+                <div key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeImageIndex ? 'w-6 bg-[#c8a96b]' : 'w-2 bg-white/30'}`} />
+              ))}
+            </div>
+          </motion.div>
           {/* Accent element behind image */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-[38rem] h-[53vh] sm:h-[63vh] md:h-[83vh] border border-[#c8a96b]/20 rounded-xl z-0 pointer-events-none hidden md:block" />
         </div>
 
-        {/* RIGHT: Sticky Details */}
+        {/* RIGHT: Details */}
         <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -74,7 +170,7 @@ export default function ProjectDetails() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-serif leading-[1.1] mb-6 tracking-tight"
+            className="text-white text-fluid-h1 font-serif mb-6"
           >
             {project.name}
           </motion.h1>
@@ -83,7 +179,7 @@ export default function ProjectDetails() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-            className="flex flex-wrap gap-4 items-center text-white/50 uppercase tracking-[0.2em] text-[10px] md:text-xs mb-10 font-medium"
+            className="flex flex-wrap gap-4 items-center text-white/50 uppercase tracking-[0.2em] text-xs md:text-xs mb-10 font-medium"
           >
             <span>{project.location}</span>
             <span className="w-1 h-1 rounded-full bg-[#c8a96b]" />
@@ -94,51 +190,37 @@ export default function ProjectDetails() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-            className="mb-8 max-w-[600px]"
+            className="mb-12 max-w-[600px]"
           >
-            <div className={`space-y-6 text-white/70 text-sm sm:text-base leading-[1.8] font-light transition-all duration-300 ${!isTextExpanded ? 'line-clamp-4 md:line-clamp-none' : ''}`}>
-              <p>{project.description}</p>
+            <p className="text-white/80 text-base md:text-lg leading-[1.8] font-light mb-10 text-justify">
+              {project.description}
+            </p>
               
-              <div className="hidden md:block space-y-6 pt-4">
-                <div>
-                  <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">The Challenge</h3>
-                  <p>Integrating complex lighting systems into an existing architectural framework required meticulous planning. The environment demanded a delicate balance between dramatic visual impact and everyday functional illumination, all while adhering to strict energy efficiency guidelines.</p>
-                </div>
-                <div>
-                  <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">Our Approach</h3>
-                  <p>Our team deployed a tailored suite of advanced fixtures. By utilizing precision-engineered optics and intelligent control systems, we were able to sculpt the space with light, highlighting key structural elements without causing glare or light spillage.</p>
-                </div>
-                <div>
-                  <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">The Result</h3>
-                  <p>A breathtaking, immersive environment that seamlessly adapts to different times of day and usage scenarios. The installation not only elevated the aesthetic appeal of the space but also established a new benchmark for sustainable, luxury lighting design.</p>
-                </div>
+            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-[#c8a96b]/50 before:via-[#c8a96b]/20 before:to-transparent pl-8">
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  To craft a luminous environment that transcends basic illumination, merging architectural integrity with emotional resonance. We aimed to create a space that feels alive, adapting to the natural rhythm of its inhabitants while accentuating the structural grandeur.
+                </p>
               </div>
-
-              {/* Mobile expanded view of the extra text */}
-              {isTextExpanded && (
-                <div className="md:hidden space-y-6 pt-4">
-                  <div>
-                    <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">The Challenge</h3>
-                    <p>Integrating complex lighting systems into an existing architectural framework required meticulous planning. The environment demanded a delicate balance between dramatic visual impact and everyday functional illumination.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">Our Approach</h3>
-                    <p>Our team deployed a tailored suite of advanced fixtures utilizing precision-engineered optics and intelligent control systems to sculpt the space with light.</p>
-                  </div>
-                  <div>
-                    <h3 className="text-[#c8a96b] text-xs uppercase tracking-widest font-semibold mb-2">The Result</h3>
-                    <p>A breathtaking, immersive environment that seamlessly adapts to different times of day, elevating the aesthetic appeal of the space.</p>
-                  </div>
-                </div>
-              )}
+              
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  Deploying a meticulously curated selection of advanced, low-glare luminaires and intelligent control systems. Our design seamlessly integrates into the spatial geometry, ensuring that light acts as a subtle architectural material rather than a mere utility, eliminating harsh shadows and visual noise.
+                </p>
+              </div>
+              
+              <div className="relative">
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
+                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
+                <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
+                  A breathtaking, immersive atmosphere that redefines the luxury experience. The dynamic lighting landscape not only elevates the aesthetic brilliance of the environment but also establishes a new paradigm for sustainable, human-centric design.
+                </p>
+              </div>
             </div>
-
-            <button 
-              onClick={() => setIsTextExpanded(!isTextExpanded)}
-              className="md:hidden mt-4 text-[#c8a96b] text-xs uppercase tracking-wider font-semibold"
-            >
-              {isTextExpanded ? 'Show Less' : 'Learn More'}
-            </button>
           </motion.div>
 
           <motion.div
@@ -163,7 +245,7 @@ export default function ProjectDetails() {
           <button
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/project/${previousProject.id}`);
+              navigate(`/project/${previousProject.slug}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous project"
@@ -175,7 +257,7 @@ export default function ProjectDetails() {
           <button
              onClick={() => {
               window.scrollTo({ top: 0, behavior: 'instant' });
-              navigate(`/project/${nextProject.id}`);
+              navigate(`/project/${nextProject.slug}`);
             }}
             className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next project"

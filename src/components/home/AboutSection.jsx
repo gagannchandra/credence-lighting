@@ -18,7 +18,7 @@ export default function AboutSection({ preview = false }) {
 
         {/* HEADING */}
         <div>
-          <h2 className="text-fluid-h2 font-serif leading-tight text-white flex flex-wrap justify-center">
+          <h2 className="text-fluid-h1 font-serif  text-white flex flex-wrap justify-center">
             <TextReveal text="Credence: Aesthetics" />
           </h2>
 
@@ -66,7 +66,7 @@ export default function AboutSection({ preview = false }) {
                   : ""
               }`}
             >
-              <h5 className="text-3xl md:text-5xl font-serif text-white mb-3">
+              <h5 className="text-fluid-h2 font-serif text-white mb-3">
                 {number}
               </h5>
               <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b]/80">
@@ -81,7 +81,7 @@ export default function AboutSection({ preview = false }) {
         <>
         <div className="mt-32">
           <div className="text-center max-w-4xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif text-white tracking-wide flex flex-wrap justify-center gap-2">
+            <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap justify-center gap-2">
               <TextReveal text="How We" />
               <TextReveal text="Deliver Excellence" delay={2} className="italic gold-gradient-text" />
             </h2>
@@ -131,7 +131,7 @@ export default function AboutSection({ preview = false }) {
 
         {/* CALL TO ACTION CARDS (Moved to the end) */}
         <div className="mt-32 pt-16 border-t border-white/5 text-center">
-          <h3 className="text-3xl md:text-4xl font-serif text-white mb-4 flex flex-wrap justify-center">
+          <h3 className="text-fluid-h2 font-serif text-white mb-4 flex flex-wrap justify-center">
             <TextReveal text="Continue Your Journey" />
           </h3>
 
@@ -144,12 +144,12 @@ export default function AboutSection({ preview = false }) {
           <div className="grid md:grid-cols-2 gap-6 max-w-[1200px] mx-auto text-left">
 
           {/* PRODUCTS CARD */}
-          <FadeUp delay={4}>
-            <HoverLift>
+          <FadeUp delay={4} className="h-full">
+            <HoverLift className="h-full">
               <button
                 type="button"
                 onClick={() => navigate("/products")}
-                className="group relative overflow-hidden border border-white/10 rounded-[2.5rem] p-8 md:p-10 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center w-full cursor-pointer"
+                className="group relative overflow-hidden border border-white/10 rounded-[2.5rem] p-8 md:p-10 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[320px] flex flex-col items-center justify-center w-full cursor-pointer"
               >
 
                   {/* HOVER GLOW */}
@@ -162,7 +162,7 @@ export default function AboutSection({ preview = false }) {
                     Discover
                   </p>
 
-                  <h4 className="relative z-10 mt-6 text-3xl md:text-4xl font-serif text-white tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-6 text-fluid-h2 font-serif text-white tracking-[0.05em]">
                     Explore Products
                   </h4>
 
@@ -179,12 +179,12 @@ export default function AboutSection({ preview = false }) {
           </FadeUp>
 
           {/* PORTFOLIO CARD */}
-          <FadeUp delay={6}>
-            <HoverLift>
+          <FadeUp delay={6} className="h-full">
+            <HoverLift className="h-full">
               <button
                 type="button"
                 onClick={() => navigate("/projects")}
-                className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-[2.5rem] p-8 md:p-10 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-[220px] flex flex-col items-center justify-center w-full cursor-pointer"
+                className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-[2.5rem] p-8 md:p-10 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[320px] flex flex-col items-center justify-center w-full cursor-pointer"
               >
 
                   {/* GOLD HOVER GLOW */}
@@ -197,7 +197,7 @@ export default function AboutSection({ preview = false }) {
                     Showcase
                   </p>
 
-                  <h4 className="relative z-10 mt-6 text-3xl md:text-4xl font-serif text-[#c8a96b] tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-6 text-fluid-h2 font-serif text-[#c8a96b] tracking-[0.05em]">
                     View Portfolio
                   </h4>
 
