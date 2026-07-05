@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   motion,
   useMotionValue,
@@ -8,13 +8,11 @@ import {
 
 import bgHorizontal from "../../assets/images/homepage/horizontal.webp";
 import bgVertical from "../../assets/images/homepage/vertical.webp";
-import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
-
 
 export default function Hero() {
   const containerRef = useRef(null);
-  const [insideHero, setInsideHero] = useState(false);
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -56,8 +54,7 @@ export default function Hero() {
       id="hero"
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setInsideHero(true)}
-      onMouseLeave={() => setInsideHero(false)}
+
       className="relative h-screen w-full bg-black flex items-center justify-center overflow-hidden"
     >
       {/* B&W IMAGE */}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import TextReveal from "../ui/motion/TextReveal";
@@ -13,6 +13,15 @@ export default function GlobalPresence() {
   });
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [hexData, setHexData] = useState([]);
+
+  const customGlobeMaterial = useMemo(() => {
+    const mat = new THREE.MeshPhongMaterial();
+    mat.color = new THREE.Color('#030408');
+    mat.transparent = true;
+    mat.opacity = 0.9;
+    mat.shininess = 1;
+    return mat;
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -56,13 +65,6 @@ export default function GlobalPresence() {
       globeRef.current.pointOfView({ lat: 25, lng: 55, altitude: alt });
 
       const scene = globeRef.current.scene();
-      
-      // Base Globe Material (Transparent, Dark)
-      const globeMaterial = globeRef.current.globeMaterial();
-      globeMaterial.color = new THREE.Color('#030408'); // Deepest void
-      globeMaterial.transparent = true;
-      globeMaterial.opacity = 0.9; // Hide the back dots slightly for depth
-      globeMaterial.shininess = 1; 
 
       // Clear default lighting safely
       if (scene && scene.children) {
@@ -264,6 +266,7 @@ export default function GlobalPresence() {
               <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
                 <Globe
                   ref={globeRef}
+                  globeMaterial={customGlobeMaterial}
                   backgroundColor="rgba(0,0,0,0)"
                   showGlobe={true}
                   showAtmosphere={true}

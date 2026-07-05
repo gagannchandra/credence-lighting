@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
@@ -50,20 +50,21 @@ export default function ProductDetails() {
   const [isHovered, setIsHovered] = useState(false);
   const [isTextExpanded, setIsTextExpanded] = useState(false);
 
-  // Reset index when changing category
-  useEffect(() => {
+  const [prevMatchedCategory, setPrevMatchedCategory] = useState(matchedCategory);
+  if (matchedCategory !== prevMatchedCategory) {
+    setPrevMatchedCategory(matchedCategory);
     setActiveImageIndex(0);
-  }, [matchedCategory]);
+  }
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setDirection(-1);
     setActiveImageIndex((prev) => (prev === 0 ? categoryProducts.length - 1 : prev - 1));
-  };
+  }, [categoryProducts.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setDirection(1);
     setActiveImageIndex((prev) => (prev === categoryProducts.length - 1 ? 0 : prev + 1));
-  };
+  }, [categoryProducts.length]);
 
   const slideVariants = {
     enter: (direction) => ({
@@ -91,7 +92,7 @@ export default function ProductDetails() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isHovered, categoryProducts]);
+  }, [isHovered, handlePrev, handleNext]);
 
   if (categoryProducts.length === 0) {
     return (

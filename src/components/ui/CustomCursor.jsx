@@ -12,15 +12,16 @@ export default function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(pointer: fine)");
+    if (!mediaQuery.matches) return;
+
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
     };
 
     const handleMouseOver = (e) => {
-
-
-      const isClickable = e.target.closest('a, button, [role="button"], .cursor-pointer, input, textarea, select');
+      const isClickable = e.target?.closest?.('a, button, [role="button"], .cursor-pointer, input, textarea, select');
       setIsHovered(!!isClickable);
     };
 
@@ -47,7 +48,7 @@ export default function CustomCursor() {
       
       {/* OUTER RING (Trailing motion) */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-full hidden md:flex items-center justify-center border-[3px]"
+        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-full hidden md:flex items-center justify-center border"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

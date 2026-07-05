@@ -36,7 +36,7 @@ const categoryDescriptions = {
   Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
 };
 
-export default function ProductsSection({ hideHeader = false, preview = false }) {
+export default function ProductsSection({ hideHeader = false }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState(location.state?.selectedCategory || "All");
@@ -83,7 +83,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
       if (active === "All") return;
       if (e.key === "ArrowLeft") {
         setActiveProductIndex((prev) => (prev === 0 ? filteredProducts.length - 1 : prev - 1));
@@ -178,7 +178,7 @@ export default function ProductsSection({ hideHeader = false, preview = false })
             <motion.div 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {representativeProducts.slice(0, 8).map((item, index) => (
                   <motion.div
                     key={item.id}

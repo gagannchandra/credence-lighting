@@ -18,7 +18,7 @@ const categoryDescriptions = {
   "Retail Lighting": "Dynamic retail lighting solutions designed to enhance product visibility and create an engaging shopping environment."
 };
 
-export default function ProjectsSection({ hideHeader = false, preview = false }) {
+export default function ProjectsSection({ hideHeader = false }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [active, setActive] = useState("All");
@@ -54,7 +54,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) return;
+      if (["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName)) return;
       if (active === "All") return;
       if (e.key === "ArrowLeft") {
         setActiveProjectIndex((prev) => (prev === 0 ? filteredProjects.length - 1 : prev - 1));
@@ -149,7 +149,7 @@ export default function ProjectsSection({ hideHeader = false, preview = false })
             <motion.div 
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
             >
-              <AnimatePresence mode="wait">
+              <AnimatePresence>
                 {representativeProjects.slice(0, 8).map((item, index) => (
                   <motion.div
                     key={item.id}
