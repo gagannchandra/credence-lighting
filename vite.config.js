@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import prerender from "@prerenderer/rollup-plugin";
-import RendererPuppeteer from "@prerenderer/renderer-puppeteer";
+import RendererJSDOM from "@prerenderer/renderer-jsdom";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -40,7 +40,7 @@ export default defineConfig({
     prerender({
       staticDir: path.join(__dirname, 'dist'),
       routes: allRoutes,
-      renderer: new RendererPuppeteer({
+      renderer: new RendererJSDOM({
         renderAfterTime: 5000,
       }),
     })
