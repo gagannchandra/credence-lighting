@@ -39,6 +39,16 @@ export default function Products() {
       <SEO 
         title="Premium Lighting Collections | Indoor, Outdoor & Facade Lighting" 
         description="Browse our exclusive collections of high-end lighting products. From luxury chandeliers to advanced architectural LEDs, discover the perfect luminaire for your project." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": Array.from(new Set(products.map(p => p.category))).map((category, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://credencelighting.com/products/${slugify(category)}`,
+            "name": category
+          }))
+        }]}
       />
       <Navbar />
 

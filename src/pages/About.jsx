@@ -18,6 +18,19 @@ export default function About() {
       <SEO 
         title="About Credence Lighting | Premium Lighting Manufacturers & Designers" 
         description="Discover the legacy of Credence Lighting. We are pioneers in bespoke architectural, commercial, and residential luxury lighting, merging innovation with timeless craftsmanship." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Credence Lighting",
+          "url": "https://credencelighting.com",
+          "logo": "https://credencelighting.com/logo.png",
+          "description": "Credence Lighting is a premium lighting manufacturer and design agency specializing in bespoke architectural, commercial, and residential luxury lighting.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+971-123456789",
+            "contactType": "customer service"
+          }
+        }]}
       />
       <Navbar />
       <div className="relative bg-black pt-10 pb-20 overflow-hidden">

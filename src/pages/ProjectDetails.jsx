@@ -96,6 +96,22 @@ export default function ProjectDetails() {
         title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
         image={project.hero}
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "name": project.name,
+          "image": project.hero,
+          "description": project.description,
+          "creator": {
+            "@type": "Organization",
+            "name": "Credence Lighting"
+          },
+          "datePublished": project.year,
+          "contentLocation": {
+            "@type": "Place",
+            "name": project.location
+          }
+        }]}
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

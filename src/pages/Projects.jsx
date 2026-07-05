@@ -33,6 +33,16 @@ export default function Projects() {
       <SEO 
         title="Luxury Lighting Projects | Commercial & Residential Portfolio" 
         description="Explore Credence Lighting's portfolio of premium architectural and commercial lighting projects. See how our bespoke lighting solutions transform elite spaces." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": projects.map((project, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://credencelighting.com/projects/${project.slug}`,
+            "name": project.name
+          }))
+        }]}
       />
       <Navbar />
       

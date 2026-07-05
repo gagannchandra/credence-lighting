@@ -110,6 +110,18 @@ export default function ProductDetails() {
         title={`${matchedCategory} Lighting Collection | Credence Lighting`}
         description={`Explore our premium ${matchedCategory.toLowerCase()} lighting collection. Discover luxury ${sampleProduct.title.toLowerCase()}s engineered for uncompromised performance and aesthetic excellence.`}
         image={sampleProduct.image}
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": sampleProduct.title,
+          "image": sampleProduct.image,
+          "description": categoryDescriptions[matchedCategory] || sampleProduct.subtitle,
+          "brand": {
+            "@type": "Brand",
+            "name": "Credence Lighting"
+          },
+          "category": matchedCategory
+        }]}
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

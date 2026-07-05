@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
@@ -9,7 +9,7 @@ import Hero from "../components/home/Hero";
 import AboutSection from "../components/home/AboutSection";
 import ProductsSection from "../components/home/ProductsSection";
 import BrandsSection from "../components/home/BrandsSection";
-import GlobalPresence from "../components/home/GlobalPresence";
+const GlobalPresence = lazy(() => import("../components/home/GlobalPresence"));
 import ProjectsSection from "../components/home/ProjectsSection";
 import ContactSection from "../components/home/ContactSection";
 import PageTransition from "../components/ui/motion/PageTransition";
@@ -84,7 +84,9 @@ export default function Home() {
           <ProductsSection preview={true} />
           <BrandsSection preview={true} />
           
-          <GlobalPresence />
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center bg-black"><p className="text-[#c8a96b] uppercase tracking-widest text-xs">Loading Interactive Map...</p></div>}>
+            <GlobalPresence />
+          </Suspense>
           <ContactSection preview={true} />
         </div>
       </main>
