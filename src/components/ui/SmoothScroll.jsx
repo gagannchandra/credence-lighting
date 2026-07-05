@@ -13,16 +13,10 @@ export default function SmoothScroll({ children }) {
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
+      autoRaf: true,
     });
     
     window.lenis = lenis;
-
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
 
     return () => {
       window.lenis = null;

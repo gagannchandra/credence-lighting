@@ -106,7 +106,45 @@ export default function GlobalPresence() {
     };
 
     // Small delay ensures textures and geometries are initialized
-    const initTimer = setTimeout(initCinematicRender, 150);
+    const initTimer = setTimeout(() => {
+      initCinematicRender();
+      
+      // Intercept pointer events to allow page scrolling on empty canvas corners
+      if (globeRef.current) {
+        const renderer = globeRef.current.renderer();
+        if (renderer && renderer.domElement) {
+          const canvas = renderer.domElement;
+          
+          const handleInteraction = (e) => {
+            const rect = canvas.getBoundingClientRect();
+            // For touch events, use the first touch point
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            const x = clientX - rect.left - rect.width / 2;
+            const y = clientY - rect.top - rect.height / 2;
+            const distance = Math.sqrt(x*x + y*y);
+            
+            // The globe visually occupies about 35% to 40% of the canvas radius (due to scaling)
+            const clickableRadius = rect.width * 0.35; 
+            
+            if (distance > clickableRadius) {
+              // The user touched/clicked outside the circular globe.
+              // Stop the event from reaching OrbitControls so it doesn't prevent page scrolling!
+              e.stopPropagation();
+            }
+          };
+
+          // We use capture phase (true) to intercept the event BEFORE OrbitControls gets it
+          canvas.addEventListener('pointerdown', handleInteraction, true);
+          canvas.addEventListener('touchstart', handleInteraction, true);
+          canvas.addEventListener('wheel', handleInteraction, true);
+          
+          // Store it so we can clean it up later if needed, though the canvas gets destroyed on unmount anyway
+          canvas._interactionHandler = handleInteraction;
+        }
+      }
+    }, 150);
 
     return () => {
       clearTimeout(initTimer);

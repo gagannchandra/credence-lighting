@@ -67,12 +67,12 @@ export default function Home() {
           <motion.div 
             animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08]" 
+            className="absolute top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08] will-change-transform transform-gpu" 
           />
           <motion.div 
             animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08]" 
+            className="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08] will-change-transform transform-gpu" 
           />
         </div>
 
