@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Globe from "react-globe.gl";
 import * as THREE from "three";
 import TextReveal from "../ui/motion/TextReveal";
@@ -13,6 +13,15 @@ export default function GlobalPresence() {
   });
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
   const [hexData, setHexData] = useState([]);
+
+  const customGlobeMaterial = useMemo(() => {
+    const mat = new THREE.MeshPhongMaterial();
+    mat.color = new THREE.Color('#030408');
+    mat.transparent = true;
+    mat.opacity = 0.9;
+    mat.shininess = 1;
+    return mat;
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -56,13 +65,6 @@ export default function GlobalPresence() {
       globeRef.current.pointOfView({ lat: 25, lng: 55, altitude: alt });
 
       const scene = globeRef.current.scene();
-      
-      // Base Globe Material (Transparent, Dark)
-      const globeMaterial = globeRef.current.globeMaterial();
-      globeMaterial.color = new THREE.Color('#030408'); // Deepest void
-      globeMaterial.transparent = true;
-      globeMaterial.opacity = 0.9; // Hide the back dots slightly for depth
-      globeMaterial.shininess = 1; 
 
       // Clear default lighting safely
       if (scene && scene.children) {
@@ -104,7 +106,45 @@ export default function GlobalPresence() {
     };
 
     // Small delay ensures textures and geometries are initialized
-    const initTimer = setTimeout(initCinematicRender, 150);
+    const initTimer = setTimeout(() => {
+      initCinematicRender();
+      
+      // Intercept pointer events to allow page scrolling on empty canvas corners
+      if (globeRef.current) {
+        const renderer = globeRef.current.renderer();
+        if (renderer && renderer.domElement) {
+          const canvas = renderer.domElement;
+          
+          const handleInteraction = (e) => {
+            const rect = canvas.getBoundingClientRect();
+            // For touch events, use the first touch point
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            const x = clientX - rect.left - rect.width / 2;
+            const y = clientY - rect.top - rect.height / 2;
+            const distance = Math.sqrt(x*x + y*y);
+            
+            // The globe visually occupies about 35% to 40% of the canvas radius (due to scaling)
+            const clickableRadius = rect.width * 0.35; 
+            
+            if (distance > clickableRadius) {
+              // The user touched/clicked outside the circular globe.
+              // Stop the event from reaching OrbitControls so it doesn't prevent page scrolling!
+              e.stopPropagation();
+            }
+          };
+
+          // We use capture phase (true) to intercept the event BEFORE OrbitControls gets it
+          canvas.addEventListener('pointerdown', handleInteraction, true);
+          canvas.addEventListener('touchstart', handleInteraction, true);
+          canvas.addEventListener('wheel', handleInteraction, true);
+          
+          // Store it so we can clean it up later if needed, though the canvas gets destroyed on unmount anyway
+          canvas._interactionHandler = handleInteraction;
+        }
+      }
+    }, 150);
 
     return () => {
       clearTimeout(initTimer);
@@ -264,6 +304,7 @@ export default function GlobalPresence() {
               <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
                 <Globe
                   ref={globeRef}
+                  globeMaterial={customGlobeMaterial}
                   backgroundColor="rgba(0,0,0,0)"
                   showGlobe={true}
                   showAtmosphere={true}

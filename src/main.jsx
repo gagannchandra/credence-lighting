@@ -4,16 +4,27 @@ import App from "./App";
 import "./index.css";
 
 import { HelmetProvider } from "react-helmet-async";
+import ErrorBoundary from "./components/ui/ErrorBoundary";
 
 // DISABLE BROWSER SCROLL MEMORY
 if ("scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const rootElement = document.getElementById("root");
+
+const app = (
   <HelmetProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ErrorBoundary>
   </HelmetProvider>
 );
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}

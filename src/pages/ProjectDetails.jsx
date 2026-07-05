@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from "../components/ui/BackButton";
@@ -27,28 +27,27 @@ export default function ProjectDetails() {
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
-  const [isTextExpanded, setIsTextExpanded] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [prevSlug, setPrevSlug] = useState(slug);
 
-  // Reset text expansion and slider when changing project
-  useEffect(() => {
-    setIsTextExpanded(false);
+  if (slug !== prevSlug) {
+    setPrevSlug(slug);
     setActiveImageIndex(0);
-  }, [slug]);
+  }
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     if (!project) return;
     setDirection(-1);
     setActiveImageIndex((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
-  };
+  }, [project]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (!project) return;
     setDirection(1);
     setActiveImageIndex((prev) => (prev === project.gallery.length - 1 ? 0 : prev + 1));
-  };
+  }, [project]);
 
   const slideVariants = {
     enter: (direction) => ({
@@ -76,7 +75,7 @@ export default function ProjectDetails() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isHovered, project]);
+  }, [isHovered, handlePrev, handleNext]);
 
   if (!project) {
     return (
@@ -87,8 +86,7 @@ export default function ProjectDetails() {
     );
   }
 
-  // Create items array for CategoryCarousel
-  const galleryItems = project.gallery.map((img, idx) => ({ id: idx, hero: img }));
+
 
   return (
     <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
@@ -96,6 +94,22 @@ export default function ProjectDetails() {
         title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
         image={project.hero}
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          "name": project.name,
+          "image": project.hero,
+          "description": project.description,
+          "creator": {
+            "@type": "Organization",
+            "name": "Credence Lighting"
+          },
+          "datePublished": project.year,
+          "contentLocation": {
+            "@type": "Place",
+            "name": project.location
+          }
+        }]}
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -6,13 +6,13 @@ export default function CategoryCarousel({ items, isProduct = false, isSplitLayo
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
-  };
+  }, [items.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
-  };
+  }, [items.length]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -23,7 +23,7 @@ export default function CategoryCarousel({ items, isProduct = false, isSplitLayo
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isHovered, items.length]);
+  }, [isHovered, handlePrev, handleNext]);
 
   if (!items || items.length === 0) return null;
 

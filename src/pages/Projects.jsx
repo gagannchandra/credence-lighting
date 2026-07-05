@@ -7,13 +7,7 @@ import CategoryCarousel from "../components/gallery/CategoryCarousel";
 import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
-const categoryDescriptions = {
-  "Architectural Lighting": "Experience our premium architectural lighting installations, which feature advanced illumination design and ambient atmosphere creation for large-scale commercial and residential environments. Our expert team seamlessly integrates cutting-edge lighting technology with structural aesthetics to highlight the true character of every building.",
-  "Entertainment Lighting": "Discover our premium entertainment and immersive lighting projects focused on dynamic fixtures, high-impact visuals, and seamless video integration. Designed for maximum impact, these installations transform clubs, arenas, and stages into spectacular visual experiences that captivate and thrill audiences.",
-  "Interactive Lighting": "Explore our interactive lighting solutions equipped with responsive control systems and feature installations designed to engage and amaze. By merging art with advanced sensor technology, we create dynamic, playful environments that react to human presence and elevate user engagement.",
-  "Linear Lighting": "Browse our large-format linear installations and architectural lighting designs used for crafting sleek, modern entertainment and retail spaces. These minimalist yet powerful fixtures provide unbroken lines of continuous illumination, adding depth, direction, and a futuristic aesthetic to any interior.",
-  "Retail Lighting": "View our dynamic retail lighting solutions specifically designed to enhance product visibility, guide customer flow, and create a highly engaging shopping environment. By carefully balancing color rendering and accent illumination, we help brands create unforgettable in-store experiences that showcase premium merchandise."
-};
+
 
 import PageTransition from "../components/ui/motion/PageTransition";
 
@@ -33,6 +27,16 @@ export default function Projects() {
       <SEO 
         title="Luxury Lighting Projects | Commercial & Residential Portfolio" 
         description="Explore Credence Lighting's portfolio of premium architectural and commercial lighting projects. See how our bespoke lighting solutions transform elite spaces." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": projects.map((project, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "url": `https://credencelighting.com/projects/${project.slug}`,
+            "name": project.name
+          }))
+        }]}
       />
       <Navbar />
       

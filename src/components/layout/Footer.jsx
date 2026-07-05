@@ -57,11 +57,11 @@ export default function Footer() {
                 Home
               </Link>
 
-              <Link to="/#about" className="block hover:text-white transition duration-300 touch-glow">
+              <Link to="/about" className="block hover:text-white transition duration-300 touch-glow">
                 About
               </Link>
 
-              <Link to="/#products" className="block hover:text-white transition duration-300 touch-glow">
+              <Link to="/products" className="block hover:text-white transition duration-300 touch-glow">
                 Products
               </Link>
 
@@ -69,7 +69,7 @@ export default function Footer() {
                 Downloads
               </Link>
 
-              <Link to="/#projects" className="block hover:text-white transition duration-300 touch-glow">
+              <Link to="/projects" className="block hover:text-white transition duration-300 touch-glow">
                 Projects
               </Link>
 
@@ -81,7 +81,7 @@ export default function Footer() {
                 FAQ
               </Link>
 
-              <Link to="/#contact" className="block hover:text-white transition duration-300 touch-glow">
+              <Link to="/contact" className="block hover:text-white transition duration-300 touch-glow">
                 Contact
               </Link>
 

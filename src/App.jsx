@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect, useState, lazy, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import Loader from "./components/ui/Loader";
@@ -47,6 +47,7 @@ export default function App() {
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/projects/:slug" element={<ProjectDetails />} />
             <Route path="/products/:slug" element={<ProductDetails />} />
             <Route path="/downloads" element={<Downloads />} />
