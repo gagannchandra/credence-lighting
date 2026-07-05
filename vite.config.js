@@ -29,7 +29,7 @@ const getDynamicRoutes = () => {
   return [...projectRoutes, ...productRoutes, ...blogRoutes];
 };
 
-const staticRoutes = ['/', '/about', '/projects', '/products', '/contact', '/blog', '/faq'];
+const staticRoutes = ['/about', '/projects', '/products', '/contact', '/blog', '/faq'];
 const dynamicRoutes = getDynamicRoutes();
 const allRoutes = [...staticRoutes, ...dynamicRoutes];
 
