@@ -3,6 +3,11 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+if (process.env.VERCEL) {
+  console.log('Skipping Puppeteer prerender on Vercel...');
+  process.exit(0);
+}
+
 const getDynamicRoutes = () => {
   const parseSlugs = (filePath, prefix) => {
     try {
