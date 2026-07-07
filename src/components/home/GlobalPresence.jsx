@@ -302,66 +302,68 @@ export default function GlobalPresence() {
               onMouseLeave={handleMouseLeave}
             >
               <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
-                <Globe
-                  ref={globeRef}
-                  globeMaterial={customGlobeMaterial}
-                  backgroundColor="rgba(0,0,0,0)"
-                  showGlobe={true}
-                  showAtmosphere={true}
-                  atmosphereColor="#C8A46A"
-                  atmosphereAltitude={0.15}
-                  
-                  // Hex Polygons for Stripe's Dotted Continents
-                  hexPolygonsData={hexData}
-                  hexPolygonResolution={3} 
-                  hexPolygonMargin={0.7} // Sharper, smaller dots
-                  hexPolygonColor={() => 'rgba(230, 210, 180, 0.55)'} // Warmer, more visible dots
-                  
-                  arcsData={arcsData}
-                  arcColor={() => ['rgba(200, 164, 106, 0.1)', 'rgba(212, 175, 55, 1)']} // Brighter gold finish
-                  arcDashLength={0.6}
-                  arcDashGap={2.5}
-                  arcDashInitialGap={() => Math.random()}
-                  arcDashAnimateTime={3000} // Faster energy
-                  arcAltitude={0.12}
-                  arcStroke={0.7}
-                  
-                  htmlElementsData={scaledPoints}
-                  htmlElement={d => {
-                    const el = document.createElement('div');
-                    el.style.pointerEvents = 'none';
+                {typeof window !== 'undefined' && window.__PRERENDER_INJECTED ? null : (
+                  <Globe
+                    ref={globeRef}
+                    globeMaterial={customGlobeMaterial}
+                    backgroundColor="rgba(0,0,0,0)"
+                    showGlobe={true}
+                    showAtmosphere={true}
+                    atmosphereColor="#C8A46A"
+                    atmosphereAltitude={0.15}
                     
-                    const isRight = d.scaledDx > 0;
-                    const angleX = isRight ? 35 * labelScale : -35 * labelScale;
+                    // Hex Polygons for Stripe's Dotted Continents
+                    hexPolygonsData={hexData}
+                    hexPolygonResolution={3} 
+                    hexPolygonMargin={0.7} // Sharper, smaller dots
+                    hexPolygonColor={() => 'rgba(230, 210, 180, 0.55)'} // Warmer, more visible dots
                     
-                    el.innerHTML = `
-                      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
-                        <div style="position: relative; width: 4px; height: 4px; display: flex; align-items: center; justify-content: center; mix-blend-mode: screen;">
-                          <div style="position: absolute; width: 2px; height: 2px; background: #FFF; border-radius: 50%;"></div>
-                          <div style="position: absolute; width: 6px; height: 6px; background: #C8A46A; border-radius: 50%; box-shadow: 0 0 12px 2px rgba(200, 164, 106, 0.8); animation: luxuryBreatheScale 3s ease-in-out infinite;"></div>
-                        </div>
-
-                        <svg width="0" height="0" style="position: absolute; top: 0; left: 0; overflow: visible;">
-                          <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="1.5" />
-                          <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(200, 164, 106, 0.5)" stroke-width="0.5" />
-                        </svg>
-                        
-                        <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
-                          <div style="color: #FFF; font-family: 'Inter', sans-serif; font-size: ${isMobile ? '9px' : '11px'}; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; white-space: nowrap;">
-                            ${d.city}
+                    arcsData={arcsData}
+                    arcColor={() => ['rgba(200, 164, 106, 0.1)', 'rgba(212, 175, 55, 1)']} // Brighter gold finish
+                    arcDashLength={0.6}
+                    arcDashGap={2.5}
+                    arcDashInitialGap={() => Math.random()}
+                    arcDashAnimateTime={3000} // Faster energy
+                    arcAltitude={0.12}
+                    arcStroke={0.7}
+                    
+                    htmlElementsData={scaledPoints}
+                    htmlElement={d => {
+                      const el = document.createElement('div');
+                      el.style.pointerEvents = 'none';
+                      
+                      const isRight = d.scaledDx > 0;
+                      const angleX = isRight ? 35 * labelScale : -35 * labelScale;
+                      
+                      el.innerHTML = `
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                          <div style="position: relative; width: 4px; height: 4px; display: flex; align-items: center; justify-content: center; mix-blend-mode: screen;">
+                            <div style="position: absolute; width: 2px; height: 2px; background: #FFF; border-radius: 50%;"></div>
+                            <div style="position: absolute; width: 6px; height: 6px; background: #C8A46A; border-radius: 50%; box-shadow: 0 0 12px 2px rgba(200, 164, 106, 0.8); animation: luxuryBreatheScale 3s ease-in-out infinite;"></div>
                           </div>
-                          <div style="color: rgba(200, 164, 106, 0.9); font-family: 'Inter', sans-serif; font-size: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap;">
-                            ${d.country}
+  
+                          <svg width="0" height="0" style="position: absolute; top: 0; left: 0; overflow: visible;">
+                            <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="1.5" />
+                            <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(200, 164, 106, 0.5)" stroke-width="0.5" />
+                          </svg>
+                          
+                          <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+                            <div style="color: #FFF; font-family: 'Inter', sans-serif; font-size: ${isMobile ? '9px' : '11px'}; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; white-space: nowrap;">
+                              ${d.city}
+                            </div>
+                            <div style="color: rgba(200, 164, 106, 0.9); font-family: 'Inter', sans-serif; font-size: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap;">
+                              ${d.country}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    `;
-                    return el;
-                  }}
-                  
-                  width={globeSize.width}
-                  height={globeSize.height}
-                />
+                      `;
+                      return el;
+                    }}
+                    
+                    width={globeSize.width}
+                    height={globeSize.height}
+                  />
+                )}
               </div>
             </div>
           </div>

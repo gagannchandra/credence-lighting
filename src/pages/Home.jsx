@@ -30,8 +30,8 @@ export default function Home() {
   return (
     <PageTransition>
       <SEO 
-        title="Credence Lighting | Premium Architectural & Commercial Lighting"
-        description="Credence Lighting provides bespoke architectural, commercial, and residential luxury lighting solutions. Elevate your spaces with premium craftsmanship."
+        title="Credence Lighting · Premium Lighting Dubai"
+        description="Credence Lighting provides premium architectural, commercial, and hospitality lighting solutions across Dubai and the UAE. 10+ years, 1000+ projects delivered."
         schema={[
           {
             "@context": "https://schema.org",
@@ -47,14 +47,47 @@ export default function Home() {
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Credence Lighting",
+            "name": "Credence Lighting LLC",
             "url": "https://credencelighting.com",
             "logo": "https://credencelighting.com/logo2.webp",
+            "description": "Premium architectural, commercial, and hospitality lighting design, supply, and installation across Dubai, UAE, and the GCC region.",
+            "telephone": "+971564965660",
+            "email": "info@credencelighting.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Unit E77, Arabtec Eastern Model, Dubai Investment Park 1",
+              "addressLocality": "Dubai",
+              "addressRegion": "Dubai",
+              "addressCountry": "AE"
+            },
             "sameAs": [
-              "https://www.facebook.com/credencelighting",
-              "https://www.instagram.com/credencelighting",
-              "https://www.linkedin.com/company/credencelighting"
+              "https://www.instagram.com/credencelighting/",
+              "https://www.linkedin.com/company/credence-lighting-llc/"
             ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Credence Lighting LLC",
+            "image": "https://credencelighting.com/logo2.webp",
+            "url": "https://credencelighting.com",
+            "telephone": "+971564965660",
+            "email": "info@credencelighting.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Unit E77, Arabtec Eastern Model, Dubai Investment Park 1",
+              "addressLocality": "Dubai",
+              "addressRegion": "Dubai",
+              "addressCountry": "AE"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            "priceRange": "$$$$",
+            "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "UAE", "Saudi Arabia", "Bahrain"]
           }
         ]}
       />

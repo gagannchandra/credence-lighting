@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-16 py-16">
 
         {/* TOP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-10">
 
           {/* BRAND */}
           <div className="lg:col-span-2">
@@ -83,6 +83,43 @@ export default function Footer() {
 
               <Link to="/contact" className="block hover:text-white transition duration-300 touch-glow">
                 Contact
+              </Link>
+
+            </div>
+
+          </FadeUp>
+
+          {/* SOLUTIONS */}
+          <FadeUp delay={3}>
+
+            <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-8">
+              Solutions
+            </p>
+
+            <div className="space-y-5 text-white/60">
+
+              <Link to="/lighting-company-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Lighting Company Dubai
+              </Link>
+
+              <Link to="/lighting-showroom-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Showroom Dubai
+              </Link>
+
+              <Link to="/ceiling-lights-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Ceiling Lights
+              </Link>
+
+              <Link to="/outdoor-lighting-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Outdoor Lighting
+              </Link>
+
+              <Link to="/pendant-lights-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Pendant Lights
+              </Link>
+
+              <Link to="/led-strip-lights-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                LED Strip Lights
               </Link>
 
             </div>

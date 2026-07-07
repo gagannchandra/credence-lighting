@@ -16,21 +16,31 @@ export default function Contact() {
   return (
     <PageTransition>
       <SEO 
-        title="Contact Credence Lighting | Luxury Lighting Consultants" 
-        description="Get in touch with Credence Lighting for bespoke architectural and commercial lighting solutions. Book a consultation with our expert lighting designers." 
+        title="Contact Credence Lighting · Dubai Lighting Experts" 
+        description="Contact Credence Lighting for architectural and commercial lighting consultations in Dubai and the UAE. Visit our showroom or request a free project quote." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Credence Lighting",
-          "image": "https://credencelighting.com/logo.png",
-          "url": "https://credencelighting.com/contact",
-          "telephone": "+971-123456789",
+          "name": "Credence Lighting LLC",
+          "image": "https://credencelighting.com/logo2.webp",
+          "url": "https://credencelighting.com",
+          "telephone": "+971564965660",
+          "email": "info@credencelighting.com",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Design District",
+            "streetAddress": "Unit E77, Arabtec Eastern Model, Dubai Investment Park 1",
             "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
             "addressCountry": "AE"
-          }
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          },
+          "priceRange": "$$$$",
+          "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "UAE", "Saudi Arabia", "Bahrain"]
         }]}
       />
       <Navbar />

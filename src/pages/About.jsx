@@ -16,20 +16,41 @@ export default function About() {
   return (
     <PageTransition>
       <SEO 
-        title="About Credence Lighting | Premium Lighting Manufacturers & Designers" 
-        description="Discover the legacy of Credence Lighting. We are pioneers in bespoke architectural, commercial, and residential luxury lighting, merging innovation with timeless craftsmanship." 
+        title="About Credence Lighting · Lighting Company Dubai" 
+        description="Credence Lighting is a premium lighting company in Dubai specializing in architectural, commercial, and hospitality lighting. 10+ years of experience across the GCC." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Credence Lighting",
+          "name": "Credence Lighting LLC",
           "url": "https://credencelighting.com",
-          "logo": "https://credencelighting.com/logo.png",
-          "description": "Credence Lighting is a premium lighting manufacturer and design agency specializing in bespoke architectural, commercial, and residential luxury lighting.",
+          "logo": "https://credencelighting.com/logo2.webp",
+          "description": "Credence Lighting is a premium lighting company in Dubai providing architectural, commercial, and hospitality lighting design, supply, and installation across the UAE and GCC.",
+          "foundingDate": "2014",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10
+          },
+          "telephone": "+971564965660",
+          "email": "info@credencelighting.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit E77, Arabtec Eastern Model, Dubai Investment Park 1",
+            "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
+            "addressCountry": "AE"
+          },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+971-123456789",
-            "contactType": "customer service"
-          }
+            "telephone": "+971564965660",
+            "contactType": "customer service",
+            "email": "info@credencelighting.com",
+            "areaServed": ["AE", "SA", "BH"],
+            "availableLanguage": ["English", "Arabic"]
+          },
+          "sameAs": [
+            "https://www.instagram.com/credencelighting/",
+            "https://www.linkedin.com/company/credence-lighting-llc/"
+          ]
         }]}
       />
       <Navbar />

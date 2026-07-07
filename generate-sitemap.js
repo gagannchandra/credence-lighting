@@ -25,8 +25,17 @@ const staticRoutes = [
   '/gallery',
   '/contact',
   '/blog',
-  '/faq'
+  '/faq',
+  '/lighting-company-dubai',
+  '/lighting-showroom-dubai',
+  '/ceiling-lights-dubai',
+  '/outdoor-lighting-dubai',
+  '/pendant-lights-dubai',
+  '/led-strip-lights-dubai'
 ];
+
+// Money pages get higher priority
+const moneyPages = ['/lighting-company-dubai', '/lighting-showroom-dubai', '/ceiling-lights-dubai', '/outdoor-lighting-dubai', '/pendant-lights-dubai', '/led-strip-lights-dubai'];
 
 async function generateSitemap() {
   const sitemapItems = [];
@@ -34,12 +43,17 @@ async function generateSitemap() {
 
   // Add static routes
   for (const route of staticRoutes) {
+    const isHome = route === '/';
+    const isMoney = moneyPages.includes(route);
+    const priority = isHome ? '1.0' : isMoney ? '0.9' : '0.8';
+    const changefreq = isHome ? 'weekly' : 'monthly';
+
     sitemapItems.push(`
   <url>
     <loc>${BASE_URL}${route}</loc>
     <lastmod>${date}</lastmod>
-    <changefreq>${route === '/' ? 'weekly' : 'monthly'}</changefreq>
-    <priority>${route === '/' ? '1.0' : '0.8'}</priority>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
   </url>`);
   }
 

@@ -36,7 +36,7 @@ export default function Downloads() {
     <PageTransition>
       <div className="bg-black text-white min-h-screen">
         <SEO 
-          title="Downloads & Resources | Credence Lighting" 
+          title="Downloads & Resources · Credence Lighting" 
           description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
         />
         <Navbar />

@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import prerender from "@prerenderer/rollup-plugin";
-import RendererJSDOM from "@prerenderer/renderer-jsdom";
+import RendererPuppeteer from "@prerenderer/renderer-puppeteer";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -29,7 +29,7 @@ const getDynamicRoutes = () => {
   return [...projectRoutes, ...productRoutes, ...blogRoutes];
 };
 
-const staticRoutes = ['/about', '/projects', '/products', '/contact', '/blog', '/faq'];
+const staticRoutes = ['/', '/about', '/projects', '/products', '/contact', '/blog', '/faq'];
 const dynamicRoutes = getDynamicRoutes();
 const allRoutes = [...staticRoutes, ...dynamicRoutes];
 
@@ -37,13 +37,20 @@ export default defineConfig({
   plugins: [
     react(), 
     tailwindcss(),
-    prerender({
+    /*prerender({
       staticDir: path.join(__dirname, 'dist'),
+      outputDir: path.join(__dirname, 'dist/prerendered'),
       routes: allRoutes,
-      renderer: new RendererJSDOM({
+      renderer: new RendererPuppeteer({
         renderAfterTime: 5000,
+        headless: true,
+        injectProperty: '__PRERENDER_INJECTED',
+        inject: {},
+        consoleHandler: function(route, message) {
+          console.log(`[Puppeteer ${route}]`, message.text());
+        }
       }),
-    })
+    })*/
   ],
   server: {
     middlewareMode: false,

@@ -22,6 +22,14 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogDetail = lazy(() => import("./pages/BlogDetail"));
 const Faq = lazy(() => import("./pages/Faq"));
 
+// Money Pages
+const LightingCompanyDubai = lazy(() => import("./pages/LightingCompanyDubai"));
+const LightingShowroomDubai = lazy(() => import("./pages/LightingShowroomDubai"));
+const CeilingLightsDubai = lazy(() => import("./pages/CeilingLightsDubai"));
+const OutdoorLightingDubai = lazy(() => import("./pages/OutdoorLightingDubai"));
+const PendantLightsDubai = lazy(() => import("./pages/PendantLightsDubai"));
+const LEDStripLightsDubai = lazy(() => import("./pages/LEDStripLightsDubai"));
+
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
@@ -61,6 +69,14 @@ export default function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/faq" element={<Faq />} />
+
+            {/* Money Pages */}
+            <Route path="/lighting-company-dubai" element={<LightingCompanyDubai />} />
+            <Route path="/lighting-showroom-dubai" element={<LightingShowroomDubai />} />
+            <Route path="/ceiling-lights-dubai" element={<CeilingLightsDubai />} />
+            <Route path="/outdoor-lighting-dubai" element={<OutdoorLightingDubai />} />
+            <Route path="/pendant-lights-dubai" element={<PendantLightsDubai />} />
+            <Route path="/led-strip-lights-dubai" element={<LEDStripLightsDubai />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -28,8 +28,8 @@ export default function Gallery() {
   return (
     <PageTransition>
       <SEO 
-        title="Lighting Design Gallery | Credence Lighting" 
-        description="Browse our photo gallery of stunning luxury lighting designs, custom luminaires, and architectural lighting installations." 
+        title="Lighting Gallery · Credence Lighting Dubai" 
+        description="Browse photos of premium lighting installations by Credence Lighting. Architectural, commercial, hospitality, and entertainment lighting projects across Dubai and the GCC." 
       />
       <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />
