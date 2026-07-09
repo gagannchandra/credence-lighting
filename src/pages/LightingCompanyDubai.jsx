@@ -101,12 +101,21 @@ export default function LightingCompanyDubai() {
     "description": "Premium architectural, commercial, and hospitality lighting design, supply, and installation services in Dubai and across the GCC."
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Lighting Company Dubai" }
+    ]
+  };
+
   return (
     <PageTransition>
       <SEO
         title="Lighting Company in Dubai · Credence Lighting"
         description="Credence Lighting is a leading lighting company in Dubai providing architectural, commercial, and hospitality lighting. 1000+ projects, 10+ years, GCC-wide delivery."
-        schema={[faqSchema, serviceSchema]}
+        schema={[faqSchema, serviceSchema, breadcrumbSchema]}
       />
       <Navbar />
 

@@ -3,7 +3,8 @@ import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
 
 
-export default function ContactSection() {
+export default function ContactSection({ asPage = false }) {
+  const Heading = asPage ? "h1" : "h2";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -67,10 +68,10 @@ export default function ContactSection() {
               </p>
             </FadeUp>
 
-            <h2 className="text-fluid-h1 font-serif  flex flex-wrap gap-2">
+            <Heading className="text-fluid-h1 font-serif  flex flex-wrap gap-2">
               <TextReveal text="Let’s Create" />
               <TextReveal text="Something Exceptional" delay={2} className="italic text-[#c8a96b] block mt-2 w-full" />
-            </h2>
+            </Heading>
           </div>
 
           <FadeUp delay={4}>

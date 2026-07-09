@@ -108,7 +108,7 @@ export default function ProductDetails() {
   return (
     <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
       <SEO 
-        title={`${matchedCategory} Lighting Collection | Credence Lighting`}
+        title={`${matchedCategory} Lighting Collection · Credence Lighting`}
         description={`Explore our premium ${matchedCategory.toLowerCase()} lighting collection. Discover luxury ${sampleProduct.title.toLowerCase()}s engineered for uncompromised performance and aesthetic excellence.`}
         image={sampleProduct.image}
         schema={[{

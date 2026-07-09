@@ -34,28 +34,42 @@ export default function BlogDetail() {
   relatedPosts = relatedPosts.slice(0, 2);
 
   // Schema for SEO
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": post.title,
-    "image": [
-      post.heroImage
-    ],
-    "datePublished": post.date,
-    "author": [{
-        "@type": "Person",
-        "name": post.author,
-    }]
-  };
+  const seoTitle = post.seoMetadata?.title || `${post.title} · Credence Lighting`;
+  const seoDescription = post.seoMetadata?.description || post.excerpt;
+
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": post.title,
+      "image": [post.heroImage],
+      "datePublished": post.date,
+      "author": [{ "@type": "Person", "name": post.author }],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Credence Lighting",
+        "logo": { "@type": "ImageObject", "url": "https://credencelighting.com/logo2.webp" }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://credencelighting.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": post.title }
+      ]
+    }
+  ];
 
   return (
     <div className="bg-[#050505] min-h-screen">
       <SEO 
-        title={`${post.title} | Credence Lighting`}
-        description={post.excerpt}
+        title={seoTitle}
+        description={seoDescription}
         type="article"
         image={post.heroImage}
-        schema={articleSchema}
+        schema={schemas}
       />
       
       <Navbar />

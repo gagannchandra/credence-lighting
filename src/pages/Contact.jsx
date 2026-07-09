@@ -45,7 +45,7 @@ export default function Contact() {
       />
       <Navbar />
       <div className="bg-black pt-10">
-        <ContactSection />
+        <ContactSection asPage />
       </div>
       <Footer />
     </PageTransition>

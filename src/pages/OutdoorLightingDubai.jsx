@@ -67,12 +67,22 @@ export default function OutdoorLightingDubai() {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://credencelighting.com/products" },
+      { "@type": "ListItem", "position": 3, "name": "Outdoor Lighting Dubai" }
+    ]
+  };
+
   return (
     <PageTransition>
       <SEO
         title="Outdoor Lighting Dubai · Credence Lighting"
         description="Premium outdoor lighting in Dubai — garden lights, wall lights, facade fixtures, and landscape lighting. IP-rated for Gulf climate. Visit our showroom."
-        schema={[faqSchema]}
+        schema={[faqSchema, breadcrumbSchema]}
       />
       <Navbar />
 

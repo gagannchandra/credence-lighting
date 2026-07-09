@@ -63,7 +63,7 @@ export default function About() {
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
         <div className="relative z-10">
-          <AboutSection />
+          <AboutSection asPage />
         </div>
       </div>
       <Footer />

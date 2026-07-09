@@ -13,7 +13,7 @@ const slugify = (text) => {
   return text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
 };
 
-const BASE_URL = 'https://www.credencelighting.com';
+const BASE_URL = 'https://credencelighting.com';
 
 const staticRoutes = [
   '/',

@@ -14,13 +14,13 @@ export default function BlogFeatured({ post }) {
     >
       <div className="flex flex-col lg:flex-row">
         {/* Image Section */}
-        <div className="lg:w-3/5 h-[400px] lg:h-[500px] relative overflow-hidden">
+        <div className="relative w-full h-[400px] lg:h-auto lg:w-3/5 lg:min-h-[500px]">
           <img
             src={post.heroImage}
             alt={post.title}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent lg:w-1/2 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent lg:bg-gradient-to-l lg:from-[#0a0a0a] lg:via-[#0a0a0a]/50 lg:to-transparent z-10" />
         </div>
 
         {/* Content Section */}

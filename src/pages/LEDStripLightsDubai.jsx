@@ -43,12 +43,22 @@ export default function LEDStripLightsDubai() {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://credencelighting.com/products" },
+      { "@type": "ListItem", "position": 3, "name": "LED Strip Lights Dubai" }
+    ]
+  };
+
   return (
     <PageTransition>
       <SEO
         title="LED Strip Lights Dubai · Credence Lighting"
         description="Premium LED strip lights in Dubai — flexible strips, neon flex, RGBW, IP-rated outdoor strips, and high-density architectural profiles. Cut-to-length service available."
-        schema={[faqSchema]}
+        schema={[faqSchema, breadcrumbSchema]}
       />
       <Navbar />
 

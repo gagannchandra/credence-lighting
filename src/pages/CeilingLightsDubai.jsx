@@ -67,12 +67,22 @@ export default function CeilingLightsDubai() {
     }))
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://credencelighting.com/products" },
+      { "@type": "ListItem", "position": 3, "name": "Ceiling Lights Dubai" }
+    ]
+  };
+
   return (
     <PageTransition>
       <SEO
         title="Ceiling Lights Dubai · Credence Lighting"
         description="Premium LED ceiling lights in Dubai — recessed downlights, surface panels, linear profiles, and decorative pendants. Visit our showroom or request a project quote."
-        schema={[faqSchema]}
+        schema={[faqSchema, breadcrumbSchema]}
       />
       <Navbar />
 

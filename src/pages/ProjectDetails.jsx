@@ -91,7 +91,7 @@ export default function ProjectDetails() {
   return (
     <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
       <SEO 
-        title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
+        title={`${project.name} · Luxury Lighting Project by Credence Lighting`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
         image={project.hero}
         schema={[{

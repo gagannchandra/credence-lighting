@@ -93,12 +93,21 @@ export default function LightingShowroomDubai() {
     "priceRange": "$$$$"
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Lighting Showroom Dubai" }
+    ]
+  };
+
   return (
     <PageTransition>
       <SEO
         title="Lighting Showroom Dubai · Credence Lighting"
         description="Visit Credence Lighting's showroom in Dubai Investment Park. See premium LED fixtures, control systems, and architectural lighting in working displays. Book a visit today."
-        schema={[faqSchema, localBusinessSchema]}
+        schema={[faqSchema, localBusinessSchema, breadcrumbSchema]}
       />
       <Navbar />
 

@@ -6,8 +6,9 @@ import FadeUp from "../ui/motion/FadeUp";
 import HoverLift from "../ui/motion/HoverLift";
 import { duration, ease } from "../../utils/motion";
 
-export default function AboutSection({ preview = false }) {
+export default function AboutSection({ preview = false, asPage = false }) {
   const navigate = useNavigate();
+  const Heading = asPage ? "h1" : "h2";
 
   return (
     <section
@@ -18,9 +19,9 @@ export default function AboutSection({ preview = false }) {
 
         {/* HEADING */}
         <div>
-          <h2 className="text-fluid-h1 font-serif  text-white flex flex-wrap justify-center">
+          <Heading className="text-fluid-h1 font-serif  text-white flex flex-wrap justify-center">
             <TextReveal text="Credence: Aesthetics" />
-          </h2>
+          </Heading>
 
           <h3 className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
             <TextReveal text="meets functionality" delay={2} />
