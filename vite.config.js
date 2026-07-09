@@ -47,7 +47,8 @@ export default defineConfig({
     tailwindcss(),
     Sitemap({
       hostname: 'https://www.credencelighting.com',
-      dynamicRoutes: allRoutes
+      dynamicRoutes: allRoutes,
+      exclude: ['/googlec1f5f2059d49e07d.html', '/googlec1f5f2059d49e07d']
     }),
     /*prerender({
       staticDir: path.join(__dirname, 'dist'),
