@@ -9,22 +9,31 @@ if (process.env.VERCEL) {
 }
 
 const getDynamicRoutes = () => {
-  const parseSlugs = (filePath, prefix) => {
-    try {
-      const content = fs.readFileSync(path.resolve(__dirname, filePath), 'utf-8');
-      const matches = [...content.matchAll(/slug:\s*["']([^"']+)["']/g)];
-      return matches.map(m => `${prefix}/${m[1]}`);
-    } catch (e) {
-      console.error(`Error reading ${filePath}:`, e);
-      return [];
-    }
-  };
-
-  const projectRoutes = parseSlugs('src/data/projects.js', '/projects');
-  const productRoutes = parseSlugs('src/data/products.js', '/products');
-  const blogRoutes = parseSlugs('src/data/blog.js', '/blog');
-
-  return [...projectRoutes, ...productRoutes, ...blogRoutes];
+  try {
+    const content = fs.readFileSync(path.resolve(__dirname, 'src/data/routes.js'), 'utf-8');
+    
+    const extractArray = (name) => {
+      const regex = new RegExp(`export const ${name}\\s*=\\s*\\[([^\\]]+)\\];`);
+      const match = content.match(regex);
+      if (!match) return [];
+      return [...match[1].matchAll(/["']([^"']+)["']/g)].map(m => m[1]);
+    };
+    
+    const projectSlugs = extractArray('projectSlugs');
+    const blogSlugs = extractArray('blogSlugs');
+    const productCategories = extractArray('productCategories');
+    
+    const slugify = (text) => text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
+    
+    const projectRoutes = projectSlugs.map(slug => `/projects/${slug}`);
+    const blogRoutes = blogSlugs.map(slug => `/blog/${slug}`);
+    const productRoutes = productCategories.map(cat => `/products/${slugify(cat)}`);
+    
+    return [...projectRoutes, ...productRoutes, ...blogRoutes];
+  } catch (e) {
+    console.error("Error reading routes.js:", e);
+    return [];
+  }
 };
 
 const staticRoutes = [

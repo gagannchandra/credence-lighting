@@ -88,6 +88,41 @@ export default function Home() {
             },
             "priceRange": "$$$$",
             "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "UAE", "Saudi Arabia", "Bahrain"]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Site Navigation",
+            "itemListElement": [
+              {
+                "@type": "SiteNavigationElement",
+                "position": 1,
+                "name": "Products",
+                "url": "https://www.credencelighting.com/products",
+                "description": "Explore our premium collection of indoor, outdoor, hospitality, and facade lighting."
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "position": 2,
+                "name": "Projects",
+                "url": "https://www.credencelighting.com/projects",
+                "description": "View our featured installations across architectural, entertainment, and retail sectors."
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "position": 3,
+                "name": "About Us",
+                "url": "https://www.credencelighting.com/about",
+                "description": "10+ years of experience delivering premium lighting solutions in the UAE."
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "position": 4,
+                "name": "Contact",
+                "url": "https://www.credencelighting.com/contact",
+                "description": "Get in touch with our lighting experts in Dubai Investment Park."
+              }
+            ]
           }
         ]}
       />
