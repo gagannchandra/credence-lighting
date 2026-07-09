@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import prerender from "@prerenderer/rollup-plugin";
 import RendererPuppeteer from "@prerenderer/renderer-puppeteer";
+import Sitemap from "vite-plugin-sitemap";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -10,33 +11,44 @@ import fs from "fs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const getDynamicRoutes = () => {
-  const parseSlugs = (filePath, prefix) => {
-    try {
-      const content = fs.readFileSync(path.resolve(__dirname, filePath), 'utf-8');
-      const matches = [...content.matchAll(/slug:\s*["']([^"']+)["']/g)];
-      return matches.map(m => `${prefix}/${m[1]}`);
-    } catch (e) {
-      console.error(`Error reading ${filePath}:`, e);
-      return [];
-    }
-  };
+import { projectSlugs, blogSlugs, productCategories } from "./src/data/routes.js";
 
-  const projectRoutes = parseSlugs('src/data/projects.js', '/projects');
-  const productRoutes = parseSlugs('src/data/products.js', '/products');
-  const blogRoutes = parseSlugs('src/data/blog.js', '/blog');
+const slugify = (text) => text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
 
-  return [...projectRoutes, ...productRoutes, ...blogRoutes];
-};
+const staticRoutes = [
+  '/about',
+  '/projects',
+  '/products',
+  '/downloads',
+  '/brands',
+  '/gallery',
+  '/contact',
+  '/blog',
+  '/faq',
+  '/lighting-company-dubai',
+  '/lighting-showroom-dubai',
+  '/ceiling-lights-dubai',
+  '/outdoor-lighting-dubai',
+  '/pendant-lights-dubai',
+  '/led-strip-lights-dubai'
+];
 
-const staticRoutes = ['/', '/about', '/projects', '/products', '/contact', '/blog', '/faq'];
-const dynamicRoutes = getDynamicRoutes();
+const dynamicRoutes = [
+  ...projectSlugs.map(slug => `/projects/${slug}`),
+  ...blogSlugs.map(slug => `/blog/${slug}`),
+  ...productCategories.map(cat => `/products/${slugify(cat)}`)
+];
+
 const allRoutes = [...staticRoutes, ...dynamicRoutes];
 
 export default defineConfig({
   plugins: [
     react(), 
     tailwindcss(),
+    Sitemap({
+      hostname: 'https://www.credencelighting.com',
+      dynamicRoutes: allRoutes
+    }),
     /*prerender({
       staticDir: path.join(__dirname, 'dist'),
       outputDir: path.join(__dirname, 'dist/prerendered'),

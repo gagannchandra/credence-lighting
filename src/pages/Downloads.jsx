@@ -38,6 +38,13 @@ export default function Downloads() {
         <SEO 
           title="Downloads & Resources · Credence Lighting" 
           description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
+          schema={[{
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Downloads & Resources · Credence Lighting",
+            "description": "Download Credence Lighting's product catalogues, company profile, and project albums.",
+            "url": "https://www.credencelighting.com/downloads"
+          }]}
         />
         <Navbar />
       <BackButton />

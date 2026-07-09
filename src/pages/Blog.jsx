@@ -40,6 +40,27 @@ export default function Blog() {
         <SEO 
         title="Lighting Design Blog · Credence Lighting Dubai" 
         description="Expert insights on architectural lighting, LED technology, and lighting design trends. Guides, tips, and inspiration from Credence Lighting's design team."
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Lighting Design Blog · Credence Lighting Dubai",
+          "description": "Expert insights on architectural lighting, LED technology, and lighting design trends.",
+          "url": "https://www.credencelighting.com/blog"
+        }, {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.credencelighting.com/"
+          }, {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.credencelighting.com/blog"
+          }]
+        }]}
       />
       
       <Navbar />

@@ -22,8 +22,8 @@ export default function Contact() {
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Credence Lighting LLC",
-          "image": "https://credencelighting.com/logo2.webp",
-          "url": "https://credencelighting.com",
+          "image": "https://www.credencelighting.com/logo2.webp",
+          "url": "https://www.credencelighting.com",
           "telephone": "+971564965660",
           "email": "info@credencelighting.com",
           "address": {

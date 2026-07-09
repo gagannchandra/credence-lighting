@@ -48,15 +48,15 @@ export default function BlogDetail() {
       "publisher": {
         "@type": "Organization",
         "name": "Credence Lighting",
-        "logo": { "@type": "ImageObject", "url": "https://credencelighting.com/logo2.webp" }
+        "logo": { "@type": "ImageObject", "url": "https://www.credencelighting.com/logo2.webp" }
       }
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://credencelighting.com/blog" },
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.credencelighting.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.credencelighting.com/blog" },
         { "@type": "ListItem", "position": 3, "name": post.title }
       ]
     }

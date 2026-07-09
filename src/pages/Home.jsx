@@ -37,10 +37,10 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Credence Lighting",
-            "url": "https://credencelighting.com",
+            "url": "https://www.credencelighting.com",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://credencelighting.com/products?search={search_term_string}",
+              "target": "https://www.credencelighting.com/products?search={search_term_string}",
               "query-input": "required name=search_term_string"
             }
           },
@@ -48,8 +48,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Credence Lighting LLC",
-            "url": "https://credencelighting.com",
-            "logo": "https://credencelighting.com/logo2.webp",
+            "url": "https://www.credencelighting.com",
+            "logo": "https://www.credencelighting.com/logo2.webp",
             "description": "Premium architectural, commercial, and hospitality lighting design, supply, and installation across Dubai, UAE, and the GCC region.",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
@@ -69,8 +69,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Credence Lighting LLC",
-            "image": "https://credencelighting.com/logo2.webp",
-            "url": "https://credencelighting.com",
+            "image": "https://www.credencelighting.com/logo2.webp",
+            "url": "https://www.credencelighting.com",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
             "address": {

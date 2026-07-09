@@ -57,6 +57,13 @@ export default function Brands() {
       <SEO 
         title="Brand Partners · Credence Lighting Dubai" 
         description="Credence Lighting partners with 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA for premium lighting projects across the GCC." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Brand Partners · Credence Lighting Dubai",
+          "description": "Credence Lighting partners with 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA.",
+          "url": "https://www.credencelighting.com/brands"
+        }]}
       />
       <Navbar />
       <BackButton />

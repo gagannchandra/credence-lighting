@@ -73,8 +73,8 @@ export default function LightingShowroomDubai() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Credence Lighting LLC — Dubai Showroom",
-    "image": "https://credencelighting.com/logo2.webp",
-    "url": "https://credencelighting.com/lighting-showroom-dubai",
+    "image": "https://www.credencelighting.com/logo2.webp",
+    "url": "https://www.credencelighting.com/lighting-showroom-dubai",
     "telephone": "+971564965660",
     "email": "info@credencelighting.com",
     "address": {
@@ -97,7 +97,7 @@ export default function LightingShowroomDubai() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.credencelighting.com/" },
       { "@type": "ListItem", "position": 2, "name": "Lighting Showroom Dubai" }
     ]
   };

@@ -32,9 +32,10 @@ const LEDStripLightsDubai = lazy(() => import("./pages/LEDStripLightsDubai"));
 
 export default function App() {
   const location = useLocation();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!window.__PRERENDER_INJECTED);
 
   useEffect(() => {
+    if (window.__PRERENDER_INJECTED) return;
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);

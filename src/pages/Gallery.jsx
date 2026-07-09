@@ -30,6 +30,13 @@ export default function Gallery() {
       <SEO 
         title="Lighting Gallery · Credence Lighting Dubai" 
         description="Browse photos of premium lighting installations by Credence Lighting. Architectural, commercial, hospitality, and entertainment lighting projects across Dubai and the GCC." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Lighting Gallery · Credence Lighting Dubai",
+          "description": "Browse photos of premium lighting installations by Credence Lighting.",
+          "url": "https://www.credencelighting.com/gallery"
+        }]}
       />
       <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
       <BackButton />

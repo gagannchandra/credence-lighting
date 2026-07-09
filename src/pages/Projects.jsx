@@ -33,7 +33,7 @@ export default function Projects() {
           "itemListElement": projects.map((project, index) => ({
             "@type": "ListItem",
             "position": index + 1,
-            "url": `https://credencelighting.com/projects/${project.slug}`,
+            "url": `https://www.credencelighting.com/projects/${project.slug}`,
             "name": project.name
           }))
         }]}

@@ -39,11 +39,13 @@ const allRoutes = [...staticRoutes, ...getDynamicRoutes()];
 const routes = allRoutes;
 
 const app = express();
+const originalIndexHtml = fs.readFileSync(path.join(__dirname, 'dist', 'index.html'), 'utf8');
+
 // Serve the dist directory
 app.use(express.static(path.join(__dirname, 'dist')));
-// Fallback to index.html for SPA routing
+// Fallback to original index.html for SPA routing
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.send(originalIndexHtml);
 });
 
 const server = app.listen(3000, async () => {
@@ -59,10 +61,16 @@ const server = app.listen(3000, async () => {
       window.__PRERENDER_INJECTED = true;
     });
 
+    page.on('console', msg => console.log('BROWSER CONSOLE:', msg.text()));
+    page.on('pageerror', err => console.log('BROWSER ERROR:', err.toString()));
+
     await page.goto(`http://localhost:3000${route}`, { waitUntil: 'networkidle0' });
     
-    // Wait an additional 2 seconds to ensure all animations/data are loaded
-    await new Promise(r => setTimeout(r, 2000));
+    // Wait for the app to render real content into #root
+    await page.waitForFunction(() => {
+      const root = document.querySelector('#root');
+      return root && root.children.length > 0 && !root.innerHTML.includes('Initializing Experience');
+    }, { timeout: 10000 });
     
     const content = await page.content();
     

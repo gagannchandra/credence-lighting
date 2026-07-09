@@ -45,7 +45,7 @@ export default function Products() {
           "itemListElement": Array.from(new Set(products.map(p => p.category))).map((category, index) => ({
             "@type": "ListItem",
             "position": index + 1,
-            "url": `https://credencelighting.com/products/${slugify(category)}`,
+            "url": `https://www.credencelighting.com/products/${slugify(category)}`,
             "name": category
           }))
         }]}
