@@ -52,6 +52,37 @@ export default function ArticleBody({ blocks }) {
                 )}
               </figure>
             );
+          case "list":
+            return (
+              <ul key={index} className="list-disc list-inside mb-6 text-white/70 text-lg leading-relaxed space-y-2">
+                {block.items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            );
+          case "table":
+            return (
+              <div key={index} className="overflow-x-auto mb-8 border border-white/10 rounded-xl">
+                <table className="w-full text-left text-white/80">
+                  <thead className="bg-white/5 border-b border-white/10">
+                    <tr>
+                      {block.headers.map((header, i) => (
+                        <th key={i} className="px-6 py-4 font-serif text-[#c8a96b]">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row, i) => (
+                      <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                        {row.map((cell, j) => (
+                          <td key={j} className="px-6 py-4">{cell}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
           default:
             return null;
         }

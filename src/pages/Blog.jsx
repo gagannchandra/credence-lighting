@@ -45,7 +45,7 @@ export default function Blog() {
           "@type": "CollectionPage",
           "name": "Lighting Design Blog · Credence Lighting Dubai",
           "description": "Expert insights on architectural lighting, LED technology, and lighting design trends.",
-          "url": "https://www.credencelighting.com/blog"
+          "url": "https://credencelighting.com/blog"
         }, {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
@@ -53,12 +53,12 @@ export default function Blog() {
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://www.credencelighting.com/"
+            "item": "https://credencelighting.com/"
           }, {
             "@type": "ListItem",
             "position": 2,
             "name": "Blog",
-            "item": "https://www.credencelighting.com/blog"
+            "item": "https://credencelighting.com/blog"
           }]
         }]}
       />

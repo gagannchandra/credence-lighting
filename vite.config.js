@@ -30,7 +30,20 @@ const staticRoutes = [
   '/ceiling-lights-dubai',
   '/outdoor-lighting-dubai',
   '/pendant-lights-dubai',
-  '/led-strip-lights-dubai'
+  '/led-strip-lights-dubai',
+  '/hotel-lighting',
+  '/residential-lighting',
+  '/office-lighting',
+  '/retail-lighting',
+  '/restaurant-lighting',
+  '/entertainment-lighting',
+  '/lighting-suppliers-abu-dhabi',
+  '/lighting-companies-sharjah',
+  '/lighting-solutions-ajman',
+  '/lighting-solutions-rak',
+  '/lighting-companies-uae',
+  '/lighting-companies-saudi-arabia',
+  '/lighting-companies-bahrain'
 ];
 
 const dynamicRoutes = [
@@ -46,7 +59,7 @@ export default defineConfig({
     react(), 
     tailwindcss(),
     Sitemap({
-      hostname: 'https://www.credencelighting.com',
+      hostname: 'https://credencelighting.com',
       dynamicRoutes: allRoutes,
       exclude: ['/googlec1f5f2059d49e07d.html', '/googlec1f5f2059d49e07d']
     }),

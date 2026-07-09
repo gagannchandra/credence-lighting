@@ -105,7 +105,7 @@ export default function LightingCompanyDubai() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.credencelighting.com/" },
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://credencelighting.com/" },
       { "@type": "ListItem", "position": 2, "name": "Lighting Company Dubai" }
     ]
   };

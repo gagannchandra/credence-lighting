@@ -43,7 +43,7 @@ export default function Downloads() {
             "@type": "CollectionPage",
             "name": "Downloads & Resources · Credence Lighting",
             "description": "Download Credence Lighting's product catalogues, company profile, and project albums.",
-            "url": "https://www.credencelighting.com/downloads"
+            "url": "https://credencelighting.com/downloads"
           }]}
         />
         <Navbar />

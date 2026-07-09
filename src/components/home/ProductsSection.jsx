@@ -187,7 +187,7 @@ export default function ProductsSection({ hideHeader = false }) {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
                     transition={{ duration: duration.standard, delay: index * 0.05, ease: ease.standard }}
-                    className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
+                    className={`group relative overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
                     onClick={() => {
                       setActive(item.category);
                       setActiveProductIndex(0);
@@ -214,7 +214,7 @@ export default function ProductsSection({ hideHeader = false }) {
             </motion.div>
           ) : (
             // Featured View for Specific Category - Continuous Coverflow Carousel
-            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-[2.5rem]">
+            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-2xl">
               {filteredProducts.map((item, index) => {
                 const total = filteredProducts.length;
                 let diff = index - activeProductIndex;
@@ -229,12 +229,12 @@ export default function ProductsSection({ hideHeader = false }) {
                 
                 const isVisible = isCenter || isLeft || isRight;
 
-                // Calculate X position based on relative distance
+                // Calculate X position based on relative distance (increased spacing)
                 let xPos = "0%";
-                if (isLeft) xPos = "-85%";
-                else if (isRight) xPos = "85%";
-                else if (diff < -1) xPos = "-150%";
-                else if (diff > 1) xPos = "150%";
+                if (isLeft) xPos = "-95%";
+                else if (isRight) xPos = "95%";
+                else if (diff < -1) xPos = "-160%";
+                else if (diff > 1) xPos = "160%";
 
                 return (
                   <motion.div
@@ -242,13 +242,13 @@ export default function ProductsSection({ hideHeader = false }) {
                     initial={false}
                     animate={{
                       x: xPos,
-                      scale: isCenter ? 1 : 0.8,
-                      opacity: isVisible ? (isCenter ? 1 : 0.35) : 0,
+                      scale: isCenter ? 1 : 0.85,
+                      opacity: isVisible ? (isCenter ? 1 : 0.4) : 0,
                       zIndex: isCenter ? 30 : isVisible ? 20 : 0,
                     }}
                     transition={{ duration: duration.standard, ease: ease.standard }}
-                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-[2.5rem] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
-                    style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
+                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
+                    style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(15%)" }}
                     onClick={() => {
                       if (isCenter) {
                         saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
@@ -275,7 +275,7 @@ export default function ProductsSection({ hideHeader = false }) {
                           className="absolute inset-0 z-10"
                         >
                           {/* Gradient Overlays for Text Readability */}
-                          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/10 to-black/90 pointer-events-none" />
+                          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/80 pointer-events-none" />
 
                           {/* Snapchat-style click zones for center image */}
                           <div className="absolute inset-0 z-10 flex cursor-pointer">

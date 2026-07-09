@@ -4,4 +4,4 @@ Disallow: /404
 Disallow: /*404*
 Disallow: /api/
 
-Sitemap: https://www.credencelighting.com/sitemap.xml
+Sitemap: https://credencelighting.com/sitemap.xml

@@ -1,3 +1,4 @@
+@import "./styles/tokens.css";
 @import "tailwindcss";
 
 html {
@@ -28,11 +29,7 @@ body {
 
 /* Premium Metallic Text Gradients */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #e8d096 0%, #c8a96b 50%, #a68442 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  color: #c8a96b;
 }
 
 .silver-gradient-text {
@@ -75,14 +72,14 @@ body {
 /* Mobile-only tap glow (no hover) */
 @media (hover: none) and (pointer: coarse) {
   .touch-glow:active {
-    box-shadow: 0 0 0 1px rgba(200, 169, 107, 0.45),
-      0 0 26px rgba(200, 169, 107, 0.35);
-    text-shadow: 0 0 14px rgba(200, 169, 107, 0.45);
+    box-shadow: 0 0 0 1px rgba(200, 169, 107, 0.2),
+      0 0 10px rgba(200, 169, 107, 0.15);
+    text-shadow: 0 0 8px rgba(200, 169, 107, 0.2);
   }
 
   .touch-glow:active svg {
     filter: drop-shadow(
-      0 0 10px rgba(200, 169, 107, 0.55)
+      0 0 5px rgba(200, 169, 107, 0.25)
     );
   }
 }
@@ -93,7 +90,7 @@ body {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .hover-glow:hover {
-    text-shadow: 0 0 20px rgba(200, 169, 107, 0.6);
+    text-shadow: 0 0 10px rgba(200, 169, 107, 0.3);
   }
   .hover-scale {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);

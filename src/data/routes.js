@@ -30,7 +30,15 @@ export const blogSlugs = [
   "led-strip-light-installation-guide",
   "pendant-vs-chandelier-which-is-right",
   "modern-lighting-trends-dubai-interiors",
-  "smart-lighting-homes-offices"
+  "smart-lighting-homes-offices",
+  "lumen-vs-lux-difference",
+  "cri-explained-color-rendering",
+  "color-temperature-guide",
+  "ip-ratings-outdoor-bathroom",
+  "hospitality-lighting-guest-experience",
+  "office-lighting-standards-ugr",
+  "led-energy-savings-roi",
+  "lighting-maintenance-lifespan"
 ];
 export const productCategories = [
   "Indoor",

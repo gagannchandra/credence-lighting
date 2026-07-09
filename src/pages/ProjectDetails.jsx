@@ -119,63 +119,29 @@ export default function ProjectDetails() {
       
       <BackButton />
 
-      <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center gap-12 lg:gap-24">
-        {/* LEFT: Single Image Slider */}
-        <div className="w-full md:w-1/2 flex items-center justify-center relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-xl h-[50vh] sm:h-[60vh] md:h-[80vh] rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 relative z-10 bg-black"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(e, { offset }) => {
-              if (offset.x < -50) handleNext();
-              else if (offset.x > 50) handlePrev();
-            }}
-          >
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.img
-                key={activeImageIndex}
-                src={project.gallery[activeImageIndex]}
-                alt={`${project.name} - Gallery Image ${activeImageIndex + 1}`}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
-                }}
-                className="absolute inset-0 w-full h-full object-cover"
+      <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto flex flex-col md:flex-row items-start gap-12 lg:gap-24">
+        {/* LEFT: Scrollable Gallery */}
+        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-12 relative z-10">
+          {project.gallery.map((imgSrc, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full overflow-hidden rounded-xl border border-white/5 bg-[#111]"
+            >
+              <img
+                src={imgSrc}
+                alt={`${project.name} - Gallery Image ${idx + 1}`}
+                className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
-            </AnimatePresence>
-
-            <div className="absolute inset-0 bg-white/5 pointer-events-none z-10" />
-            
-            {/* Click zones */}
-            <div className="absolute inset-0 z-20 flex cursor-pointer">
-               <div className="w-1/2 h-full" onClick={handlePrev} />
-               <div className="w-1/2 h-full" onClick={handleNext} />
-            </div>
-
-            {/* Indicator dots */}
-            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-30 pointer-events-none">
-              {project.gallery.map((_, idx) => (
-                <div key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeImageIndex ? 'w-6 bg-[#c8a96b]' : 'w-2 bg-white/30'}`} />
-              ))}
-            </div>
-          </motion.div>
-          {/* Accent element behind image */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-[38rem] h-[53vh] sm:h-[63vh] md:h-[83vh] border border-[#c8a96b]/20 rounded-xl z-0 pointer-events-none hidden md:block" />
+            </motion.div>
+          ))}
         </div>
 
-        {/* RIGHT: Details */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
+        {/* RIGHT: Sticky Details */}
+        <div className="w-full md:w-1/2 flex flex-col relative z-10 md:sticky md:top-32 md:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -250,7 +216,7 @@ export default function ProjectDetails() {
           >
             <PageLink
               to="/contact"
-              className="inline-flex items-center justify-center bg-white/5 border border-white/10 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-[#c8a96b] hover:border-[#c8a96b] hover:text-black transition-all duration-500 shadow-xl rounded-sm group"
+              className="inline-flex items-center justify-center bg-white/5 border border-white/5 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
             >
               Enquire Now
               <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>

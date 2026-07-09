@@ -35,7 +35,7 @@ export default function Gallery() {
           "@type": "CollectionPage",
           "name": "Lighting Gallery · Credence Lighting Dubai",
           "description": "Browse photos of premium lighting installations by Credence Lighting.",
-          "url": "https://www.credencelighting.com/gallery"
+          "url": "https://credencelighting.com/gallery"
         }]}
       />
       <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">

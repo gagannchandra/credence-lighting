@@ -1,0 +1,98 @@
+import { Home, Lightbulb, ShieldCheck, Sun } from "lucide-react";
+import IndustryTemplate from "../components/templates/IndustryTemplate";
+import indoorImg from "../assets/images/mytown/141.webp"; 
+import outdoorImg from "../assets/images/Smarvy Spot/150.webp"; 
+
+const seo = {
+  title: "Luxury Residential & Villa Lighting Design | Credence Lighting",
+  description: "Transform your home with bespoke luxury residential lighting. We specialize in villa lighting design, smart home integration, and premium fixture supply."
+};
+
+const faqs = [
+  { id: "rl1", question: "Do you provide lighting design for private villas?", answer: "Yes, we specialize in high-end residential and villa lighting design. Our team works closely with homeowners, architects, and interior designers to create custom lighting layouts that enhance the architectural beauty and comfort of luxury homes." },
+  { id: "rl2", question: "Can you integrate the lighting with smart home systems?", answer: "Absolutely. We supply and commission smart lighting controls (such as Casambi, DALI, and KNX) that seamlessly integrate with major smart home ecosystems, allowing you to control scenes, dimming, and scheduling from your smartphone or wall panels." },
+  { id: "rl3", question: "What is the best lighting for a villa's landscape?", answer: "For landscape lighting, we recommend IP65/IP67 rated fixtures that are highly durable against the UAE's heat and humidity. Using a combination of tree uplights, pathway bollards, and subtle wall grazers creates a beautiful, secure, and inviting outdoor environment at night." },
+  { id: "rl4", question: "How do we hide the light fixtures in our living room ceiling?", answer: "We use trimless, deep-recessed downlights and hidden linear LED profiles in cove ceilings. This 'glare-free' approach ensures that the room is beautifully illuminated without the actual light source being visible to the eye." }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Residential Lighting Design",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Credence Lighting",
+        "url": "https://credencelighting.com"
+      },
+      "description": "Bespoke luxury residential and villa lighting solutions."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    }
+  ]
+};
+
+const hero = {
+  badge: "Residential Lighting",
+  title: "Illuminating Luxury",
+  titleItalic: "Living Spaces",
+  description: "Bespoke lighting design and premium fixture supply for exclusive villas and high-end residential projects."
+};
+
+const benefits = [
+  { icon: Home, title: "Architectural Integration", description: "Trimless, invisible fixtures that blend seamlessly into the ceiling architecture." },
+  { icon: Sun, title: "Circadian Lighting", description: "Dynamic tunable white systems that adjust to mimic natural daylight for improved well-being." },
+  { icon: ShieldCheck, title: "Landscape & Security", description: "Durable, IP-rated exterior lighting that enhances curb appeal and perimeter security." },
+  { icon: Lightbulb, title: "Smart Home Control", description: "Intuitive wireless dimming and scene-setting integrated with your home automation." }
+];
+
+const contentBlocks = [
+  { type: "heading2", content: "The Art of Villa Lighting" },
+  { type: "paragraph", content: "A luxury home requires more than just standard illumination; it requires a layered lighting strategy. By balancing ambient light, task lighting, and decorative accent lighting, we create environments that feel expansive during the day and intimately cozy at night. Our approach to residential lighting emphasizes visual comfort—hiding the light source to eliminate glare while ensuring art, textures, and architectural details are perfectly highlighted." },
+  { type: "list", items: [
+    "Trimless Downlights: For a perfectly clean, minimalist ceiling.",
+    "Linear Cove Lighting: For soft, indirect ambient illumination.",
+    "Step & Pathway Lights: For safety and subtle navigation at night.",
+    "Art Lighting: High-CRI spotlights to bring out the true colors of paintings and sculptures."
+  ]},
+  { type: "callout", content: "We offer end-to-end residential services, from the initial CAD lighting layout to the final aiming and commissioning of fixtures on-site." }
+];
+
+const relatedProducts = [
+  {
+    title: "Trimless Downlights",
+    description: "Invisible, glare-free illumination for modern ceilings.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Landscape Spotlights",
+    description: "Weather-resistant fixtures to highlight trees and facades.",
+    image: outdoorImg,
+    link: "/products/outdoor"
+  }
+];
+
+export default function ResidentialLighting() {
+  return (
+    <IndustryTemplate 
+      seo={seo}
+      schema={schema}
+      hero={hero}
+      benefits={benefits}
+      contentBlocks={contentBlocks}
+      relatedProducts={relatedProducts}
+      faqs={faqs}
+    />
+  );
+}

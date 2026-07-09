@@ -1,8 +1,21 @@
-import mytown141 from "../assets/images/mytown/141.webp";
-import gc154 from "../assets/images/ground-control/154.webp";
-import funtura134 from "../assets/images/Funtura/134.webp";
-import xtreme136 from "../assets/images/xtremezone/136.webp";
-import smarvy150 from "../assets/images/Smarvy Spot/150.webp";
+import aiImg0 from "../assets/images/blog/ai/arch_light_evolve_1783600952937.png";
+import aiImg1 from "../assets/images/blog/ai/hcl_office_light_1783600963545.png";
+import aiImg2 from "../assets/images/blog/ai/lux_resi_light_1783600977026.png";
+import aiImg3 from "../assets/images/blog/ai/retail_light_sales_1783600986786.png";
+import aiImg4 from "../assets/images/blog/ai/outdoor_land_light_1783600998924.png";
+import aiImg5 from "../assets/images/blog/ai/led_dimming_proto_1783601009206.png";
+import aiImg6 from "../assets/images/blog/ai/sust_light_leed_1783601020157.png";
+import aiImg7 from "../assets/images/blog/ai/hosp_light_exp_1783601031210.png";
+import aiImg8 from "../assets/images/blog/ai/wire_light_casambi_1783601042124.png";
+import aiImg9 from "../assets/images/blog/ai/linear_light_trends_1783601052072.png";
+import aiImg10 from "../assets/images/blog/ai/choose_light_company_1783601074596.png";
+import aiImg11 from "../assets/images/blog/ai/led_suppliers_dubai_1783601085607.png";
+import aiImg12 from "../assets/images/blog/ai/visit_showroom_dubai_1783601094608.png";
+import aiImg13 from "../assets/images/blog/ai/luxury_light_sol_1783601104223.png";
+import aiImg14 from "../assets/images/blog/ai/ceiling_lights_guide_1783601114843.png";
+import aiImg15 from "../assets/images/blog/ai/led_ceiling_choose_1783601125727.png";
+import aiImg16 from "../assets/images/blog/ai/outdoor_wall_guide_1783601136390.png";
+
 
 export const blogPosts = [
   {
@@ -14,7 +27,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2025-10-15",
     readTime: "6 min read",
-    heroImage: mytown141,
+    heroImage: aiImg0,
     tags: ["Architecture", "Design Trends", "Luxury"],
     isFeatured: true,
     contentBlocks: [
@@ -42,7 +55,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2025-10-02",
     readTime: "8 min read",
-    heroImage: gc154,
+    heroImage: aiImg1,
     tags: ["Office", "Wellness", "HCL", "Smart Lighting"],
     isFeatured: false,
     contentBlocks: [
@@ -69,7 +82,7 @@ export const blogPosts = [
     author: "Interior Lighting Specialist",
     date: "2025-09-28",
     readTime: "5 min read",
-    heroImage: funtura134,
+    heroImage: aiImg2,
     tags: ["Residential", "Interior Design", "Tips", "Dubai", "Ceiling Lights", "Pendant Lights"],
     isFeatured: false,
     contentBlocks: [
@@ -97,7 +110,7 @@ export const blogPosts = [
     author: "Commercial Director",
     date: "2025-09-15",
     readTime: "7 min read",
-    heroImage: smarvy150,
+    heroImage: aiImg3,
     tags: ["Retail", "Sales", "CRI"],
     isFeatured: true,
     contentBlocks: [
@@ -123,7 +136,7 @@ export const blogPosts = [
     author: "Landscape Specialist",
     date: "2025-09-05",
     readTime: "6 min read",
-    heroImage: xtreme136,
+    heroImage: aiImg4,
     tags: ["Landscape", "Exterior", "IP Rating", "Dubai", "Outdoor Lighting", "Garden Lighting"],
     isFeatured: false,
     contentBlocks: [
@@ -150,7 +163,7 @@ export const blogPosts = [
     author: "Technical Team",
     date: "2025-08-22",
     readTime: "9 min read",
-    heroImage: mytown141,
+    heroImage: aiImg5,
     tags: ["Technical", "Controls", "DALI"],
     isFeatured: false,
     contentBlocks: [
@@ -177,7 +190,7 @@ export const blogPosts = [
     author: "Sustainability Officer",
     date: "2025-08-10",
     readTime: "6 min read",
-    heroImage: gc154,
+    heroImage: aiImg6,
     tags: ["Sustainability", "LEED", "Green Building"],
     isFeatured: false,
     contentBlocks: [
@@ -202,7 +215,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2025-07-25",
     readTime: "7 min read",
-    heroImage: funtura134,
+    heroImage: aiImg7,
     tags: ["Hospitality", "Hotels", "Restaurants", "Dubai", "Lighting Design"],
     isFeatured: true,
     contentBlocks: [
@@ -227,7 +240,7 @@ export const blogPosts = [
     author: "Tech Innovations",
     date: "2025-07-12",
     readTime: "6 min read",
-    heroImage: smarvy150,
+    heroImage: aiImg8,
     tags: ["Wireless", "Casambi", "Smart Home"],
     isFeatured: false,
     contentBlocks: [
@@ -252,7 +265,7 @@ export const blogPosts = [
     author: "Product Team",
     date: "2025-06-30",
     readTime: "5 min read",
-    heroImage: xtreme136,
+    heroImage: aiImg9,
     tags: ["Linear", "Trends", "Design", "LED Strip Lights", "Dubai"],
     isFeatured: false,
     contentBlocks: [
@@ -280,7 +293,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2026-07-01",
     readTime: "7 min read",
-    heroImage: mytown141,
+    heroImage: aiImg10,
     tags: ["Dubai", "Lighting Company", "Guide"],
     isFeatured: false,
     contentBlocks: [
@@ -311,7 +324,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2026-06-25",
     readTime: "6 min read",
-    heroImage: gc154,
+    heroImage: aiImg11,
     tags: ["Dubai", "LED", "Supplier", "Guide"],
     isFeatured: false,
     contentBlocks: [
@@ -340,7 +353,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2026-06-18",
     readTime: "5 min read",
-    heroImage: smarvy150,
+    heroImage: aiImg12,
     tags: ["Dubai", "Showroom", "Buying Guide"],
     isFeatured: false,
     contentBlocks: [
@@ -370,7 +383,7 @@ export const blogPosts = [
     author: "Interior Lighting Specialist",
     date: "2026-06-10",
     readTime: "7 min read",
-    heroImage: funtura134,
+    heroImage: aiImg13,
     tags: ["Dubai", "Luxury", "Residential", "Hospitality"],
     isFeatured: false,
     contentBlocks: [
@@ -402,7 +415,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2026-06-02",
     readTime: "8 min read",
-    heroImage: mytown141,
+    heroImage: aiImg14,
     tags: ["Ceiling Lights", "Buying Guide", "LED"],
     isFeatured: false,
     contentBlocks: [
@@ -438,7 +451,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2026-05-28",
     readTime: "6 min read",
-    heroImage: gc154,
+    heroImage: aiImg15,
     tags: ["Ceiling Lights", "LED", "Buying Guide"],
     isFeatured: false,
     contentBlocks: [
@@ -471,7 +484,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2026-05-20",
     readTime: "7 min read",
-    heroImage: xtreme136,
+    heroImage: aiImg16,
     tags: ["Outdoor Lighting", "Wall Lights", "Buying Guide", "Dubai"],
     isFeatured: false,
     contentBlocks: [
@@ -503,7 +516,7 @@ export const blogPosts = [
     author: "Interior Lighting Specialist",
     date: "2026-05-15",
     readTime: "7 min read",
-    heroImage: funtura134,
+    heroImage: aiImg4,
     tags: ["Garden Lighting", "Villa", "Dubai", "Landscape"],
     isFeatured: false,
     contentBlocks: [
@@ -537,7 +550,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2026-05-08",
     readTime: "9 min read",
-    heroImage: gc154,
+    heroImage: aiImg9,
     tags: ["LED Strip Lights", "Installation", "Technical Guide"],
     isFeatured: false,
     contentBlocks: [
@@ -574,7 +587,7 @@ export const blogPosts = [
     author: "Interior Lighting Specialist",
     date: "2026-05-01",
     readTime: "6 min read",
-    heroImage: smarvy150,
+    heroImage: aiImg14,
     tags: ["Pendant Lights", "Chandelier", "Buying Guide", "Interior Design"],
     isFeatured: false,
     contentBlocks: [
@@ -610,7 +623,7 @@ export const blogPosts = [
     author: "Design Team",
     date: "2026-04-22",
     readTime: "7 min read",
-    heroImage: mytown141,
+    heroImage: aiImg13,
     tags: ["Trends", "Modern Lighting", "Dubai", "Interior Design"],
     isFeatured: false,
     contentBlocks: [
@@ -644,7 +657,7 @@ export const blogPosts = [
     author: "Engineering Team",
     date: "2026-04-15",
     readTime: "8 min read",
-    heroImage: xtreme136,
+    heroImage: aiImg8,
     tags: ["Smart Lighting", "DALI", "KNX", "Casambi", "Automation"],
     isFeatured: false,
     contentBlocks: [
@@ -667,6 +680,253 @@ export const blogPosts = [
     seoMetadata: {
       title: "Smart Lighting Guide: DALI vs KNX vs Casambi · Credence",
       description: "A practical guide to smart lighting systems. Compares DALI, KNX, and Casambi protocols for homes and offices — features, wiring, cost, and use cases."
+    }
+  }
+  ,
+  {
+    id: "b11",
+    slug: "lumen-vs-lux-difference",
+    title: "Lumen vs Lux: What's the Difference and Why It Matters",
+    excerpt: "Understand the fundamental difference between light output (lumens) and light intensity on a surface (lux) for your next project.",
+    category: "Educational",
+    author: "Technical Team",
+    date: "2025-11-01",
+    readTime: "4 min read",
+    heroImage: aiImg5,
+    tags: ["Lighting Basics", "Lux", "Lumens"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "When shopping for LED lighting, the terms 'Lumen' and 'Lux' are often thrown around interchangeably. However, they measure two completely different things. Misunderstanding this distinction is the most common reason spaces end up either too dim or blindingly bright." },
+      { type: "heading2", content: "What is a Lumen (lm)?" },
+      { type: "paragraph", content: "Lumens measure the total amount of visible light emitted by a light source in all directions. It is the absolute measure of 'brightness' leaving the bulb or fixture." },
+      { type: "heading2", content: "What is Lux (lx)?" },
+      { type: "paragraph", content: "Lux measures illuminance. Specifically, it measures the amount of light that actually lands on a surface. One lux is equal to one lumen per square meter (1 lx = 1 lm/m²)." },
+      { type: "heading3", content: "The Crucial Difference" },
+      { type: "paragraph", content: "If you have a 1,000-lumen spotlight, it will always output 1,000 lumens. However, if you point it at a wall 1 meter away, the lux on that wall will be very high. If you move the spotlight 10 meters away, the lux on the wall drops significantly, even though the lumen output hasn't changed. The light has spread out over a larger area." },
+      { type: "table", headers: ["Metric", "Measures", "Unit", "Analogy"], rows: [
+        ["Lumen", "Total Light Output", "lm", "The amount of water leaving a showerhead"],
+        ["Lux", "Light on a Surface", "lx", "How wet you get standing under the shower"]
+      ]},
+      { type: "callout", content: "For commercial spaces, standards dictate Lux, not Lumens. For instance, an office desk requires 500 Lux, not 500 Lumens." },
+      { type: "paragraph", content: "To achieve the correct lux levels, you need a lighting design that factors in the lumens of the fixture, the beam angle, and the distance to the surface. Learn more about our commercial solutions on our [Office Lighting](/office-lighting) page." }
+    ],
+    seoMetadata: {
+      title: "Lumen vs Lux: The Difference Explained | Credence Lighting",
+      description: "Learn the crucial difference between lumens (light output) and lux (light on a surface) to properly illuminate your space."
+    }
+  },
+  {
+    id: "b12",
+    slug: "cri-explained-color-rendering",
+    title: "CRI Explained: Why Color Rendering is Crucial for Retail and Homes",
+    excerpt: "Learn what the Color Rendering Index (CRI) is and why settling for low CRI LEDs ruins interior design and retail displays.",
+    category: "Educational",
+    author: "Design Team",
+    date: "2025-11-03",
+    readTime: "5 min read",
+    heroImage: aiImg3,
+    tags: ["CRI", "Retail", "Quality"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "Have you ever bought an item of clothing that looked black in the store, but navy blue in daylight? You were the victim of poor Color Rendering." },
+      { type: "heading2", content: "What is Color Rendering Index (CRI)?" },
+      { type: "paragraph", content: "CRI is a scale from 0 to 100 that measures how accurately a light source reveals the true colors of objects compared to natural sunlight (which is CRI 100). The higher the CRI, the more vibrant and accurate colors appear." },
+      { type: "table", headers: ["CRI Value", "Quality", "Recommended Application"], rows: [
+        ["< 70", "Poor", "Street lighting, parking garages"],
+        ["80 - 89", "Good", "Basic offices, general areas"],
+        ["90 - 95", "Excellent", "Luxury homes, retail stores, museums"],
+        ["95+", "Superb", "Art galleries, medical exams, jewelry displays"]
+      ]},
+      { type: "heading3", content: "Why CRI Matters in Retail" },
+      { type: "paragraph", content: "In retail, CRI directly impacts sales. Fresh produce looks more appetizing under high-CRI lights. High-end fashion fabrics display their true textures. For showrooms and boutiques, we strictly recommend CRI 90 or above. Visit our [Retail Lighting](/retail-lighting) page for more." },
+      { type: "callout", content: "When checking specs, look for the 'R9' value. R9 measures how well the light renders deep reds, which is essential for skin tones and food." }
+    ],
+    seoMetadata: {
+      title: "What is CRI? Color Rendering Index Guide | Credence",
+      description: "Understand the Color Rendering Index (CRI) and why CRI 90+ is essential for luxury residential and retail lighting design."
+    }
+  },
+  {
+    id: "b13",
+    slug: "color-temperature-guide",
+    title: "The Ultimate Guide to LED Color Temperatures (Kelvin)",
+    excerpt: "From warm white to cool daylight, learn how to choose the right color temperature for every room and application.",
+    category: "Educational",
+    author: "Interior Specialist",
+    date: "2025-11-05",
+    readTime: "5 min read",
+    heroImage: aiImg1,
+    tags: ["Color Temperature", "Kelvin", "Design"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "Color temperature defines the 'feeling' of a space. It is measured in Kelvins (K). Paradoxically, the lower the Kelvin number, the 'warmer' (more yellow/orange) the light. The higher the number, the 'cooler' (more blue/white) the light." },
+      { type: "heading2", content: "The Kelvin Scale Breakdown" },
+      { type: "table", headers: ["Temperature", "Appearance", "Best For"], rows: [
+        ["2700K - 3000K", "Warm White", "Living rooms, bedrooms, luxury hotels"],
+        ["3500K - 4000K", "Neutral White", "Offices, kitchens, retail stores"],
+        ["5000K - 6500K", "Cool Daylight", "Hospitals, industrial areas, garages"]
+      ]},
+      { type: "heading3", content: "Mixing Color Temperatures" },
+      { type: "paragraph", content: "A common mistake is mixing color temperatures in a single room (e.g., a 3000K chandelier with 4000K spotlights). This creates visual confusion. However, Human Centric Lighting uses 'Tunable White' LEDs to intentionally shift the temperature throughout the day." },
+      { type: "callout", content: "For commercial spaces, 4000K is the sweet spot for productivity without feeling sterile. Check out our [Office Lighting](/office-lighting) solutions." }
+    ],
+    seoMetadata: {
+      title: "LED Color Temperature (Kelvin) Guide | Credence",
+      description: "Choose the perfect color temperature (2700K vs 3000K vs 4000K) for your residential, commercial, or hospitality project."
+    }
+  },
+  {
+    id: "b14",
+    slug: "ip-ratings-outdoor-bathroom",
+    title: "IP Ratings: The Ultimate Guide for Outdoor & Bathroom Lighting",
+    excerpt: "Demystifying Ingress Protection (IP) ratings to ensure your lighting survives rain, dust, and coastal humidity.",
+    category: "Educational",
+    author: "Engineering Team",
+    date: "2025-11-08",
+    readTime: "6 min read",
+    heroImage: aiImg4,
+    tags: ["IP Rating", "Outdoor", "Safety"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "IP (Ingress Protection) ratings define how well a fixture keeps out solid objects (like dust) and liquids (like water). Choosing the wrong IP rating can lead to fixture failure or dangerous electrical shorts." },
+      { type: "heading2", content: "Decoding the Numbers" },
+      { type: "paragraph", content: "The first digit (0-6) refers to protection against solids. The second digit (0-8) refers to protection against liquids." },
+      { type: "table", headers: ["Rating", "Protection Level", "Where to Use"], rows: [
+        ["IP20", "Protected against large objects, no water protection", "Standard indoor living spaces"],
+        ["IP44", "Protected against splashing water", "Bathrooms (Zone 2), covered porches"],
+        ["IP65", "Dust-tight, protected against water jets", "General garden lighting, exposed facades"],
+        ["IP67", "Dust-tight, temporary immersion", "Driveway uplights, wet landscape areas"],
+        ["IP68", "Dust-tight, continuous immersion", "Inside swimming pools and fountains"]
+      ]},
+      { type: "heading3", content: "The Coastal Challenge" },
+      { type: "paragraph", content: "In regions like Dubai and Bahrain, an IP65 rating isn't enough if the fixture is near the sea; salt corrosion will destroy it. You must also specify marine-grade 316L stainless steel. Explore our robust outdoor products on our [Outdoor Lighting](/outdoor-lighting-dubai) page." },
+      { type: "callout", content: "Never use IP20 fixtures in a bathroom, and never submerge an IP67 fixture permanently." }
+    ],
+    seoMetadata: {
+      title: "Understanding IP Ratings for Lighting | Credence",
+      description: "A complete guide to IP20, IP44, IP65, IP67, and IP68 lighting ratings for safe bathroom and outdoor landscape installations."
+    }
+  },
+  {
+    id: "b15",
+    slug: "hospitality-lighting-guest-experience",
+    title: "Hospitality Lighting Guide: Creating 5-Star Guest Experiences",
+    excerpt: "How premium hotels use lighting design to build emotional connections, guide guests, and define luxury.",
+    category: "Educational",
+    author: "Design Team",
+    date: "2025-11-10",
+    readTime: "7 min read",
+    heroImage: aiImg7,
+    tags: ["Hospitality", "Hotels", "Luxury"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "Lighting is the most powerful tool a hotel has for defining its brand. From the moment a guest approaches the facade to the moment they turn off the bedside lamp, lighting orchestrates the entire experience." },
+      { type: "heading2", content: "The Lobby: The First Impression" },
+      { type: "paragraph", content: "Lobbies require dramatic, multi-layered lighting. We use high-output downlights for general circulation, wall grazers to highlight architectural textures, and statement chandeliers for visual impact. The lighting must transition seamlessly from bright daytime modes to moody evening settings." },
+      { type: "heading2", content: "The Guestroom: Intuitive Comfort" },
+      { type: "paragraph", content: "The biggest complaint guests have is overly complicated room lighting controls. A 5-star room should feature a simple 'Welcome' scene upon entry, clear reading lights, and low-level floor wash lights triggered by motion sensors for safe night-time bathroom visits." },
+      { type: "table", headers: ["Area", "Recommended Lighting Technique", "Ideal CCT"], rows: [
+        ["Lobby", "Multi-layered ambient & accent", "2700K - Tunable White"],
+        ["Corridors", "Low-glare downlights & step lights", "2700K"],
+        ["Guestrooms", "Soft ambient + localized task", "2700K"],
+        ["Restaurants", "Warm-dimming spots over tables", "1800K - 2700K"]
+      ]},
+      { type: "callout", content: "Need a comprehensive hospitality design? Visit our dedicated [Hotel Lighting Solutions](/hotel-lighting) page." }
+    ],
+    seoMetadata: {
+      title: "Hospitality Lighting Design Guide | Credence",
+      description: "Learn how to design lighting for 5-star hotels, lobbies, and guestrooms to enhance luxury and guest satisfaction."
+    }
+  },
+  {
+    id: "b16",
+    slug: "office-lighting-standards-ugr",
+    title: "Office Lighting Standards: Lux Levels and Glare Control (UGR)",
+    excerpt: "Ensure your corporate workspace meets international standards for productivity, comfort, and safety.",
+    category: "Educational",
+    author: "Engineering Team",
+    date: "2025-11-12",
+    readTime: "6 min read",
+    heroImage: aiImg1,
+    tags: ["Office", "UGR", "Standards"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "Proper office lighting isn't a luxury; it's a regulatory requirement and a critical driver of employee productivity. Poor lighting causes eye strain, headaches, and fatigue." },
+      { type: "heading2", content: "Standard Lux Levels" },
+      { type: "paragraph", content: "The European standard EN 12464-1 dictates the required illuminance (lux) for various tasks. More difficult visual tasks require higher lux levels." },
+      { type: "table", headers: ["Task / Area", "Required Lux", "Required UGR"], rows: [
+        ["General Office Work / Desks", "500 lx", "< 19"],
+        ["Corridors / Circulation", "100 - 200 lx", "< 22"],
+        ["Technical Drawing / CAD", "750 lx", "< 16"],
+        ["Filing / Copy Rooms", "300 lx", "< 22"]
+      ]},
+      { type: "heading2", content: "Understanding UGR (Unified Glare Rating)" },
+      { type: "paragraph", content: "UGR measures the psychological glare of a lighting installation. A high UGR means the lights are blinding or reflect harshly off computer screens. For offices, UGR must be 19 or lower. We achieve this using micro-prismatic diffusers or deep-recessed reflectors." },
+      { type: "callout", content: "Upgrading your workspace? Discover our ergonomic [Office Lighting](/office-lighting) fixtures designed specifically for UGR<19 compliance." }
+    ],
+    seoMetadata: {
+      title: "Office Lighting Standards & UGR Explained | Credence",
+      description: "A guide to recommended lux levels and UGR glare ratings for productive, comfortable, and compliant office lighting."
+    }
+  },
+  {
+    id: "b17",
+    slug: "led-energy-savings-roi",
+    title: "LED Energy Savings: Calculating ROI on Commercial Lighting Upgrades",
+    excerpt: "Why upgrading to LED is the easiest and most profitable energy conservation measure for commercial facilities.",
+    category: "Educational",
+    author: "Commercial Director",
+    date: "2025-11-15",
+    readTime: "5 min read",
+    heroImage: aiImg6,
+    tags: ["Energy", "ROI", "Retrofit"],
+    isFeatured: true,
+    contentBlocks: [
+      { type: "paragraph", content: "For commercial property owners, lighting accounts for up to 40% of total electricity consumption. Upgrading legacy fluorescent, halogen, or metal halide systems to high-efficiency LED is the fastest way to slash overhead costs." },
+      { type: "heading2", content: "The Wattage Comparison" },
+      { type: "paragraph", content: "LEDs produce the same amount of light (lumens) while consuming a fraction of the power." },
+      { type: "table", headers: ["Legacy Fixture", "LED Equivalent", "Energy Savings"], rows: [
+        ["50W Halogen Spot", "5W - 7W LED", "85%"],
+        ["4x18W Fluorescent Troffer", "30W LED Panel", "60%"],
+        ["400W Metal Halide High-Bay", "150W LED High-Bay", "62%"]
+      ]},
+      { type: "heading3", content: "Calculating ROI" },
+      { type: "paragraph", content: "Return on Investment (ROI) is calculated by taking the total cost of the LED upgrade (fixtures + installation) and dividing it by the monthly energy savings. For a warehouse operating 24/7, an LED upgrade often pays for itself in less than 12 months." },
+      { type: "callout", content: "Beyond energy savings, LEDs last 50,000+ hours, drastically reducing maintenance costs. Contact our [Lighting Companies UAE](/lighting-companies-uae) team for a free energy audit." }
+    ],
+    seoMetadata: {
+      title: "Calculate LED Energy Savings & ROI | Credence Lighting",
+      description: "Learn how upgrading commercial lighting to LED delivers massive energy savings and rapid ROI for warehouses and offices."
+    }
+  },
+  {
+    id: "b18",
+    slug: "lighting-maintenance-lifespan",
+    title: "Lighting Maintenance: Extending the Lifespan of Your LED Systems",
+    excerpt: "Best practices for maintaining commercial LED lighting installations to ensure maximum lifespan and performance.",
+    category: "Educational",
+    author: "Technical Team",
+    date: "2025-11-20",
+    readTime: "5 min read",
+    heroImage: aiImg11,
+    tags: ["Maintenance", "LED Lifespan", "Facilities"],
+    isFeatured: false,
+    contentBlocks: [
+      { type: "paragraph", content: "While LEDs are marketed as 'maintenance-free', commercial lighting systems still require care to achieve their promised 50,000 to 100,000-hour lifespans. Neglect leads to lumen depreciation, color shifting, and premature driver failure." },
+      { type: "heading2", content: "The Enemy: Heat and Dust" },
+      { type: "paragraph", content: "The LED chip itself rarely burns out; it degrades due to heat. The heat sink must dissipate thermal energy efficiently. If dust accumulates thickly on a high-bay fixture in a warehouse, it acts as an insulating blanket, causing the LED to overheat and fail." },
+      { type: "list", items: [
+        "Regular Cleaning: Wipe down optics and heat sinks annually, especially in industrial or dusty environments.",
+        "Check Drivers: The driver is the most common point of failure. Ensure drivers are installed in well-ventilated areas.",
+        "Seal Integrity: For outdoor fixtures, inspect rubber gaskets periodically to ensure IP ratings aren't compromised by UV degradation."
+      ]},
+      { type: "heading3", content: "Lumen Maintenance (L70)" },
+      { type: "paragraph", content: "When an LED is rated 'L70 at 50,000 hours', it means after 50,000 hours of use, the light output will have slowly dropped to 70% of its original brightness. Proper maintenance extends this curve significantly." },
+      { type: "callout", content: "Need a comprehensive maintenance contract or a system health check? Get in touch via our [Contact](/contact) page." }
+    ],
+    seoMetadata: {
+      title: "LED Lighting Maintenance & Lifespan Guide | Credence",
+      description: "Expert tips on maintaining commercial LED lighting systems to prevent premature failure and ensure maximum lifespan."
     }
   }
 ];

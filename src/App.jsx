@@ -30,6 +30,23 @@ const OutdoorLightingDubai = lazy(() => import("./pages/OutdoorLightingDubai"));
 const PendantLightsDubai = lazy(() => import("./pages/PendantLightsDubai"));
 const LEDStripLightsDubai = lazy(() => import("./pages/LEDStripLightsDubai"));
 
+// Industry Pages
+const HotelLighting = lazy(() => import("./pages/HotelLighting"));
+const ResidentialLighting = lazy(() => import("./pages/ResidentialLighting"));
+const OfficeLighting = lazy(() => import("./pages/OfficeLighting"));
+const RetailLighting = lazy(() => import("./pages/RetailLighting"));
+const RestaurantLighting = lazy(() => import("./pages/RestaurantLighting"));
+const EntertainmentLighting = lazy(() => import("./pages/EntertainmentLighting"));
+
+// Location Pages
+const LocationAbuDhabi = lazy(() => import("./pages/LocationAbuDhabi"));
+const LocationSharjah = lazy(() => import("./pages/LocationSharjah"));
+const LocationAjman = lazy(() => import("./pages/LocationAjman"));
+const LocationRAK = lazy(() => import("./pages/LocationRAK"));
+const LocationUAE = lazy(() => import("./pages/LocationUAE"));
+const LocationKSA = lazy(() => import("./pages/LocationKSA"));
+const LocationBahrain = lazy(() => import("./pages/LocationBahrain"));
+
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(!window.__PRERENDER_INJECTED);
@@ -78,6 +95,23 @@ export default function App() {
             <Route path="/outdoor-lighting-dubai" element={<OutdoorLightingDubai />} />
             <Route path="/pendant-lights-dubai" element={<PendantLightsDubai />} />
             <Route path="/led-strip-lights-dubai" element={<LEDStripLightsDubai />} />
+
+            {/* Industry Pages */}
+            <Route path="/hotel-lighting" element={<HotelLighting />} />
+            <Route path="/residential-lighting" element={<ResidentialLighting />} />
+            <Route path="/office-lighting" element={<OfficeLighting />} />
+            <Route path="/retail-lighting" element={<RetailLighting />} />
+            <Route path="/restaurant-lighting" element={<RestaurantLighting />} />
+            <Route path="/entertainment-lighting" element={<EntertainmentLighting />} />
+
+            {/* Location Pages */}
+            <Route path="/lighting-suppliers-abu-dhabi" element={<LocationAbuDhabi />} />
+            <Route path="/lighting-companies-sharjah" element={<LocationSharjah />} />
+            <Route path="/lighting-solutions-ajman" element={<LocationAjman />} />
+            <Route path="/lighting-solutions-rak" element={<LocationRAK />} />
+            <Route path="/lighting-companies-uae" element={<LocationUAE />} />
+            <Route path="/lighting-companies-saudi-arabia" element={<LocationKSA />} />
+            <Route path="/lighting-companies-bahrain" element={<LocationBahrain />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

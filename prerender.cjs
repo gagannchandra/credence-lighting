@@ -42,7 +42,15 @@ const staticRoutes = [
   // Money Pages
   '/lighting-company-dubai', '/lighting-showroom-dubai',
   '/ceiling-lights-dubai', '/outdoor-lighting-dubai',
-  '/pendant-lights-dubai', '/led-strip-lights-dubai'
+  '/pendant-lights-dubai', '/led-strip-lights-dubai',
+  // Industry Pages
+  '/hotel-lighting', '/residential-lighting', '/office-lighting',
+  '/retail-lighting', '/restaurant-lighting', '/entertainment-lighting',
+  // Location Pages
+  '/lighting-suppliers-abu-dhabi', '/lighting-companies-sharjah',
+  '/lighting-solutions-ajman', '/lighting-solutions-rak',
+  '/lighting-companies-uae', '/lighting-companies-saudi-arabia',
+  '/lighting-companies-bahrain'
 ];
 const allRoutes = [...staticRoutes, ...getDynamicRoutes()];
 const routes = allRoutes;

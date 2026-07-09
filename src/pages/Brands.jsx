@@ -62,7 +62,7 @@ export default function Brands() {
           "@type": "CollectionPage",
           "name": "Brand Partners · Credence Lighting Dubai",
           "description": "Credence Lighting partners with 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA.",
-          "url": "https://www.credencelighting.com/brands"
+          "url": "https://credencelighting.com/brands"
         }]}
       />
       <Navbar />

@@ -37,10 +37,10 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Credence Lighting",
-            "url": "https://www.credencelighting.com",
+            "url": "https://credencelighting.com",
             "potentialAction": {
               "@type": "SearchAction",
-              "target": "https://www.credencelighting.com/products?search={search_term_string}",
+              "target": "https://credencelighting.com/products?search={search_term_string}",
               "query-input": "required name=search_term_string"
             }
           },
@@ -48,8 +48,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Credence Lighting LLC",
-            "url": "https://www.credencelighting.com",
-            "logo": "https://www.credencelighting.com/logo2.webp",
+            "url": "https://credencelighting.com",
+            "logo": "https://credencelighting.com/logo2.webp",
             "description": "Premium architectural, commercial, and hospitality lighting design, supply, and installation across Dubai, UAE, and the GCC region.",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
@@ -69,8 +69,8 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Credence Lighting LLC",
-            "image": "https://www.credencelighting.com/logo2.webp",
-            "url": "https://www.credencelighting.com",
+            "image": "https://credencelighting.com/logo2.webp",
+            "url": "https://credencelighting.com",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
             "address": {
@@ -98,28 +98,28 @@ export default function Home() {
                 "@type": "SiteNavigationElement",
                 "position": 1,
                 "name": "Products",
-                "url": "https://www.credencelighting.com/products",
+                "url": "https://credencelighting.com/products",
                 "description": "Explore our premium collection of indoor, outdoor, hospitality, and facade lighting."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 2,
                 "name": "Projects",
-                "url": "https://www.credencelighting.com/projects",
+                "url": "https://credencelighting.com/projects",
                 "description": "View our featured installations across architectural, entertainment, and retail sectors."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 3,
                 "name": "About Us",
-                "url": "https://www.credencelighting.com/about",
+                "url": "https://credencelighting.com/about",
                 "description": "10+ years of experience delivering premium lighting solutions in the UAE."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 4,
                 "name": "Contact",
-                "url": "https://www.credencelighting.com/contact",
+                "url": "https://credencelighting.com/contact",
                 "description": "Get in touch with our lighting experts in Dubai Investment Park."
               }
             ]
