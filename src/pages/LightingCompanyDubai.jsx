@@ -60,7 +60,7 @@ const faqs = [
   { id: "lc3", question: "Which areas in the UAE does Credence Lighting serve?", answer: "We serve all Emirates including Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain. Our head office and showroom is located at Dubai Investment Park 1, with project delivery capabilities across the entire GCC region." },
   { id: "lc4", question: "Can Credence Lighting handle large commercial and hospitality projects?", answer: "Absolutely. We have extensive experience delivering lighting for large-scale commercial, hospitality, and entertainment projects. Our portfolio includes multi-location retail rollouts, hotel lobbies, entertainment complexes, and full building facade lighting across Saudi Arabia and the UAE." },
   { id: "lc5", question: "How do I request a lighting project quote?", answer: "You can request a quote by visiting our contact page, calling us at +971 564 965 660, or emailing info@credencelighting.com. Please provide your project type, approximate scope, and any architectural drawings or specifications you have available." },
-  { id: "lc6", question: "Does Credence Lighting work with architects and interior designers?", answer: "Yes. We regularly collaborate with architects, interior designers, lighting consultants, and contractors. Our team integrates seamlessly into the design workflow, providing technical lighting layouts, product specifications, and value-engineering recommendations." },
+  { id: "lc6", question: "Does Credence Lighting work with architects and interior designers?", answer: "Yes. We regularly assist architects, interior designers, lighting consultants, and contractors. Our team integrates seamlessly into the design workflow, providing technical lighting layouts, product specifications, and value-engineering recommendations." },
 ];
 
 export default function LightingCompanyDubai() {
@@ -119,15 +119,15 @@ export default function LightingCompanyDubai() {
       />
       <Navbar />
 
-      <main className="relative bg-black overflow-hidden">
+      <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <FadeUp>
-              <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
+              <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
                 Lighting Company in Dubai
               </p>
             </FadeUp>
@@ -135,7 +135,7 @@ export default function LightingCompanyDubai() {
             <FadeUp delay={1}>
               <h1 className="text-fluid-h1 font-serif text-white leading-tight">
                 Premium Lighting Solutions{" "}
-                <span className="italic text-[#c8a96b]">for Dubai & the GCC</span>
+                <span className="italic text-brand-gold">for Dubai & the GCC</span>
               </h1>
             </FadeUp>
 
@@ -152,13 +152,13 @@ export default function LightingCompanyDubai() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
                 <Link
                   to="/contact"
-                  className="px-8 py-4 bg-[#c8a96b] text-black text-sm uppercase tracking-[0.2em] font-semibold hover:bg-white transition-colors duration-300 rounded-full"
+                  className="px-8 py-4 bg-brand-gold text-black text-sm uppercase tracking-[0.2em] font-semibold hover:bg-white transition-colors duration-300 rounded-button"
                 >
                   Request a Quote
                 </Link>
                 <Link
                   to="/projects"
-                  className="px-8 py-4 border border-white/20 text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 rounded-full"
+                  className="px-8 py-4 border border-white/20 text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 rounded-button"
                 >
                   View Our Projects
                 </Link>
@@ -173,13 +173,13 @@ export default function LightingCompanyDubai() {
             {[
               ["10+", "Years Experience"],
               ["1000+", "Projects Delivered"],
-              ["30+", "Partner Brands"],
+              ["30+", "Featured Clients"],
               ["7+", "Countries Served"],
             ].map(([number, label], index) => (
               <FadeUp key={label} delay={index * 1}>
                 <div className={`text-center ${index !== 0 ? "md:border-l md:border-white/10" : ""}`}>
                   <h3 className="text-4xl md:text-5xl font-serif text-white mb-2">{number}</h3>
-                  <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b]/80">{label}</p>
+                  <p className="uppercase tracking-[0.3em] text-xs text-brand-gold/80">{label}</p>
                 </div>
               </FadeUp>
             ))}
@@ -207,12 +207,12 @@ export default function LightingCompanyDubai() {
                 return (
                   <FadeUp key={service.title} delay={index * 1}>
                     <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                       <div className="relative z-10">
-                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#c8a96b] transition-colors duration-500 mb-6">
+                        <div className="w-12 h-12 rounded-button bg-white/10 flex items-center justify-center group-hover:bg-brand-gold transition-colors duration-500 mb-6">
                           <Icon className="w-5 h-5 text-white group-hover:text-black transition-colors duration-500" strokeWidth={1.5} />
                         </div>
-                        <h3 className="text-xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">
+                        <h3 className="text-xl font-serif text-white mb-3 group-hover:text-brand-gold transition-colors duration-300">
                           {service.title}
                         </h3>
                         <p className="text-white/60 text-sm leading-relaxed">
@@ -247,9 +247,9 @@ export default function LightingCompanyDubai() {
                 <FadeUp key={industry.name} delay={index * 0.5}>
                   <Link
                     to={industry.link}
-                    className="group border border-white/10 rounded-2xl p-6 bg-white/[0.02] hover:bg-white/[0.05] hover:border-[#c8a96b]/30 transition-all duration-500 text-center block"
+                    className="group border border-white/10 rounded-panel p-6 bg-white/[0.02] hover:bg-white/[0.05] hover:border-brand-gold/30 transition-all duration-500 text-center block"
                   >
-                    <h3 className="text-white text-base font-medium group-hover:text-[#c8a96b] transition-colors duration-300">
+                    <h3 className="text-white text-base font-medium group-hover:text-brand-gold transition-colors duration-300">
                       {industry.name}
                     </h3>
                   </Link>
@@ -273,7 +273,7 @@ export default function LightingCompanyDubai() {
                 <p>
                   Selecting a lighting company in Dubai requires evaluating several factors beyond 
                   price. The UAE's unique climate, building codes, and architectural ambitions demand 
-                  a lighting partner with regional expertise and a proven track record.
+                  a lighting provider with regional expertise and a proven track record.
                 </p>
 
                 <h3 className="text-white text-xl font-serif mt-8 mb-4">Look for End-to-End Capability</h3>
@@ -326,8 +326,8 @@ export default function LightingCompanyDubai() {
         <section className="py-24 px-6 md:px-12 border-t border-white/10">
           <div className="max-w-4xl mx-auto text-center">
             <FadeUp>
-              <div className="p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-[#c8a96b]/30 rounded-3xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#c8a96b]/10 blur-[100px] rounded-full pointer-events-none" />
+              <div className="p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-brand-gold/30 rounded-3xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[100px] rounded-button pointer-events-none" />
                 <h2 className="text-3xl md:text-4xl font-serif text-white mb-4 relative z-10">
                   Ready to Start Your Lighting Project?
                 </h2>
@@ -338,7 +338,7 @@ export default function LightingCompanyDubai() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
                   <Link
                     to="/contact"
-                    className="px-8 py-3 bg-[#c8a96b] text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300"
+                    className="px-8 py-3 bg-brand-gold text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300"
                   >
                     Contact Us
                   </Link>

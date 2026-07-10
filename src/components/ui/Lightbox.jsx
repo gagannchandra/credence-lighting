@@ -15,7 +15,7 @@ export default function Lightbox({ images = [], index = 0, onClose, onPrev, onNe
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent/90 p-6" onClick={onClose}>
       <button
         className="absolute top-6 right-6 text-white text-3xl"
         onClick={(e) => {
@@ -40,7 +40,7 @@ export default function Lightbox({ images = [], index = 0, onClose, onPrev, onNe
 
       <div className="relative max-w-[90%] max-h-[90%] flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
         <img src={images[index]} alt="Gallery image fullscreen view" className="max-w-full max-h-full object-contain rounded-[1.5rem] shadow-2xl" />
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-4 py-2 text-sm text-white/80">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-button bg-transparent/60 px-4 py-2 text-sm text-white/80">
           {index + 1} / {images.length}
         </div>
       </div>

@@ -6,13 +6,13 @@ export default function FaqAccordionGroup({ category, faqs }) {
   return (
     <div id={`faq-category-${category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="scroll-mt-32 mb-16">
       <div className="flex items-center gap-4 mb-8">
-        <h2 className="text-2xl md:text-3xl font-serif text-[#c8a96b]">
+        <h2 className="text-2xl md:text-3xl font-serif text-brand-gold">
           {category}
         </h2>
         <div className="h-px bg-white/10 flex-grow" />
       </div>
       
-      <div className="bg-[#111111]/50 border border-white/5 rounded-3xl px-6 md:px-10">
+      <div className="bg-surface-elevated/50 border border-border-subtle rounded-3xl px-6 md:px-10">
         {faqs.map((faq, index) => (
           <FaqAccordionItem key={faq.id} faq={faq} index={index} />
         ))}

@@ -38,7 +38,7 @@ export default function Gallery() {
           "url": "https://credencelighting.com/gallery"
         }]}
       />
-      <section className="min-h-screen bg-black py-20 md:py-32 px-4 md:px-16">
+      <section className="min-h-screen bg-transparent py-20 md:py-32 px-4 md:px-16">
       <BackButton />
       <div className="max-w-7xl mx-auto">
         <motion.div
@@ -48,7 +48,7 @@ export default function Gallery() {
           viewport={{ once: true }}
           className="mb-16 md:mb-20"
         >
-          <p className="uppercase tracking-[0.4em] text-xs text-[#d4b16a] mb-4">
+          <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-4">
             Gallery
           </p>
           <h1 className="text-fluid-h1 font-serif text-white">
@@ -74,7 +74,7 @@ export default function Gallery() {
             >
               <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] items-start">
                 <div className="space-y-6">
-                  <p className="uppercase tracking-[0.2em] text-xs text-[#d4b16a] mb-3">
+                  <p className="uppercase tracking-[0.2em] text-xs text-brand-gold mb-3">
                     {project.category}
                   </p>
                   <h2 className="text-fluid-h1 font-serif text-white ">
@@ -90,7 +90,7 @@ export default function Gallery() {
 
                 <div className="grid gap-4 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {project.gallery.map((image, imgIndex) => (
-                    <div key={imgIndex} className="overflow-hidden rounded-2xl group relative h-72 sm:h-80">
+                    <div key={imgIndex} className="overflow-hidden rounded-panel group relative h-72 sm:h-80">
                       <button
                         type="button"
                         onClick={() => openLightbox(project.gallery, imgIndex)}
@@ -104,7 +104,7 @@ export default function Gallery() {
                         alt={`${project.name} gallery ${imgIndex + 1}`}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-transparent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   ))}
                 </div>

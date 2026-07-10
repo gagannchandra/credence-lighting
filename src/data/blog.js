@@ -32,7 +32,7 @@ export const blogPosts = [
     isFeatured: true,
     contentBlocks: [
       { type: "paragraph", content: "Think back to the last time you walked into a truly breathtaking building. Chances are, it wasn't just the materials or the scale that left an impression—it was how the light interacted with those elements. Architectural lighting has fundamentally changed over the past decade. It’s no longer just about making sure people can see where they’re walking; it’s about shaping the emotional resonance of the space itself." },
-      { type: "paragraph", content: "We are seeing a major shift in how architects and lighting designers collaborate. Instead of treating light fixtures as an afterthought to be bolted onto the ceiling, light is now being treated as a building material in its own right." },
+      { type: "paragraph", content: "We are seeing a major shift in how architects and lighting designers work together. Instead of treating light fixtures as an afterthought to be bolted onto the ceiling, light is now being treated as a building material in its own right." },
       { type: "heading2", content: "When Light Becomes Architecture" },
       { type: "paragraph", content: "In contemporary luxury design, the goal is often to hide the source of the light completely. We want the illumination, but we don't necessarily want to see the fixture. This is where techniques like deep-recessed cove lighting, precise wall grazing, and microscopic linear profiles come into play. When planned from the very first architectural draft, these techniques allow walls to glow organically and textures to pop out of the shadows." },
       { type: "quote", content: "Light is the fourth dimension of architecture. It reveals form, defines space, and creates the atmosphere you remember long after you've left." },
@@ -297,7 +297,7 @@ export const blogPosts = [
     tags: ["Dubai", "Lighting Company", "Guide"],
     isFeatured: false,
     contentBlocks: [
-      { type: "paragraph", content: "Choosing the right lighting company in Dubai can make or break your project. The UAE's construction market is fast-paced and demanding — you need a lighting partner that can match your timeline, budget, and quality expectations without cutting corners." },
+      { type: "paragraph", content: "Choosing the right lighting company in Dubai can make or break your project. The UAE's construction market is fast-paced and demanding — you need a lighting provider that can match your timeline, budget, and quality expectations without cutting corners." },
       { type: "heading2", content: "Why Your Choice of Lighting Company Matters" },
       { type: "paragraph", content: "Lighting accounts for roughly 15 to 25 percent of a building's energy consumption and has a direct impact on how people experience a space. A qualified lighting company doesn't just supply fixtures — they understand how light interacts with architecture, materials, and human behavior. The wrong supplier can leave you with poorly lit spaces, constant maintenance issues, and costly replacements within a few years." },
       { type: "heading2", content: "What to Look for in a Lighting Company" },
@@ -328,7 +328,7 @@ export const blogPosts = [
     tags: ["Dubai", "LED", "Supplier", "Guide"],
     isFeatured: false,
     contentBlocks: [
-      { type: "paragraph", content: "The LED lighting market in Dubai has grown rapidly over the past decade, driven by the UAE's ambitious construction pipeline and increasingly strict energy efficiency regulations. With dozens of LED suppliers operating in the market, distinguishing between reliable partners and commodity resellers requires a structured evaluation process." },
+      { type: "paragraph", content: "The LED lighting market in Dubai has grown rapidly over the past decade, driven by the UAE's ambitious construction pipeline and increasingly strict energy efficiency regulations. With dozens of LED suppliers operating in the market, distinguishing between reliable providers and commodity resellers requires a structured evaluation process." },
       { type: "heading2", content: "Product Quality and Certification" },
       { type: "paragraph", content: "The most reliable LED light suppliers in the UAE carry products that meet recognized international standards. Look for fixtures with proper CE, RoHS, and SASO certifications. For projects requiring fire safety compliance, IEC 60598 certification is essential. Avoid suppliers who cannot provide test reports or certification documentation upon request." },
       { type: "paragraph", content: "Pay particular attention to Color Rendering Index (CRI) values. For commercial and hospitality applications, insist on CRI 90 or above. Budget LED fixtures with CRI 70 or 80 will make food, fabrics, and skin tones look dull and unappealing — a problem that becomes painfully obvious in retail and restaurant environments." },

@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
     <PageTransition>
-      <SEO 
+      <SEO
         title="Credence Lighting · Premium Lighting Dubai"
         description="Credence Lighting provides premium architectural, commercial, and hospitality lighting solutions across Dubai and the UAE. 10+ years, 1000+ projects delivered."
         schema={[
@@ -129,30 +129,30 @@ export default function Home() {
       <ReturnScrollHandler />
       <Navbar />
 
-      <main className="bg-[#050505] min-h-screen relative overflow-hidden">
+      <main className="bg-transparent min-h-screen relative overflow-hidden">
         {/* Global Continuous Background Lighting */}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-          <motion.div 
+          <motion.div
             animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08] will-change-transform transform-gpu" 
+            className="absolute top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-brand-gold rounded-button blur-[150px] opacity-[0.08] will-change-transform transform-gpu"
           />
-          <motion.div 
+          <motion.div
             animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.08] will-change-transform transform-gpu" 
+            className="absolute top-[60%] -right-[10%] w-[40vw] h-[40vw] bg-brand-gold rounded-button blur-[150px] opacity-[0.08] will-change-transform transform-gpu"
           />
         </div>
 
         <div className="relative z-10">
           <Hero />
           <AboutSection preview={true} />
-          
+
           <ProjectsSection preview={true} />
           <ProductsSection preview={true} />
           <BrandsSection preview={true} />
-          
-          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center bg-black"><p className="text-[#c8a96b] uppercase tracking-widest text-xs">Loading Interactive Map...</p></div>}>
+
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center bg-transparent"><p className="text-brand-gold uppercase tracking-widest text-xs">Loading Interactive Map...</p></div>}>
             <GlobalPresence />
           </Suspense>
           <ContactSection preview={true} />

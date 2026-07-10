@@ -67,7 +67,7 @@ const stats = [
 const contentBlocks = [
   { type: "heading2", content: "The Role of Lighting in Hospitality" },
   { type: "paragraph", content: "In the hospitality industry, lighting is not merely functional—it is emotional. The moment a guest steps into a hotel, the lighting sets the tone for their entire stay. A poorly lit lobby feels sterile; an overly bright restaurant feels like a cafeteria. At Credence Lighting, we understand that luxury is defined by nuances: the perfect grazing angle on a textured wall, the complete absence of glare, and the seamless transition from day to night." },
-  { type: "callout", content: "We partner with architects, interior designers, and hotel operators to ensure our lighting systems meet stringent brand standards while pushing the boundaries of creative design." },
+  { type: "callout", content: "We provide services to architects, interior designers, and hotel operators to ensure our lighting systems meet stringent brand standards while pushing the boundaries of creative design." },
   { type: "heading2", content: "Technical Considerations for Hotel Lighting" },
   { type: "list", items: [
     "High CRI (90+): Essential for restaurants to make food look appetizing and in guestroom mirrors for accurate skin tones.",

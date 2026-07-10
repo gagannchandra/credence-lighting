@@ -63,20 +63,20 @@ export default function ContactSection({ asPage = false }) {
 
           <div className="max-w-4xl">
             <FadeUp delay={0}>
-              <p className="uppercase tracking-[0.4em] text-xs text-[#c8a96b] mb-6">
+              <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6">
                 Contact
               </p>
             </FadeUp>
 
             <Heading className="text-fluid-h1 font-serif  flex flex-wrap gap-2">
               <TextReveal text="Let’s Create" />
-              <TextReveal text="Something Exceptional" delay={2} className="italic text-[#c8a96b] block mt-2 w-full" />
+              <TextReveal text="Something Exceptional" delay={2} className="italic text-brand-gold block mt-2 w-full" />
             </Heading>
           </div>
 
           <FadeUp delay={4}>
             <p className="max-w-xl text-white/55 leading-[1.8] text-lg">
-              We collaborate with visionary brands, architects,
+              We provide services to visionary brands, architects,
               and developers to craft premium lighting experiences
               that elevate atmosphere and redefine spatial identity.
             </p>
@@ -89,15 +89,15 @@ export default function ContactSection({ asPage = false }) {
           {/* LEFT INFO PANEL */}
           <FadeUp
             delay={2}
-            className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-10 flex flex-col justify-between min-h-[520px] md:min-h-[620px]"
+            className="relative overflow-hidden rounded-panel border border-border-subtle bg-surface-elevated p-8 md:p-10 flex flex-col justify-between min-h-[520px] md:min-h-[620px]"
           >
 
             {/* INNER GLOW */}
-            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-[#c8a96b]/10 blur-[120px] rounded-full" />
+            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-brand-gold/10 blur-[120px] rounded-button" />
 
             <div className="relative z-10">
 
-              <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-10">
+              <p className="uppercase tracking-[0.3em] text-xs text-brand-gold mb-10">
                 Studio Information
               </p>
 
@@ -109,7 +109,7 @@ export default function ContactSection({ asPage = false }) {
                   </p>
 
                   <div className="space-y-2 text-xl text-white/80">
-                    <a href="tel:+971564965660" className="block hover:text-[#c8a96b] transition duration-300">
+                    <a href="tel:+971564965660" className="block hover:text-brand-gold transition duration-300">
                       +971 564 965 660
                     </a>
                   </div>
@@ -120,7 +120,7 @@ export default function ContactSection({ asPage = false }) {
                     Email
                   </p>
 
-                  <a href="mailto:info@credencelighting.com" className="text-xl text-white/80 hover:text-[#c8a96b] transition duration-300">
+                  <a href="mailto:info@credencelighting.com" className="text-xl text-white/80 hover:text-brand-gold transition duration-300">
                     info@credencelighting.com
                   </a>
                 </div>
@@ -129,11 +129,11 @@ export default function ContactSection({ asPage = false }) {
                   <p className="text-white/30 uppercase tracking-[0.25em] text-xs mb-4">
                     Location
                   </p>
-                  <a 
-                    href="https://maps.app.goo.gl/ec2HMCDNXYtYviV7A" 
-                    target="_blank" 
+                  <a
+                    href="https://maps.app.goo.gl/ec2HMCDNXYtYviV7A"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-white/70 leading-[1.8] hover:text-[#c8a96b] transition-colors duration-300"
+                    className="block text-white/70 leading-[1.8] hover:text-brand-gold transition-colors duration-300"
                   >
                     <strong className="text-white">Credence Lighting LLC</strong>
                     <br />
@@ -167,24 +167,24 @@ export default function ContactSection({ asPage = false }) {
           {/* RIGHT FORM */}
           <FadeUp
             delay={4}
-            className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111111] p-8 md:p-12 min-h-[520px] md:min-h-[620px]"
+            className="relative overflow-hidden rounded-panel border border-border-subtle bg-surface-elevated p-8 md:p-12 min-h-[520px] md:min-h-[620px]"
           >
 
             <div className="relative z-10">
 
               <div className="mb-12">
 
-                <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-5">
+                <p className="uppercase tracking-[0.3em] text-xs text-brand-gold mb-5">
                   Start A Conversation
                 </p>
 
                 <h3 className="text-fluid-h1 font-serif mb-4">
                   Tell Us About
-                  <span className="italic text-[#c8a96b]">
+                  <span className="italic text-brand-gold">
                     {" "}Your Vision
                   </span>
                 </h3>
-                
+
                 <p className="text-white/40 text-sm tracking-wide">
                   Our dedicated team of lighting specialists typically responds within 24 hours.
                 </p>
@@ -202,7 +202,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
                   />
 
                   <input
@@ -212,7 +212,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Email Address"
                     required
-                    className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
                   />
 
                 </div>
@@ -225,7 +225,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Phone Number"
                     required
-                    className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
                   />
 
                   <input
@@ -234,7 +234,7 @@ export default function ContactSection({ asPage = false }) {
                     value={form.company}
                     onChange={handleChange}
                     placeholder="Company Name"
-                    className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
                   />
                 </div>
 
@@ -245,18 +245,18 @@ export default function ContactSection({ asPage = false }) {
                   rows="7"
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-[#c8a96b] transition duration-500 placeholder:text-white/30 resize-none"
+                  className="w-full bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30 resize-none"
                 />
 
                 <button
                   type="submit"
-                  className="group mt-4 bg-[#c8a96b] hover:bg-[#d8bb82] text-black px-10 py-5 rounded-2xl uppercase tracking-[0.25em] text-sm transition duration-500 flex items-center gap-3"
+                  className="group mt-4 bg-brand-gold hover:opacity-90 text-black px-10 py-5 rounded-button uppercase tracking-[0.25em] text-sm transition duration-300 flex items-center gap-3"
                 >
                   {status.type === "loading" ? "Sending..." : "Send Message →"}
                 </button>
 
                 {status.message && (
-                  <p className={`text-sm ${status.type === "success" ? "text-[#a3ff8f]" : status.type === "error" ? "text-[#ff9e9e]" : "text-white/80"}`}>
+                  <p className={`text-sm ${status.type === "success" ? "text-green-400" : status.type === "error" ? "text-red-400" : "text-white/80"}`}>
                     {status.message}
                   </p>
                 )}

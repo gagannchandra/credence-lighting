@@ -7,9 +7,9 @@ export default function BlogCard({ post, index }) {
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "0px 0px 50px 0px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group flex flex-col h-full bg-[#111111] border border-white/5 rounded-2xl overflow-hidden hover:border-[#c8a96b]/30 transition-colors duration-500"
+      className="group flex flex-col h-full bg-surface-elevated border border-border-subtle rounded-panel overflow-hidden hover:border-brand-gold/30 transition-colors duration-500"
     >
       <Link to={`/blog/${post.slug}`} className="relative h-64 overflow-hidden block">
         <img
@@ -18,8 +18,8 @@ export default function BlogCard({ post, index }) {
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full">
-          <span className="text-xs uppercase tracking-wider text-[#c8a96b] font-medium">
+        <div className="absolute top-4 left-4 bg-transparent/60 backdrop-blur-md border border-white/10 px-3 py-1 rounded-button">
+          <span className="text-xs uppercase tracking-wider text-brand-gold font-medium">
             {post.category}
           </span>
         </div>
@@ -31,7 +31,7 @@ export default function BlogCard({ post, index }) {
             <Calendar size={14} />
             <span>{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
           </div>
-          <div className="w-1 h-1 rounded-full bg-white/20" />
+          <div className="w-1 h-1 rounded-button bg-white/20" />
           <div className="flex items-center gap-1.5">
             <Clock size={14} />
             <span>{post.readTime}</span>
@@ -39,7 +39,7 @@ export default function BlogCard({ post, index }) {
         </div>
 
         <Link to={`/blog/${post.slug}`}>
-          <h3 className="text-xl md:text-2xl font-serif text-white/90 mb-3 group-hover:text-[#c8a96b] transition-colors duration-300 line-clamp-2">
+          <h3 className="text-xl md:text-2xl font-serif text-white/90 mb-3 group-hover:text-brand-gold transition-colors duration-300 line-clamp-2">
             {post.title}
           </h3>
         </Link>
@@ -50,7 +50,7 @@ export default function BlogCard({ post, index }) {
 
         <Link 
           to={`/blog/${post.slug}`}
-          className="mt-auto inline-flex items-center gap-2 text-sm text-white/80 group-hover:text-[#c8a96b] transition-colors duration-300 uppercase tracking-widest"
+          className="mt-auto inline-flex items-center gap-2 text-sm text-white/80 group-hover:text-brand-gold transition-colors duration-300 uppercase tracking-widest"
         >
           Read Article
           <ArrowUpRight size={16} className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />

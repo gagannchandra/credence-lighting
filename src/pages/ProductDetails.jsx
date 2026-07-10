@@ -96,7 +96,7 @@ export default function ProductDetails() {
 
   if (categoryProducts.length === 0) {
     return (
-      <div className="h-screen bg-[#050505] flex flex-col items-center justify-center text-white text-3xl font-serif">
+      <div className="h-screen bg-transparent flex flex-col items-center justify-center text-white text-3xl font-serif">
         <BackButton />
         Collection Not Found
       </div>
@@ -106,7 +106,7 @@ export default function ProductDetails() {
   const sampleProduct = categoryProducts[0];
 
   return (
-    <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+    <main className="bg-transparent min-h-screen relative overflow-x-hidden text-white">
       <SEO 
         title={`${matchedCategory} Lighting Collection · Credence Lighting`}
         description={`Explore our premium ${matchedCategory.toLowerCase()} lighting collection. Discover luxury ${sampleProduct.title.toLowerCase()}s engineered for uncompromised performance and aesthetic excellence.`}
@@ -126,8 +126,8 @@ export default function ProductDetails() {
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
-        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.07]" />
+        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-brand-gold rounded-button blur-[160px] opacity-[0.07]" />
+        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[150px] opacity-[0.07]" />
       </div>
       
       <BackButton />
@@ -140,9 +140,9 @@ export default function ProductDetails() {
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, margin: "0px 0px 50px 0px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full overflow-hidden rounded-xl border border-white/5 bg-[#111] relative group"
+              className="w-full overflow-hidden rounded-card border border-border-subtle bg-surface-elevated relative group"
             >
               <img
                 src={prod.image}
@@ -162,9 +162,9 @@ export default function ProductDetails() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="uppercase tracking-[0.4em] text-xs font-semibold text-[#b89b5e] mb-5 flex items-center gap-3"
+            className="uppercase tracking-[0.4em] text-xs font-semibold text-brand-gold mb-5 flex items-center gap-3"
           >
-            <span className="w-8 h-[1px] bg-[#b89b5e]"></span>
+            <span className="w-8 h-[1px] bg-brand-gold"></span>
             {matchedCategory} Collection
           </motion.p>
           
@@ -197,7 +197,7 @@ export default function ProductDetails() {
             </p>
             <button 
               onClick={() => setIsTextExpanded(!isTextExpanded)}
-              className="md:hidden mt-3 text-[#c8a96b] text-xs uppercase tracking-wider font-semibold"
+              className="md:hidden mt-3 text-brand-gold text-xs uppercase tracking-wider font-semibold"
             >
               {isTextExpanded ? 'Show Less' : 'Learn More'}
             </button>
@@ -210,7 +210,7 @@ export default function ProductDetails() {
           >
             <PageLink
               to="/contact"
-              className="inline-flex items-center justify-center bg-white/5 border border-white/5 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
+              className="inline-flex items-center justify-center bg-white/5 border border-border-subtle text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
             >
               Enquire Now
               <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -227,7 +227,7 @@ export default function ProductDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/products/${slugify(previousCategory)}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous collection"
           >
             <span className="text-xl leading-none -translate-y-[1px]">←</span>
@@ -239,7 +239,7 @@ export default function ProductDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/products/${slugify(nextCategory)}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next collection"
           >
             <span className="text-xl leading-none -translate-y-[1px]">→</span>

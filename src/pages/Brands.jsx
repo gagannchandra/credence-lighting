@@ -55,13 +55,13 @@ export default function Brands() {
   return (
     <PageTransition>
       <SEO 
-        title="Brand Partners · Credence Lighting Dubai" 
-        description="Credence Lighting partners with 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA for premium lighting projects across the GCC." 
+        title="Our Clients · Credence Lighting Dubai" 
+        description="Credence Lighting has served 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA for premium lighting projects across the GCC." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          "name": "Brand Partners · Credence Lighting Dubai",
-          "description": "Credence Lighting partners with 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA.",
+          "name": "Our Clients · Credence Lighting Dubai",
+          "description": "Credence Lighting has served 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA",
           "url": "https://credencelighting.com/brands"
         }]}
       />
@@ -70,30 +70,30 @@ export default function Brands() {
 
       <section
         id="brands-page-top"
-        className="relative min-h-screen bg-black overflow-hidden pt-40 pb-28"
+        className="relative min-h-screen bg-transparent overflow-hidden pt-40 pb-28"
       >
 
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px]" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12">
 
           {/* HEADER */}
           <div className="text-center max-w-4xl mx-auto">
 
-            <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
-              Trusted Collaborations
+            <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
+              Clients We've Helped
             </p>
 
             <h1 className="text-fluid-h1 font-serif text-white">
               Our Global
-              <span className="italic text-[#c8a96b]">
-                {" "}Brand Partners
+              <span className="italic text-brand-gold">
+                {" "}Our Clients
               </span>
             </h1>
 
             <p className="mt-10 text-white/50 text-lg leading-[1.8]">
-              We proudly collaborate with internationally recognized
+              We proudly provide services to internationally recognized
               brands, entertainment destinations, retail leaders,
               hospitality groups, and architectural innovators across
               multiple countries.
@@ -105,7 +105,7 @@ export default function Brands() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-24">
 
             {[
-              { number: "30+", label: "Partner Brands" },
+              { number: "30+", label: "Featured Clients" },
               { number: "7+", label: "Countries" },
               { number: "1000+", label: "Projects Delivered" },
               { number: "10+", label: "Years Experience" },
@@ -152,12 +152,12 @@ export default function Brands() {
                 className="group relative border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] h-[180px] flex items-center justify-center overflow-hidden"
               >
                 {/* HOVER GLOW */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent" />
 
                 {/* LOGO */}
                 <img
                   src={brand.logo}
-                  alt={`${brand.name} — Credence Lighting partner brand`}
+                  alt={`${brand.name} — Credence Lighting client`}
                   className="relative z-10 h-16 md:h-20 object-contain opacity-80 group-hover:opacity-100 transition duration-500 px-6"
                 />
               </motion.div>

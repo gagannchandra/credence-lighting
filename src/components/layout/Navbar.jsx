@@ -67,7 +67,7 @@ const navItems = [
     to: "/about",
     dropdown: [
       { name: "About", to: "/about" },
-      { name: "Brands", to: "/brands" },
+      { name: "Clients", to: "/brands" },
       { name: "Gallery", to: "/gallery" },
       { name: "Contact", to: "/contact" },
     ],
@@ -109,28 +109,35 @@ export default function Navbar() {
         
         <div className={`mx-auto transition-all duration-500 flex items-center justify-between relative z-10 ${
           scrolled 
-            ? "mt-4 w-[96%] md:w-[92%] rounded-2xl bg-[#030408]/80 backdrop-blur-2xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.5)] px-6 py-4"
+            ? "mt-4 w-[96%] md:w-[92%] rounded-panel bg-surface-glass backdrop-blur-heavy border border-border-subtle shadow-elevation-high px-6 py-4"
             : "mt-0 w-full rounded-none bg-transparent border-transparent shadow-none px-6 md:px-12 py-6 md:py-8"
         }`}>
           
           {/* Logo */}
-          <PageLink
-            to="/"
-            onClick={handleLogoClick}
-            className="flex items-center gap-3 shrink-0"
-          >
-            <img
-              src={logo2}
-              alt="Credence Lighting"
-              className="h-8 md:h-10 w-auto object-contain"
-            />
-            <span className="hidden lg:inline-flex font-serif text-white tracking-wide text-lg">
-              Credence Lighting
-            </span>
-          </PageLink>
+          <div className="flex-1 flex justify-start items-center">
+            <PageLink
+              to="/"
+              onClick={handleLogoClick}
+              className="flex items-center gap-3 shrink-0 group"
+            >
+              <div className="relative flex items-center justify-center">
+                {/* Sunburst/Glow Effect Background */}
+                <div className="absolute inset-0 bg-[#c8a96b]/30 blur-xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
+                
+                <img
+                  src={logo2}
+                  alt="Credence Lighting"
+                  className="relative z-10 h-8 md:h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500"
+                />
+              </div>
+              <span className="hidden lg:inline-flex font-serif text-white tracking-wide text-lg group-hover:text-[#c8a96b] transition-colors duration-500">
+                Credence Lighting
+              </span>
+            </PageLink>
+          </div>
 
           {/* Desktop Mega Menu */}
-          <div className="hidden lg:flex items-center gap-10 h-full">
+          <div className="hidden lg:flex items-center justify-center gap-10 h-full">
             {navItems.map((item) => (
               <MegaMenu 
                 key={item.name} 
@@ -141,24 +148,27 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:flex shrink-0">
-            <PageLink
-              to="/contact"
-              className="text-xs uppercase tracking-[0.15em] text-white/90 hover:text-white border border-white/20 hover:border-white transition-all px-6 py-2.5 rounded-full"
-            >
-              Enquire
-            </PageLink>
-          </div>
+          {/* Right Side: Desktop CTA & Mobile Hamburger */}
+          <div className="flex-1 flex justify-end items-center">
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex shrink-0">
+              <PageLink
+                to="/contact"
+                className="text-xs uppercase tracking-[0.15em] text-white/90 hover:text-white border border-white/20 hover:border-white transition-all px-6 py-2.5 rounded-button"
+              >
+                Enquire
+              </PageLink>
+            </div>
 
-          {/* Mobile Hamburger */}
-          <button
-            aria-label="Open Menu"
-            onClick={() => setOpen(true)}
-            className="lg:hidden text-white flex items-center justify-center p-2"
-          >
-            <Menu size={28} strokeWidth={1.5} />
-          </button>
+            {/* Mobile Hamburger */}
+            <button
+              aria-label="Open Menu"
+              onClick={() => setOpen(true)}
+              className="lg:hidden text-white flex items-center justify-center p-2"
+            >
+              <Menu size={28} strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -171,7 +181,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeMenu}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 lg:hidden"
+            className="fixed inset-0 bg-transparent/60 backdrop-blur-sm z-50 lg:hidden"
           />
         )}
         {open && (
@@ -185,7 +195,7 @@ export default function Navbar() {
               damping: 25,
               stiffness: 180,
             }}
-            className="fixed top-0 right-0 h-screen w-full sm:w-[400px] bg-[#0a0a0a] border-l border-white/5 z-50 flex flex-col px-10 py-7 overflow-y-auto lg:hidden"
+            className="fixed top-0 right-0 h-screen w-full sm:w-[400px] bg-surface-elevated border-l border-border-subtle z-50 flex flex-col px-10 py-7 overflow-y-auto lg:hidden"
           >
             {/* CLOSE */}
             <button

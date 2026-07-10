@@ -41,7 +41,7 @@ export default function ArticleTOC({ blocks }) {
   };
 
   return (
-    <div className="sticky top-32 p-6 border border-white/10 rounded-2xl bg-[#0a0a0a]">
+    <div className="sticky top-32 p-6 border border-white/10 rounded-panel bg-surface-elevated">
       <h4 className="text-sm uppercase tracking-widest text-white/50 mb-4">Table of Contents</h4>
       <nav className="flex flex-col gap-3 border-l border-white/10">
         {headings.map((heading, index) => {
@@ -54,7 +54,7 @@ export default function ArticleTOC({ blocks }) {
               onClick={() => scrollToHeading(id)}
               className={`text-left pl-4 text-sm transition-colors duration-300 border-l-2 -ml-[1px] ${
                 isActive 
-                  ? "border-[#c8a96b] text-[#c8a96b]" 
+                  ? "border-brand-gold text-brand-gold" 
                   : "border-transparent text-white/60 hover:text-white"
               } ${heading.type === 'heading3' ? 'ml-2' : ''}`}
             >

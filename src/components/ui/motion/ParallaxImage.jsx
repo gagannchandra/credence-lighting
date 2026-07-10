@@ -32,7 +32,7 @@ export default function ParallaxImage({
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 50px 0px" }}
         transition={{ duration: duration.epic, ease: ease.slow }}
         className="w-full h-full"
       >

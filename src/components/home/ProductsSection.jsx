@@ -43,7 +43,7 @@ export default function ProductsSection({ hideHeader = false }) {
   const [activeProductIndex, setActiveProductIndex] = useState(0);
 
   const [prevCategory, setPrevCategory] = useState(location.state?.selectedCategory);
-  
+
   if (location.state?.selectedCategory && location.state.selectedCategory !== prevCategory) {
     setActive(location.state.selectedCategory);
     setActiveProductIndex(0);
@@ -116,30 +116,30 @@ export default function ProductsSection({ hideHeader = false }) {
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         {!hideHeader && (
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-          <div>
-            <FadeUp delay={0}>
-              <p className="uppercase tracking-[0.4em] text-xs text-[#b89b5e] mb-6 font-semibold">
-                Premium Collection
-              </p>
-            </FadeUp>
-            <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap gap-2">
-              <TextReveal text="Our Product" /> <TextReveal text="Range" delay={2} className="italic text-[#c8a96b] font-light" />
-            </h2>
-          </div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
+            <div>
+              <FadeUp delay={0}>
+                <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6 font-semibold">
+                  Premium Collection
+                </p>
+              </FadeUp>
+              <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap gap-2">
+                <TextReveal text="Our Product" /> <TextReveal text="Range" delay={2} className="italic text-brand-gold font-light" />
+              </h2>
+            </div>
 
-          <FadeUp delay={4}>
-            <HoverLift>
-              <button 
-                onClick={handleEnquireClick} 
-                className="w-full md:w-auto border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full flex items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
-              >
-                Enquire Now 
-                <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
-              </button>
-            </HoverLift>
-          </FadeUp>
-        </div>
+            <FadeUp delay={4}>
+              <HoverLift>
+                <button
+                  onClick={handleEnquireClick}
+                  className="w-full md:w-auto border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button flex items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
+                >
+                  Enquire Now
+                  <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
+                </button>
+              </HoverLift>
+            </FadeUp>
+          </div>
         )}
 
         {/* Category Filters with Sliding Indicator */}
@@ -153,14 +153,13 @@ export default function ProductsSection({ hideHeader = false }) {
                   setActive(item);
                   setActiveProductIndex(0);
                 }}
-                className={`relative px-6 py-3 text-xs uppercase tracking-[0.15em] transition-colors duration-300 rounded-full overflow-hidden ${
-                  isActive ? "text-black font-semibold" : "text-white/60 hover:text-white"
-                }`}
+                className={`relative px-6 py-3 text-xs uppercase tracking-[0.15em] transition-colors duration-300 rounded-button overflow-hidden ${isActive ? "text-black font-semibold" : "text-white/60 hover:text-white"
+                  }`}
               >
                 {isActive && (
                   <motion.div
                     layoutId="activeCategoryIndicator"
-                    className="absolute inset-0 bg-gradient-to-r from-[#d4b16a] to-[#b89b5e] shadow-[0_0_20px_rgba(200,169,107,0.4)]"
+                    className="absolute inset-0 bg-gradient-to-r from-brand-gold to-brand-gold/80 shadow-glow"
                     style={{ borderRadius: 9999 }}
                     transition={{ type: "spring", bounce: 0.2, duration: duration.standard }}
                   />
@@ -175,7 +174,7 @@ export default function ProductsSection({ hideHeader = false }) {
         <div className="min-h-[600px]">
           {active === "All" ? (
             // Bento Grid View for All Categories
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] grid-flow-dense"
             >
               <AnimatePresence>
@@ -187,7 +186,7 @@ export default function ProductsSection({ hideHeader = false }) {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
                     transition={{ duration: duration.standard, delay: index * 0.05, ease: ease.standard }}
-                    className={`group relative overflow-hidden rounded-xl cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#111] ${getBentoClasses(index)}`}
+                    className={`group relative overflow-hidden rounded-card cursor-pointer shadow-elevation-low hover:shadow-elevation-high transition-all duration-500 bg-surface-elevated ${getBentoClasses(index)}`}
                     onClick={() => {
                       setActive(item.category);
                       setActiveProductIndex(0);
@@ -203,7 +202,7 @@ export default function ProductsSection({ hideHeader = false }) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
 
                     <div className="absolute inset-x-0 bottom-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                      <p className="uppercase tracking-[0.3em] text-xs text-brand-gold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                         Explore Collection
                       </p>
                       <h3 className="text-white text-2xl md:text-3xl font-serif leading-tight">{item.category}</h3>
@@ -214,11 +213,11 @@ export default function ProductsSection({ hideHeader = false }) {
             </motion.div>
           ) : (
             // Featured View for Specific Category - Continuous Coverflow Carousel
-            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-2xl">
+            <div className="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center group select-none overflow-hidden rounded-panel">
               {filteredProducts.map((item, index) => {
                 const total = filteredProducts.length;
                 let diff = index - activeProductIndex;
-                
+
                 // Normalize diff to be between -total/2 and total/2 for infinite wrapping
                 if (diff > total / 2) diff -= total;
                 if (diff < -total / 2) diff += total;
@@ -226,7 +225,7 @@ export default function ProductsSection({ hideHeader = false }) {
                 const isCenter = Math.abs(diff) < 0.5; // diff === 0
                 const isLeft = diff >= -1.5 && diff <= -0.5; // diff === -1
                 const isRight = diff >= 0.5 && diff <= 1.5; // diff === 1
-                
+
                 const isVisible = isCenter || isLeft || isRight;
 
                 // Calculate X position based on relative distance (increased spacing)
@@ -247,7 +246,7 @@ export default function ProductsSection({ hideHeader = false }) {
                       zIndex: isCenter ? 30 : isVisible ? 20 : 0,
                     }}
                     transition={{ duration: duration.standard, ease: ease.standard }}
-                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-2xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
+                    className={`absolute w-[90%] md:w-[60%] lg:w-[50%] h-[90%] md:h-[95%] lg:h-full rounded-panel overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] ${isCenter ? '' : 'cursor-pointer hover:opacity-60'} ${!isVisible ? 'pointer-events-none' : ''}`}
                     style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(15%)" }}
                     onClick={() => {
                       if (isCenter) {
@@ -279,20 +278,20 @@ export default function ProductsSection({ hideHeader = false }) {
 
                           {/* Snapchat-style click zones for center image */}
                           <div className="absolute inset-0 z-10 flex cursor-pointer">
-                            <div 
-                              className="w-1/2 h-full flex items-center justify-start" 
+                            <div
+                              className="w-1/2 h-full flex items-center justify-start"
                               onClick={handlePrev}
                             />
-                            <div 
-                              className="w-1/2 h-full flex items-center justify-end" 
+                            <div
+                              className="w-1/2 h-full flex items-center justify-end"
                               onClick={handleNext}
                             />
                           </div>
 
                           {/* Top Left Topic Overlay */}
                           <div className="absolute top-8 left-8 md:top-12 md:left-12 z-20 pointer-events-none flex items-center gap-4">
-                            <span className="w-8 h-[1px] bg-[#c8a96b]" />
-                            <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] font-semibold drop-shadow-md">
+                            <span className="w-8 h-[1px] bg-brand-gold" />
+                            <p className="uppercase tracking-[0.3em] text-xs text-brand-gold font-semibold drop-shadow-md">
                               {active} Collection
                             </p>
                           </div>
@@ -303,13 +302,13 @@ export default function ProductsSection({ hideHeader = false }) {
                               {categoryDescriptions[active]}
                             </p>
                             <div className="pointer-events-auto inline-block">
-                                <button onClick={(e) => {
-                                  e.stopPropagation();
-                                  saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
-                                  navigate(`/products/${slugify(item.category)}`);
-                                }} className="text-[#c8a96b] uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-[#c8a96b]/30 hover:border-white pb-1">
-                                  View Collection Details
-                                </button>
+                              <button onClick={(e) => {
+                                e.stopPropagation();
+                                saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+                                navigate(`/products/${slugify(item.category)}`);
+                              }} className="text-brand-gold uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-brand-gold/30 hover:border-white pb-1">
+                                View Collection Details
+                              </button>
                             </div>
                           </div>
                         </motion.div>

@@ -5,7 +5,7 @@ export const faqData = [
   { id: "g3", category: "General", question: "How can I request a quote for my project?", answer: "You can request a quote by filling out the contact form on our website, or by reaching out to our sales team via phone or email. Please provide as much detail as possible about your project requirements." },
   { id: "g4", category: "General", question: "Where are your offices located?", answer: "We have offices across multiple locations in the Middle East, including Saudi Arabia and Bahrain, allowing us to serve the entire GCC region efficiently." },
   { id: "g5", category: "Consultation", question: "Is there a fee for the initial consultation?", answer: "The initial consultation is typically complementary. During this session, we discuss your project scope, vision, and basic requirements. Detailed design work and renders may incur fees depending on project scale." },
-  { id: "g6", category: "Consultation", question: "Can you work with my architect or interior designer?", answer: "Absolutely. We frequently collaborate with architects, interior designers, and contractors to ensure the lighting design seamlessly integrates with the overall architectural vision." },
+  { id: "g6", category: "Consultation", question: "Can you work with my architect or interior designer?", answer: "Absolutely. We frequently support architects, interior designers, and contractors to ensure the lighting design seamlessly integrates with the overall architectural vision." },
   
   // Residential
   { id: "r1", category: "Residential", question: "What are the best lighting options for a living room?", answer: "For living rooms, a layered lighting approach works best. This includes ambient lighting (like recessed downlights or a chandelier), task lighting (floor or table lamps for reading), and accent lighting (to highlight artwork or architectural features)." },
@@ -51,7 +51,7 @@ export const faqData = [
 
   // Customization
   { id: "cu1", category: "Customization", question: "Can you modify the color of a fixture?", answer: "Yes, many of our architectural profiles and downlight trims can be custom powder-coated to any RAL color to match your interior design scheme." },
-  { id: "cu2", category: "Customization", question: "Can you create custom chandeliers?", answer: "Yes, for large projects like hotel lobbies or luxury residential staircases, we work with our manufacturing partners to design and produce bespoke chandeliers based on your sketches or concepts." },
+  { id: "cu2", category: "Customization", question: "Can you create custom chandeliers?", answer: "Yes, for large projects like hotel lobbies or luxury residential staircases, we work with manufacturers to design and produce bespoke chandeliers based on your sketches or concepts." },
 
   // Ceiling Lights
   { id: "cl1", category: "Ceiling Lights", question: "What are the best ceiling lights for low ceilings?", answer: "For low ceilings (under 2.7 meters), recessed LED downlights or ultra-slim surface-mounted panels are ideal. They provide excellent illumination without reducing headroom. Avoid pendant lights or chandeliers in low-ceiling spaces as they can make the room feel cramped." },

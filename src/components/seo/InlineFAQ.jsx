@@ -19,13 +19,13 @@ export default function InlineFAQ({ faqs, heading = "Frequently Asked Questions"
           return (
             <div
               key={faq.id}
-              className="border border-white/10 rounded-2xl overflow-hidden bg-white/[0.02] backdrop-blur-sm"
+              className="border border-white/10 rounded-panel overflow-hidden bg-white/[0.02] backdrop-blur-sm"
             >
               <button
                 onClick={() => setOpenId(isOpen ? null : faq.id)}
                 className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 group"
               >
-                <span className="text-white text-base md:text-lg font-medium leading-snug group-hover:text-[#c8a96b] transition-colors duration-300">
+                <span className="text-white text-base md:text-lg font-medium leading-snug group-hover:text-brand-gold transition-colors duration-300">
                   {faq.question}
                 </span>
                 <motion.span
@@ -46,7 +46,7 @@ export default function InlineFAQ({ faqs, heading = "Frequently Asked Questions"
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-5 text-white/60 text-base leading-relaxed border-t border-white/5 pt-4">
+                    <div className="px-6 pb-5 text-white/60 text-base leading-relaxed border-t border-border-subtle pt-4">
                       {faq.answer}
                     </div>
                   </motion.div>

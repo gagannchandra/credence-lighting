@@ -58,11 +58,11 @@ const benefits = [
 
 const contentBlocks = [
   { type: "heading2", content: "Designing for Productivity and Well-being" },
-  { type: "paragraph", content: "The modern office has evolved from rows of sterile cubicles into dynamic, collaborative hubs. The lighting must evolve with it. Poor office lighting leads to fatigue, eye strain, and decreased productivity. At Credence Lighting, we design workspaces using Human Centric Lighting principles, prioritizing the biological and emotional needs of the employees." },
+  { type: "paragraph", content: "The modern office has evolved from rows of sterile cubicles into dynamic, interactive hubs. The lighting must evolve with it. Poor office lighting leads to fatigue, eye strain, and decreased productivity. At Credence Lighting, we design workspaces using Human Centric Lighting principles, prioritizing the biological and emotional needs of the employees." },
   { type: "list", items: [
     "Open Plan Desks: UGR<19 linear pendants delivering 500 lux on the work plane.",
     "Meeting Rooms: Flexible, dimmable solutions for presentations and video conferencing.",
-    "Breakout Zones: Warmer, softer lighting to encourage relaxation and informal collaboration.",
+    "Breakout Zones: Warmer, softer lighting to encourage relaxation and informal meetings.",
     "Corridors & Receptions: Striking architectural statements that reinforce corporate branding."
   ]},
   { type: "callout", content: "We assist corporate clients in achieving WELL and LEED certifications through advanced energy modeling and sustainable fixture selection." }

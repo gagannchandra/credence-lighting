@@ -62,20 +62,20 @@ export default function LEDStripLightsDubai() {
       />
       <Navbar />
 
-      <main className="relative bg-black overflow-hidden">
+      <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <FadeUp>
-              <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">LED Strip Lights Dubai</p>
+              <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">LED Strip Lights Dubai</p>
             </FadeUp>
 
             <FadeUp delay={1}>
               <h1 className="text-fluid-h1 font-serif text-white leading-tight">
                 LED Strip Lights{" "}
-                <span className="italic text-[#c8a96b]">for Every Application</span>
+                <span className="italic text-brand-gold">for Every Application</span>
               </h1>
             </FadeUp>
 
@@ -90,10 +90,10 @@ export default function LEDStripLightsDubai() {
 
             <FadeUp delay={3}>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-                <Link to="/contact" className="px-8 py-4 bg-[#c8a96b] text-black text-sm uppercase tracking-[0.2em] font-semibold hover:bg-white transition-colors duration-300 rounded-full">
+                <Link to="/contact" className="px-8 py-4 bg-brand-gold text-black text-sm uppercase tracking-[0.2em] font-semibold hover:bg-white transition-colors duration-300 rounded-button">
                   Request a Quote
                 </Link>
-                <Link to="/lighting-showroom-dubai" className="px-8 py-4 border border-white/20 text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 rounded-full">
+                <Link to="/lighting-showroom-dubai" className="px-8 py-4 border border-white/20 text-white text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300 rounded-button">
                   Visit Showroom
                 </Link>
               </div>
@@ -114,12 +114,12 @@ export default function LEDStripLightsDubai() {
                 return (
                   <FadeUp key={type.title} delay={index * 1}>
                     <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                       <div className="relative z-10">
-                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#c8a96b] transition-colors duration-500 mb-6">
+                        <div className="w-12 h-12 rounded-button bg-white/10 flex items-center justify-center group-hover:bg-brand-gold transition-colors duration-500 mb-6">
                           <Icon className="w-5 h-5 text-white group-hover:text-black transition-colors duration-500" strokeWidth={1.5} />
                         </div>
-                        <h3 className="text-xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">{type.title}</h3>
+                        <h3 className="text-xl font-serif text-white mb-3 group-hover:text-brand-gold transition-colors duration-300">{type.title}</h3>
                         <p className="text-white/60 text-sm leading-relaxed">{type.description}</p>
                       </div>
                     </div>
@@ -144,33 +144,33 @@ export default function LEDStripLightsDubai() {
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="border-b border-white/10">
-                      <th className="text-[#c8a96b] text-sm uppercase tracking-wider py-4 pr-6">Specification</th>
-                      <th className="text-[#c8a96b] text-sm uppercase tracking-wider py-4 pr-6">Standard</th>
-                      <th className="text-[#c8a96b] text-sm uppercase tracking-wider py-4">High-Density</th>
+                      <th className="text-brand-gold text-sm uppercase tracking-wider py-4 pr-6">Specification</th>
+                      <th className="text-brand-gold text-sm uppercase tracking-wider py-4 pr-6">Standard</th>
+                      <th className="text-brand-gold text-sm uppercase tracking-wider py-4">High-Density</th>
                     </tr>
                   </thead>
                   <tbody className="text-white/60 text-sm">
-                    <tr className="border-b border-white/5">
+                    <tr className="border-b border-border-subtle">
                       <td className="py-3 pr-6 text-white">LEDs per meter</td>
                       <td className="py-3 pr-6">60 – 120</td>
                       <td className="py-3">120 – 240</td>
                     </tr>
-                    <tr className="border-b border-white/5">
+                    <tr className="border-b border-border-subtle">
                       <td className="py-3 pr-6 text-white">CRI</td>
                       <td className="py-3 pr-6">≥80</td>
                       <td className="py-3">≥90</td>
                     </tr>
-                    <tr className="border-b border-white/5">
+                    <tr className="border-b border-border-subtle">
                       <td className="py-3 pr-6 text-white">Voltage</td>
                       <td className="py-3 pr-6">12V / 24V DC</td>
                       <td className="py-3">24V / 48V DC</td>
                     </tr>
-                    <tr className="border-b border-white/5">
+                    <tr className="border-b border-border-subtle">
                       <td className="py-3 pr-6 text-white">IP Rating</td>
                       <td className="py-3 pr-6">IP20 / IP65</td>
                       <td className="py-3">IP20 / IP65 / IP67</td>
                     </tr>
-                    <tr className="border-b border-white/5">
+                    <tr className="border-b border-border-subtle">
                       <td className="py-3 pr-6 text-white">Cutting Interval</td>
                       <td className="py-3 pr-6">50mm / 100mm</td>
                       <td className="py-3">25mm / 50mm</td>
@@ -245,7 +245,7 @@ export default function LEDStripLightsDubai() {
                   { label: "Automation", to: "/products/automation" },
                   { label: "Contact Us", to: "/contact" },
                 ].map(link => (
-                  <Link key={link.to} to={link.to} className="px-5 py-2 border border-white/10 rounded-full text-white/60 text-sm hover:text-[#c8a96b] hover:border-[#c8a96b]/30 transition-all duration-300">
+                  <Link key={link.to} to={link.to} className="px-5 py-2 border border-white/10 rounded-button text-white/60 text-sm hover:text-brand-gold hover:border-brand-gold/30 transition-all duration-300">
                     {link.label}
                   </Link>
                 ))}
@@ -265,8 +265,8 @@ export default function LEDStripLightsDubai() {
         <section className="py-24 px-6 md:px-12 border-t border-white/10">
           <div className="max-w-4xl mx-auto text-center">
             <FadeUp>
-              <div className="p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-[#c8a96b]/30 rounded-3xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-[#c8a96b]/10 blur-[100px] rounded-full pointer-events-none" />
+              <div className="p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-brand-gold/30 rounded-3xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[100px] rounded-button pointer-events-none" />
                 <h2 className="text-3xl md:text-4xl font-serif text-white mb-4 relative z-10">
                   Need LED Strip Lights for Your Project?
                 </h2>
@@ -274,7 +274,7 @@ export default function LEDStripLightsDubai() {
                   We supply and cut LED strips to your exact specifications. Contact us with your 
                   project details for a tailored recommendation and quote.
                 </p>
-                <Link to="/contact" className="inline-block px-8 py-3 bg-[#c8a96b] text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300 relative z-10">
+                <Link to="/contact" className="inline-block px-8 py-3 bg-brand-gold text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300 relative z-10">
                   Get a Quote
                 </Link>
               </div>

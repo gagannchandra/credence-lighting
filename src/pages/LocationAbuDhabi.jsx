@@ -9,7 +9,7 @@ const seo = {
 };
 
 const faqs = [
-  { id: "ad1", question: "Do you supply lighting for government and commercial projects in Abu Dhabi?", answer: "Yes, we regularly collaborate with main contractors and government entities in Abu Dhabi to supply ESTIDAMA-compliant lighting for commercial buildings, public spaces, and infrastructure projects." },
+  { id: "ad1", question: "Do you supply lighting for government and commercial projects in Abu Dhabi?", answer: "Yes, we regularly provide services to main contractors and government entities in Abu Dhabi to supply ESTIDAMA-compliant lighting for commercial buildings, public spaces, and infrastructure projects." },
   { id: "ad2", question: "What is ESTIDAMA and how does your lighting comply?", answer: "ESTIDAMA is Abu Dhabi's sustainability framework. We ensure our LED fixtures meet strict luminous efficacy standards (lumens per watt) and integrate with smart controls to fulfill the Pearl Rating System requirements for energy efficiency." },
   { id: "ad3", question: "Can you deliver lighting fixtures directly to sites in Al Ain or Ruwais?", answer: "Absolutely. Our logistics network covers the entirety of the Abu Dhabi emirate, ensuring safe and timely delivery to construction sites in Abu Dhabi city, Al Ain, and the Western Region." }
 ];

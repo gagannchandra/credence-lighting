@@ -6,7 +6,7 @@ export default function FadeUp({
   delay = 0, 
   className = "", 
   once = true, 
-  amount = 0.2,
+  amount = 0,
   as: Component = "div" 
 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -21,7 +21,7 @@ export default function FadeUp({
       variants={fadeUpVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount }}
+      viewport={{ once, amount, margin: "0px 0px 50px 0px" }}
       custom={delay}
       className={className}
     >

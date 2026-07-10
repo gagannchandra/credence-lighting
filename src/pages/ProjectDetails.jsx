@@ -79,7 +79,7 @@ export default function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="h-screen bg-[#050505] flex flex-col items-center justify-center text-white text-3xl font-serif">
+      <div className="h-screen bg-transparent flex flex-col items-center justify-center text-white text-3xl font-serif">
         <BackButton />
         Project Not Found
       </div>
@@ -89,7 +89,7 @@ export default function ProjectDetails() {
 
 
   return (
-    <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+    <main className="bg-transparent min-h-screen relative overflow-x-hidden text-white">
       <SEO 
         title={`${project.name} · Luxury Lighting Project by Credence Lighting`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
@@ -113,8 +113,8 @@ export default function ProjectDetails() {
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
-        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.07]" />
+        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-brand-gold rounded-button blur-[160px] opacity-[0.07]" />
+        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[150px] opacity-[0.07]" />
       </div>
       
       <BackButton />
@@ -127,9 +127,9 @@ export default function ProjectDetails() {
               key={idx}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
+              viewport={{ once: true, margin: "0px 0px 50px 0px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full overflow-hidden rounded-xl border border-white/5 bg-[#111]"
+              className="w-full overflow-hidden rounded-card border border-border-subtle bg-surface-elevated"
             >
               <img
                 src={imgSrc}
@@ -146,9 +146,9 @@ export default function ProjectDetails() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="uppercase tracking-[0.4em] text-xs font-semibold text-[#b89b5e] mb-5 flex items-center gap-3"
+            className="uppercase tracking-[0.4em] text-xs font-semibold text-brand-gold mb-5 flex items-center gap-3"
           >
-            <span className="w-8 h-[1px] bg-[#b89b5e]"></span>
+            <span className="w-8 h-[1px] bg-brand-gold"></span>
             {project.category}
           </motion.p>
           
@@ -168,7 +168,7 @@ export default function ProjectDetails() {
             className="flex flex-wrap gap-4 items-center text-white/50 uppercase tracking-[0.2em] text-xs md:text-xs mb-10 font-medium"
           >
             <span>{project.location}</span>
-            <span className="w-1 h-1 rounded-full bg-[#c8a96b]" />
+            <span className="w-1 h-1 rounded-button bg-brand-gold" />
             <span>{project.year}</span>
           </motion.div>
           
@@ -182,26 +182,26 @@ export default function ProjectDetails() {
               {project.description}
             </p>
               
-            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-[#c8a96b]/50 before:via-[#c8a96b]/20 before:to-transparent pl-8">
-              <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
+            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-brand-gold/50 before:via-brand-gold/20 before:to-transparent pl-8">
+              <div>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   To craft a luminous environment that transcends basic illumination, merging architectural integrity with emotional resonance. We aimed to create a space that feels alive, adapting to the natural rhythm of its inhabitants while accentuating the structural grandeur.
                 </p>
               </div>
               
               <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   Deploying a meticulously curated selection of advanced, low-glare luminaires and intelligent control systems. Our design seamlessly integrates into the spatial geometry, ensuring that light acts as a subtle architectural material rather than a mere utility, eliminating harsh shadows and visual noise.
                 </p>
               </div>
               
               <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   A breathtaking, immersive atmosphere that redefines the luxury experience. The dynamic lighting landscape not only elevates the aesthetic brilliance of the environment but also establishes a new paradigm for sustainable, human-centric design.
                 </p>
@@ -216,7 +216,7 @@ export default function ProjectDetails() {
           >
             <PageLink
               to="/contact"
-              className="inline-flex items-center justify-center bg-white/5 border border-white/5 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
+              className="inline-flex items-center justify-center bg-white/5 border border-border-subtle text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
             >
               Enquire Now
               <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -233,7 +233,7 @@ export default function ProjectDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/projects/${previousProject.slug}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous project"
           >
             <span className="text-xl leading-none -translate-y-[1px]">←</span>
@@ -245,7 +245,7 @@ export default function ProjectDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/projects/${nextProject.slug}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next project"
           >
             <span className="text-xl leading-none -translate-y-[1px]">→</span>

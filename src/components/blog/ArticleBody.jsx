@@ -16,7 +16,7 @@ export default function ArticleBody({ blocks }) {
               <h2 
                 key={index} 
                 id={block.content.toLowerCase().replace(/[^a-z0-9]+/g, '-')} 
-                className="text-fluid-h2 font-serif text-[#c8a96b] mt-12 mb-6"
+                className="text-fluid-h2 font-serif text-brand-gold mt-12 mb-6"
               >
                 {block.content}
               </h2>
@@ -26,27 +26,27 @@ export default function ArticleBody({ blocks }) {
               <h3 
                 key={index} 
                 id={block.content.toLowerCase().replace(/[^a-z0-9]+/g, '-')} 
-                className="text-2xl md:text-3xl font-serif text-[#c8a96b] mt-10 mb-4"
+                className="text-2xl md:text-3xl font-serif text-brand-gold mt-10 mb-4"
               >
                 {block.content}
               </h3>
             );
           case "quote":
             return (
-              <blockquote key={index} className="border-l-4 border-[#c8a96b] pl-6 my-10 italic text-xl md:text-2xl font-serif text-white/90">
+              <blockquote key={index} className="border-l-4 border-brand-gold pl-6 my-10 italic text-xl md:text-2xl font-serif text-white/90">
                 "{block.content}"
               </blockquote>
             );
           case "callout":
             return (
-              <div key={index} className="bg-[#c8a96b]/10 border border-[#c8a96b]/30 p-6 rounded-xl my-8">
-                <p className="text-[#c8a96b] m-0 font-medium text-lg">{block.content}</p>
+              <div key={index} className="bg-brand-gold/10 border border-brand-gold/30 p-6 rounded-card my-8">
+                <p className="text-brand-gold m-0 font-medium text-lg">{block.content}</p>
               </div>
             );
           case "image":
             return (
               <figure key={index} className="my-10">
-                <img src={block.url} alt={block.caption || ""} className="w-full rounded-2xl" />
+                <img src={block.url} alt={block.caption || ""} className="w-full rounded-panel" />
                 {block.caption && (
                   <figcaption className="text-center text-sm text-white/50 mt-3">{block.caption}</figcaption>
                 )}
@@ -62,18 +62,18 @@ export default function ArticleBody({ blocks }) {
             );
           case "table":
             return (
-              <div key={index} className="overflow-x-auto mb-8 border border-white/10 rounded-xl">
+              <div key={index} className="overflow-x-auto mb-8 border border-white/10 rounded-card">
                 <table className="w-full text-left text-white/80">
                   <thead className="bg-white/5 border-b border-white/10">
                     <tr>
                       {block.headers.map((header, i) => (
-                        <th key={i} className="px-6 py-4 font-serif text-[#c8a96b]">{header}</th>
+                        <th key={i} className="px-6 py-4 font-serif text-brand-gold">{header}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {block.rows.map((row, i) => (
-                      <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                      <tr key={i} className="border-b border-border-subtle last:border-0 hover:bg-white/[0.02]">
                         {row.map((cell, j) => (
                           <td key={j} className="px-6 py-4">{cell}</td>
                         ))}

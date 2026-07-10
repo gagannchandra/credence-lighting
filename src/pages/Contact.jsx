@@ -44,7 +44,7 @@ export default function Contact() {
         }]}
       />
       <Navbar />
-      <div className="bg-black pt-10">
+      <div className="bg-transparent pt-10">
         <ContactSection asPage />
       </div>
       <Footer />

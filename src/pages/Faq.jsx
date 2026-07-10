@@ -133,7 +133,7 @@ export default function Faq() {
 
   return (
     <PageTransition>
-      <div className="bg-[#050505] min-h-screen">
+      <div className="bg-transparent min-h-screen">
         <SEO 
         title="FAQ · Lighting Questions Answered · Credence" 
         description="Find answers to common questions about architectural lighting, LED products, smart controls, outdoor fixtures, and lighting design services from Credence Lighting Dubai."
@@ -148,7 +148,7 @@ export default function Faq() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-[#c8a96b]"
+            className="w-16 h-16 bg-white/5 border border-white/10 rounded-panel flex items-center justify-center mx-auto mb-6 text-brand-gold"
           >
             <MessageSquareText size={28} strokeWidth={1.5} />
           </motion.div>
@@ -157,7 +157,7 @@ export default function Faq() {
             animate={{ opacity: 1, y: 0 }}
             className="text-fluid-h1 font-serif text-white mb-6"
           >
-            How can we <span className="text-[#c8a96b]">help you?</span>
+            How can we <span className="text-brand-gold">help you?</span>
           </motion.h1>
           
           {/* Search Bar */}
@@ -172,7 +172,7 @@ export default function Faq() {
               placeholder="Search for answers..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#111111] border border-white/10 rounded-full py-4 pl-14 pr-6 text-white text-lg focus:outline-none focus:border-[#c8a96b]/50 transition-colors shadow-2xl"
+              className="w-full bg-surface-elevated border border-white/10 rounded-button py-4 pl-14 pr-6 text-white text-lg focus:outline-none focus:border-brand-gold/50 transition-colors shadow-2xl"
             />
             <Search size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-white/40" />
             {searchQuery && (
@@ -196,9 +196,9 @@ export default function Faq() {
                 <button
                   id="sidebar-cat-all"
                   onClick={() => scrollToCategory("All")}
-                  className={`text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 ${
+                  className={`text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
                     activeCategory === "All" 
-                      ? "bg-[#c8a96b] text-black font-medium" 
+                      ? "bg-brand-gold text-black font-medium" 
                       : "bg-transparent text-white/60 hover:bg-white/5 hover:text-white"
                   }`}
                 >
@@ -209,9 +209,9 @@ export default function Faq() {
                     key={cat}
                     id={`sidebar-cat-${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
                     onClick={() => scrollToCategory(cat)}
-                    className={`text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 ${
+                    className={`text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
                       activeCategory === cat 
-                        ? "bg-[#c8a96b] text-black font-medium" 
+                        ? "bg-brand-gold text-black font-medium" 
                         : "bg-transparent text-white/60 hover:bg-white/5 hover:text-white"
                     }`}
                   >
@@ -233,12 +233,12 @@ export default function Faq() {
                 />
               ))
             ) : (
-              <div className="text-center py-24 bg-[#111111] rounded-3xl border border-white/5">
+              <div className="text-center py-24 bg-surface-elevated rounded-3xl border border-border-subtle">
                 <h3 className="text-2xl text-white font-serif mb-4">No results found</h3>
                 <p className="text-white/50 mb-8">We couldn't find any FAQs matching your search.</p>
                 <button 
                   onClick={() => { setSearchQuery(""); setActiveCategory("All"); }}
-                  className="px-6 py-3 border border-white/20 rounded-full text-white/70 hover:text-white hover:border-white transition-colors"
+                  className="px-6 py-3 border border-white/20 rounded-button text-white/70 hover:text-white hover:border-white transition-colors"
                 >
                   Clear Search
                 </button>
@@ -246,14 +246,14 @@ export default function Faq() {
             )}
 
             {/* Still Need Help CTA */}
-            <div className="mt-20 p-10 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-[#c8a96b]/30 rounded-3xl text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#c8a96b]/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="mt-20 p-10 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-brand-gold/30 rounded-3xl text-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[100px] rounded-button pointer-events-none" />
               <h3 className="text-3xl font-serif text-white mb-4 relative z-10">Still have questions?</h3>
               <p className="text-white/60 mb-8 max-w-lg mx-auto relative z-10">
                 Can't find the answer you're looking for? Please chat to our friendly team.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10">
-                <Link to="/contact" className="px-8 py-3 bg-[#c8a96b] text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300 w-full sm:w-auto">
+                <Link to="/contact" className="px-8 py-3 bg-brand-gold text-black text-sm uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300 w-full sm:w-auto">
                   Contact Us
                 </Link>
                 <a href="mailto:info@credencelighting.com" className="px-8 py-3 border border-white/20 text-white text-sm uppercase tracking-widest font-semibold hover:bg-white/10 transition-colors duration-300 w-full sm:w-auto">

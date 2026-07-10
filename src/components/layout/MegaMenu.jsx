@@ -38,7 +38,7 @@ export default function MegaMenu({ item, active, setActive }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[500px] bg-[#050505]/95 backdrop-blur-3xl border border-white/5 rounded-xl p-6 shadow-2xl"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[500px] bg-surface-elevated/95 backdrop-blur-heavy border border-border-subtle rounded-card p-6 shadow-elevation-high"
           >
             <div className="grid grid-cols-2 gap-8">
               {/* Links Column */}
@@ -50,14 +50,14 @@ export default function MegaMenu({ item, active, setActive }) {
                     className="text-white/70 hover:text-white transition-colors text-sm tracking-wide flex items-center gap-2 group py-1"
                     onClick={() => setActive(null)}
                   >
-                    <span className="w-0 h-[1px] bg-[#c8a96b] group-hover:w-3 transition-all duration-300" />
+                    <span className="w-0 h-[1px] bg-brand-gold group-hover:w-3 transition-all duration-300" />
                     {link.name}
                   </Link>
                 ))}
               </div>
               {/* Image/Featured Column */}
               {item.featured && (
-                <div className="relative rounded-lg overflow-hidden group h-full bg-[#111]">
+                <div className="relative rounded-card overflow-hidden group h-full bg-surface-base">
                   <img
                     src={item.featured.image}
                     alt={item.featured.title}

@@ -9,9 +9,9 @@ const seo = {
 };
 
 const faqs = [
-  { id: "ksa1", question: "Do you supply lighting for gigaprojects like NEOM and Red Sea Global?", answer: "Yes. We have the technical capability and brand partnerships to supply highly specialized, sustainable lighting systems that meet the rigorous environmental and dark-sky standards demanded by KSA's Vision 2030 gigaprojects." },
-  { id: "ksa2", question: "Can you provide SASO-certified lighting products?", answer: "Absolutely. All products we export to Saudi Arabia are fully compliant with SASO (Saudi Standards, Metrology and Quality Organization) regulations and SABER registration requirements, ensuring smooth customs clearance and project handover." },
-  { id: "ksa3", question: "Do you have local representation in Riyadh or Jeddah?", answer: "We support the Saudi market through our dedicated export division, frequent on-site engineering visits, and strategic partnerships with local KSA contractors to ensure seamless installation and commissioning." }
+  { id: "ksa1", question: "Do you supply lighting for gigaprojects like NEOM and Red Sea Global?", answer: "Yes. We have the technical capability and industry connections to supply highly specialized, sustainable lighting systems that meet the rigorous environmental and dark-sky standards demanded by KSA's Vision 2030 gigaprojects." },
+  { id: "ksa2", question: "Do you handle custom lighting for mosques and cultural centers?", answer: "Absolutely. We supply bespoke chandeliers, architectural floodlighting for facades, and precise interior illumination tailored to the cultural and architectural significance of Saudi heritage projects." },
+  { id: "ksa3", question: "Do you have local representation in Riyadh or Jeddah?", answer: "We support the Saudi market through our dedicated export division, frequent on-site engineering visits, and strong relationships with local KSA contractors to ensure seamless installation and commissioning." }
 ];
 
 const schema = {
@@ -56,8 +56,8 @@ const services = [
 ];
 
 const contentBlocks = [
-  { type: "heading2", content: "Partnering in KSA's Architectural Transformation" },
-  { type: "paragraph", content: "Saudi Arabia is undergoing the most ambitious architectural transformation in history. The scale of development requires lighting partners who can deliver not just fixtures, but comprehensive engineering solutions. From ensuring zero light pollution in remote eco-resorts to synchronizing media facades in Riyadh's financial district, Credence Lighting brings global expertise to the Kingdom." },
+  { type: "heading2", content: "Supporting KSA's Architectural Transformation" },
+  { type: "paragraph", content: "Saudi Arabia is undergoing the most ambitious architectural transformation in history. The scale of development requires lighting providers who can deliver not just fixtures, but comprehensive engineering solutions. From ensuring zero light pollution in remote eco-resorts to synchronizing media facades in Riyadh's financial district, Credence Lighting brings global expertise to the Kingdom." },
   { type: "list", items: [
     "Logistics Excellence: Streamlined cross-border shipping and documentation.",
     "Smart City Integration: IoT-ready lighting poles for future-proof urban developments.",

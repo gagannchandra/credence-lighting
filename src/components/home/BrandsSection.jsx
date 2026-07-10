@@ -33,19 +33,19 @@ export default function BrandsSection() {
         {/* TOP */}
         <div className="text-center px-6">
           <FadeUp delay={0}>
-            <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
+            <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
               Trusted By
             </p>
           </FadeUp>
 
           <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center gap-2">
             <TextReveal text="Brands We" />
-            <TextReveal text="Work With" delay={2} className="italic text-[#c8a96b]" />
+            <TextReveal text="Have Served" delay={2} className="italic text-brand-gold" />
           </h2>
 
           <FadeUp delay={4}>
             <p className="mt-8 text-white/50 max-w-2xl mx-auto leading-[1.8]">
-              Collaborating with globally recognized brands,
+              Providing services to globally recognized brands,
               entertainment destinations, retail leaders,
               and architectural innovators across multiple countries.
             </p>
@@ -127,9 +127,9 @@ export default function BrandsSection() {
             <PageLink
               to="/brands"
               returnHash="#brands"
-              className="group border border-[#c8a96b]/40 text-[#c8a96b] px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-[#c8a96b] hover:text-black transition duration-500 flex items-center justify-center"
+              className="group border border-brand-gold/40 text-brand-gold px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-brand-gold hover:text-black transition duration-500 flex items-center justify-center"
             >
-              View All Partners
+              View All Clients
 
               <span className="inline-block ml-3 group-hover:translate-x-1 transition duration-300">
                 →

@@ -63,7 +63,7 @@ export default function BlogDetail() {
   ];
 
   return (
-    <div className="bg-[#050505] min-h-screen">
+    <div className="bg-transparent min-h-screen">
       <SEO 
         title={seoTitle}
         description={seoDescription}
@@ -76,7 +76,7 @@ export default function BlogDetail() {
 
       {/* Reading Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#c8a96b] origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-brand-gold origin-left z-50"
         style={{ scaleX }}
       />
 
@@ -85,7 +85,7 @@ export default function BlogDetail() {
         <div className="max-w-4xl mx-auto px-6 md:px-12 mb-8">
           <Link 
             to="/blog" 
-            className="inline-flex items-center gap-2 text-white/50 hover:text-[#c8a96b] transition-colors duration-300 text-sm uppercase tracking-widest"
+            className="inline-flex items-center gap-2 text-white/50 hover:text-brand-gold transition-colors duration-300 text-sm uppercase tracking-widest"
           >
             <ArrowLeft size={16} /> Back to Blog
           </Link>
@@ -98,7 +98,7 @@ export default function BlogDetail() {
             animate={{ opacity: 1, y: 0 }}
             className="mb-6 flex flex-wrap items-center justify-center gap-4 text-xs md:text-sm uppercase tracking-widest text-white/50"
           >
-            <span className="text-[#c8a96b] font-medium border border-[#c8a96b]/30 px-3 py-1 rounded-full">{post.category}</span>
+            <span className="text-brand-gold font-medium border border-brand-gold/30 px-3 py-1 rounded-button">{post.category}</span>
             <span className="flex items-center gap-1.5"><Calendar size={14} /> {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
             <span className="flex items-center gap-1.5"><Clock size={14} /> {post.readTime}</span>
           </motion.div>
@@ -118,7 +118,7 @@ export default function BlogDetail() {
             transition={{ delay: 0.2 }}
             className="flex justify-center items-center gap-3 text-white/60"
           >
-            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-button bg-white/10 flex items-center justify-center">
               <User size={18} />
             </div>
             <span>By <strong>{post.author}</strong></span>
@@ -148,7 +148,7 @@ export default function BlogDetail() {
             <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-2">
               <span className="text-white/40 text-sm uppercase tracking-widest mr-4">Tags:</span>
               {post.tags.map(tag => (
-                <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-white/60">
+                <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-button text-xs text-white/60">
                   {tag}
                 </span>
               ))}
@@ -160,10 +160,10 @@ export default function BlogDetail() {
             <ArticleTOC blocks={post.contentBlocks} />
             
             {/* Consultation CTA */}
-            <div className="p-8 bg-[#c8a96b] rounded-2xl text-black">
+            <div className="p-8 bg-brand-gold rounded-panel text-black">
               <h3 className="text-2xl font-serif mb-4">Need Expert Advice?</h3>
               <p className="text-black/70 mb-6 text-sm">Speak with our lighting designers to discuss your project requirements.</p>
-              <Link to="/contact" className="inline-flex items-center justify-center w-full bg-black text-[#c8a96b] px-6 py-3 font-semibold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-colors duration-300">
+              <Link to="/contact" className="inline-flex items-center justify-center w-full bg-transparent text-brand-gold px-6 py-3 font-semibold uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-colors duration-300">
                 Book Consultation
               </Link>
             </div>
@@ -177,14 +177,14 @@ export default function BlogDetail() {
             <div className="grid md:grid-cols-2 gap-8">
               {relatedPosts.map(rp => (
                 <Link key={rp.id} to={`/blog/${rp.slug}`} className="group block">
-                  <div className="h-48 rounded-2xl overflow-hidden mb-4 relative">
+                  <div className="h-48 rounded-panel overflow-hidden mb-4 relative">
                     <img src={rp.heroImage} alt={rp.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-transparent/40 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
                   <div className="flex items-center gap-3 text-xs text-white/40 mb-2 uppercase tracking-widest">
                     <span>{rp.category}</span>
                   </div>
-                  <h4 className="text-xl font-serif text-white/90 group-hover:text-[#c8a96b] transition-colors">{rp.title}</h4>
+                  <h4 className="text-xl font-serif text-white/90 group-hover:text-brand-gold transition-colors">{rp.title}</h4>
                 </Link>
               ))}
             </div>

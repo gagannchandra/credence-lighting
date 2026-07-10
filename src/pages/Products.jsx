@@ -52,18 +52,18 @@ export default function Products() {
       />
       <Navbar />
 
-      <div className="relative min-h-screen bg-black overflow-hidden pt-32 pb-10">
+      <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-10">
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12 mb-10">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
+            <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
               Premium Collection
             </p>
             <h1 className="text-fluid-h1 font-serif text-white">
               Our Product
-              <span className="italic text-[#c8a96b]"> Range</span>
+              <span className="italic text-brand-gold"> Range</span>
             </h1>
             <p className="mt-10 text-white/50 text-lg leading-[1.8]">
               Discover our curated selection of high-end lighting products and solutions designed for exceptional performance, durability, and stunning aesthetics. Whether you are looking for intelligent automation systems, dynamic LED screens, or elegant indoor fixtures, our extensive range ensures that every detail of your project is illuminated to perfection.
@@ -79,21 +79,21 @@ export default function Products() {
                 <div className="mb-8 md:mb-12">
                   <div className="border-b border-white/10 pb-4 md:pb-6 mb-4 md:mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
                     <div className="flex items-center gap-4 md:gap-6">
-                      <div className="w-8 md:w-12 h-[1px] bg-[#c8a96b]" />
+                      <div className="w-8 md:w-12 h-[1px] bg-brand-gold" />
                       <h2 className="text-fluid-h2 font-serif text-white">{category}</h2>
                     </div>
                     <div className="flex items-center gap-4">
                       <Link 
                         to={`/products/${slugify(category)}`}
                         onClick={() => scrollToTop()}
-                        className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
+                        className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                       >
                         View Collection
                       </Link>
                       <Link 
                         to="/contact"
                         onClick={() => scrollToTop()}
-                        className="shrink-0 hidden md:inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
+                        className="shrink-0 hidden md:inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                       >
                         Enquire Now
                         <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -107,7 +107,7 @@ export default function Products() {
                       </p>
                       <button 
                         onClick={() => toggleCategory(category)}
-                        className="md:hidden mt-3 text-[#c8a96b] text-xs uppercase tracking-wider font-semibold"
+                        className="md:hidden mt-3 text-brand-gold text-xs uppercase tracking-wider font-semibold"
                       >
                         {expandedCategories[category] ? 'Show Less' : 'Learn More'}
                       </button>
@@ -121,14 +121,14 @@ export default function Products() {
                   <Link 
                     to={`/products/${slugify(category)}`}
                     onClick={() => scrollToTop()}
-                    className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
+                    className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                   >
                     View Collection
                   </Link>
                   <Link 
                     to="/contact"
                     onClick={() => scrollToTop()}
-                    className="w-full inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
+                    className="w-full inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                   >
                     Enquire Now
                     <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>

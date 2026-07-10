@@ -9,7 +9,7 @@ const seo = {
 };
 
 const faqs = [
-  { id: "bh1", question: "Do you supply lighting to Bahrain from the UAE?", answer: "Yes, we regularly export and supply lighting packages to Bahrain. Thanks to the GCC customs union and our established logistics partners, we ensure rapid and cost-effective delivery via the King Fahd Causeway." },
+  { id: "bh1", question: "Do you supply lighting to Bahrain from the UAE?", answer: "Yes, we regularly export and supply lighting packages to Bahrain. Thanks to the GCC customs union and our established logistics providers, we ensure rapid and cost-effective delivery via the King Fahd Causeway." },
   { id: "bh2", question: "Are your fixtures suitable for Bahrain's high humidity?", answer: "Absolutely. Bahrain's island geography means exterior lighting must be highly resistant to humidity and salt. We specify IP66/IP67 rated fixtures with anti-corrosion marine-grade treatments specifically for these environments." },
   { id: "bh3", question: "Can you assist with the lighting design for my project in Manama?", answer: "Yes, our in-house design team provides comprehensive lighting calculations (DIALux), 3D renderings, and AutoCAD layouts for projects located anywhere in Bahrain." }
 ];
@@ -52,7 +52,7 @@ const services = [
   { icon: Waves, title: "Marine-Grade Exteriors", description: "Corrosion-resistant landscape and facade lighting built for island environments." },
   { icon: Building2, title: "Commercial Infrastructure", description: "Energy-efficient interior lighting and smart controls for Manama's corporate towers." },
   { icon: Lightbulb, title: "Hospitality & Retail", description: "High-CRI architectural and decorative lighting to elevate the guest and shopper experience." },
-  { icon: HardHat, title: "Contractor Partnership", description: "Seamless cross-border logistics and dedicated technical support for Bahraini contractors." }
+  { icon: HardHat, title: "Contractor Support", description: "Seamless cross-border logistics and dedicated technical support for Bahraini contractors." }
 ];
 
 const contentBlocks = [

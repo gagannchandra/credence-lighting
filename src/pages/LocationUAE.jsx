@@ -11,7 +11,7 @@ const seo = {
 const faqs = [
   { id: "uae1", question: "Which emirates do you provide lighting services for?", answer: "We supply and execute projects across all seven emirates of the UAE: Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah, and Fujairah." },
   { id: "uae2", question: "Do you have local stock available in the UAE?", answer: "Yes, we maintain a significant inventory of architectural downlights, LED strips, drivers, and control systems at our central UAE warehouse, allowing us to support fast-track projects and immediate mock-up requests." },
-  { id: "uae3", question: "Can you handle UAE-wide retail brand rollouts?", answer: "Absolutely. We are the designated lighting partner for several major retail and F&B brands, ensuring strict consistency in color temperature, brightness, and aesthetic across all their UAE branches." }
+  { id: "uae3", question: "Can you handle UAE-wide retail brand rollouts?", answer: "Absolutely. We are the designated lighting supplier for several major retail and F&B brands, ensuring strict consistency in color temperature, brightness, and aesthetic across all their UAE branches." }
 ];
 
 const schema = {
@@ -45,7 +45,7 @@ const hero = {
   location: "United Arab Emirates",
   title: "Premier Lighting Solutions for",
   titleItalic: "the UAE",
-  description: "A trusted lighting partner for architects, contractors, and developers driving innovation across all seven emirates."
+  description: "A trusted lighting supplier for architects, contractors, and developers driving innovation across all seven emirates."
 };
 
 const services = [
@@ -60,7 +60,7 @@ const contentBlocks = [
   { type: "paragraph", content: "The United Arab Emirates sets global benchmarks for architecture and infrastructure. To succeed here, a lighting company must deliver unparalleled quality, adapt to rapidly changing project timelines, and understand the nuances of local regulations. Credence Lighting has spent over a decade building a reputation for reliability. Whether it is a luxury villa in Dubai, a massive commercial tower in Abu Dhabi, or a sprawling resort in RAK, we deliver end-to-end solutions." },
   { type: "list", items: [
     "End-to-End Service: From concept design to post-installation maintenance.",
-    "Global Brand Portfolio: Authorized partners for top-tier European and Asian lighting manufacturers.",
+    "Global Brand Portfolio: Suppliers of top-tier European and Asian lighting manufacturers.",
     "Tailored Solutions: Custom fixture manufacturing for unique architectural details."
   ]}
 ];

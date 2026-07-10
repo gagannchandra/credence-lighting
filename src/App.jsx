@@ -6,6 +6,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
 import SmoothScroll from "./components/ui/SmoothScroll";
 import CustomCursor from "./components/ui/CustomCursor";
+import AmbientBackground from "./components/layout/AmbientBackground";
 const Home = lazy(() => import("./pages/Home"));
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
@@ -60,16 +61,18 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
-
   return (
-    <SmoothScroll>
+    <>
+      <AnimatePresence>
+        {loading && <Loader key="initial-loader" isInitial={true} />}
+      </AnimatePresence>
+
+      <SmoothScroll>
+      <AmbientBackground />
       <CustomCursor />
       <ScrollToTop />
 
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={loading ? null : <Loader />}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
@@ -120,5 +123,6 @@ export default function App() {
 
       <WhatsappFloat />
     </SmoothScroll>
+    </>
   );
 }

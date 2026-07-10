@@ -55,7 +55,7 @@ export default function Hero() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
 
-      className="relative h-screen w-full bg-black flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full bg-transparent flex items-center justify-center overflow-hidden"
     >
       {/* B&W IMAGE */}
       <div className="absolute inset-0 z-0">
@@ -64,7 +64,7 @@ export default function Hero() {
           <img
             src={bgVertical}
             alt="Luxury Interior"
-            className="w-full h-full object-cover grayscale brightness-[0.25]"
+            className="w-full h-full object-cover grayscale brightness-[0.25] transition-all duration-700"
           />
         </picture>
       </div>
@@ -115,7 +115,7 @@ export default function Hero() {
           </h2>
         </motion.div>
 
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
@@ -127,10 +127,10 @@ export default function Hero() {
 
       {/* SCROLL INDICATOR */}
       <FadeUp delay={10} className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 pointer-events-none">
-        <span className="uppercase tracking-[0.3em] text-[9px] text-[#c8a96b]/80">Scroll to Explore</span>
+        <span className="uppercase tracking-[0.3em] text-[9px] text-brand-gold/80">Scroll to Explore</span>
         <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden">
           <motion.div
-            className="w-full h-1/2 bg-[#c8a96b]"
+            className="w-full h-1/2 bg-brand-gold"
             animate={{ y: ["-100%", "200%"] }}
             transition={{
               duration: 1.5,

@@ -18,17 +18,17 @@ export default function FaqAccordionItem({ faq, index }) {
         className="w-full py-6 flex items-start justify-between gap-6 text-left group"
         aria-expanded={isOpen}
       >
-        <span className="text-lg md:text-xl font-medium text-white/90 group-hover:text-[#c8a96b] transition-colors duration-300">
+        <span className="text-lg md:text-xl font-medium text-white/90 group-hover:text-brand-gold transition-colors duration-300">
           {faq.question}
         </span>
-        <div className="flex-shrink-0 mt-1 relative w-6 h-6 flex items-center justify-center rounded-full border border-white/20 group-hover:border-[#c8a96b]/50 transition-colors duration-300">
+        <div className="flex-shrink-0 mt-1 relative w-6 h-6 flex items-center justify-center rounded-button border border-white/20 group-hover:border-brand-gold/50 transition-colors duration-300">
           <Plus 
             size={14} 
-            className={`absolute text-white/60 group-hover:text-[#c8a96b] transition-all duration-300 ${isOpen ? 'opacity-0 scale-50 rotate-90' : 'opacity-100 scale-100 rotate-0'}`} 
+            className={`absolute text-white/60 group-hover:text-brand-gold transition-all duration-300 ${isOpen ? 'opacity-0 scale-50 rotate-90' : 'opacity-100 scale-100 rotate-0'}`} 
           />
           <Minus 
             size={14} 
-            className={`absolute text-white/60 group-hover:text-[#c8a96b] transition-all duration-300 ${isOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}`} 
+            className={`absolute text-white/60 group-hover:text-brand-gold transition-all duration-300 ${isOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}`} 
           />
         </div>
       </button>
