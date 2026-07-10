@@ -55,8 +55,8 @@ export default function Brands() {
   return (
     <PageTransition>
       <SEO 
-        title="Our Clients · Credence Lighting Dubai" 
-        description="Credence Lighting has served 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA for premium lighting projects across the GCC." 
+        title="Our Clients | Trusted Across Dubai & UAE" 
+        description="Trusted by architects, developers and leading UAE businesses." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "CollectionPage",

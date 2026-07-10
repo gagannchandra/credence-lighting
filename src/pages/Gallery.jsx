@@ -28,8 +28,8 @@ export default function Gallery() {
   return (
     <PageTransition>
       <SEO 
-        title="Lighting Gallery · Credence Lighting Dubai" 
-        description="Browse photos of premium lighting installations by Credence Lighting. Architectural, commercial, hospitality, and entertainment lighting projects across Dubai and the GCC." 
+        title="Lighting Gallery | Inspiration & Installations" 
+        description="View our gallery of premium lighting installations and architectural lighting inspiration across Dubai and the UAE." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "CollectionPage",

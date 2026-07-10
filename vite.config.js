@@ -16,6 +16,7 @@ import { projectSlugs, blogSlugs, productCategories } from "./src/data/routes.js
 const slugify = (text) => text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
 
 const staticRoutes = [
+  '/',
   '/about',
   '/projects',
   '/products',

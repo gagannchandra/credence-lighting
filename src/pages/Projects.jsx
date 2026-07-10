@@ -25,8 +25,8 @@ export default function Projects() {
   return (
     <PageTransition>
       <SEO 
-        title="Lighting Projects · UAE & GCC Portfolio · Credence" 
-        description="Explore Credence Lighting's portfolio of 1000+ premium lighting projects across entertainment, retail, hospitality, and commercial spaces in the UAE and Saudi Arabia." 
+        title="Lighting Projects Dubai | Commercial & Luxury Portfolio" 
+        description="Luxury villas, hotels, retail and commercial developments." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",

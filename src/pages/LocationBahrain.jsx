@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/Smarvy Spot/150.webp";
 import outdoorImg from "../assets/images/xtremezone/136.webp"; 
 
 const seo = {
-  title: "Lighting Companies in Bahrain | Commercial & Hospitality | Credence",
+  title: "Lighting Companies in Bahrain | Credence Lighting",
   description: "Specialized architectural lighting supplier for Bahrain. We provide complete lighting solutions for commercial towers, luxury hospitality, and high-end residential projects."
 };
 

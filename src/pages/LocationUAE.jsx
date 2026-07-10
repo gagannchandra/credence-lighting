@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/Funtura/134.webp";
 import outdoorImg from "../assets/images/xtremezone/136.webp"; 
 
 const seo = {
-  title: "Lighting Companies in UAE | Commercial & Architectural | Credence",
+  title: "Top Lighting Companies in UAE | Credence Lighting",
   description: "Credence Lighting is one of the top lighting companies in the UAE. We provide comprehensive lighting design, supply, and integration across all seven emirates."
 };
 
@@ -43,16 +43,16 @@ const schema = {
 
 const hero = {
   location: "United Arab Emirates",
-  title: "Premier Lighting Solutions for",
+  title: "Top Lighting Companies in UAE | Credence Lighting",
   titleItalic: "the UAE",
   description: "A trusted lighting supplier for architects, contractors, and developers driving innovation across all seven emirates."
 };
 
 const services = [
-  { icon: Map, title: "Nationwide Coverage", description: "Dedicated sales and technical support teams serving projects from Abu Dhabi to Fujairah." },
-  { icon: Truck, title: "Local Warehousing", description: "Fast-track delivery for standard architectural fixtures and control components from our UAE stock." },
-  { icon: Lightbulb, title: "Comprehensive Design", description: "In-house DIALux planning, 3D rendering, and local regulatory compliance (ESTIDAMA, Dubai Municipality)." },
-  { icon: Settings, title: "Site Commissioning", description: "On-site aiming, focusing, and programming of smart lighting networks." }
+  { icon: Map, title: "Top Lighting Companies in UAE | Credence Lighting", description: "Dedicated sales and technical support teams serving projects from Abu Dhabi to Fujairah." },
+  { icon: Truck, title: "Top Lighting Companies in UAE | Credence Lighting", description: "Fast-track delivery for standard architectural fixtures and control components from our UAE stock." },
+  { icon: Lightbulb, title: "Top Lighting Companies in UAE | Credence Lighting", description: "In-house DIALux planning, 3D rendering, and local regulatory compliance (ESTIDAMA, Dubai Municipality)." },
+  { icon: Settings, title: "Top Lighting Companies in UAE | Credence Lighting", description: "On-site aiming, focusing, and programming of smart lighting networks." }
 ];
 
 const contentBlocks = [
@@ -67,13 +67,13 @@ const contentBlocks = [
 
 const relatedProjects = [
   {
-    title: "UAE National Infrastructure",
+    title: "Top Lighting Companies in UAE | Credence Lighting",
     description: "Public realm and highway lighting engineered for extreme climates.",
     image: outdoorImg,
     link: "/projects"
   },
   {
-    title: "Corporate Headquarters",
+    title: "Top Lighting Companies in UAE | Credence Lighting",
     description: "Multi-floor smart lighting rollout for a major UAE banking institution.",
     image: indoorImg,
     link: "/projects"

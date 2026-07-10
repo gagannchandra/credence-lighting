@@ -123,7 +123,7 @@ export const blogPosts = [
       { type: "paragraph", content: "By intentionally keeping the general ambient light levels a bit lower, and using high-intensity, tightly beamed accent lighting on premium displays, you create a theatrical effect. This contrast naturally draws the human eye, guiding the customer exactly where you want them to go and encouraging them to linger just a little bit longer." }
     ],
     seoMetadata: {
-      title: "Retail Lighting Strategies to Boost Sales | Credence Lighting",
+      title: "Retail Lighting Strategies to Boost Sales | Credence",
       description: "Discover how lighting contrast and high CRI LEDs can improve customer experience and drive retail sales."
     }
   },

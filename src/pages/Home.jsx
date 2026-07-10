@@ -30,8 +30,8 @@ export default function Home() {
   return (
     <PageTransition>
       <SEO
-        title="Credence Lighting · Premium Lighting Dubai"
-        description="Credence Lighting provides premium architectural, commercial, and hospitality lighting solutions across Dubai and the UAE. 10+ years, 1000+ projects delivered."
+        title="Credence Lighting | Premium Lighting Solutions Dubai"
+        description="Premium architectural, commercial, hospitality, and decorative lighting solutions across Dubai and the UAE. 10+ years of expertise and 1,000+ successful projects."
         schema={[
           {
             "@context": "https://schema.org",

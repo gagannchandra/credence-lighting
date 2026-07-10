@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/ground-control/154.webp";
 import officeImg from "../assets/images/Funtura/134.webp"; 
 
 const seo = {
-  title: "Commercial & Office Lighting Solutions | Credence Lighting",
+  title: "Commercial Office Lighting Solutions | Credence",
   description: "Boost productivity and wellness with our commercial office lighting solutions. We provide Human Centric Lighting (HCL) design and supply for modern workspaces."
 };
 
@@ -44,16 +44,16 @@ const schema = {
 
 const hero = {
   badge: "Commercial Lighting",
-  title: "Illuminating Modern",
+  title: "Commercial Office Lighting Solutions | Credence",
   titleItalic: "Workspaces",
   description: "Ergonomic, energy-efficient, and wellness-driven lighting solutions designed for corporate offices and commercial headquarters."
 };
 
 const benefits = [
-  { icon: Eye, title: "Low Glare (UGR<19)", description: "Visual comfort is paramount. We supply fixtures that eliminate screen glare and prevent eye strain." },
-  { icon: Zap, title: "Energy Efficiency", description: "Ultra-efficient LEDs paired with occupancy and daylight sensors maximize energy savings." },
-  { icon: Building, title: "Architectural Integration", description: "Sleek linear profiles and acoustic lighting that complement modern, exposed-ceiling office designs." },
-  { icon: Settings, title: "Smart Control Systems", description: "DALI and Casambi networks for automated scheduling and individual desk-level control." }
+  { icon: Eye, title: "Commercial Office Lighting Solutions | Credence", description: "Visual comfort is paramount. We supply fixtures that eliminate screen glare and prevent eye strain." },
+  { icon: Zap, title: "Commercial Office Lighting Solutions | Credence", description: "Ultra-efficient LEDs paired with occupancy and daylight sensors maximize energy savings." },
+  { icon: Building, title: "Commercial Office Lighting Solutions | Credence", description: "Sleek linear profiles and acoustic lighting that complement modern, exposed-ceiling office designs." },
+  { icon: Settings, title: "Commercial Office Lighting Solutions | Credence", description: "DALI and Casambi networks for automated scheduling and individual desk-level control." }
 ];
 
 const contentBlocks = [
@@ -70,13 +70,13 @@ const contentBlocks = [
 
 const relatedProducts = [
   {
-    title: "Linear Suspended Profiles",
+    title: "Commercial Office Lighting Solutions | Credence",
     description: "Sleek, low-glare linear lighting for open-plan desks.",
     image: indoorImg,
     link: "/products/indoor"
   },
   {
-    title: "Acoustic Lighting",
+    title: "Commercial Office Lighting Solutions | Credence",
     description: "Fixtures that illuminate while absorbing office noise.",
     image: officeImg,
     link: "/products/indoor"

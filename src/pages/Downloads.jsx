@@ -36,8 +36,8 @@ export default function Downloads() {
     <PageTransition>
       <div className="bg-transparent text-white min-h-screen">
         <SEO 
-          title="Downloads & Resources · Credence Lighting" 
-          description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
+          title="Lighting Catalogues & Downloads | Credence Lighting" 
+          description="Download our latest product catalogues, technical specifications, and brochures for premium lighting solutions in the UAE." 
           schema={[{
             "@context": "https://schema.org",
             "@type": "CollectionPage",

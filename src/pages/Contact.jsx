@@ -16,8 +16,8 @@ export default function Contact() {
   return (
     <PageTransition>
       <SEO 
-        title="Contact Credence Lighting · Dubai Lighting Experts" 
-        description="Contact Credence Lighting for architectural and commercial lighting consultations in Dubai and the UAE. Visit our showroom or request a free project quote." 
+        title="Contact Credence Lighting | Lighting Experts Dubai" 
+        description="Speak with our lighting specialists at Credence Lighting. Get in touch with our experts in Dubai for premium architectural and commercial project inquiries." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",

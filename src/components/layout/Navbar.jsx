@@ -10,6 +10,7 @@ import indoorImg from "../../assets/images/indoor/1.webp"; // Using an existing 
 import solutionsImg from "../../assets/images/hospitality/1.webp";
 import resourcesImg from "../../assets/images/blog/funtura.webp";
 import companyImg from "../../assets/images/facade/1.webp";
+import projectsImg from "../../assets/images/xtremezone/136.webp";
 
 const navItems = [
   {
@@ -30,7 +31,7 @@ const navItems = [
   },
   {
     name: "Solutions",
-    to: "/lighting-company-dubai",
+    to: "/solutions",
     dropdown: [
       { name: "Hospitality", to: "/hotel-lighting" },
       { name: "Residential", to: "/residential-lighting" },
@@ -46,7 +47,19 @@ const navItems = [
   },
   {
     name: "Projects",
-    to: "/projects"
+    to: "/projects",
+    dropdown: [
+      { name: "My Town", to: "/projects/my-town" },
+      { name: "Ground Control", to: "/projects/ground-control" },
+      { name: "Funtura", to: "/projects/funtura" },
+      { name: "Xtreme Zone", to: "/projects/xtreme-zone" },
+      { name: "Smarvy Spot", to: "/projects/smarvy-spot" },
+      { name: "Browse All Projects", to: "/projects" },
+    ],
+    featured: {
+      title: "Featured Projects",
+      image: projectsImg,
+    }
   },
   {
     name: "Resources",
@@ -63,7 +76,7 @@ const navItems = [
     }
   },
   {
-    name: "Company",
+    name: "About Us",
     to: "/about",
     dropdown: [
       { name: "About", to: "/about" },

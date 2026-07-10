@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/ground-control/154.webp";
 import outdoorImg from "../assets/images/xtremezone/136.webp"; 
 
 const seo = {
-  title: "Lighting Suppliers in Abu Dhabi | Commercial & Architectural | Credence",
+  title: "Lighting Suppliers in Abu Dhabi | Credence Lighting",
   description: "Premier lighting supplier and design firm serving Abu Dhabi and Al Ain. We provide bespoke architectural, commercial, and hospitality lighting solutions."
 };
 
@@ -43,16 +43,16 @@ const schema = {
 
 const hero = {
   location: "Abu Dhabi",
-  title: "Architectural Lighting for the",
+  title: "Lighting Suppliers in Abu Dhabi | Credence Lighting",
   titleItalic: "Capital",
   description: "Delivering world-class lighting design and supply for Abu Dhabi's growing commercial, hospitality, and cultural sectors."
 };
 
 const services = [
-  { icon: Landmark, title: "Cultural & Museum Lighting", description: "Precision framing projectors and high-CRI lighting for delicate artifacts and expansive exhibitions." },
-  { icon: Building2, title: "Commercial Towers", description: "ESTIDAMA-compliant LED systems and smart controls for corporate headquarters." },
-  { icon: Ship, title: "Marine & Coastal", description: "Corrosion-resistant, 316L stainless steel fixtures engineered for Abu Dhabi's coastal developments." },
-  { icon: Lightbulb, title: "Luxury Hospitality", description: "Bespoke decorative and architectural lighting for high-end resorts and hotels." }
+  { icon: Landmark, title: "Lighting Suppliers in Abu Dhabi | Credence Lighting", description: "Precision framing projectors and high-CRI lighting for delicate artifacts and expansive exhibitions." },
+  { icon: Building2, title: "Lighting Suppliers in Abu Dhabi | Credence Lighting", description: "ESTIDAMA-compliant LED systems and smart controls for corporate headquarters." },
+  { icon: Ship, title: "Lighting Suppliers in Abu Dhabi | Credence Lighting", description: "Corrosion-resistant, 316L stainless steel fixtures engineered for Abu Dhabi's coastal developments." },
+  { icon: Lightbulb, title: "Lighting Suppliers in Abu Dhabi | Credence Lighting", description: "Bespoke decorative and architectural lighting for high-end resorts and hotels." }
 ];
 
 const contentBlocks = [
@@ -67,13 +67,13 @@ const contentBlocks = [
 
 const relatedProjects = [
   {
-    title: "Commercial Headquarters",
+    title: "Lighting Suppliers in Abu Dhabi | Credence Lighting",
     description: "Dynamic facade lighting and human-centric office illumination.",
     image: indoorImg,
     link: "/projects"
   },
   {
-    title: "Luxury Island Resort",
+    title: "Lighting Suppliers in Abu Dhabi | Credence Lighting",
     description: "Landscape and pathway lighting designed to withstand coastal conditions.",
     image: outdoorImg,
     link: "/projects"

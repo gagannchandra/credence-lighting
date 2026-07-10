@@ -38,16 +38,16 @@ export default function MegaMenu({ item, active, setActive }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-[500px] bg-surface-elevated/95 backdrop-blur-heavy border border-border-subtle rounded-card p-6 shadow-elevation-high"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-6 w-max min-w-[350px] bg-surface-elevated/95 backdrop-blur-heavy border border-border-subtle rounded-card p-6 shadow-elevation-high"
           >
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-[max-content_220px] gap-8">
               {/* Links Column */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3 pr-2">
                 {item.dropdown.map((link) => (
                   <Link
                     key={link.name}
                     to={link.to}
-                    className="text-white/70 hover:text-white transition-colors text-sm tracking-wide flex items-center gap-2 group py-1"
+                    className="text-white/70 hover:text-white transition-colors text-sm tracking-wide whitespace-nowrap flex items-center gap-2 group py-1"
                     onClick={() => setActive(null)}
                   >
                     <span className="w-0 h-[1px] bg-brand-gold group-hover:w-3 transition-all duration-300" />
@@ -57,15 +57,17 @@ export default function MegaMenu({ item, active, setActive }) {
               </div>
               {/* Image/Featured Column */}
               {item.featured && (
-                <div className="relative rounded-card overflow-hidden group h-full bg-surface-base">
-                  <img
-                    src={item.featured.image}
-                    alt={item.featured.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
-                    <p className="text-white font-serif text-lg leading-tight">{item.featured.title}</p>
+                <div className="relative h-full w-full">
+                  <div className="absolute inset-0 rounded-card overflow-hidden group bg-surface-base">
+                    <img
+                      src={item.featured.image}
+                      alt={item.featured.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
+                      <p className="text-white font-serif text-lg leading-tight">{item.featured.title}</p>
+                    </div>
                   </div>
                 </div>
               )}

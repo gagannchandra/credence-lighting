@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/ground-control/154.webp";
 import outdoorImg from "../assets/images/mytown/141.webp"; 
 
 const seo = {
-  title: "Lighting Solutions in Ajman & Northern Emirates | Credence Lighting",
+  title: "Lighting Solutions in Ajman | Credence Lighting",
   description: "Cost-effective, high-quality lighting solutions for Ajman, UAQ, and the Northern Emirates. Supplying residential, commercial, and industrial projects."
 };
 
@@ -43,16 +43,16 @@ const schema = {
 
 const hero = {
   location: "Ajman & Northern Emirates",
-  title: "Efficient Lighting for",
+  title: "Lighting Solutions in Ajman | Credence Lighting",
   titleItalic: "Growing Communities",
   description: "High-value, reliable lighting solutions supporting the rapid urban and industrial expansion across Ajman and the Northern Emirates."
 };
 
 const services = [
-  { icon: Zap, title: "LED Retrofitting", description: "Upgrading legacy fluorescent and HID systems to energy-saving LED technology." },
-  { icon: Warehouse, title: "Storage & Logistics", description: "Cost-effective linear and high-bay lighting for expanding industrial free zones." },
-  { icon: Sun, title: "Residential Developments", description: "Durable, high-quality lighting for mid-to-high rise residential towers." },
-  { icon: HardHat, title: "Contractor Support", description: "Dedicated technical support, rapid delivery, and competitive pricing for main contractors." }
+  { icon: Zap, title: "Lighting Solutions in Ajman | Credence Lighting", description: "Upgrading legacy fluorescent and HID systems to energy-saving LED technology." },
+  { icon: Warehouse, title: "Lighting Solutions in Ajman | Credence Lighting", description: "Cost-effective linear and high-bay lighting for expanding industrial free zones." },
+  { icon: Sun, title: "Lighting Solutions in Ajman | Credence Lighting", description: "Durable, high-quality lighting for mid-to-high rise residential towers." },
+  { icon: HardHat, title: "Lighting Solutions in Ajman | Credence Lighting", description: "Dedicated technical support, rapid delivery, and competitive pricing for main contractors." }
 ];
 
 const contentBlocks = [
@@ -63,13 +63,13 @@ const contentBlocks = [
 
 const relatedProjects = [
   {
-    title: "Residential Tower Project",
+    title: "Lighting Solutions in Ajman | Credence Lighting",
     description: "Complete interior and emergency lighting supply for a 30-story development.",
     image: indoorImg,
     link: "/projects"
   },
   {
-    title: "Industrial Free Zone",
+    title: "Lighting Solutions in Ajman | Credence Lighting",
     description: "Rapid deployment of linear trunking systems for bulk storage.",
     image: outdoorImg,
     link: "/projects"

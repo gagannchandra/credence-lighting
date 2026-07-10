@@ -37,8 +37,8 @@ export default function Products() {
   return (
     <PageTransition>
       <SEO 
-        title="Lighting Products Dubai · Credence Lighting" 
-        description="Browse premium indoor, outdoor, facade, hospitality, and entertainment lighting products from Credence Lighting. LED solutions for commercial and residential projects in Dubai." 
+        title="Lighting Products Dubai | Indoor, Outdoor & Architectural Lighting" 
+        description="Architectural, decorative, commercial & outdoor lighting." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",

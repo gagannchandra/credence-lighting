@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/Funtura/134.webp";
 import outdoorImg from "../assets/images/xtremezone/136.webp"; 
 
 const seo = {
-  title: "Lighting Companies in Sharjah | Industrial & Commercial | Credence",
+  title: "Lighting Companies in Sharjah | Credence Lighting",
   description: "Leading lighting supplier for Sharjah and the Northern Emirates. Specializing in heavy-duty industrial, warehousing, and commercial lighting solutions."
 };
 
@@ -43,16 +43,16 @@ const schema = {
 
 const hero = {
   location: "Sharjah",
-  title: "Robust Lighting for",
+  title: "Lighting Companies in Sharjah | Credence Lighting",
   titleItalic: "Industry & Commerce",
   description: "Engineered lighting solutions built to withstand the demands of Sharjah's bustling industrial zones and commercial hubs."
 };
 
 const services = [
-  { icon: Factory, title: "Industrial & Warehouse", description: "High-bay UFO LEDs and linear trunking systems optimized for tall racking and heavy machinery." },
-  { icon: Shield, title: "Hazardous Area Lighting", description: "ATEX-certified fixtures for oil & gas, chemical, and manufacturing facilities." },
-  { icon: Building2, title: "Commercial Spaces", description: "Energy-efficient panel lights and downlights for corporate offices and retail centers." },
-  { icon: Hammer, title: "Facade Upgrades", description: "Exterior lighting retrofits that modernize older commercial buildings along major highways." }
+  { icon: Factory, title: "Lighting Companies in Sharjah | Credence Lighting", description: "High-bay UFO LEDs and linear trunking systems optimized for tall racking and heavy machinery." },
+  { icon: Shield, title: "Lighting Companies in Sharjah | Credence Lighting", description: "ATEX-certified fixtures for oil & gas, chemical, and manufacturing facilities." },
+  { icon: Building2, title: "Lighting Companies in Sharjah | Credence Lighting", description: "Energy-efficient panel lights and downlights for corporate offices and retail centers." },
+  { icon: Hammer, title: "Lighting Companies in Sharjah | Credence Lighting", description: "Exterior lighting retrofits that modernize older commercial buildings along major highways." }
 ];
 
 const contentBlocks = [
@@ -67,13 +67,13 @@ const contentBlocks = [
 
 const relatedProjects = [
   {
-    title: "SAIF Zone Logistics Center",
+    title: "Lighting Companies in Sharjah | Credence Lighting",
     description: "Intelligent high-bay lighting with aisle-specific occupancy sensing.",
     image: indoorImg,
     link: "/projects"
   },
   {
-    title: "Commercial Retail Strip",
+    title: "Lighting Companies in Sharjah | Credence Lighting",
     description: "High-efficiency facade and parking lot illumination.",
     image: outdoorImg,
     link: "/projects"

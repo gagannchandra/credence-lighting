@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/mytown/141.webp";
 import outdoorImg from "../assets/images/Smarvy Spot/150.webp"; 
 
 const seo = {
-  title: "Luxury Residential & Villa Lighting Design | Credence Lighting",
+  title: "Luxury Residential Lighting Design | Credence",
   description: "Transform your home with bespoke luxury residential lighting. We specialize in villa lighting design, smart home integration, and premium fixture supply."
 };
 
@@ -44,16 +44,16 @@ const schema = {
 
 const hero = {
   badge: "Residential Lighting",
-  title: "Illuminating Luxury",
+  title: "Luxury Residential Lighting Design | Credence",
   titleItalic: "Living Spaces",
   description: "Bespoke lighting design and premium fixture supply for exclusive villas and high-end residential projects."
 };
 
 const benefits = [
-  { icon: Home, title: "Architectural Integration", description: "Trimless, invisible fixtures that blend seamlessly into the ceiling architecture." },
-  { icon: Sun, title: "Circadian Lighting", description: "Dynamic tunable white systems that adjust to mimic natural daylight for improved well-being." },
-  { icon: ShieldCheck, title: "Landscape & Security", description: "Durable, IP-rated exterior lighting that enhances curb appeal and perimeter security." },
-  { icon: Lightbulb, title: "Smart Home Control", description: "Intuitive wireless dimming and scene-setting integrated with your home automation." }
+  { icon: Home, title: "Luxury Residential Lighting Design | Credence", description: "Trimless, invisible fixtures that blend seamlessly into the ceiling architecture." },
+  { icon: Sun, title: "Luxury Residential Lighting Design | Credence", description: "Dynamic tunable white systems that adjust to mimic natural daylight for improved well-being." },
+  { icon: ShieldCheck, title: "Luxury Residential Lighting Design | Credence", description: "Durable, IP-rated exterior lighting that enhances curb appeal and perimeter security." },
+  { icon: Lightbulb, title: "Luxury Residential Lighting Design | Credence", description: "Intuitive wireless dimming and scene-setting integrated with your home automation." }
 ];
 
 const contentBlocks = [
@@ -70,13 +70,13 @@ const contentBlocks = [
 
 const relatedProducts = [
   {
-    title: "Trimless Downlights",
+    title: "Luxury Residential Lighting Design | Credence",
     description: "Invisible, glare-free illumination for modern ceilings.",
     image: indoorImg,
     link: "/products/indoor"
   },
   {
-    title: "Landscape Spotlights",
+    title: "Luxury Residential Lighting Design | Credence",
     description: "Weather-resistant fixtures to highlight trees and facades.",
     image: outdoorImg,
     link: "/products/outdoor"

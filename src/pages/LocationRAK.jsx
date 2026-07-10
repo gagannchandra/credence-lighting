@@ -4,7 +4,7 @@ import indoorImg from "../assets/images/mytown/141.webp";
 import outdoorImg from "../assets/images/xtremezone/136.webp"; 
 
 const seo = {
-  title: "Lighting Solutions for Resorts & Hotels in Ras Al Khaimah (RAK) | Credence",
+  title: "Resort Lighting in Ras Al Khaimah | Credence",
   description: "Specialized hospitality and resort lighting for Ras Al Khaimah. We supply IP-rated landscape, facade, and luxury hotel lighting for RAK's booming tourism sector."
 };
 
@@ -43,16 +43,16 @@ const schema = {
 
 const hero = {
   location: "Ras Al Khaimah (RAK)",
-  title: "Lighting the Future of",
+  title: "Resort Lighting in Ras Al Khaimah | Credence",
   titleItalic: "Eco-Tourism",
   description: "Durable, Dark-Sky compliant, and luxurious lighting solutions for Ras Al Khaimah's expanding resorts, hotels, and mountain retreats."
 };
 
 const services = [
-  { icon: Hotel, title: "Luxury Resorts", description: "Bespoke decorative and architectural lighting for 5-star beachfront properties." },
-  { icon: Trees, title: "Landscape & Outdoor", description: "Marine-grade IP67/68 fixtures that resist salt, humidity, and extreme heat." },
-  { icon: Mountain, title: "Eco-Tourism Sites", description: "Dark Sky compliant designs that protect local wildlife and preserve night sky visibility." },
-  { icon: Building2, title: "Casino & Entertainment", description: "Dynamic, programmable DMX lighting for large-scale entertainment venues." }
+  { icon: Hotel, title: "Resort Lighting in Ras Al Khaimah | Credence", description: "Bespoke decorative and architectural lighting for 5-star beachfront properties." },
+  { icon: Trees, title: "Resort Lighting in Ras Al Khaimah | Credence", description: "Marine-grade IP67/68 fixtures that resist salt, humidity, and extreme heat." },
+  { icon: Mountain, title: "Resort Lighting in Ras Al Khaimah | Credence", description: "Dark Sky compliant designs that protect local wildlife and preserve night sky visibility." },
+  { icon: Building2, title: "Resort Lighting in Ras Al Khaimah | Credence", description: "Dynamic, programmable DMX lighting for large-scale entertainment venues." }
 ];
 
 const contentBlocks = [
@@ -67,13 +67,13 @@ const contentBlocks = [
 
 const relatedProjects = [
   {
-    title: "Mountain Retreat",
+    title: "Resort Lighting in Ras Al Khaimah | Credence",
     description: "Low-glare, Dark Sky compliant pathway and landscape lighting.",
     image: outdoorImg,
     link: "/projects"
   },
   {
-    title: "Luxury Beach Resort",
+    title: "Resort Lighting in Ras Al Khaimah | Credence",
     description: "Marine-grade facade lighting and warm-dimming restaurant interiors.",
     image: indoorImg,
     link: "/projects"

@@ -38,8 +38,8 @@ export default function Blog() {
     <PageTransition>
       <div className="bg-transparent min-h-screen">
         <SEO 
-        title="Lighting Design Blog · Credence Lighting Dubai" 
-        description="Expert insights on architectural lighting, LED technology, and lighting design trends. Guides, tips, and inspiration from Credence Lighting's design team."
+        title="Lighting Design Insights | Credence Lighting Blog" 
+        description="Stay updated on the latest architectural lighting trends, technology, and design guides from our experts in Dubai."
         schema={[{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
