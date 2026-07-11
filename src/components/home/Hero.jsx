@@ -101,19 +101,20 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-6 max-w-5xl pointer-events-none flex flex-col items-center">
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           className="flex flex-col items-center justify-center"
         >
-          <h1 className="text-white text-fluid-h1 font-serif">
+          <span className="sr-only">Premium Lighting Solutions Dubai</span>
+          <span className="text-white text-fluid-h1 font-serif" aria-hidden="true">
             Luminous
-          </h1>
-          <h2 className="italic gold-gradient-text text-fluid-h1 font-serif mt-2">
+          </span>
+          <span className="italic gold-gradient-text text-fluid-h1 font-serif mt-2" aria-hidden="true">
             Sophistication
-          </h2>
-        </motion.div>
+          </span>
+        </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}

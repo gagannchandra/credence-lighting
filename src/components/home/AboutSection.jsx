@@ -18,15 +18,14 @@ export default function AboutSection({ preview = false, asPage = false }) {
       <div className="relative z-10 max-w-[1400px] w-full mx-auto text-center">
 
         {/* HEADING */}
-        <div>
-          <Heading className="text-fluid-h1 font-serif  text-white flex flex-wrap justify-center">
+        <Heading className="flex flex-col items-center">
+          <span className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center">
             <TextReveal text="Credence: Aesthetics" />
-          </Heading>
-
-          <h3 className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
+          </span>
+          <span className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
             <TextReveal text="meets functionality" delay={2} />
-          </h3>
-        </div>
+          </span>
+        </Heading>
 
         {/* DIVIDER */}
         <motion.div

@@ -103,23 +103,30 @@ export default function Home() {
               {
                 "@type": "SiteNavigationElement",
                 "position": 2,
+                "name": "Solutions",
+                "url": "https://credencelighting.com/solutions",
+                "description": "Bespoke architectural, commercial, and hospitality lighting solutions."
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "position": 3,
                 "name": "Projects",
                 "url": "https://credencelighting.com/projects",
                 "description": "View our featured installations across architectural, entertainment, and retail sectors."
               },
               {
                 "@type": "SiteNavigationElement",
-                "position": 3,
-                "name": "About Us",
-                "url": "https://credencelighting.com/about",
-                "description": "10+ years of experience delivering premium lighting solutions in the UAE."
+                "position": 4,
+                "name": "Resources",
+                "url": "https://credencelighting.com/blog",
+                "description": "Insights, guides, and trends in the professional lighting industry."
               },
               {
                 "@type": "SiteNavigationElement",
-                "position": 4,
-                "name": "Contact",
-                "url": "https://credencelighting.com/contact",
-                "description": "Get in touch with our lighting experts in Dubai Investment Park."
+                "position": 5,
+                "name": "About Us",
+                "url": "https://credencelighting.com/about",
+                "description": "10+ years of experience delivering premium lighting solutions in the UAE."
               }
             ]
           }
