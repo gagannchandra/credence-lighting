@@ -193,7 +193,7 @@ export default function Faq() {
                 <button
                   id="sidebar-cat-all"
                   onClick={() => scrollToCategory("All")}
-                  className={`text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
+                  className={`text-center md:text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
                     activeCategory === "All" 
                       ? "bg-brand-gold text-black font-medium" 
                       : "bg-transparent text-white/60 hover:bg-white/5 hover:text-white"
@@ -206,7 +206,7 @@ export default function Faq() {
                     key={cat}
                     id={`sidebar-cat-${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
                     onClick={() => scrollToCategory(cat)}
-                    className={`text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
+                    className={`text-center md:text-left px-4 py-3 rounded-card text-sm transition-all duration-300 ${
                       activeCategory === cat 
                         ? "bg-brand-gold text-black font-medium" 
                         : "bg-transparent text-white/60 hover:bg-white/5 hover:text-white"

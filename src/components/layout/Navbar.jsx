@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import PageLink from "../ui/PageLink";
 import Magnetic from "../ui/Magnetic";
@@ -94,8 +94,20 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
+  const [expandedMobile, setExpandedMobile] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -194,7 +206,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeMenu}
-            className="fixed inset-0 bg-transparent/60 backdrop-blur-sm z-50 lg:hidden"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 lg:hidden"
           />
         )}
         {open && (
@@ -208,48 +220,87 @@ export default function Navbar() {
               damping: 25,
               stiffness: 180,
             }}
-            className="fixed top-0 right-0 h-screen w-full sm:w-[400px] bg-surface-elevated border-l border-border-subtle z-50 flex flex-col px-10 py-7 overflow-y-auto lg:hidden"
+            className="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-surface-base border-l border-white/10 z-50 flex flex-col px-6 md:px-10 py-6 overflow-y-auto lg:hidden shadow-2xl"
           >
-            {/* CLOSE */}
-            <button
-              aria-label="Close Menu"
-              onClick={closeMenu}
-              className="absolute top-8 right-8 text-white/70 hover:text-white transition-colors z-20"
-            >
-              <X size={34} strokeWidth={1.5} />
-            </button>
+            {/* MENU HEADER */}
+            <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6 shrink-0">
+              <PageLink
+                to="/"
+                onClick={() => { handleLogoClick(); closeMenu(); }}
+                className="flex items-center gap-3 shrink-0 group"
+              >
+                <div className="relative flex items-center justify-center">
+                  <div className="absolute inset-0 bg-[#c8a96b]/30 blur-xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
+                  <img
+                    src={logo2}
+                    alt="Credence Lighting"
+                    className="relative z-10 h-7 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)]"
+                  />
+                </div>
+                <span className="font-serif text-white tracking-wide text-lg">
+                  Credence Lighting
+                </span>
+              </PageLink>
+              <button
+                aria-label="Close Menu"
+                onClick={closeMenu}
+                className="p-2 text-white/70 hover:text-white transition-colors bg-white/5 rounded-full"
+              >
+                <X size={24} strokeWidth={1.5} />
+              </button>
+            </div>
 
             {/* LINKS */}
-            <div className="relative z-10 space-y-6 pt-16 flex-1">
+            <div className="relative z-10 space-y-4 flex-1">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="flex flex-col gap-3"
+                  className="flex flex-col"
                 >
-                  <PageLink
-                    to={item.to}
-                    onClick={closeMenu}
-                    className="text-3xl text-white font-serif"
-                  >
-                    {item.name}
-                  </PageLink>
-                  {item.dropdown && (
-                    <div className="flex flex-col gap-2 pl-4 border-l border-white/10">
-                      {item.dropdown.map((sub) => (
-                        <PageLink
-                          key={sub.name}
-                          to={sub.to}
-                          onClick={closeMenu}
-                          className="text-sm text-white/50 hover:text-white transition-colors tracking-wide"
-                        >
-                          {sub.name}
-                        </PageLink>
-                      ))}
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between">
+                    <PageLink
+                      to={item.to}
+                      onClick={closeMenu}
+                      className="text-3xl text-white font-serif py-2 flex-1"
+                    >
+                      {item.name}
+                    </PageLink>
+                    {item.dropdown && (
+                      <button
+                        onClick={() => setExpandedMobile(expandedMobile === item.name ? null : item.name)}
+                        className="p-4 -mr-4 text-white/50 hover:text-brand-gold transition-colors"
+                      >
+                        <ChevronDown className={`transition-transform duration-300 ${expandedMobile === item.name ? 'rotate-180' : ''}`} size={24} />
+                      </button>
+                    )}
+                  </div>
+                  
+                  <AnimatePresence>
+                    {item.dropdown && expandedMobile === item.name && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-col gap-3 pl-4 border-l border-white/20 mt-2 mb-6 py-2">
+                          {item.dropdown.map((sub) => (
+                            <PageLink
+                              key={sub.name}
+                              to={sub.to}
+                              onClick={closeMenu}
+                              className="text-base text-white/70 hover:text-brand-gold transition-colors tracking-wide py-1.5"
+                            >
+                              {sub.name}
+                            </PageLink>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
 
@@ -258,15 +309,15 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="pt-8"
+                className="pt-8 pb-12"
               >
                 <PageLink
                   to="/contact"
                   onClick={closeMenu}
-                  className="inline-flex items-center justify-center w-full gap-3 bg-white text-black px-6 py-4 uppercase tracking-[0.15em] text-xs font-semibold"
+                  className="flex items-center justify-center w-full gap-3 bg-brand-gold text-black px-6 py-4 uppercase tracking-[0.15em] text-sm font-bold rounded-button shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-shadow"
                 >
                   Enquire Now
-                  <ArrowUpRight size={16} />
+                  <ArrowUpRight size={18} />
                 </PageLink>
               </motion.div>
             </div>

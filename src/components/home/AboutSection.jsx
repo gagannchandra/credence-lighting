@@ -111,7 +111,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
               <FadeUp
                 key={service.title}
                 delay={index * 2}
-                className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 text-left"
+                className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 text-center md:text-left"
               >
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                 <div className="relative z-10">

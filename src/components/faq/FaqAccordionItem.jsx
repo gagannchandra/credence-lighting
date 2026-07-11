@@ -15,7 +15,7 @@ export default function FaqAccordionItem({ faq, index }) {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-start justify-between gap-6 text-left group"
+        className="w-full py-6 flex items-start justify-between gap-6 text-center md:text-left group"
         aria-expanded={isOpen}
       >
         <span className="text-lg md:text-xl font-medium text-white/90 group-hover:text-brand-gold transition-colors duration-300">

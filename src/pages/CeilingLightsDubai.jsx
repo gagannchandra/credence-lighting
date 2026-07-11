@@ -174,7 +174,7 @@ export default function CeilingLightsDubai() {
 
             <FadeUp delay={1}>
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full text-center md:text-left border-collapse">
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="text-brand-gold text-sm uppercase tracking-wider py-4 pr-6">Specification</th>

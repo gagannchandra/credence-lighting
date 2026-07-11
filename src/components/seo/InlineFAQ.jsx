@@ -23,7 +23,7 @@ export default function InlineFAQ({ faqs, heading = "Frequently Asked Questions"
             >
               <button
                 onClick={() => setOpenId(isOpen ? null : faq.id)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left gap-4 group"
+                className="w-full flex items-center justify-between px-6 py-5 text-center md:text-left gap-4 group"
               >
                 <span className="text-white text-base md:text-lg font-medium leading-snug group-hover:text-brand-gold transition-colors duration-300">
                   {faq.question}

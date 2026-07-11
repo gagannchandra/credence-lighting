@@ -63,7 +63,7 @@ export default function ArticleBody({ blocks }) {
           case "table":
             return (
               <div key={index} className="overflow-x-auto mb-8 border border-white/10 rounded-card">
-                <table className="w-full text-left text-white/80">
+                <table className="w-full text-center md:text-left text-white/80">
                   <thead className="bg-white/5 border-b border-white/10">
                     <tr>
                       {block.headers.map((header, i) => (

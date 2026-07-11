@@ -52,7 +52,7 @@ export default function ArticleTOC({ blocks }) {
             <button
               key={index}
               onClick={() => scrollToHeading(id)}
-              className={`text-left pl-4 text-sm transition-colors duration-300 border-l-2 -ml-[1px] ${
+              className={`text-center md:text-left pl-4 text-sm transition-colors duration-300 border-l-2 -ml-[1px] ${
                 isActive 
                   ? "border-brand-gold text-brand-gold" 
                   : "border-transparent text-white/60 hover:text-white"

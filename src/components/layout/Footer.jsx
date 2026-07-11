@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t border-border-subtle pt-16">
 
 
-          <FadeUp delay={2}>
+          <FadeUp delay={2} className="text-center md:text-left">
 
             <p className="uppercase tracking-[0.1em] text-xs text-brand-gold mb-6 font-medium">
               Navigation
@@ -81,7 +81,7 @@ export default function Footer() {
           </FadeUp>
 
           {/* SOLUTIONS */}
-          <FadeUp delay={3}>
+          <FadeUp delay={3} className="text-center md:text-left">
 
             <p className="uppercase tracking-[0.1em] text-xs text-brand-gold mb-6 font-medium">
               Solutions
@@ -118,7 +118,7 @@ export default function Footer() {
           </FadeUp>
 
           {/* LOCATIONS */}
-          <FadeUp delay={4}>
+          <FadeUp delay={4} className="text-center md:text-left">
 
             <p className="uppercase tracking-[0.1em] text-xs text-brand-gold mb-6 font-medium">
               Locations
@@ -163,7 +163,7 @@ export default function Footer() {
           </FadeUp>
 
           {/* CONTACT */}
-          <FadeUp delay={5}>
+          <FadeUp delay={5} className="text-center md:text-left">
 
             <p className="uppercase tracking-[0.1em] text-xs text-brand-gold mb-6 font-medium">
               Contact
