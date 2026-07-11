@@ -23,8 +23,6 @@ const app = (
   </HelmetProvider>
 );
 
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrateRoot(rootElement, app);
-} else {
-  ReactDOM.createRoot(rootElement).render(app);
-}
+// Since we are using Puppeteer to prerender the fully-loaded client app for SEO,
+// hydration will always fail (Error #418). We just use createRoot to take over.
+ReactDOM.createRoot(rootElement).render(app);

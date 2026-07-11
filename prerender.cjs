@@ -1,12 +1,9 @@
-const puppeteer = require('puppeteer');
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
-if (process.env.VERCEL) {
-  console.log('Skipping Puppeteer prerender on Vercel...');
-  process.exit(0);
-}
+const puppeteer = process.env.VERCEL ? require('puppeteer-core') : require('puppeteer');
+const chromium = process.env.VERCEL ? require('@sparticuz/chromium').default || require('@sparticuz/chromium') : null;
 
 const getDynamicRoutes = () => {
   try {
@@ -67,8 +64,20 @@ app.use((req, res) => {
 
 const server = app.listen(3000, async () => {
   console.log('Starting custom prerenderer...');
-  const browser = await puppeteer.launch({ headless: "new" });
   
+  let browser;
+  if (process.env.VERCEL) {
+    browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+  } else {
+    browser = await puppeteer.launch({ headless: "new" });
+  }
+
   for (const route of routes) {
     console.log(`Prerendering ${route}...`);
     const page = await browser.newPage();
@@ -89,7 +98,10 @@ const server = app.listen(3000, async () => {
       return root && root.children.length > 0 && !root.innerHTML.includes('Initializing Experience');
     }, { timeout: 10000 });
     
-    const content = await page.content();
+    let content = await page.content();
+    
+    // Fix CORS: Puppeteer sometimes bakes absolute localhost URLs into the HTML (e.g. for modulepreloads)
+    content = content.replace(/http:\/\/localhost:3000/g, '');
     
     // Write to file
     const outputDir = path.join(__dirname, 'dist', route);
