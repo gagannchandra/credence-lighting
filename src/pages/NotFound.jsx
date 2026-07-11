@@ -40,7 +40,7 @@ export default function NotFound() {
         <title>404 - Page Not Found</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <section className="relative min-h-screen bg-black overflow-hidden flex items-center justify-center">
+      <section className="relative min-h-screen bg-transparent overflow-hidden flex items-center justify-center">
 
       {/* INTERACTIVE LIGHT */}
       <div
@@ -65,7 +65,7 @@ export default function NotFound() {
             duration: 3 + i * 0.2,
             repeat: Infinity,
           }}
-          className="absolute w-1 h-1 bg-[#c8a96b] rounded-full"
+          className="absolute w-1 h-1 bg-brand-gold rounded-button"
           style={pos}
         />
       ))}
@@ -86,7 +86,7 @@ export default function NotFound() {
           transition={{
             duration: 1,
           }}
-          className="text-[120px] md:text-[240px] font-serif leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-[#c8a96b]"
+          className="text-[120px] md:text-[240px] font-serif leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-gold"
         >
           404
         </motion.h1>
@@ -108,7 +108,7 @@ export default function NotFound() {
           className="text-fluid-h1 text-white font-serif "
         >
           Power
-          <span className="italic text-[#c8a96b]">
+          <span className="italic text-brand-gold">
             {" "}Failure
           </span>
         </motion.h2>
@@ -153,7 +153,7 @@ export default function NotFound() {
             </p>
 
             <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <div className="w-2 h-2 rounded-button bg-red-500 animate-pulse" />
 
               <p className="text-red-400 text-xs uppercase tracking-[0.2em]">
                 Offline
@@ -176,7 +176,7 @@ export default function NotFound() {
                   repeat: Infinity,
                   delay: i * 0.1,
                 }}
-                className="w-6 rounded-full bg-gradient-to-t from-[#c8a96b] to-white"
+                className="w-6 rounded-button bg-gradient-to-t from-brand-gold to-white"
               />
             ))}
 
@@ -187,7 +187,7 @@ export default function NotFound() {
 
             <Link
               to="/"
-              className="group bg-[#c8a96b] text-black px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-white transition duration-500"
+              className="group bg-brand-gold text-black px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-white transition duration-500"
             >
               Restore Connection
 

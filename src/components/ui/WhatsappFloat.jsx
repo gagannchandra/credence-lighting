@@ -25,7 +25,7 @@ export default function WhatsappFloat() {
         z-[999]
         w-16
         h-16
-        rounded-full
+        rounded-button
         bg-[#25D366]
         flex
         items-center

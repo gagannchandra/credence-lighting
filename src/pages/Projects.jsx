@@ -1,5 +1,4 @@
 import { useLayoutEffect, useState } from "react";
-import Navbar from "../components/layout/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import projects from "../data/projects";
@@ -25,8 +24,8 @@ export default function Projects() {
   return (
     <PageTransition>
       <SEO 
-        title="Luxury Lighting Projects | Commercial & Residential Portfolio" 
-        description="Explore Credence Lighting's portfolio of premium architectural and commercial lighting projects. See how our bespoke lighting solutions transform elite spaces." 
+        title="Lighting Projects Dubai | Commercial & Luxury Portfolio" 
+        description="Luxury villas, hotels, retail and commercial developments." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",
@@ -38,20 +37,18 @@ export default function Projects() {
           }))
         }]}
       />
-      <Navbar />
-      
-      <div className="relative min-h-screen bg-black overflow-hidden pt-32 pb-10">
+      <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-10">
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12 mb-10">
           <div className="text-center max-w-4xl mx-auto">
-            <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
+            <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
               Our Portfolio
             </p>
             <h1 className="text-fluid-h1 font-serif text-white">
               Featured
-              <span className="italic text-[#c8a96b]"> Projects</span>
+              <span className="italic text-brand-gold"> Projects</span>
             </h1>
             <p className="mt-10 text-white/50 text-lg leading-[1.8]">
               Explore our diverse portfolio of premium lighting projects across commercial, hospitality, residential, and retail sectors. From the initial concept design to final commissioning, our team meticulously crafts immersive environments. Browse through our selected works below to see how we bring spaces to life with precision, innovative technology, and creative vision.
@@ -65,21 +62,21 @@ export default function Projects() {
               <div className="mb-8 md:mb-12">
                 <div className="border-b border-white/10 pb-4 md:pb-6 mb-4 md:mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
                   <div className="flex items-center gap-4 md:gap-6">
-                    <div className="w-8 md:w-12 h-[1px] bg-[#c8a96b]" />
+                    <div className="w-8 md:w-12 h-[1px] bg-brand-gold" />
                     <h2 className="text-fluid-h2 font-serif text-white">{project.name}</h2>
                   </div>
                   <div className="flex items-center gap-4">
                     <Link 
                       to={`/projects/${project.slug}`}
                       onClick={() => scrollToTop()}
-                      className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
+                      className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                     >
                       View Project
                     </Link>
                     <Link 
                       to="/contact"
                       onClick={() => scrollToTop()}
-                      className="shrink-0 hidden md:inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
+                      className="shrink-0 hidden md:inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                     >
                       Enquire Now
                       <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
@@ -88,13 +85,13 @@ export default function Projects() {
                 </div>
                 
                 <div className="w-full pr-0 md:pr-8 pl-0 md:pl-[72px] mt-4 md:mt-0 flex flex-col gap-2 mb-8">
-                  <p className="text-[#c8a96b] text-sm uppercase tracking-widest font-medium">{project.location}</p>
+                  <p className="text-brand-gold text-sm uppercase tracking-widest font-medium">{project.location}</p>
                   <p className={`text-white/70 text-base md:text-lg leading-[1.8] font-light text-justify transition-all duration-300 ${!expandedCategories[project.id] ? 'line-clamp-2 md:line-clamp-none' : ''}`}>
                     {project.description}
                   </p>
                   <button 
                     onClick={() => toggleCategory(project.id)}
-                    className="md:hidden mt-3 text-[#c8a96b] text-xs uppercase tracking-wider font-semibold self-start"
+                    className="md:hidden mt-3 text-brand-gold text-xs uppercase tracking-wider font-semibold self-start"
                   >
                     {expandedCategories[project.id] ? 'Show Less' : 'Learn More'}
                   </button>
@@ -111,14 +108,14 @@ export default function Projects() {
                 <Link 
                   to={`/projects/${project.slug}`}
                   onClick={() => scrollToTop()}
-                  className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center hover:bg-white hover:text-black"
+                  className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                 >
                   View Project
                 </Link>
                 <Link 
                   to="/contact"
                   onClick={() => scrollToTop()}
-                  className="w-full inline-flex border border-[#c8a96b]/40 backdrop-blur-sm text-[#c8a96b] px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-full items-center justify-center gap-3 group hover:bg-[#c8a96b] hover:text-black"
+                  className="w-full inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                 >
                   Enquire Now
                   <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>

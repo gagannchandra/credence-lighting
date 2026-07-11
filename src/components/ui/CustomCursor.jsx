@@ -48,7 +48,7 @@ export default function CustomCursor() {
       
       {/* OUTER RING (Trailing motion) */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-full hidden md:flex items-center justify-center border"
+        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-button hidden md:flex items-center justify-center border"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -64,9 +64,24 @@ export default function CustomCursor() {
         transition={{ duration: 0.3, ease: "easeOut" }}
       />
 
+      {/* LIGHT GLOW */}
+      <motion.div
+        className="fixed top-0 left-0 pointer-events-none z-[99997] hidden md:block"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+          translateX: "-50%",
+          translateY: "-50%",
+          width: 200,
+          height: 200,
+          background: "radial-gradient(circle, rgba(200, 169, 107, 0.15) 0%, transparent 70%)",
+          borderRadius: "50%",
+        }}
+      />
+
       {/* INNER DOT (Instant motion) */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[99999] rounded-full hidden md:block bg-white"
+        className="fixed top-0 left-0 pointer-events-none z-[99999] rounded-button hidden md:block bg-white"
         style={{
           x: cursorX,
           y: cursorY,

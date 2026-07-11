@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
-import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
 import projects from "../data/projects";
 import SEO from "../components/seo/SEO";
@@ -79,8 +78,7 @@ export default function ProjectDetails() {
 
   if (!project) {
     return (
-      <div className="h-screen bg-[#050505] flex flex-col items-center justify-center text-white text-3xl font-serif">
-        <BackButton />
+      <div className="h-screen bg-transparent flex flex-col items-center justify-center text-white text-3xl font-serif">
         Project Not Found
       </div>
     );
@@ -89,9 +87,9 @@ export default function ProjectDetails() {
 
 
   return (
-    <main className="bg-[#050505] min-h-screen relative overflow-x-hidden text-white">
+    <main className="bg-transparent min-h-screen relative overflow-x-hidden text-white">
       <SEO 
-        title={`${project.name} | Luxury Lighting Project by Credence Lighting`}
+        title={`${project.name} · Luxury Lighting Project | Credence`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
         image={project.hero}
         schema={[{
@@ -113,76 +111,41 @@ export default function ProjectDetails() {
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#b89b5e] rounded-full blur-[160px] opacity-[0.07]" />
-        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-[#b89b5e] rounded-full blur-[150px] opacity-[0.07]" />
+        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-brand-gold rounded-button blur-[160px] opacity-[0.07]" />
+        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[150px] opacity-[0.07]" />
       </div>
       
-      <BackButton />
 
-      <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center gap-12 lg:gap-24">
-        {/* LEFT: Single Image Slider */}
-        <div className="w-full md:w-1/2 flex items-center justify-center relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-xl h-[50vh] sm:h-[60vh] md:h-[80vh] rounded-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 relative z-10 bg-black"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragEnd={(e, { offset }) => {
-              if (offset.x < -50) handleNext();
-              else if (offset.x > 50) handlePrev();
-            }}
-          >
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.img
-                key={activeImageIndex}
-                src={project.gallery[activeImageIndex]}
-                alt={`${project.name} - Gallery Image ${activeImageIndex + 1}`}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
-                }}
-                className="absolute inset-0 w-full h-full object-cover"
+      <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto flex flex-col md:flex-row items-start gap-12 lg:gap-24">
+        {/* LEFT: Scrollable Gallery */}
+        <div className="w-full md:w-1/2 flex flex-col gap-6 md:gap-12 relative z-10">
+          {project.gallery.map((imgSrc, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px 0px 50px 0px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full overflow-hidden rounded-card border border-border-subtle bg-surface-elevated"
+            >
+              <img
+                src={imgSrc}
+                alt={`${project.name} - Gallery Image ${idx + 1}`}
+                className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-500"
               />
-            </AnimatePresence>
-
-            <div className="absolute inset-0 bg-white/5 pointer-events-none z-10" />
-            
-            {/* Click zones */}
-            <div className="absolute inset-0 z-20 flex cursor-pointer">
-               <div className="w-1/2 h-full" onClick={handlePrev} />
-               <div className="w-1/2 h-full" onClick={handleNext} />
-            </div>
-
-            {/* Indicator dots */}
-            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-30 pointer-events-none">
-              {project.gallery.map((_, idx) => (
-                <div key={idx} className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeImageIndex ? 'w-6 bg-[#c8a96b]' : 'w-2 bg-white/30'}`} />
-              ))}
-            </div>
-          </motion.div>
-          {/* Accent element behind image */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] max-w-[38rem] h-[53vh] sm:h-[63vh] md:h-[83vh] border border-[#c8a96b]/20 rounded-xl z-0 pointer-events-none hidden md:block" />
+            </motion.div>
+          ))}
         </div>
 
-        {/* RIGHT: Details */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center relative z-10">
+        {/* RIGHT: Sticky Details */}
+        <div className="w-full md:w-1/2 flex flex-col relative z-10 md:sticky md:top-32 md:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
-            className="uppercase tracking-[0.4em] text-xs font-semibold text-[#b89b5e] mb-5 flex items-center gap-3"
+            className="uppercase tracking-[0.4em] text-xs font-semibold text-brand-gold mb-5 flex items-center gap-3"
           >
-            <span className="w-8 h-[1px] bg-[#b89b5e]"></span>
+            <span className="w-8 h-[1px] bg-brand-gold"></span>
             {project.category}
           </motion.p>
           
@@ -202,7 +165,7 @@ export default function ProjectDetails() {
             className="flex flex-wrap gap-4 items-center text-white/50 uppercase tracking-[0.2em] text-xs md:text-xs mb-10 font-medium"
           >
             <span>{project.location}</span>
-            <span className="w-1 h-1 rounded-full bg-[#c8a96b]" />
+            <span className="w-1 h-1 rounded-button bg-brand-gold" />
             <span>{project.year}</span>
           </motion.div>
           
@@ -216,26 +179,26 @@ export default function ProjectDetails() {
               {project.description}
             </p>
               
-            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-[#c8a96b]/50 before:via-[#c8a96b]/20 before:to-transparent pl-8">
-              <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
+            <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-[3px] before:w-[1px] before:bg-gradient-to-b before:from-brand-gold/50 before:via-brand-gold/20 before:to-transparent pl-8">
+              <div>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Vision</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   To craft a luminous environment that transcends basic illumination, merging architectural integrity with emotional resonance. We aimed to create a space that feels alive, adapting to the natural rhythm of its inhabitants while accentuating the structural grandeur.
                 </p>
               </div>
               
               <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">Our Approach</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   Deploying a meticulously curated selection of advanced, low-glare luminaires and intelligent control systems. Our design seamlessly integrates into the spatial geometry, ensuring that light acts as a subtle architectural material rather than a mere utility, eliminating harsh shadows and visual noise.
                 </p>
               </div>
               
               <div className="relative">
-                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-full bg-[#c8a96b] shadow-[0_0_10px_#c8a96b]" />
-                <h3 className="text-[#c8a96b] text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
+                <div className="absolute -left-[35px] top-1.5 w-2 h-2 rounded-button bg-brand-gold shadow-glow" />
+                <h3 className="text-brand-gold text-sm uppercase tracking-[0.2em] font-semibold mb-3">The Outcome</h3>
                 <p className="text-white/60 text-base md:text-lg leading-[1.8] font-light">
                   A breathtaking, immersive atmosphere that redefines the luxury experience. The dynamic lighting landscape not only elevates the aesthetic brilliance of the environment but also establishes a new paradigm for sustainable, human-centric design.
                 </p>
@@ -250,7 +213,7 @@ export default function ProjectDetails() {
           >
             <PageLink
               to="/contact"
-              className="inline-flex items-center justify-center bg-white/5 border border-white/10 text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-[#c8a96b] hover:border-[#c8a96b] hover:text-black transition-all duration-500 shadow-xl rounded-sm group"
+              className="inline-flex items-center justify-center bg-white/5 border border-border-subtle text-white px-12 py-4 tracking-[0.2em] uppercase text-xs font-medium hover:bg-white hover:border-white hover:text-black transition-all duration-500 rounded-sm group"
             >
               Enquire Now
               <span className="ml-3 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -267,7 +230,7 @@ export default function ProjectDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/projects/${previousProject.slug}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Previous project"
           >
             <span className="text-xl leading-none -translate-y-[1px]">←</span>
@@ -279,7 +242,7 @@ export default function ProjectDetails() {
               window.scrollTo({ top: 0, behavior: 'instant' });
               navigate(`/projects/${nextProject.slug}`);
             }}
-            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-button border-2 border-white/40 text-white flex items-center justify-center hover:border-white hover:text-black hover:bg-white transition-all duration-300"
             aria-label="Next project"
           >
             <span className="text-xl leading-none -translate-y-[1px]">→</span>

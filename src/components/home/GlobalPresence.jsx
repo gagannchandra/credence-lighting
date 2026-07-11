@@ -255,20 +255,20 @@ export default function GlobalPresence() {
           {/* LEFT */}
           <div className="md:col-span-5 relative z-20 xl:pl-8 flex flex-col items-center md:items-start text-center md:text-left mb-12 md:mb-0">
             <FadeUp delay={0}>
-              <p className="uppercase tracking-[0.4em] text-xs text-[#C8A46A] mb-6 font-medium">
+              <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6 font-medium">
                 Worldwide Reach
               </p>
             </FadeUp>
 
-            <h2 className="text-fluid-h1 font-serif text-[#F3F1EC] leading-[1.05] tracking-tight mb-2 flex flex-col gap-2">
+            <h2 className="text-fluid-h1 font-serif text-content-primary leading-[1.05] tracking-tight mb-2 flex flex-col gap-2">
               <TextReveal text="Global" />
-              <TextReveal text="Presence" delay={2} className="italic text-[#C8A46A]" />
+              <TextReveal text="Presence" delay={2} className="italic text-brand-gold" />
             </h2>
             
-            <div className="w-16 h-[1px] bg-[#C8A46A]/30 my-6 md:my-8"></div>
+            <div className="w-16 h-[1px] bg-brand-gold/30 my-6 md:my-8"></div>
 
             <FadeUp delay={4}>
-              <p className="text-[#F3F1EC]/60 max-w-[420px] leading-relaxed font-light text-base md:text-lg mb-0 md:mb-10">
+              <p className="text-content-primary/60 max-w-[420px] leading-relaxed font-light text-base md:text-lg mb-0 md:mb-10">
                 We engineer bespoke architectural lighting solutions and deliver transformative visual experiences for the world's most exclusive commercial and hospitality destinations.
               </p>
             </FadeUp>
@@ -276,7 +276,7 @@ export default function GlobalPresence() {
             {/* DESKTOP ONLY BOTTOM CONTENT */}
             <div className="hidden md:block w-full">
               <FadeUp delay={6}>
-                <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[420px]">
+                <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-brand-gold/90 uppercase font-medium max-w-[420px]">
                   UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
                 </p>
               </FadeUp>
@@ -284,7 +284,7 @@ export default function GlobalPresence() {
               <FadeUp delay={8}>
                 <a 
                   href="/projects" 
-                  className="inline-flex items-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group"
+                  className="inline-flex items-center gap-6 text-xs tracking-[0.2em] text-brand-gold border-b border-brand-gold/30 pb-3 mt-10 md:mt-14 uppercase hover:text-white transition-all font-medium group"
                 >
                   Explore Our Projects
                   <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>
@@ -302,66 +302,68 @@ export default function GlobalPresence() {
               onMouseLeave={handleMouseLeave}
             >
               <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
-                <Globe
-                  ref={globeRef}
-                  globeMaterial={customGlobeMaterial}
-                  backgroundColor="rgba(0,0,0,0)"
-                  showGlobe={true}
-                  showAtmosphere={true}
-                  atmosphereColor="#C8A46A"
-                  atmosphereAltitude={0.15}
-                  
-                  // Hex Polygons for Stripe's Dotted Continents
-                  hexPolygonsData={hexData}
-                  hexPolygonResolution={3} 
-                  hexPolygonMargin={0.7} // Sharper, smaller dots
-                  hexPolygonColor={() => 'rgba(230, 210, 180, 0.55)'} // Warmer, more visible dots
-                  
-                  arcsData={arcsData}
-                  arcColor={() => ['rgba(200, 164, 106, 0.1)', 'rgba(212, 175, 55, 1)']} // Brighter gold finish
-                  arcDashLength={0.6}
-                  arcDashGap={2.5}
-                  arcDashInitialGap={() => Math.random()}
-                  arcDashAnimateTime={3000} // Faster energy
-                  arcAltitude={0.12}
-                  arcStroke={0.7}
-                  
-                  htmlElementsData={scaledPoints}
-                  htmlElement={d => {
-                    const el = document.createElement('div');
-                    el.style.pointerEvents = 'none';
+                {typeof window !== 'undefined' && window.__PRERENDER_INJECTED ? null : (
+                  <Globe
+                    ref={globeRef}
+                    globeMaterial={customGlobeMaterial}
+                    backgroundColor="rgba(0,0,0,0)"
+                    showGlobe={true}
+                    showAtmosphere={true}
+                    atmosphereColor="#C8A46A"
+                    atmosphereAltitude={0.15}
                     
-                    const isRight = d.scaledDx > 0;
-                    const angleX = isRight ? 35 * labelScale : -35 * labelScale;
+                    // Hex Polygons for Stripe's Dotted Continents
+                    hexPolygonsData={hexData}
+                    hexPolygonResolution={3} 
+                    hexPolygonMargin={0.7} // Sharper, smaller dots
+                    hexPolygonColor={() => 'rgba(230, 210, 180, 0.55)'} // Warmer, more visible dots
                     
-                    el.innerHTML = `
-                      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
-                        <div style="position: relative; width: 4px; height: 4px; display: flex; align-items: center; justify-content: center; mix-blend-mode: screen;">
-                          <div style="position: absolute; width: 2px; height: 2px; background: #FFF; border-radius: 50%;"></div>
-                          <div style="position: absolute; width: 6px; height: 6px; background: #C8A46A; border-radius: 50%; box-shadow: 0 0 12px 2px rgba(200, 164, 106, 0.8); animation: luxuryBreatheScale 3s ease-in-out infinite;"></div>
-                        </div>
-
-                        <svg width="0" height="0" style="position: absolute; top: 0; left: 0; overflow: visible;">
-                          <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="1.5" />
-                          <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(200, 164, 106, 0.5)" stroke-width="0.5" />
-                        </svg>
-                        
-                        <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
-                          <div style="color: #FFF; font-family: 'Inter', sans-serif; font-size: ${isMobile ? '9px' : '11px'}; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; white-space: nowrap;">
-                            ${d.city}
+                    arcsData={arcsData}
+                    arcColor={() => ['rgba(200, 164, 106, 0.1)', 'rgba(212, 175, 55, 1)']} // Brighter gold finish
+                    arcDashLength={0.6}
+                    arcDashGap={2.5}
+                    arcDashInitialGap={() => Math.random()}
+                    arcDashAnimateTime={3000} // Faster energy
+                    arcAltitude={0.12}
+                    arcStroke={0.7}
+                    
+                    htmlElementsData={scaledPoints}
+                    htmlElement={d => {
+                      const el = document.createElement('div');
+                      el.style.pointerEvents = 'none';
+                      
+                      const isRight = d.scaledDx > 0;
+                      const angleX = isRight ? 35 * labelScale : -35 * labelScale;
+                      
+                      el.innerHTML = `
+                        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                          <div style="position: relative; width: 4px; height: 4px; display: flex; align-items: center; justify-content: center; mix-blend-mode: screen;">
+                            <div style="position: absolute; width: 2px; height: 2px; background: #FFF; border-radius: 50%;"></div>
+                            <div style="position: absolute; width: 6px; height: 6px; background: #C8A46A; border-radius: 50%; box-shadow: 0 0 12px 2px rgba(200, 164, 106, 0.8); animation: luxuryBreatheScale 3s ease-in-out infinite;"></div>
                           </div>
-                          <div style="color: rgba(200, 164, 106, 0.9); font-family: 'Inter', sans-serif; font-size: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap;">
-                            ${d.country}
+  
+                          <svg width="0" height="0" style="position: absolute; top: 0; left: 0; overflow: visible;">
+                            <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(0,0,0,0.6)" stroke-width="1.5" />
+                            <polyline points="0,0 ${angleX},${d.scaledDy} ${d.scaledDx},${d.scaledDy}" fill="none" stroke="rgba(200, 164, 106, 0.5)" stroke-width="0.5" />
+                          </svg>
+                          
+                          <div style="position: absolute; left: ${isRight ? d.scaledDx + 10 + 'px' : 'auto'}; right: ${!isRight ? Math.abs(d.scaledDx) + 10 + 'px' : 'auto'}; top: ${d.scaledDy}px; transform: translateY(-50%); display: flex; flex-direction: column; align-items: ${isRight ? 'flex-start' : 'flex-end'}; gap: 2px; background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(200, 164, 106, 0.2); border-radius: 4px; padding: 4px 8px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+                            <div style="color: #FFF; font-family: 'Inter', sans-serif; font-size: ${isMobile ? '9px' : '11px'}; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; white-space: nowrap;">
+                              ${d.city}
+                            </div>
+                            <div style="color: rgba(200, 164, 106, 0.9); font-family: 'Inter', sans-serif; font-size: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; white-space: nowrap;">
+                              ${d.country}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    `;
-                    return el;
-                  }}
-                  
-                  width={globeSize.width}
-                  height={globeSize.height}
-                />
+                      `;
+                      return el;
+                    }}
+                    
+                    width={globeSize.width}
+                    height={globeSize.height}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -370,7 +372,7 @@ export default function GlobalPresence() {
         {/* BOTTOM CONTENT (MOBILE ONLY) */}
         <div className="md:hidden mt-12 flex flex-col items-center text-center relative z-20">
           <FadeUp delay={6}>
-            <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-[#C8A46A]/90 uppercase font-medium max-w-[600px]">
+            <p className="text-xs md:text-xs tracking-[0.25em] leading-[2.2] text-brand-gold/90 uppercase font-medium max-w-[600px]">
               UAE &nbsp;&bull;&nbsp; Saudi Arabia &nbsp;&bull;&nbsp; Bahrain &nbsp;&bull;&nbsp; Qatar &nbsp;&bull;&nbsp; Kuwait &nbsp;&bull;&nbsp; Oman &nbsp;&bull;&nbsp; India &nbsp;&bull;&nbsp; Italy &nbsp;&bull;&nbsp; Canada
             </p>
           </FadeUp>
@@ -378,7 +380,7 @@ export default function GlobalPresence() {
           <FadeUp delay={8}>
             <a 
               href="/projects" 
-              className="inline-flex items-center justify-center gap-6 text-xs tracking-[0.2em] text-[#C8A46A] border-b border-[#C8A46A]/30 pb-3 mt-8 md:mt-10 uppercase hover:text-white transition-all font-medium group"
+              className="inline-flex items-center justify-center gap-6 text-xs tracking-[0.2em] text-brand-gold border-b border-brand-gold/30 pb-3 mt-8 md:mt-10 uppercase hover:text-white transition-all font-medium group"
             >
               Explore Our Projects
               <span className="text-sm leading-none font-light group-hover:translate-x-1 transition-transform">&rarr;</span>

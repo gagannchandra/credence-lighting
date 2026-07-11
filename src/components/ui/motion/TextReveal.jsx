@@ -46,12 +46,12 @@ export default function TextReveal({
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, amount: 0.2 }}
+      viewport={{ once, amount: 0, margin: "0px 0px 50px 0px" }}
       className={`flex flex-wrap ${className}`}
     >
       {words.map((word, index) => (
-        <span key={index} className="overflow-hidden mr-[0.25em]">
-          <motion.span variants={child} className="inline-block">
+        <span key={index} className="overflow-hidden mr-[0.25em] pb-4 -mb-4 pt-2 -mt-2">
+          <motion.span variants={child} className="inline-block pr-1">
             {word}
           </motion.span>
         </span>

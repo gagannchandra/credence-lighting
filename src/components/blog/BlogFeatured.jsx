@@ -14,21 +14,21 @@ export default function BlogFeatured({ post }) {
     >
       <div className="flex flex-col lg:flex-row">
         {/* Image Section */}
-        <div className="lg:w-3/5 h-[400px] lg:h-[500px] relative overflow-hidden">
+        <div className="relative w-full h-[400px] lg:h-auto lg:w-3/5 lg:min-h-[500px]">
           <img
             src={post.heroImage}
             alt={post.title}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent lg:w-1/2 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent lg:bg-gradient-to-l lg:from-[#0a0a0a] lg:via-[#0a0a0a]/50 lg:to-transparent z-10" />
         </div>
 
         {/* Content Section */}
-        <div className="lg:w-2/5 bg-[#0a0a0a] p-8 lg:p-12 flex flex-col justify-center z-20 -mt-20 lg:mt-0 relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#c8a96b]/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="lg:w-2/5 bg-surface-elevated p-8 lg:p-12 flex flex-col justify-center z-20 -mt-20 lg:mt-0 relative">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 blur-[100px] rounded-button pointer-events-none" />
           
           <div className="flex items-center gap-3 mb-6">
-            <span className="px-3 py-1 bg-[#c8a96b]/10 text-[#c8a96b] text-xs uppercase tracking-widest border border-[#c8a96b]/20 rounded-full">
+            <span className="px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs uppercase tracking-widest border border-brand-gold/20 rounded-button">
               Featured
             </span>
             <span className="text-white/40 text-xs flex items-center gap-1.5">
@@ -38,7 +38,7 @@ export default function BlogFeatured({ post }) {
           </div>
 
           <Link to={`/blog/${post.slug}`}>
-            <h2 className="text-fluid-h2 font-serif text-white/90 mb-4 group-hover:text-[#c8a96b] transition-colors duration-300">
+            <h2 className="text-fluid-h2 font-serif text-white/90 mb-4 group-hover:text-brand-gold transition-colors duration-300">
               {post.title}
             </h2>
           </Link>
@@ -49,7 +49,7 @@ export default function BlogFeatured({ post }) {
 
           <Link
             to={`/blog/${post.slug}`}
-            className="inline-flex items-center gap-3 text-[#c8a96b] hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase text-xs font-semibold"
+            className="inline-flex items-center gap-3 text-brand-gold hover:text-white transition-colors duration-300 tracking-[0.2em] uppercase text-xs font-semibold"
           >
             Read Full Story
             <ArrowRight size={18} className="transform group-hover:translate-x-2 transition-transform duration-300" />

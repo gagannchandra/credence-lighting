@@ -1,49 +1,48 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
-import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { scrollToTop } from "../utils/scrollUtils";
 import PageTransition from "../components/ui/motion/PageTransition";
 
 const brands = [
-  "/brands/al-othaim.webp",
-  "/brands/fitness-first.webp",
-  "/brands/fabyland.webp",
-  "/brands/emaar.webp",
-  "/brands/fun-city.webp",
-  "/brands/gemo.webp",
-  "/brands/ground-control.webp",
-  "/brands/xtreme.webp",
-  "/brands/flipped.webp",
-  "/brands/funco.webp",
-  "/brands/lpme.webp",
-  "/brands/adventureland.webp",
-  "/brands/jumble.webp",
-  "/brands/orangeseeds.webp",
-  "/brands/nike.webp",
-  "/brands/cheeky-monkeys.webp",
-  "/brands/accessories.webp",
-  "/brands/columbia.webp",
-  "/brands/candelite.webp",
-  "/brands/timberland.webp",
-  "/brands/ikea.webp",
-  "/brands/dubai-properties.webp",
-  "/brands/majid.webp",
-  "/brands/hugo-boss.webp",
-  "/brands/damac.webp",
-  "/brands/good-health.webp",
-  "/brands/vans.webp",
-  "/brands/sandro.webp",
-  "/brands/converse.webp",
-  "/brands/maisons.webp",
-  "/brands/sunnsand.webp",
-  "/brands/temperly.webp",
-  "/brands/gmg.webp",
-  "/brands/naramilano.webp",
-  "/brands/al-futtaim.webp",
-  "/brands/zadig.webp",
+  { name: "Al Othaim", logo: "/brands/al-othaim.webp" },
+  { name: "Fitness First", logo: "/brands/fitness-first.webp" },
+  { name: "Fabyland", logo: "/brands/fabyland.webp" },
+  { name: "Emaar", logo: "/brands/emaar.webp" },
+  { name: "Fun City", logo: "/brands/fun-city.webp" },
+  { name: "GEMO", logo: "/brands/gemo.webp" },
+  { name: "Ground Control", logo: "/brands/ground-control.webp" },
+  { name: "Xtreme Zone", logo: "/brands/xtreme.webp" },
+  { name: "Flipped", logo: "/brands/flipped.webp" },
+  { name: "Funco", logo: "/brands/funco.webp" },
+  { name: "LPME", logo: "/brands/lpme.webp" },
+  { name: "Adventureland", logo: "/brands/adventureland.webp" },
+  { name: "Jumble", logo: "/brands/jumble.webp" },
+  { name: "Orange Seeds", logo: "/brands/orangeseeds.webp" },
+  { name: "Nike", logo: "/brands/nike.webp" },
+  { name: "Cheeky Monkeys", logo: "/brands/cheeky-monkeys.webp" },
+  { name: "Accessories", logo: "/brands/accessories.webp" },
+  { name: "Columbia", logo: "/brands/columbia.webp" },
+  { name: "Candelite", logo: "/brands/candelite.webp" },
+  { name: "Timberland", logo: "/brands/timberland.webp" },
+  { name: "IKEA", logo: "/brands/ikea.webp" },
+  { name: "Dubai Properties", logo: "/brands/dubai-properties.webp" },
+  { name: "Majid Al Futtaim", logo: "/brands/majid.webp" },
+  { name: "Hugo Boss", logo: "/brands/hugo-boss.webp" },
+  { name: "DAMAC", logo: "/brands/damac.webp" },
+  { name: "Good Health", logo: "/brands/good-health.webp" },
+  { name: "Vans", logo: "/brands/vans.webp" },
+  { name: "Sandro", logo: "/brands/sandro.webp" },
+  { name: "Converse", logo: "/brands/converse.webp" },
+  { name: "Maisons du Monde", logo: "/brands/maisons.webp" },
+  { name: "Sun & Sand Sports", logo: "/brands/sunnsand.webp" },
+  { name: "Temperley London", logo: "/brands/temperly.webp" },
+  { name: "GMG", logo: "/brands/gmg.webp" },
+  { name: "Nara Milano", logo: "/brands/naramilano.webp" },
+  { name: "Al Futtaim", logo: "/brands/al-futtaim.webp" },
+  { name: "Zadig & Voltaire", logo: "/brands/zadig.webp" },
 ];
 
 export default function Brands() {
@@ -55,42 +54,55 @@ export default function Brands() {
   return (
     <PageTransition>
       <SEO 
-        title="Global Brand Partners | Credence Lighting Collaborations" 
-        description="Credence Lighting partners with internationally recognized brands, hospitality groups, and architectural innovators across the globe." 
+        title="Our Clients | Trusted Across Dubai & UAE" 
+        description="Trusted by architects, developers and leading UAE businesses." 
+        schema={[{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Our Clients · Credence Lighting Dubai",
+          "description": "Credence Lighting has served 30+ globally recognized brands including Emaar, DAMAC, Nike, and IKEA",
+          "url": "https://credencelighting.com/brands"
+        }]}
       />
-      <Navbar />
-      <BackButton />
-
       <section
         id="brands-page-top"
-        className="relative min-h-screen bg-black overflow-hidden pt-40 pb-28"
+        className="relative min-h-screen bg-transparent overflow-hidden pt-40 pb-28"
       >
 
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[#c8a96b]/10 blur-[180px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px]" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12">
 
           {/* HEADER */}
           <div className="text-center max-w-4xl mx-auto">
 
-            <p className="uppercase tracking-[0.45em] text-xs text-[#c8a96b] mb-6">
-              Trusted Collaborations
+            <p className="uppercase tracking-[0.45em] text-xs text-brand-gold mb-6">
+              Clients We've Helped
             </p>
 
             <h1 className="text-fluid-h1 font-serif text-white">
-              Our Global
-              <span className="italic text-[#c8a96b]">
-                {" "}Brand Partners
+              Serving Clients
+              <span className="italic text-brand-gold">
+                {" "}Across the Globe
               </span>
             </h1>
 
             <p className="mt-10 text-white/50 text-lg leading-[1.8]">
-              We proudly collaborate with internationally recognized
+              We proudly provide services to internationally recognized
               brands, entertainment destinations, retail leaders,
               hospitality groups, and architectural innovators across
               multiple countries.
             </p>
+
+            <div className="mt-12 flex justify-center">
+              <Link 
+                to="/projects"
+                className="px-10 py-4 bg-brand-gold text-black rounded-full text-sm font-semibold tracking-wider uppercase hover:bg-white transition-colors"
+              >
+                View Our Projects
+              </Link>
+            </div>
 
           </div>
 
@@ -98,7 +110,7 @@ export default function Brands() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-24">
 
             {[
-              { number: "30+", label: "Partner Brands" },
+              { number: "30+", label: "Featured Clients" },
               { number: "7+", label: "Countries" },
               { number: "1000+", label: "Projects Delivered" },
               { number: "10+", label: "Years Experience" },
@@ -122,9 +134,9 @@ export default function Brands() {
           {/* LOGO GRID */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 mt-28">
 
-            {brands.map((logo, index) => (
+            {brands.map((brand, index) => (
               <motion.div
-                key={index}
+                key={brand.name}
                 initial={{
                   opacity: 0,
                   y: 40,
@@ -145,12 +157,12 @@ export default function Brands() {
                 className="group relative border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] h-[180px] flex items-center justify-center overflow-hidden"
               >
                 {/* HOVER GLOW */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent" />
 
                 {/* LOGO */}
                 <img
-                  src={logo}
-                  alt=""
+                  src={brand.logo}
+                  alt={`${brand.name} — Credence Lighting client`}
                   className="relative z-10 h-16 md:h-20 object-contain opacity-80 group-hover:opacity-100 transition duration-500 px-6"
                 />
               </motion.div>

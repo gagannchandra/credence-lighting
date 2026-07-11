@@ -1,6 +1,4 @@
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import BackButton from "../components/ui/BackButton";
 import PageTransition from "../components/ui/motion/PageTransition";
 import SEO from "../components/seo/SEO";
 
@@ -34,25 +32,29 @@ const resources = [
 export default function Downloads() {
   return (
     <PageTransition>
-      <div className="bg-black text-white min-h-screen">
+      <div className="bg-transparent text-white min-h-screen">
         <SEO 
-          title="Downloads & Resources | Credence Lighting" 
-          description="Download Credence Lighting's product catalogues, company profile, and project albums. Access technical resources for premium architectural lighting." 
+          title="Lighting Catalogues & Downloads | Credence Lighting" 
+          description="Download our latest product catalogues, technical specifications, and brochures for premium lighting solutions in the UAE." 
+          schema={[{
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Downloads & Resources · Credence Lighting",
+            "description": "Download Credence Lighting's product catalogues, company profile, and project albums.",
+            "url": "https://credencelighting.com/downloads"
+          }]}
         />
-        <Navbar />
-      <BackButton />
-
-      <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[#c8a96b]/10 blur-[160px] pointer-events-none" />
+        <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-brand-gold/10 blur-[160px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
-          <p className="uppercase tracking-[0.4em] text-xs text-[#c8a96b] mb-6">
+          <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6">
             Downloads
           </p>
 
           <h1 className="text-fluid-h1 font-serif ">
             Company
-            <span className="italic text-[#c8a96b]"> Resources</span>
+            <span className="italic text-brand-gold"> Resources</span>
           </h1>
 
           <p className="mt-8 text-white/50 max-w-2xl text-lg leading-[1.8]">
@@ -66,9 +68,9 @@ export default function Downloads() {
                 key={item.title}
                 href={item.href}
                 {...(item.download ? { download: true } : { target: "_blank", rel: "noreferrer" })}
-                className="group border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:border-[#c8a96b] transition duration-500 rounded-[1.5rem]"
+                className="group border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:border-brand-gold transition duration-500 rounded-[1.5rem]"
               >
-                <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b] mb-6">
+                <p className="uppercase tracking-[0.3em] text-xs text-brand-gold mb-6">
                   {item.type}
                 </p>
 
@@ -76,7 +78,7 @@ export default function Downloads() {
 
                 <p className="text-white/50 leading-7">{item.description}</p>
 
-                <div className="mt-10 text-sm uppercase tracking-[0.3em] text-white/70 group-hover:text-[#c8a96b] transition duration-300">
+                <div className="mt-10 text-sm uppercase tracking-[0.3em] text-white/70 group-hover:text-brand-gold transition duration-300">
                   Download PDF ↗
                 </div>
               </a>

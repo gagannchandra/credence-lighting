@@ -1,5 +1,4 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import AboutSection from "../components/home/AboutSection";
 import { scrollToTop } from "../utils/scrollUtils";
@@ -16,33 +15,53 @@ export default function About() {
   return (
     <PageTransition>
       <SEO 
-        title="About Credence Lighting | Premium Lighting Manufacturers & Designers" 
-        description="Discover the legacy of Credence Lighting. We are pioneers in bespoke architectural, commercial, and residential luxury lighting, merging innovation with timeless craftsmanship." 
+        title="About Credence Lighting | Premium Lighting Experts Dubai" 
+        description="Learn about our expertise and premium lighting solutions." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Credence Lighting",
+          "name": "Credence Lighting LLC",
           "url": "https://credencelighting.com",
-          "logo": "https://credencelighting.com/logo.png",
-          "description": "Credence Lighting is a premium lighting manufacturer and design agency specializing in bespoke architectural, commercial, and residential luxury lighting.",
+          "logo": "https://credencelighting.com/logo2.webp",
+          "description": "Credence Lighting is a premium lighting company in Dubai providing architectural, commercial, and hospitality lighting design, supply, and installation across the UAE and GCC.",
+          "foundingDate": "2014",
+          "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 10
+          },
+          "telephone": "+971564965660",
+          "email": "info@credencelighting.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Unit E77, Arabtec Eastern Model, Dubai Investment Park 1",
+            "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
+            "addressCountry": "AE"
+          },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+971-123456789",
-            "contactType": "customer service"
-          }
+            "telephone": "+971564965660",
+            "contactType": "customer service",
+            "email": "info@credencelighting.com",
+            "areaServed": ["AE", "SA", "BH"],
+            "availableLanguage": ["English", "Arabic"]
+          },
+          "sameAs": [
+            "https://www.instagram.com/credencelighting/",
+            "https://www.linkedin.com/company/credence-lighting-llc/"
+          ]
         }]}
       />
-      <Navbar />
-      <div className="relative bg-black pt-10 pb-20 overflow-hidden">
+      <div className="relative bg-transparent pt-10 pb-20 overflow-hidden">
         {/* SHARED BACKGROUND GLOW */}
-        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-[#c8a96b]/10 blur-[200px] pointer-events-none" />
-        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[#c8a96b]/10 blur-[180px] pointer-events-none" />
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-brand-gold/10 blur-[200px] pointer-events-none" />
+        <div className="absolute top-[60%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
         
         {/* SHARED GRID */}
         <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
         <div className="relative z-10">
-          <AboutSection />
+          <AboutSection asPage />
         </div>
       </div>
       <Footer />

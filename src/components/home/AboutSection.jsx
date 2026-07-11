@@ -6,8 +6,9 @@ import FadeUp from "../ui/motion/FadeUp";
 import HoverLift from "../ui/motion/HoverLift";
 import { duration, ease } from "../../utils/motion";
 
-export default function AboutSection({ preview = false }) {
+export default function AboutSection({ preview = false, asPage = false }) {
   const navigate = useNavigate();
+  const Heading = asPage ? "h1" : "h2";
 
   return (
     <section
@@ -17,15 +18,14 @@ export default function AboutSection({ preview = false }) {
       <div className="relative z-10 max-w-[1400px] w-full mx-auto text-center">
 
         {/* HEADING */}
-        <div>
-          <h2 className="text-fluid-h1 font-serif  text-white flex flex-wrap justify-center">
+        <Heading className="flex flex-col items-center">
+          <span className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center">
             <TextReveal text="Credence: Aesthetics" />
-          </h2>
-
-          <h3 className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
+          </span>
+          <span className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
             <TextReveal text="meets functionality" delay={2} />
-          </h3>
-        </div>
+          </span>
+        </Heading>
 
         {/* DIVIDER */}
         <motion.div
@@ -33,7 +33,7 @@ export default function AboutSection({ preview = false }) {
           whileInView={{ opacity: 1, scaleX: 1 }}
           transition={{ delay: 0.3, duration: duration.standard, ease: ease.standard }}
           viewport={{ once: true }}
-          className="w-24 h-[1px] bg-[#c8a96b]/40 mx-auto mt-8"
+          className="w-24 h-[1px] bg-brand-gold/40 mx-auto mt-8"
         />
 
         {/* DESCRIPTION */}
@@ -54,7 +54,7 @@ export default function AboutSection({ preview = false }) {
           {[
             ["10+", "Years Of Experience"],
             ["7+", "Countries"],
-            ["30+", "Partner Brands"],
+            ["30+", "Clients"],
             ["1000+", "Projects Delivered"],
           ].map(([number, text], index) => (
             <FadeUp
@@ -69,7 +69,7 @@ export default function AboutSection({ preview = false }) {
               <h5 className="text-fluid-h2 font-serif text-white mb-3">
                 {number}
               </h5>
-              <p className="uppercase tracking-[0.3em] text-xs text-[#c8a96b]/80">
+              <p className="uppercase tracking-[0.3em] text-xs text-brand-gold/80">
                 {text}
               </p>
             </FadeUp>
@@ -110,14 +110,14 @@ export default function AboutSection({ preview = false }) {
               <FadeUp
                 key={service.title}
                 delay={index * 2}
-                className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 text-left"
+                className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 text-center md:text-left"
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-[#c8a96b] transition-colors duration-500 mb-6">
+                  <div className="w-12 h-12 rounded-button bg-white/10 flex items-center justify-center group-hover:bg-brand-gold transition-colors duration-500 mb-6">
                     <Icon className="w-5 h-5 text-white group-hover:text-black transition-colors duration-500" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">
+                  <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-brand-gold transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p className="text-white/60 text-sm font-light leading-relaxed">
@@ -130,7 +130,7 @@ export default function AboutSection({ preview = false }) {
         </div>
 
         {/* CALL TO ACTION CARDS (Moved to the end) */}
-        <div className="mt-32 pt-16 border-t border-white/5 text-center">
+        <div className="mt-32 pt-16 border-t border-border-subtle text-center">
           <h3 className="text-fluid-h2 font-serif text-white mb-4 flex flex-wrap justify-center">
             <TextReveal text="Continue Your Journey" />
           </h3>
@@ -141,7 +141,7 @@ export default function AboutSection({ preview = false }) {
             </p>
           </FadeUp>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-[800px] mx-auto text-left">
+          <div className="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto text-center">
 
           {/* PRODUCTS CARD */}
           <FadeUp delay={4} className="h-full">
@@ -162,8 +162,39 @@ export default function AboutSection({ preview = false }) {
                     Discover
                   </p>
 
-                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-white tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-white tracking-[0.05em]">
                     Explore Products
+                  </h4>
+
+                  <div className="relative z-10 mt-3 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
+                    →
+                  </div>
+
+              </button>
+            </HoverLift>
+          </FadeUp>
+
+          {/* CLIENTS CARD */}
+          <FadeUp delay={5} className="h-full">
+            <HoverLift className="h-full">
+              <button
+                type="button"
+                onClick={() => navigate("/brands")}
+                className="group relative overflow-hidden border border-white/10 rounded-3xl p-6 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
+              >
+
+                  {/* HOVER GLOW */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+
+                  {/* INNER GLOW */}
+                  <div className="absolute w-[150px] h-[150px] bg-white/5 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
+
+                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-white/40">
+                    Network
+                  </p>
+
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-white tracking-[0.05em]">
+                    Our Clients
                   </h4>
 
                   <div className="relative z-10 mt-3 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
@@ -180,24 +211,24 @@ export default function AboutSection({ preview = false }) {
               <button
                 type="button"
                 onClick={() => navigate("/projects")}
-                className="group relative overflow-hidden border border-[#c8a96b]/20 rounded-3xl p-6 bg-[#c8a96b]/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
+                className="group relative overflow-hidden border border-brand-gold/20 rounded-3xl p-6 bg-brand-gold/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
               >
 
                   {/* GOLD HOVER GLOW */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent" />
 
                   {/* GOLD AMBIENT */}
-                  <div className="absolute w-[150px] h-[150px] bg-[#c8a96b]/10 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
+                  <div className="absolute w-[150px] h-[150px] bg-brand-gold/10 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
 
-                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-[#c8a96b]/60">
+                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-brand-gold/60">
                     Showcase
                   </p>
 
-                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-[#c8a96b] tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-brand-gold tracking-[0.05em]">
                     View Portfolio
                   </h4>
 
-                  <div className="relative z-10 mt-3 text-2xl text-[#c8a96b]/60 group-hover:translate-x-2 transition duration-500">
+                  <div className="relative z-10 mt-3 text-2xl text-brand-gold/60 group-hover:translate-x-2 transition duration-500">
                     →
                   </div>
 

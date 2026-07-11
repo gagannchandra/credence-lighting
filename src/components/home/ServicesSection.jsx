@@ -69,16 +69,16 @@ export default function ServicesSection() {
                 className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500"
               >
                 {/* HOVER GLOW */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-[#c8a96b]/10 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
 
                 <div className="flex flex-col items-center text-center space-y-6 relative z-10">
                   {/* ICON CONTAINER */}
-                  <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                  <div className="w-20 h-20 rounded-button bg-white flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-lg">
                     <Icon className="w-10 h-10 text-black" strokeWidth={1.5} />
                   </div>
                   
                   <div>
-                    <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-[#c8a96b] transition-colors duration-300">
+                    <h3 className="text-xl md:text-2xl font-serif text-white mb-3 group-hover:text-brand-gold transition-colors duration-300">
                       {service.title}
                     </h3>
                     <p className="text-white/60 text-base leading-[1.8]">

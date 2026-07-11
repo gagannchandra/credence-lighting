@@ -1,29 +1,48 @@
 import { motion, useReducedMotion } from "framer-motion";
-import logo1 from "../../assets/images/logo1.webp";
+import logo2 from "../../assets/images/logo2.webp";
 
-export default function Loader() {
+export default function Loader({ isInitial = false }) {
   const shouldReduceMotion = useReducedMotion();
 
-  return (
-    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden">
+  const Container = isInitial ? motion.div : 'div';
+  const containerProps = isInitial 
+    ? {
+        initial: { opacity: 1 },
+        exit: { opacity: 0, filter: "blur(10px)" },
+        transition: { duration: 0.8, ease: "easeInOut" }
+      } 
+    : {};
 
-      {/* GOLD AMBIENT GLOW */}
-      <div className="absolute w-[700px] h-[700px] bg-[#c8a96b]/10 blur-[180px]" />
+  return (
+    <Container 
+      {...containerProps}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden ${isInitial ? "bg-[var(--color-surface-base)]" : "bg-transparent backdrop-blur-md"}`}
+    >
+
+      {/* GOLD AMBIENT GLOW (Responsive) */}
+      <div className="absolute w-[150vw] h-[150vw] sm:w-[700px] sm:h-[700px] bg-brand-gold/15 blur-[120px] sm:blur-[180px] rounded-full" />
 
       {/* GRID LIGHT EFFECT */}
-      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
+      <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px]" />
 
       {/* CENTER CONTENT */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center px-4">
 
-        <motion.img
-          src={logo1}
-          alt="Credence Lighting"
+        <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 1 }}
-          className="h-16 md:h-24 w-auto object-contain"
-        />
+          className="relative flex items-center justify-center group"
+        >
+          {/* Sunburst/Glow Effect Background */}
+          <div className="absolute inset-0 bg-[#c8a96b]/30 blur-2xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
+          
+          <img
+            src={logo2}
+            alt="Credence Lighting"
+            className="relative z-10 h-16 md:h-24 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500"
+          />
+        </motion.div>
 
         {/* SUBTEXT */}
         <motion.p
@@ -33,13 +52,13 @@ export default function Loader() {
             delay: shouldReduceMotion ? 0 : 0.4,
             duration: shouldReduceMotion ? 0 : 1,
           }}
-          className="mt-5 text-[#c8a96b] uppercase tracking-[0.45em] text-xs md:text-xs text-center"
+          className="mt-5 text-brand-gold uppercase tracking-[0.3em] sm:tracking-[0.45em] text-[10px] sm:text-xs text-center drop-shadow-[0_0_10px_rgba(200,169,107,0.5)]"
         >
           Innovative Lighting • Integrated Solutions
         </motion.p>
 
         {/* LIGHT BAR */}
-        <div className="mt-10 w-64 h-[2px] bg-white/10 overflow-hidden rounded-full">
+        <div className="mt-8 sm:mt-10 w-48 sm:w-64 h-[2px] bg-white/10 overflow-hidden rounded-button drop-shadow-[0_0_8px_rgba(200,169,107,0.6)]">
 
           <motion.div
             initial={{ x: "-100%" }}
@@ -49,7 +68,7 @@ export default function Loader() {
               repeat: shouldReduceMotion ? 0 : Infinity,
               ease: "linear",
             }}
-            className={`h-full bg-[#c8a96b] ${shouldReduceMotion ? 'w-full' : 'w-24'}`}
+            className={`h-full bg-brand-gold shadow-[0_0_15px_rgba(200,169,107,1)] ${shouldReduceMotion ? 'w-full' : 'w-24'}`}
           />
 
         </div>
@@ -62,13 +81,13 @@ export default function Loader() {
             duration: 2,
             repeat: shouldReduceMotion ? 0 : Infinity,
           }}
-          className="mt-6 text-white/40 uppercase tracking-[0.35em] text-xs"
+          className="mt-6 text-white/60 uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[9px] sm:text-xs drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"
         >
           Initializing Experience
         </motion.p>
 
       </div>
 
-    </div>
+    </Container>
   );
 }

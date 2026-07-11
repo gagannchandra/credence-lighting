@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
 export default function SEO({
-  title = "Credence Lighting | Premium Architectural & Commercial Lighting",
+  title = "Credence Lighting · Premium Architectural & Commercial Lighting",
   description = "Credence Lighting provides bespoke architectural, commercial, and residential luxury lighting solutions. Elevate your spaces with premium craftsmanship.",
   type = "website",
   image = "https://credencelighting.com/og-image.jpg",
