@@ -111,8 +111,8 @@ export default function ProjectDetails() {
       />
       {/* Background Decorative Gradient */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-brand-gold rounded-button blur-[160px] opacity-[0.07]" />
-        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[150px] opacity-[0.07]" />
+        <div className="absolute top-[20%] -left-[10%] w-[50%] h-[50%] bg-brand-gold rounded-button blur-[60px] md:blur-[160px] opacity-[0.07]" />
+        <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[60px] md:blur-[150px] opacity-[0.07]" />
       </div>
       
 

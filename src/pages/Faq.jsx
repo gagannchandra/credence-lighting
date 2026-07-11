@@ -244,7 +244,7 @@ export default function Faq() {
 
             {/* Still Need Help CTA */}
             <div className="mt-20 p-10 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-brand-gold/30 rounded-3xl text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[100px] rounded-button pointer-events-none" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[40px] md:blur-[100px] rounded-button pointer-events-none" />
               <h3 className="text-3xl font-serif text-white mb-4 relative z-10">Still have questions?</h3>
               <p className="text-white/60 mb-8 max-w-lg mx-auto relative z-10">
                 Can't find the answer you're looking for? Please chat to our friendly team.

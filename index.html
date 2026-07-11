@@ -19,6 +19,19 @@
       gtag('config', 'YOUR_GA_MEASUREMENT_ID');
     </script>
     -->
+    <!-- Hardware Sniffer: Downgrade visuals for low-end devices -->
+    <script>
+      (function() {
+        try {
+          var cores = navigator.hardwareConcurrency || 8;
+          var memory = navigator.deviceMemory || 8;
+          // If 4 logical cores or less, or less than 4GB RAM, it's a budget/older device
+          if (cores <= 4 || memory < 4) {
+            document.documentElement.classList.add('perf-low');
+          }
+        } catch(e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -111,7 +111,7 @@ export default function LightingShowroomDubai() {
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[60px] md:blur-[180px] pointer-events-none" />
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -230,7 +230,7 @@ export default function LightingShowroomDubai() {
                 const Icon = feature.icon;
                 return (
                   <FadeUp key={feature.title} delay={index * 1}>
-                    <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
+                    <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-md md:backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                       <div className="relative z-10 flex items-start gap-6">
                         <div className="w-12 h-12 rounded-button bg-white/10 flex items-center justify-center group-hover:bg-brand-gold transition-colors duration-500 shrink-0">
@@ -348,7 +348,7 @@ export default function LightingShowroomDubai() {
           <div className="max-w-4xl mx-auto text-center">
             <FadeUp>
               <div className="p-10 md:p-16 bg-gradient-to-br from-[#111111] to-[#0a0a0a] border border-brand-gold/30 rounded-3xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[100px] rounded-button pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/10 blur-[40px] md:blur-[100px] rounded-button pointer-events-none" />
                 <h2 className="text-3xl md:text-4xl font-serif text-white mb-4 relative z-10">
                   Visit Our Dubai Showroom
                 </h2>

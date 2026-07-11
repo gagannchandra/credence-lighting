@@ -25,7 +25,7 @@ export default function BlogFeatured({ post }) {
 
         {/* Content Section */}
         <div className="lg:w-2/5 bg-surface-elevated p-8 lg:p-12 flex flex-col justify-center z-20 -mt-20 lg:mt-0 relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 blur-[100px] rounded-button pointer-events-none" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-gold/5 blur-[40px] md:blur-[100px] rounded-button pointer-events-none" />
           
           <div className="flex items-center gap-3 mb-6">
             <span className="px-3 py-1 bg-brand-gold/10 text-brand-gold text-xs uppercase tracking-widest border border-brand-gold/20 rounded-button">

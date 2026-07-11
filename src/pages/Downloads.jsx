@@ -45,7 +45,7 @@ export default function Downloads() {
           }]}
         />
         <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-brand-gold/10 blur-[160px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-brand-gold/10 blur-[60px] md:blur-[160px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6">
@@ -68,7 +68,7 @@ export default function Downloads() {
                 key={item.title}
                 href={item.href}
                 {...(item.download ? { download: true } : { target: "_blank", rel: "noreferrer" })}
-                className="group border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:border-brand-gold transition duration-500 rounded-[1.5rem]"
+                className="group border border-white/10 bg-white/5 backdrop-blur-md md:backdrop-blur-xl p-8 hover:border-brand-gold transition duration-500 rounded-[1.5rem]"
               >
                 <p className="uppercase tracking-[0.3em] text-xs text-brand-gold mb-6">
                   {item.type}

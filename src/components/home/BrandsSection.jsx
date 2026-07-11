@@ -80,7 +80,7 @@ export default function BrandsSection() {
           <div className="absolute right-0 top-0 w-32 md:w-52 h-full z-20 bg-gradient-to-l from-black to-transparent pointer-events-none" />
 
           {/* GLASS WRAPPER */}
-          <div className="border-y border-white/10 bg-white/[0.03] backdrop-blur-2xl py-14 overflow-hidden">
+          <div className="border-y border-white/10 bg-white/[0.03] backdrop-blur-md md:backdrop-blur-2xl py-14 overflow-hidden">
 
             <motion.div
               drag="x"
