@@ -684,7 +684,7 @@ export const blogPosts = [
   }
   ,
   {
-    id: "b11",
+    id: "b23",
     slug: "lumen-vs-lux-difference",
     title: "Lumen vs Lux: What's the Difference and Why It Matters",
     excerpt: "Understand the fundamental difference between light output (lumens) and light intensity on a surface (lux) for your next project.",
@@ -716,7 +716,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b12",
+    id: "b24",
     slug: "cri-explained-color-rendering",
     title: "CRI Explained: Why Color Rendering is Crucial for Retail and Homes",
     excerpt: "Learn what the Color Rendering Index (CRI) is and why settling for low CRI LEDs ruins interior design and retail displays.",
@@ -747,7 +747,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b13",
+    id: "b25",
     slug: "color-temperature-guide",
     title: "The Ultimate Guide to LED Color Temperatures (Kelvin)",
     excerpt: "From warm white to cool daylight, learn how to choose the right color temperature for every room and application.",
@@ -776,7 +776,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b14",
+    id: "b26",
     slug: "ip-ratings-outdoor-bathroom",
     title: "IP Ratings: The Ultimate Guide for Outdoor & Bathroom Lighting",
     excerpt: "Demystifying Ingress Protection (IP) ratings to ensure your lighting survives rain, dust, and coastal humidity.",
@@ -808,7 +808,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b15",
+    id: "b27",
     slug: "hospitality-lighting-guest-experience",
     title: "Hospitality Lighting Guide: Creating 5-Star Guest Experiences",
     excerpt: "How premium hotels use lighting design to build emotional connections, guide guests, and define luxury.",
@@ -839,7 +839,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b16",
+    id: "b28",
     slug: "office-lighting-standards-ugr",
     title: "Office Lighting Standards: Lux Levels and Glare Control (UGR)",
     excerpt: "Ensure your corporate workspace meets international standards for productivity, comfort, and safety.",
@@ -870,7 +870,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b17",
+    id: "b29",
     slug: "led-energy-savings-roi",
     title: "LED Energy Savings: Calculating ROI on Commercial Lighting Upgrades",
     excerpt: "Why upgrading to LED is the easiest and most profitable energy conservation measure for commercial facilities.",
@@ -900,7 +900,7 @@ export const blogPosts = [
     }
   },
   {
-    id: "b18",
+    id: "b30",
     slug: "lighting-maintenance-lifespan",
     title: "Lighting Maintenance: Extending the Lifespan of Your LED Systems",
     excerpt: "Best practices for maintaining commercial LED lighting installations to ensure maximum lifespan and performance.",
