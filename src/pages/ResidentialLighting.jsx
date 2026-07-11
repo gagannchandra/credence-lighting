@@ -70,14 +70,38 @@ const contentBlocks = [
 
 const relatedProducts = [
   {
-    title: "Luxury Residential Lighting Design | Credence",
+    title: "Trimless Downlights",
     description: "Invisible, glare-free illumination for modern ceilings.",
     image: indoorImg,
     link: "/products/indoor"
   },
   {
-    title: "Luxury Residential Lighting Design | Credence",
+    title: "Landscape Lighting",
     description: "Weather-resistant fixtures to highlight trees and facades.",
+    image: outdoorImg,
+    link: "/products/outdoor"
+  },
+  {
+    title: "Decorative Chandeliers",
+    description: "Statement pieces for dining rooms and double-height living areas.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Smart Home Controls",
+    description: "Integrated keypads and automation for effortless lighting scenes.",
+    image: outdoorImg,
+    link: "/products/automation"
+  },
+  {
+    title: "Flexible LED Strips",
+    description: "High-CRI strip lights for cove lighting, cabinetry, and accents.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Step & Wall Lights",
+    description: "Subtle illumination for staircases and exterior boundary walls.",
     image: outdoorImg,
     link: "/products/outdoor"
   }

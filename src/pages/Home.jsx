@@ -1,5 +1,4 @@
 import { useEffect, Suspense, lazy } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
 import { scrollToSection } from "../utils/scrollUtils";
@@ -127,8 +126,6 @@ export default function Home() {
         ]}
       />
       <ReturnScrollHandler />
-      <Navbar />
-
       <main className="bg-transparent min-h-screen relative overflow-hidden">
         {/* Global Continuous Background Lighting */}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

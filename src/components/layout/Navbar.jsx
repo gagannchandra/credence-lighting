@@ -19,8 +19,8 @@ const navItems = [
     dropdown: [
       { name: "Indoor Lighting", to: "/products/indoor" },
       { name: "Outdoor Lighting", to: "/products/outdoor" },
-      { name: "Decorative Lighting", to: "/products/decorative" },
-      { name: "Architectural Lighting", to: "/products/architectural" },
+      { name: "Hospitality Lighting", to: "/products/hospitality" },
+      { name: "Facade Lighting", to: "/facade-lighting" },
       { name: "Smart Lighting", to: "/products/automation" },
       { name: "Browse All Products", to: "/products" },
     ],
@@ -34,11 +34,11 @@ const navItems = [
     to: "/solutions",
     dropdown: [
       { name: "Hospitality", to: "/hotel-lighting" },
-      { name: "Residential", to: "/residential-lighting" },
-      { name: "Commercial", to: "/lighting-company-dubai" },
       { name: "Retail", to: "/retail-lighting" },
       { name: "Entertainment", to: "/entertainment-lighting" },
-      { name: "Office", to: "/office-lighting" },
+      { name: "Facade Lighting", to: "/facade-lighting" },
+      { name: "Audio & Sound", to: "/audio-solutions" },
+      { name: "View All Solutions", to: "/solutions" },
     ],
     featured: {
       title: "Lighting Solutions",

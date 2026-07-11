@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layers, Sun, Lightbulb, Ruler, Palette, Zap } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -84,8 +83,6 @@ export default function CeilingLightsDubai() {
         description="Premium LED ceiling lights in Dubai — recessed downlights, surface panels, linear profiles, and decorative pendants. Visit our showroom or request a project quote."
         schema={[faqSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">

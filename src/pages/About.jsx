@@ -1,5 +1,4 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import AboutSection from "../components/home/AboutSection";
 import { scrollToTop } from "../utils/scrollUtils";
@@ -53,7 +52,6 @@ export default function About() {
           ]
         }]}
       />
-      <Navbar />
       <div className="relative bg-transparent pt-10 pb-20 overflow-hidden">
         {/* SHARED BACKGROUND GLOW */}
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-brand-gold/10 blur-[200px] pointer-events-none" />

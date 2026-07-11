@@ -80,6 +80,30 @@ const relatedProducts = [
     description: "Minimalist, tool-free lighting tracks for modern showrooms.",
     image: retailImg,
     link: "/products/retail"
+  },
+  {
+    title: "High-CRI Downlights",
+    description: "Precision downlights that make colors and textures pop.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Linear Aisle Lighting",
+    description: "Even, high-efficiency illumination for supermarket aisles.",
+    image: retailImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Window Display Lights",
+    description: "High-intensity fixtures to combat daylight glare in shop windows.",
+    image: indoorImg,
+    link: "/products/retail"
+  },
+  {
+    title: "Recessed Wall Washers",
+    description: "Vertical illumination to highlight shelving and perimeter displays.",
+    image: retailImg,
+    link: "/products/indoor"
   }
 ];
 

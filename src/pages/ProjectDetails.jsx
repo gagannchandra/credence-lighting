@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
-import BackButton from "../components/ui/BackButton";
 import PageLink from "../components/ui/PageLink";
 import projects from "../data/projects";
 import SEO from "../components/seo/SEO";
@@ -80,7 +79,6 @@ export default function ProjectDetails() {
   if (!project) {
     return (
       <div className="h-screen bg-transparent flex flex-col items-center justify-center text-white text-3xl font-serif">
-        <BackButton />
         Project Not Found
       </div>
     );
@@ -117,7 +115,6 @@ export default function ProjectDetails() {
         <div className="absolute top-[70%] right-[5%] w-[40%] h-[40%] bg-brand-gold rounded-button blur-[150px] opacity-[0.07]" />
       </div>
       
-      <BackButton />
 
       <section className="relative pt-24 md:pt-32 pb-24 px-6 md:px-12 z-10 max-w-[1500px] mx-auto flex flex-col md:flex-row items-start gap-12 lg:gap-24">
         {/* LEFT: Scrollable Gallery */}

@@ -2,7 +2,6 @@ import { useParams, Navigate, Link } from "react-router-dom";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
 import SEO from "../components/seo/SEO";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ArticleBody from "../components/blog/ArticleBody";
 import ArticleTOC from "../components/blog/ArticleTOC";
@@ -72,8 +71,6 @@ export default function BlogDetail() {
         schema={schemas}
       />
       
-      <Navbar />
-
       {/* Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-brand-gold origin-left z-50"

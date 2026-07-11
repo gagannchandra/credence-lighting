@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Sun, TreePine, Building, Lamp, ShieldCheck, Droplets } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -84,8 +83,6 @@ export default function OutdoorLightingDubai() {
         description="Premium outdoor lighting in Dubai — garden lights, wall lights, facade fixtures, and landscape lighting. IP-rated for Gulf climate. Visit our showroom."
         schema={[faqSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">

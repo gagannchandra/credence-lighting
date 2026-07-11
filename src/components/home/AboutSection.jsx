@@ -142,7 +142,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
             </p>
           </FadeUp>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-[800px] mx-auto text-left">
+          <div className="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto text-center">
 
           {/* PRODUCTS CARD */}
           <FadeUp delay={4} className="h-full">
@@ -163,8 +163,39 @@ export default function AboutSection({ preview = false, asPage = false }) {
                     Discover
                   </p>
 
-                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-white tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-white tracking-[0.05em]">
                     Explore Products
+                  </h4>
+
+                  <div className="relative z-10 mt-3 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
+                    →
+                  </div>
+
+              </button>
+            </HoverLift>
+          </FadeUp>
+
+          {/* CLIENTS CARD */}
+          <FadeUp delay={5} className="h-full">
+            <HoverLift className="h-full">
+              <button
+                type="button"
+                onClick={() => navigate("/brands")}
+                className="group relative overflow-hidden border border-white/10 rounded-3xl p-6 bg-white/[0.03] backdrop-blur-2xl transition duration-500 h-full min-h-[160px] flex flex-col items-center justify-center w-full cursor-pointer"
+              >
+
+                  {/* HOVER GLOW */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
+
+                  {/* INNER GLOW */}
+                  <div className="absolute w-[150px] h-[150px] bg-white/5 blur-[80px] opacity-0 group-hover:opacity-100 transition duration-700" />
+
+                  <p className="relative z-10 tracking-[0.3em] uppercase text-xs text-white/40">
+                    Network
+                  </p>
+
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-white tracking-[0.05em]">
+                    Our Clients
                   </h4>
 
                   <div className="relative z-10 mt-3 text-2xl text-white/40 group-hover:translate-x-2 transition duration-500">
@@ -194,7 +225,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
                     Showcase
                   </p>
 
-                  <h4 className="relative z-10 mt-2 text-2xl md:text-3xl font-serif text-brand-gold tracking-[0.05em]">
+                  <h4 className="relative z-10 mt-2 text-xl md:text-2xl font-serif text-brand-gold tracking-[0.05em]">
                     View Portfolio
                   </h4>
 

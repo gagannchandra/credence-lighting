@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Lightbulb, Ruler, Home, Building2, UtensilsCrossed, Palette } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -60,8 +59,6 @@ export default function PendantLightsDubai() {
         description="Premium pendant lights and hanging fixtures for Dubai homes, hotels, and commercial spaces. Statement pendants, custom designs, and kitchen island lighting."
         schema={[faqSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">

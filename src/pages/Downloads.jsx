@@ -1,6 +1,4 @@
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import BackButton from "../components/ui/BackButton";
 import PageTransition from "../components/ui/motion/PageTransition";
 import SEO from "../components/seo/SEO";
 
@@ -46,10 +44,7 @@ export default function Downloads() {
             "url": "https://credencelighting.com/downloads"
           }]}
         />
-        <Navbar />
-      <BackButton />
-
-      <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
+        <section className="relative pt-40 px-6 md:px-16 pb-24 overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-brand-gold/10 blur-[160px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto">

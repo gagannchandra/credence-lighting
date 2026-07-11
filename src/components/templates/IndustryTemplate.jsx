@@ -1,13 +1,14 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import SEO from "../../components/seo/SEO";
 import InlineFAQ from "../../components/seo/InlineFAQ";
 import FadeUp from "../../components/ui/motion/FadeUp";
 import { scrollToTop } from "../../utils/scrollUtils";
 import ArticleBody from "../../components/blog/ArticleBody";
+
+import IndustriesWeServe from "../../components/sections/IndustriesWeServe";
 
 export default function IndustryTemplate({ 
   seo, 
@@ -31,8 +32,6 @@ export default function IndustryTemplate({
         description={seo.description}
         schema={schema}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO SECTION */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
@@ -176,17 +175,13 @@ export default function IndustryTemplate({
           </section>
         )}
 
+        {/* INDUSTRIES WE SERVE */}
+        <IndustriesWeServe />
+
         {/* FAQ SECTION */}
         {faqs && (
           <section className="py-24 px-6 md:px-12 bg-white/[0.02]">
             <div className="max-w-4xl mx-auto">
-              <FadeUp>
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-4xl font-serif text-white mb-6">
-                    Frequently Asked Questions
-                  </h2>
-                </div>
-              </FadeUp>
               <InlineFAQ faqs={faqs} />
             </div>
           </section>

@@ -1,18 +1,20 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 import PageTransition from "../components/ui/motion/PageTransition";
 import { ArrowUpRight } from "lucide-react";
+import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 
 import hospitalityImg from "../assets/images/hospitality/1.webp";
 import residentialImg from "../assets/images/indoor/3.webp";
-import commercialImg from "../assets/images/facade/1.webp";
+import restaurantImg from "../assets/images/ground-control/154.webp";
 import retailImg from "../assets/images/Retail Lighting/1.webp";
 import entertainmentImg from "../assets/images/entertainment/1.webp";
 import officeImg from "../assets/images/indoor/4.webp";
+import audioImg from "../assets/images/sound/1.webp";
+import facadeImg from "../assets/images/facade/1.webp";
 
 const solutionsData = [
   {
@@ -32,11 +34,11 @@ const solutionsData = [
     aspectRatio: "aspect-[4/3]"
   },
   {
-    id: "commercial",
-    title: "Commercial",
-    description: "High-performance, energy-efficient lighting solutions designed for large-scale commercial developments and corporate spaces.",
-    image: commercialImg,
-    link: "/lighting-company-dubai",
+    id: "restaurant",
+    title: "Restaurant",
+    description: "Ambiance-focused lighting solutions for dining venues and cafes, tailored for perfect guest experiences.",
+    image: restaurantImg,
+    link: "/restaurant-lighting",
     aspectRatio: "aspect-square"
   },
   {
@@ -62,6 +64,22 @@ const solutionsData = [
     image: officeImg,
     link: "/office-lighting",
     aspectRatio: "aspect-[4/3]"
+  },
+  {
+    id: "audio",
+    title: "Audio & Sound",
+    description: "Premium commercial audio systems and acoustic design for seamless architectural integration.",
+    image: audioImg,
+    link: "/audio-solutions",
+    aspectRatio: "aspect-square"
+  },
+  {
+    id: "facade",
+    title: "Building Facades",
+    description: "Architectural and dynamic media facade illumination designed to make your building a landmark of the night.",
+    image: facadeImg,
+    link: "/facade-lighting",
+    aspectRatio: "aspect-[4/5]"
   }
 ];
 
@@ -77,8 +95,6 @@ export default function Solutions() {
         title="Lighting Solutions | Credence Lighting Dubai" 
         description="Explore our specialized lighting solutions for hospitality, residential, commercial, retail, entertainment, and office sectors across the Middle East." 
       />
-      <Navbar />
-      
       <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-20">
         {/* BACKGROUND GLOW */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
@@ -136,6 +152,9 @@ export default function Solutions() {
             ))}
           </div>
         </div>
+
+        {/* INDUSTRIES WE SERVE COMPONENT */}
+        <IndustriesWeServe />
 
       </div>
       <Footer />

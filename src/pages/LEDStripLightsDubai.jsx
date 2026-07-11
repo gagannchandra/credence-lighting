@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Waves, Ruler, Palette, Shield, Cpu, Zap } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -60,8 +59,6 @@ export default function LEDStripLightsDubai() {
         description="Premium LED strip lights in Dubai — flexible strips, neon flex, RGBW, IP-rated outdoor strips, and high-density architectural profiles. Cut-to-length service available."
         schema={[faqSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">

@@ -1,5 +1,4 @@
 import { useLayoutEffect, useState } from "react";
-import Navbar from "../components/layout/Navbar";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import projects from "../data/projects";
@@ -38,8 +37,6 @@ export default function Projects() {
           }))
         }]}
       />
-      <Navbar />
-      
       <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-10">
         {/* BACKGROUND GLOW */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />

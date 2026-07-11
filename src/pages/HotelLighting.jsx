@@ -78,18 +78,48 @@ const contentBlocks = [
   { type: "quote", content: "True luxury in hotel lighting is when the guest feels perfectly comfortable without ever noticing the light fixtures themselves." }
 ];
 
+import hotelDownlightImg from "../assets/images/generated/hotel_downlight.png";
+import hotelFacadeImg from "../assets/images/generated/hotel_facade.png";
+import hotelPendantImg from "../assets/images/generated/hotel_pendant.png";
+import hotelStripImg from "../assets/images/generated/hotel_strip.png";
+import hotelBollardImg from "../assets/images/generated/hotel_bollard.png";
+
 const relatedProducts = [
   {
     title: "Hospitality Downlights",
     description: "Deep-recessed, low-glare downlights perfect for lobbies and guestrooms.",
-    image: indoorImg,
+    image: hotelDownlightImg,
     link: "/products/hospitality"
   },
   {
     title: "Exterior Facade Systems",
     description: "Durable, IP67-rated grazers and floodlights for stunning exterior illumination.",
-    image: outdoorImg,
+    image: hotelFacadeImg,
     link: "/products/facade"
+  },
+  {
+    title: "Decorative Pendants",
+    description: "Statement chandeliers and pendants for atriums and dining areas.",
+    image: hotelPendantImg,
+    link: "/products/hospitality"
+  },
+  {
+    title: "LED Strip Lighting",
+    description: "Concealed linear lighting for coves, headboards, and accent details.",
+    image: hotelStripImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Landscape Bollards",
+    description: "Elegant pathway lighting for hotel gardens and pool decks.",
+    image: hotelBollardImg,
+    link: "/products/outdoor"
+  },
+  {
+    title: "Smart Room Controls",
+    description: "Integrated keypads and automation for personalized guest experiences.",
+    image: indoorImg, // Placeholder since API rate limit hit
+    link: "/products/automation"
   }
 ];
 

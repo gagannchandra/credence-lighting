@@ -80,6 +80,30 @@ const relatedProducts = [
     description: "Direct-view video elements integrated into the architecture.",
     image: xtremeImg,
     link: "/products/led-screen"
+  },
+  {
+    title: "Theatrical Spotlights",
+    description: "High-intensity focusable spots for stage and performance areas.",
+    image: funturaImg,
+    link: "/products/entertainment"
+  },
+  {
+    title: "Pixel Mapping Lights",
+    description: "Individually controllable LED nodes for complex visual effects.",
+    image: xtremeImg,
+    link: "/products/entertainment"
+  },
+  {
+    title: "Laser Projectors",
+    description: "Advanced laser effects for high-energy entertainment venues.",
+    image: funturaImg,
+    link: "/products/entertainment"
+  },
+  {
+    title: "Moving Head Fixtures",
+    description: "Automated dynamic lighting for clubs and immersive arenas.",
+    image: xtremeImg,
+    link: "/products/entertainment"
   }
 ];
 

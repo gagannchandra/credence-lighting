@@ -1,5 +1,4 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import ContactSection from "../components/home/ContactSection";
 import { scrollToTop } from "../utils/scrollUtils";
@@ -43,7 +42,6 @@ export default function Contact() {
           "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "UAE", "Saudi Arabia", "Bahrain"]
         }]}
       />
-      <Navbar />
       <div className="bg-transparent pt-10">
         <ContactSection asPage />
       </div>

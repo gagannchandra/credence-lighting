@@ -2,7 +2,6 @@ import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Building2, Lightbulb, Globe, Wrench, ShieldCheck, HeadphonesIcon } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -43,16 +42,7 @@ const services = [
   }
 ];
 
-const industries = [
-  { name: "Hotels & Resorts", link: "/products/hospitality" },
-  { name: "Retail & Showrooms", link: "/products/retail" },
-  { name: "Offices & Commercial", link: "/products/indoor" },
-  { name: "Entertainment Venues", link: "/products/entertainment" },
-  { name: "Restaurants & Cafés", link: "/products/hospitality" },
-  { name: "Residential Villas", link: "/products/indoor" },
-  { name: "Building Facades", link: "/products/facade" },
-  { name: "LED Screens & Signage", link: "/products/led-screen" },
-];
+import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 
 const faqs = [
   { id: "lc1", question: "What makes Credence Lighting different from other lighting companies in Dubai?", answer: "Credence Lighting combines in-house design and manufacturing with supply of premium international brands. We offer end-to-end project delivery from initial concept through commissioning and after-sales support, backed by 10+ years of experience and over 1,000 completed projects across the GCC." },
@@ -117,8 +107,6 @@ export default function LightingCompanyDubai() {
         description="Credence Lighting is a leading lighting company in Dubai providing architectural, commercial, and hospitality lighting. 1000+ projects, 10+ years, GCC-wide delivery."
         schema={[faqSchema, serviceSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
@@ -228,36 +216,7 @@ export default function LightingCompanyDubai() {
         </section>
 
         {/* INDUSTRIES WE SERVE */}
-        <section className="py-24 px-6 md:px-12 border-t border-white/10">
-          <div className="max-w-6xl mx-auto">
-            <FadeUp>
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                <h2 className="text-3xl md:text-4xl font-serif text-white mb-6">
-                  Industries We Serve
-                </h2>
-                <p className="text-white/60 text-lg leading-relaxed">
-                  From luxury hotel lobbies to high-energy entertainment venues, our lighting 
-                  solutions are designed for the specific demands of each industry.
-                </p>
-              </div>
-            </FadeUp>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {industries.map((industry, index) => (
-                <FadeUp key={industry.name} delay={index * 0.5}>
-                  <Link
-                    to={industry.link}
-                    className="group border border-white/10 rounded-panel p-6 bg-white/[0.02] hover:bg-white/[0.05] hover:border-brand-gold/30 transition-all duration-500 text-center block"
-                  >
-                    <h3 className="text-white text-base font-medium group-hover:text-brand-gold transition-colors duration-300">
-                      {industry.name}
-                    </h3>
-                  </Link>
-                </FadeUp>
-              ))}
-            </div>
-          </div>
-        </section>
+        <IndustriesWeServe />
 
         {/* WHY CHOOSE US — CONTENT SECTION FOR SEO */}
         <section className="py-24 px-6 md:px-12 border-t border-white/10">

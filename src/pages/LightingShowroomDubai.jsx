@@ -1,7 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Clock, Phone, Mail, Eye, Users, Palette, Settings } from "lucide-react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -109,8 +108,6 @@ export default function LightingShowroomDubai() {
         description="Visit Credence Lighting's showroom in Dubai Investment Park. See premium LED fixtures, control systems, and architectural lighting in working displays. Book a visit today."
         schema={[faqSchema, localBusinessSchema, breadcrumbSchema]}
       />
-      <Navbar />
-
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">

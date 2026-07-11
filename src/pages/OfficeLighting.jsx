@@ -70,14 +70,38 @@ const contentBlocks = [
 
 const relatedProducts = [
   {
-    title: "Commercial Office Lighting Solutions | Credence",
+    title: "Linear Suspended Profiles",
     description: "Sleek, low-glare linear lighting for open-plan desks.",
     image: indoorImg,
     link: "/products/indoor"
   },
   {
-    title: "Commercial Office Lighting Solutions | Credence",
+    title: "Acoustic Lighting",
     description: "Fixtures that illuminate while absorbing office noise.",
+    image: officeImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Tunable White Panels",
+    description: "HCL-ready LED panels that adjust color temperature throughout the day.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Task Lighting",
+    description: "Adjustable desk lamps for individualized workstation illumination.",
+    image: officeImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Occupancy Sensors",
+    description: "Smart sensors that maximize energy savings in meeting rooms.",
+    image: indoorImg,
+    link: "/products/automation"
+  },
+  {
+    title: "Recessed Downlights",
+    description: "Low-UGR downlights for glare-free illumination in corridors and lobbies.",
     image: officeImg,
     link: "/products/indoor"
   }

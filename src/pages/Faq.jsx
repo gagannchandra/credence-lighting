@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Search, X, MessageSquareText } from "lucide-react";
 import { Link } from "react-router-dom";
 import SEO from "../components/seo/SEO";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import FaqAccordionGroup from "../components/faq/FaqAccordionGroup";
 import PageTransition from "../components/ui/motion/PageTransition";
@@ -140,8 +139,6 @@ export default function Faq() {
         schema={faqSchema}
       />
       
-      <Navbar />
-
       <main className="pt-32 pb-24">
         {/* Hero Section */}
         <div className="max-w-5xl mx-auto px-6 md:px-12 text-center mb-16">

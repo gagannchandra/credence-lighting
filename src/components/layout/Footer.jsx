@@ -126,6 +126,10 @@ export default function Footer() {
 
             <div className="space-y-3 text-white/40 text-sm">
 
+              <Link to="/lighting-company-dubai" className="block hover:text-white transition duration-300 touch-glow">
+                Dubai
+              </Link>
+
               <Link to="/lighting-companies-uae" className="block hover:text-white transition duration-300 touch-glow">
                 UAE
               </Link>

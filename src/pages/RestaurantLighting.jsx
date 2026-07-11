@@ -80,6 +80,30 @@ const relatedProducts = [
     description: "Statement pieces to define bar and dining areas.",
     image: restImg,
     link: "/products/indoor"
+  },
+  {
+    title: "Warm Dimming Downlights",
+    description: "Smooth transition to warmer tones as lights dim for evening service.",
+    image: indoorImg,
+    link: "/products/hospitality"
+  },
+  {
+    title: "Miniature Spotlights",
+    description: "Discreet spots to highlight artwork and architectural features.",
+    image: indoorImg,
+    link: "/products/indoor"
+  },
+  {
+    title: "Table Lamps (Battery)",
+    description: "Rechargeable, cordless table lamps for intimate dining ambiance.",
+    image: restImg,
+    link: "/products/hospitality"
+  },
+  {
+    title: "Track Lighting",
+    description: "Flexible lighting for changing table layouts and seasonal displays.",
+    image: indoorImg,
+    link: "/products/indoor"
   }
 ];
 

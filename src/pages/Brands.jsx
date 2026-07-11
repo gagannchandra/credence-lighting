@@ -1,9 +1,8 @@
 import { useLayoutEffect } from "react";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
-import BackButton from "../components/ui/BackButton";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { scrollToTop } from "../utils/scrollUtils";
 import PageTransition from "../components/ui/motion/PageTransition";
 
@@ -65,9 +64,6 @@ export default function Brands() {
           "url": "https://credencelighting.com/brands"
         }]}
       />
-      <Navbar />
-      <BackButton />
-
       <section
         id="brands-page-top"
         className="relative min-h-screen bg-transparent overflow-hidden pt-40 pb-28"
@@ -86,9 +82,9 @@ export default function Brands() {
             </p>
 
             <h1 className="text-fluid-h1 font-serif text-white">
-              Our Global
+              Serving Clients
               <span className="italic text-brand-gold">
-                {" "}Our Clients
+                {" "}Across the Globe
               </span>
             </h1>
 
@@ -98,6 +94,15 @@ export default function Brands() {
               hospitality groups, and architectural innovators across
               multiple countries.
             </p>
+
+            <div className="mt-12 flex justify-center">
+              <Link 
+                to="/projects"
+                className="px-10 py-4 bg-brand-gold text-black rounded-full text-sm font-semibold tracking-wider uppercase hover:bg-white transition-colors"
+              >
+                View Our Projects
+              </Link>
+            </div>
 
           </div>
 

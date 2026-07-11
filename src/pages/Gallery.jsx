@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import BackButton from "../components/ui/BackButton";
 import Lightbox from "../components/ui/Lightbox";
 import SEO from "../components/seo/SEO";
 import PageTransition from "../components/ui/motion/PageTransition";
@@ -39,7 +38,6 @@ export default function Gallery() {
         }]}
       />
       <section className="min-h-screen bg-transparent py-20 md:py-32 px-4 md:px-16">
-      <BackButton />
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

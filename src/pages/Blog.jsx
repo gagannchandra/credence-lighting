@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import SEO from "../components/seo/SEO";
-import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import PageTransition from "../components/ui/motion/PageTransition";
 import BlogCard from "../components/blog/BlogCard";
@@ -63,8 +62,6 @@ export default function Blog() {
         }]}
       />
       
-      <Navbar />
-
       <main className="pt-32 pb-24 relative">
         {/* Ambient Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-gold/10 blur-[150px] rounded-button pointer-events-none -z-10" />

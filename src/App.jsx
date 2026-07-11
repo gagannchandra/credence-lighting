@@ -7,6 +7,9 @@ import WhatsappFloat from "./components/ui/WhatsappFloat";
 import SmoothScroll from "./components/ui/SmoothScroll";
 import CustomCursor from "./components/ui/CustomCursor";
 import AmbientBackground from "./components/layout/AmbientBackground";
+import Navbar from "./components/layout/Navbar";
+import BackButton from "./components/ui/BackButton";
+
 const Home = lazy(() => import("./pages/Home"));
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
@@ -39,6 +42,8 @@ const OfficeLighting = lazy(() => import("./pages/OfficeLighting"));
 const RetailLighting = lazy(() => import("./pages/RetailLighting"));
 const RestaurantLighting = lazy(() => import("./pages/RestaurantLighting"));
 const EntertainmentLighting = lazy(() => import("./pages/EntertainmentLighting"));
+const AudioSolutions = lazy(() => import("./pages/AudioSolutions"));
+const FacadeLighting = lazy(() => import("./pages/FacadeLighting"));
 
 // Location Pages
 const LocationAbuDhabi = lazy(() => import("./pages/LocationAbuDhabi"));
@@ -70,8 +75,10 @@ export default function App() {
 
       <SmoothScroll>
       <AmbientBackground />
+      <Navbar />
       <CustomCursor />
       <ScrollToTop />
+      {location.pathname !== "/" && <BackButton />}
 
       <Suspense fallback={loading ? null : <Loader />}>
         <AnimatePresence mode="wait">
@@ -108,6 +115,8 @@ export default function App() {
             <Route path="/retail-lighting" element={<RetailLighting />} />
             <Route path="/restaurant-lighting" element={<RestaurantLighting />} />
             <Route path="/entertainment-lighting" element={<EntertainmentLighting />} />
+            <Route path="/audio-solutions" element={<AudioSolutions />} />
+            <Route path="/facade-lighting" element={<FacadeLighting />} />
 
             {/* Location Pages */}
             <Route path="/lighting-suppliers-abu-dhabi" element={<LocationAbuDhabi />} />
