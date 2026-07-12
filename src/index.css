@@ -238,6 +238,16 @@ body {
   pointer-events: none;
 }
 
+/* 📱 MOBILE DEEP OPTIMIZATION: Disable expensive background rendering */
+@media (max-width: 767px) {
+  .ambient-orb {
+    animation: none !important;
+  }
+  .ambient-noise-overlay {
+    display: none !important;
+  }
+}
+
 /* =========================================
    PERFORMANCE MODE (HARDWARE SNIFFER)
    ========================================= */
