@@ -68,41 +68,48 @@ const contentBlocks = [
   { type: "callout", content: "We offer end-to-end residential services, from the initial CAD lighting layout to the final aiming and commissioning of fixtures on-site." }
 ];
 
+import resDownlightImg from "../assets/images/indoor/res_downlight.webp";
+import resLandscapeImg from "../assets/images/outdoor/res_landscape.webp";
+import resChandelierImg from "../assets/images/indoor/res_chandelier.webp";
+import resSmartImg from "../assets/images/Home Automation/res_smart.webp";
+import resStripImg from "../assets/images/indoor/res_strip.webp";
+import resStepImg from "../assets/images/indoor/res_step.webp";
+
 const relatedProducts = [
   {
     title: "Trimless Downlights",
     description: "Invisible, glare-free illumination for modern ceilings.",
-    image: indoorImg,
+    image: resDownlightImg,
     link: "/products/indoor"
   },
   {
     title: "Landscape Lighting",
     description: "Weather-resistant fixtures to highlight trees and facades.",
-    image: outdoorImg,
+    image: resLandscapeImg,
     link: "/products/outdoor"
   },
   {
     title: "Decorative Chandeliers",
     description: "Statement pieces for dining rooms and double-height living areas.",
-    image: indoorImg,
+    image: resChandelierImg,
     link: "/products/indoor"
   },
   {
     title: "Smart Home Controls",
     description: "Integrated keypads and automation for effortless lighting scenes.",
-    image: outdoorImg,
+    image: resSmartImg,
     link: "/products/automation"
   },
   {
     title: "Flexible LED Strips",
     description: "High-CRI strip lights for cove lighting, cabinetry, and accents.",
-    image: indoorImg,
+    image: resStripImg,
     link: "/products/indoor"
   },
   {
     title: "Step & Wall Lights",
     description: "Subtle illumination for staircases and exterior boundary walls.",
-    image: outdoorImg,
+    image: resStepImg,
     link: "/products/outdoor"
   }
 ];

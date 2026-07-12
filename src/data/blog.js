@@ -1,20 +1,20 @@
-import aiImg0 from "../assets/images/blog/ai/arch_light_evolve_1783600952937.png";
-import aiImg1 from "../assets/images/blog/ai/hcl_office_light_1783600963545.png";
-import aiImg2 from "../assets/images/blog/ai/lux_resi_light_1783600977026.png";
-import aiImg3 from "../assets/images/blog/ai/retail_light_sales_1783600986786.png";
-import aiImg4 from "../assets/images/blog/ai/outdoor_land_light_1783600998924.png";
-import aiImg5 from "../assets/images/blog/ai/led_dimming_proto_1783601009206.png";
-import aiImg6 from "../assets/images/blog/ai/sust_light_leed_1783601020157.png";
-import aiImg7 from "../assets/images/blog/ai/hosp_light_exp_1783601031210.png";
-import aiImg8 from "../assets/images/blog/ai/wire_light_casambi_1783601042124.png";
-import aiImg9 from "../assets/images/blog/ai/linear_light_trends_1783601052072.png";
-import aiImg10 from "../assets/images/blog/ai/choose_light_company_1783601074596.png";
-import aiImg11 from "../assets/images/blog/ai/led_suppliers_dubai_1783601085607.png";
-import aiImg12 from "../assets/images/blog/ai/visit_showroom_dubai_1783601094608.png";
-import aiImg13 from "../assets/images/blog/ai/luxury_light_sol_1783601104223.png";
-import aiImg14 from "../assets/images/blog/ai/ceiling_lights_guide_1783601114843.png";
-import aiImg15 from "../assets/images/blog/ai/led_ceiling_choose_1783601125727.png";
-import aiImg16 from "../assets/images/blog/ai/outdoor_wall_guide_1783601136390.png";
+import aiImg0 from "../assets/images/blog/ai/arch_light_evolve_1783600952937.webp";
+import aiImg1 from "../assets/images/blog/ai/hcl_office_light_1783600963545.webp";
+import aiImg2 from "../assets/images/blog/ai/lux_resi_light_1783600977026.webp";
+import aiImg3 from "../assets/images/blog/ai/retail_light_sales_1783600986786.webp";
+import aiImg4 from "../assets/images/blog/ai/outdoor_land_light_1783600998924.webp";
+import aiImg5 from "../assets/images/blog/ai/led_dimming_proto_1783601009206.webp";
+import aiImg6 from "../assets/images/blog/ai/sust_light_leed_1783601020157.webp";
+import aiImg7 from "../assets/images/blog/ai/hosp_light_exp_1783601031210.webp";
+import aiImg8 from "../assets/images/blog/ai/wire_light_casambi_1783601042124.webp";
+import aiImg9 from "../assets/images/blog/ai/linear_light_trends_1783601052072.webp";
+import aiImg10 from "../assets/images/blog/ai/choose_light_company_1783601074596.webp";
+import aiImg11 from "../assets/images/blog/ai/led_suppliers_dubai_1783601085607.webp";
+import aiImg12 from "../assets/images/blog/ai/visit_showroom_dubai_1783601094608.webp";
+import aiImg13 from "../assets/images/blog/ai/luxury_light_sol_1783601104223.webp";
+import aiImg14 from "../assets/images/blog/ai/ceiling_lights_guide_1783601114843.webp";
+import aiImg15 from "../assets/images/blog/ai/led_ceiling_choose_1783601125727.webp";
+import aiImg16 from "../assets/images/blog/ai/outdoor_wall_guide_1783601136390.webp";
 
 
 export const blogPosts = [

@@ -70,41 +70,48 @@ const contentBlocks = [
   { type: "callout", content: "Our audio systems are designed to integrate flawlessly with your lighting controls (KNX, DALI, Crestron), allowing you to recall unified 'Scenes' that adjust both lighting and music simultaneously." }
 ];
 
+import audioCeilingImg from "../assets/images/sound/audio_ceiling.webp";
+import audioInvisibleImg from "../assets/images/sound/audio_invisible.webp";
+import audioLandscapeImg from "../assets/images/sound/audio_landscape.webp";
+import audioDspImg from "../assets/images/sound/audio_dsp.webp";
+import audioPaImg from "../assets/images/sound/audio_pa.webp";
+import audioHometheaterImg from "../assets/images/sound/audio_hometheater.webp";
+
 const relatedProducts = [
   {
     title: "Ceiling & Pendant Speakers",
     description: "Architectural speakers designed to match lighting form factors.",
-    image: soundImg1,
+    image: audioCeilingImg,
     link: "/products/audio" 
   },
   {
     title: "Invisible Speakers",
     description: "Plaster-over speakers for a completely hidden audio experience.",
-    image: soundImg2,
+    image: audioInvisibleImg,
     link: "/products/audio"
   },
   {
     title: "Landscape Audio",
     description: "Durable, high-performance sound for outdoor environments.",
-    image: soundImg1,
+    image: audioLandscapeImg,
     link: "/products/audio"
   },
   {
     title: "DSP & Amplifiers",
     description: "Professional grade processing and amplification for multi-zone control.",
-    image: soundImg2,
+    image: audioDspImg,
     link: "/products/audio"
   },
   {
     title: "Public Address Systems",
     description: "Clear and reliable paging and voice evacuation audio setups.",
-    image: soundImg1,
+    image: audioPaImg,
     link: "/products/audio"
   },
   {
     title: "Home Theater Audio",
     description: "Immersive surround sound solutions for private cinemas.",
-    image: soundImg2,
+    image: audioHometheaterImg,
     link: "/products/audio"
   }
 ];

@@ -68,29 +68,34 @@ const contentBlocks = [
   { type: "callout", content: "We implement advanced DALI and Casambi control systems that automatically transition the lighting scenes based on the time of day, ensuring the ambiance is always perfect without staff intervention." }
 ];
 
+import restPinholeImg from "../assets/images/hospitality/rest_pinhole.webp";
+import restPendantImg from "../assets/images/hospitality/rest_pendant.webp";
+import restDimmingImg from "../assets/images/hospitality/rest_dimming.webp";
+import restSpotlightImg from "../assets/images/hospitality/rest_spotlight.webp";
+
 const relatedProducts = [
   {
     title: "Pinhole Downlights",
     description: "Deep-recessed spots for dramatic, glare-free table lighting.",
-    image: indoorImg,
+    image: restPinholeImg,
     link: "/products/hospitality"
   },
   {
     title: "Decorative Pendants",
     description: "Statement pieces to define bar and dining areas.",
-    image: restImg,
+    image: restPendantImg,
     link: "/products/indoor"
   },
   {
     title: "Warm Dimming Downlights",
     description: "Smooth transition to warmer tones as lights dim for evening service.",
-    image: indoorImg,
+    image: restDimmingImg,
     link: "/products/hospitality"
   },
   {
     title: "Miniature Spotlights",
     description: "Discreet spots to highlight artwork and architectural features.",
-    image: indoorImg,
+    image: restSpotlightImg,
     link: "/products/indoor"
   },
   {
