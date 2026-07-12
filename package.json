@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev:vite": "vite",
+    "dev:vite": "vite --host",
     "dev:api": "node server.js",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:vite\"",
     "prebuild": "node generate-routes.js",

@@ -16,11 +16,11 @@ export default function Loader({ isInitial = false }) {
   return (
     <Container 
       {...containerProps}
-      className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden ${isInitial ? "bg-[var(--color-surface-base)]" : "bg-transparent backdrop-blur-md"}`}
+      className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden ${isInitial ? "bg-[var(--color-surface-base)]" : "bg-[var(--color-surface-base)]/90 sm:bg-transparent sm:backdrop-blur-md"}`}
     >
 
       {/* GOLD AMBIENT GLOW (Responsive) */}
-      <div className="absolute w-[150vw] h-[150vw] sm:w-[700px] sm:h-[700px] bg-brand-gold/15 blur-[120px] sm:blur-[180px] rounded-full" />
+      <div className="absolute w-[100vw] h-[100vw] sm:w-[700px] sm:h-[700px] bg-brand-gold/10 sm:bg-brand-gold/15 blur-[40px] sm:blur-[180px] rounded-full" />
 
       {/* GRID LIGHT EFFECT */}
       <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px] sm:bg-[size:60px_60px]" />
@@ -32,7 +32,7 @@ export default function Loader({ isInitial = false }) {
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: shouldReduceMotion ? 0 : 1 }}
-          className="relative flex items-center justify-center group"
+          className="relative flex items-center justify-center group will-change-transform transform-gpu"
         >
           {/* Sunburst/Glow Effect Background */}
           <div className="absolute inset-0 bg-[#c8a96b]/30 blur-2xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
@@ -40,7 +40,9 @@ export default function Loader({ isInitial = false }) {
           <img
             src={logo2}
             alt="Credence Lighting"
-            className="relative z-10 h-16 md:h-24 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500"
+            fetchPriority="high"
+            loading="eager"
+            className="relative z-10 h-16 md:h-24 w-auto object-contain drop-shadow-none sm:drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] sm:group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500 transform-gpu"
           />
         </motion.div>
 
@@ -52,7 +54,7 @@ export default function Loader({ isInitial = false }) {
             delay: shouldReduceMotion ? 0 : 0.4,
             duration: shouldReduceMotion ? 0 : 1,
           }}
-          className="mt-5 text-brand-gold uppercase tracking-[0.3em] sm:tracking-[0.45em] text-[10px] sm:text-xs text-center drop-shadow-[0_0_10px_rgba(200,169,107,0.5)]"
+          className="mt-5 text-brand-gold uppercase tracking-[0.3em] sm:tracking-[0.45em] text-[10px] sm:text-xs text-center drop-shadow-none sm:drop-shadow-[0_0_10px_rgba(200,169,107,0.5)]"
         >
           Innovative Lighting • Integrated Solutions
         </motion.p>
@@ -68,7 +70,7 @@ export default function Loader({ isInitial = false }) {
               repeat: shouldReduceMotion ? 0 : Infinity,
               ease: "linear",
             }}
-            className={`h-full bg-brand-gold shadow-[0_0_15px_rgba(200,169,107,1)] ${shouldReduceMotion ? 'w-full' : 'w-24'}`}
+            className={`h-full bg-brand-gold shadow-none sm:shadow-[0_0_15px_rgba(200,169,107,1)] will-change-transform transform-gpu ${shouldReduceMotion ? 'w-full' : 'w-24'}`}
           />
 
         </div>
@@ -81,7 +83,7 @@ export default function Loader({ isInitial = false }) {
             duration: 2,
             repeat: shouldReduceMotion ? 0 : Infinity,
           }}
-          className="mt-6 text-white/60 uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[9px] sm:text-xs drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"
+          className="mt-6 text-white/60 uppercase tracking-[0.25em] sm:tracking-[0.35em] text-[9px] sm:text-xs drop-shadow-none sm:drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]"
         >
           Initializing Experience
         </motion.p>

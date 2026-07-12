@@ -51,7 +51,7 @@ export default function Products() {
       />
       <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-10">
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[60px] md:blur-[180px] pointer-events-none" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12 mb-10">
           <div className="text-center max-w-4xl mx-auto">

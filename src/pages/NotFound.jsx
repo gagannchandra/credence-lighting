@@ -142,7 +142,7 @@ export default function NotFound() {
             delay: 0.8,
             duration: 1,
           }}
-          className="mt-16 border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[30px] p-8 md:p-10 max-w-2xl mx-auto"
+          className="mt-16 border border-white/10 bg-white/[0.03] backdrop-blur-md md:backdrop-blur-2xl rounded-[30px] p-8 md:p-10 max-w-2xl mx-auto"
         >
 
           {/* LIGHT STATUS */}

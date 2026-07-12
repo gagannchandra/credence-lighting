@@ -81,21 +81,9 @@ export default function Hero() {
         }}
       />
 
-      {/* COLOR REVEAL - MOBILE */}
-      <motion.div
-        className="block md:hidden absolute inset-0 z-10"
-        style={{
-          backgroundImage: `url(${bgVertical})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          WebkitMaskImage: maskImage,
-          maskImage: maskImage,
-        }}
-      />
-
       {/* GLOW */}
       <motion.div
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="hidden md:block absolute inset-0 z-10 pointer-events-none"
         style={{ background: glowBackground }}
       />
 

@@ -70,7 +70,7 @@ export default function Brands() {
       >
 
         {/* BACKGROUND GLOW */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[60px] md:blur-[180px]" />
 
         <div className="relative z-10 max-w-[1700px] mx-auto px-6 md:px-12">
 
@@ -117,7 +117,7 @@ export default function Brands() {
             ].map((item) => (
               <div
                 key={item.label}
-                className="border border-white/10 bg-white/[0.03] backdrop-blur-xl rounded-[30px] p-10 text-center"
+                className="border border-white/10 bg-white/[0.03] backdrop-blur-md md:backdrop-blur-xl rounded-[30px] p-10 text-center"
               >
                 <h3 className="text-fluid-h2 text-white font-serif">
                   {item.number}
@@ -154,7 +154,7 @@ export default function Brands() {
                   y: -8,
                   scale: 1.03,
                 }}
-                className="group relative border border-white/10 bg-white/[0.03] backdrop-blur-2xl rounded-[28px] h-[180px] flex items-center justify-center overflow-hidden"
+                className="group relative border border-white/10 bg-white/[0.03] backdrop-blur-md md:backdrop-blur-2xl rounded-[28px] h-[180px] flex items-center justify-center overflow-hidden"
               >
                 {/* HOVER GLOW */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent" />

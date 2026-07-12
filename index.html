@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     
@@ -19,6 +19,19 @@
       gtag('config', 'YOUR_GA_MEASUREMENT_ID');
     </script>
     -->
+    <!-- Hardware Sniffer: Downgrade visuals for low-end devices -->
+    <script>
+      (function() {
+        try {
+          var cores = navigator.hardwareConcurrency || 8;
+          var memory = navigator.deviceMemory || 8;
+          // If 4 logical cores or less, or less than 4GB RAM, it's a budget/older device
+          if (cores <= 4 || memory < 4) {
+            document.documentElement.classList.add('perf-low');
+          }
+        } catch(e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -35,7 +35,7 @@ export default function IndustryTemplate({
       <main className="relative bg-transparent overflow-hidden">
         {/* HERO SECTION */}
         <section className="relative pt-36 pb-24 px-6 md:px-12">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[180px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-brand-gold/10 blur-[60px] md:blur-[180px] pointer-events-none" />
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
@@ -105,7 +105,7 @@ export default function IndustryTemplate({
                   const Icon = benefit.icon;
                   return (
                     <FadeUp key={benefit.title} delay={index * 1}>
-                      <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
+                      <div className="group relative overflow-hidden border border-white/10 rounded-[2rem] p-8 bg-white/[0.02] backdrop-blur-md md:backdrop-blur-xl hover:bg-white/[0.05] transition-all duration-500 h-full">
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-br from-brand-gold/10 via-transparent to-transparent pointer-events-none" />
                         <div className="relative z-10">
                           {Icon && (

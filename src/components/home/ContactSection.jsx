@@ -93,7 +93,7 @@ export default function ContactSection({ asPage = false }) {
           >
 
             {/* INNER GLOW */}
-            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-brand-gold/10 blur-[120px] rounded-button" />
+            <div className="absolute top-0 right-0 w-[250px] h-[250px] bg-brand-gold/10 blur-[40px] md:blur-[120px] rounded-button" />
 
             <div className="relative z-10">
 
