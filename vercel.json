@@ -8,6 +8,11 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
     }
   ],
   "rewrites": [
