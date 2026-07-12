@@ -68,41 +68,48 @@ const contentBlocks = [
   { type: "callout", content: "We offer end-to-end programming services, turning complex DMX networks into easy-to-use touchscreen interfaces for venue operators." }
 ];
 
+import entRgbwImg from "../assets/images/entertainment/ent_rgbw.webp";
+import entLedscreenImg from "../assets/images/entertainment/ent_ledscreen.webp";
+import entSpotlightImg from "../assets/images/entertainment/ent_spotlight.webp";
+import entPixelImg from "../assets/images/entertainment/ent_pixel.webp";
+import entLaserImg from "../assets/images/entertainment/ent_laser.webp";
+import entMovingheadImg from "../assets/images/entertainment/ent_movinghead.webp";
+
 const relatedProducts = [
   {
     title: "RGBW Linear Profiles",
     description: "Color-changing lines of light for dynamic ceiling designs.",
-    image: funturaImg,
+    image: entRgbwImg,
     link: "/products/entertainment"
   },
   {
     title: "LED Screens & Media Facades",
     description: "Direct-view video elements integrated into the architecture.",
-    image: xtremeImg,
+    image: entLedscreenImg,
     link: "/products/led-screen"
   },
   {
     title: "Theatrical Spotlights",
     description: "High-intensity focusable spots for stage and performance areas.",
-    image: funturaImg,
+    image: entSpotlightImg,
     link: "/products/entertainment"
   },
   {
     title: "Pixel Mapping Lights",
     description: "Individually controllable LED nodes for complex visual effects.",
-    image: xtremeImg,
+    image: entPixelImg,
     link: "/products/entertainment"
   },
   {
     title: "Laser Projectors",
     description: "Advanced laser effects for high-energy entertainment venues.",
-    image: funturaImg,
+    image: entLaserImg,
     link: "/products/entertainment"
   },
   {
     title: "Moving Head Fixtures",
     description: "Automated dynamic lighting for clubs and immersive arenas.",
-    image: xtremeImg,
+    image: entMovingheadImg,
     link: "/products/entertainment"
   }
 ];

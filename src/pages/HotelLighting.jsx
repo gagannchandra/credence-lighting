@@ -78,11 +78,13 @@ const contentBlocks = [
   { type: "quote", content: "True luxury in hotel lighting is when the guest feels perfectly comfortable without ever noticing the light fixtures themselves." }
 ];
 
-import hotelDownlightImg from "../assets/images/generated/hotel_downlight.png";
-import hotelFacadeImg from "../assets/images/generated/hotel_facade.png";
-import hotelPendantImg from "../assets/images/generated/hotel_pendant.png";
-import hotelStripImg from "../assets/images/generated/hotel_strip.png";
-import hotelBollardImg from "../assets/images/generated/hotel_bollard.png";
+import hotelDownlightImg from "../assets/images/hospitality/hotel_downlight.webp";
+import hotelFacadeImg from "../assets/images/facade/hotel_facade.webp";
+import hotelPendantImg from "../assets/images/hospitality/hotel_pendant.webp";
+import hotelStripImg from "../assets/images/hospitality/hotel_strip.webp";
+import hotelBollardImg from "../assets/images/hospitality/hotel_bollard.webp";
+
+import hotelSmartImg from "../assets/images/Home Automation/hotel_smart.webp";
 
 const relatedProducts = [
   {
@@ -118,7 +120,7 @@ const relatedProducts = [
   {
     title: "Smart Room Controls",
     description: "Integrated keypads and automation for personalized guest experiences.",
-    image: indoorImg, // Placeholder since API rate limit hit
+    image: hotelSmartImg,
     link: "/products/automation"
   }
 ];

@@ -68,41 +68,48 @@ const contentBlocks = [
   { type: "callout", content: "We assist corporate clients in achieving WELL and LEED certifications through advanced energy modeling and sustainable fixture selection." }
 ];
 
+import officeLinearImg from "../assets/images/indoor/office_linear.webp";
+import officeAcousticImg from "../assets/images/indoor/office_acoustic.webp";
+import officeTunableImg from "../assets/images/indoor/office_tunable.webp";
+import officeTaskImg from "../assets/images/indoor/office_task.webp";
+import officeSensorImg from "../assets/images/Home Automation/office_sensor.webp";
+import officeDownlightImg from "../assets/images/indoor/office_downlight.webp";
+
 const relatedProducts = [
   {
     title: "Linear Suspended Profiles",
     description: "Sleek, low-glare linear lighting for open-plan desks.",
-    image: indoorImg,
+    image: officeLinearImg,
     link: "/products/indoor"
   },
   {
     title: "Acoustic Lighting",
     description: "Fixtures that illuminate while absorbing office noise.",
-    image: officeImg,
+    image: officeAcousticImg,
     link: "/products/indoor"
   },
   {
     title: "Tunable White Panels",
     description: "HCL-ready LED panels that adjust color temperature throughout the day.",
-    image: indoorImg,
+    image: officeTunableImg,
     link: "/products/indoor"
   },
   {
     title: "Task Lighting",
     description: "Adjustable desk lamps for individualized workstation illumination.",
-    image: officeImg,
+    image: officeTaskImg,
     link: "/products/indoor"
   },
   {
     title: "Occupancy Sensors",
     description: "Smart sensors that maximize energy savings in meeting rooms.",
-    image: indoorImg,
+    image: officeSensorImg,
     link: "/products/automation"
   },
   {
     title: "Recessed Downlights",
     description: "Low-UGR downlights for glare-free illumination in corridors and lobbies.",
-    image: officeImg,
+    image: officeDownlightImg,
     link: "/products/indoor"
   }
 ];
