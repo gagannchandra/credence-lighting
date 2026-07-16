@@ -1,6 +1,5 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Building2, Lightbulb, Globe, Wrench, ShieldCheck, HeadphonesIcon } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";

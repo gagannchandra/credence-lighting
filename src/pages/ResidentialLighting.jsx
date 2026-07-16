@@ -1,7 +1,5 @@
 import { Home, Lightbulb, ShieldCheck, Sun } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
-import indoorImg from "../assets/images/mytown/141.webp"; 
-import outdoorImg from "../assets/images/Smarvy Spot/150.webp"; 
 
 const seo = {
   title: "Luxury Residential Lighting Design | Credence",

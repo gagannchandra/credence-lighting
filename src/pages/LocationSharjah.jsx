@@ -8,12 +8,6 @@ const seo = {
   description: "Credence Lighting is a leading lighting supplier for Sharjah and the Northern Emirates. Specializing in heavy-duty industrial, warehousing, and commercial lighting solutions."
 };
 
-const stats = [
-  ["15+", "Industrial Zones"],
-  ["100%", "SEWA Compliant"],
-  ["24/7", "Operation Ready"],
-  ["Premium", "Quality Brands"]
-];
 
 const faqs = [
   { id: "shj1", question: "Do you supply high-bay lighting for warehouses in Sharjah Industrial Area?", answer: "Yes, we specialize in high-output, durable high-bay LED fixtures designed specifically for logistics centers, factories, and warehouses across Sharjah Industrial Area and SAIF Zone." },

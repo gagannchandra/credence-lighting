@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useParams, useNavigate } from "react-router-dom";
 import PageLink from "../components/ui/PageLink";
 import projects from "../data/projects";
@@ -26,44 +26,20 @@ export default function ProjectDetails() {
   const previousProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered] = useState(false);
   const [prevSlug, setPrevSlug] = useState(slug);
 
   if (slug !== prevSlug) {
     setPrevSlug(slug);
-    setActiveImageIndex(0);
   }
 
   const handlePrev = useCallback(() => {
     if (!project) return;
-    setDirection(-1);
-    setActiveImageIndex((prev) => (prev === 0 ? project.gallery.length - 1 : prev - 1));
   }, [project]);
 
   const handleNext = useCallback(() => {
     if (!project) return;
-    setDirection(1);
-    setActiveImageIndex((prev) => (prev === project.gallery.length - 1 ? 0 : prev + 1));
   }, [project]);
-
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      zIndex: 1
-    },
-    exit: (direction) => ({
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-      zIndex: 0
-    })
-  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {

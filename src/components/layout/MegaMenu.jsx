@@ -1,7 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-
 export default function MegaMenu({ item, active, setActive }) {
   const isOpen = active === item.name;
   const location = useLocation();

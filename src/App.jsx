@@ -10,7 +10,7 @@ import AmbientBackground from "./components/layout/AmbientBackground";
 import Navbar from "./components/layout/Navbar";
 import BackButton from "./components/ui/BackButton";
 
-const Home = lazy(() => import("./pages/Home"));
+import Home from "./pages/Home";
 const Downloads = lazy(() => import("./pages/Downloads"));
 const ProjectDetails = lazy(() => import("./pages/ProjectDetails"));
 const ProductDetails = lazy(() => import("./pages/ProductDetails"));
@@ -56,23 +56,9 @@ const LocationBahrain = lazy(() => import("./pages/LocationBahrain"));
 
 export default function App() {
   const location = useLocation();
-  const [loading, setLoading] = useState(!window.__PRERENDER_INJECTED);
-
-  useEffect(() => {
-    if (window.__PRERENDER_INJECTED) return;
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
-      <AnimatePresence>
-        {loading && <Loader key="initial-loader" isInitial={true} />}
-      </AnimatePresence>
-
       <SmoothScroll>
       <AmbientBackground />
       <Navbar />
@@ -80,7 +66,7 @@ export default function App() {
       <ScrollToTop />
       {location.pathname !== "/" && <BackButton />}
 
-      <Suspense fallback={loading ? null : <Loader />}>
+      <Suspense fallback={<Loader />}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />

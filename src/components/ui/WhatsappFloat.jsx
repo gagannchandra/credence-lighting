@@ -7,6 +7,7 @@ export default function WhatsappFloat() {
       href="https://wa.me/971564965660?text=Hello%20Credence%20Lighting,%20I%20would%20like%20to%20enquire%20about%20your%20premium%20lighting%20solutions."
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="WhatsApp"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       whileHover={{

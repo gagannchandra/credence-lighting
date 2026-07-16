@@ -8,12 +8,6 @@ const seo = {
   description: "Credence Lighting is a trusted lighting company in Ras Al Khaimah. We supply IP-rated landscape, facade, and luxury hotel lighting for RAK's booming tourism sector."
 };
 
-const stats = [
-  ["5+", "Resorts Illuminated"],
-  ["IP68", "Marine Grade"],
-  ["100%", "Dark Sky Compliant"],
-  ["Premium", "Global Brands"]
-];
 
 const faqs = [
   { id: "rak1", question: "Do you provide lighting for coastal resorts and beach hotels in RAK?", answer: "Yes, Ras Al Khaimah's booming coastal tourism requires lighting that can withstand high humidity and salt spray. As specialized lighting suppliers in Ras Al Khaimah, we supply marine-grade, 316L stainless steel and anodized aluminum fixtures specifically designed for beachfront environments." },

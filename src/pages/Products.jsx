@@ -37,7 +37,7 @@ export default function Products() {
     <PageTransition>
       <SEO 
         title="Lighting Products Dubai | Indoor, Outdoor & Architectural Lighting" 
-        description="Architectural, decorative, commercial & outdoor lighting." 
+        description="Explore our premium collection of indoor, outdoor, hospitality, and facade lighting fixtures." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",

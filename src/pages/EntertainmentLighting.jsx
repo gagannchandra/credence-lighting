@@ -1,8 +1,5 @@
-import { Gamepad2, Ticket, Speaker, Sparkles, Settings } from "lucide-react";
+import { Gamepad2, Ticket, Sparkles, Settings } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
-import funturaImg from "../assets/images/Funtura/134.webp"; 
-import xtremeImg from "../assets/images/xtremezone/136.webp"; 
-
 const seo = {
   title: "Entertainment & Theme Park Lighting | Credence Lighting",
   description: "Dynamic, programmable lighting solutions for entertainment venues, cinemas, theme parks, and arenas in the UAE and Saudi Arabia."

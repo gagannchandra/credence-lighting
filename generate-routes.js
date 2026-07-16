@@ -14,8 +14,6 @@ const categoriesList = [
     "Indoor", "Outdoor", "Hospitality", "Facade", "Entertainment",
     "LED Screen", "Strech Ceiling", "Automation", "Retail", "Audio"
 ];
-const slugify = (text) => text.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/[\s_-]+/g, "-").replace(/^-+|-+$/g, "");
-const products = categoriesList.map(c => slugify(c));
 
 const routesJs = `
 // Single source of truth for dynamic route slugs

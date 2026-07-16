@@ -16,7 +16,7 @@ export default function About() {
     <PageTransition>
       <SEO 
         title="About Credence Lighting | Premium Lighting Experts Dubai" 
-        description="Learn about our expertise and premium lighting solutions." 
+        description="10+ years of experience delivering premium lighting solutions. Aesthetics meets functionality." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "Organization",

@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, Eye, Users, Palette, Settings } from "lucide-react";
+import { MapPin, Clock, Phone, Eye, Users, Palette, Settings } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";

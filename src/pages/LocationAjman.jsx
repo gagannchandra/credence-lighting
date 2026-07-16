@@ -8,12 +8,6 @@ const seo = {
   description: "Cost-effective, high-quality lighting solutions for Ajman, UAQ, and the Northern Emirates. We supply residential, commercial, and industrial lighting projects."
 };
 
-const stats = [
-  ["24h", "Fast Delivery"],
-  ["100+", "Northern Emirates Projects"],
-  ["Cost", "Value Engineered"],
-  ["Premium", "Quality Guaranteed"]
-];
 
 const faqs = [
   { id: "aj1", question: "Do you offer lighting retrofits for existing buildings in Ajman?", answer: "Yes, we specialize in LED retrofits for older commercial and residential buildings in Ajman, helping property owners drastically reduce their electricity bills and maintenance costs." },

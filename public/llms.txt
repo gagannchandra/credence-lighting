@@ -1,0 +1,9 @@
+# Credence Lighting
+Credence Lighting is a premium architectural and commercial lighting company.
+
+## Useful Links
+- [Home Page](/)
+- [About Us](/about)
+- [Products](/products)
+- [Projects](/projects)
+- [Contact Us](/contact)

@@ -40,6 +40,8 @@ export default function Loader({ isInitial = false }) {
           <img
             src={logo2}
             alt="Credence Lighting"
+            width="546"
+            height="457"
             fetchPriority="high"
             loading="eager"
             className="relative z-10 h-16 md:h-24 w-auto object-contain drop-shadow-none sm:drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] sm:group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500 transform-gpu"

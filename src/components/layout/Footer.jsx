@@ -18,6 +18,8 @@ export default function Footer() {
             <img
               src={logo2}
               alt="Credence Lighting"
+              width="546"
+              height="457"
               className="relative z-10 h-12 w-auto object-contain opacity-90 drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] group-hover:opacity-100 transition-all duration-500"
             />
           </Link>
@@ -212,6 +214,7 @@ export default function Footer() {
                 href="https://www.youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="YouTube"
                 className="text-white/40 hover:text-white transition duration-300"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -225,6 +228,7 @@ export default function Footer() {
                 href="https://www.instagram.com/credencelighting/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="text-white/40 hover:text-white transition duration-300"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -239,6 +243,7 @@ export default function Footer() {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="text-white/40 hover:text-white transition duration-300"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -251,6 +256,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/credence-lighting-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn"
                 className="text-white/40 hover:text-white transition duration-300"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -265,7 +271,7 @@ export default function Footer() {
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="group uppercase tracking-[0.2em] text-xs text-white/30 hover:text-white transition duration-300 flex items-center gap-2"
+              className="group uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition duration-300 flex items-center gap-2"
             >
               Back To Top
 
@@ -278,11 +284,11 @@ export default function Footer() {
           {/* BOTTOM */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-white/10">
 
-            <p className="text-white/25 text-xs">
+            <p className="text-white/60 text-xs">
               © 2026 Credence Lighting LLC. All Rights Reserved.
             </p>
 
-            <p className="uppercase tracking-[0.15em] text-[10px] text-white/20">
+            <p className="uppercase tracking-[0.15em] text-[10px] text-white/60">
               Crafted With Precision
             </p>
 

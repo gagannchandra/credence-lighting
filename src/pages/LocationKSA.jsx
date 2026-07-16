@@ -8,12 +8,6 @@ const seo = {
   description: "Specialist lighting supplier supporting Vision 2030 projects across Saudi Arabia (KSA). We deliver architectural, commercial, and hospitality LED lighting to Riyadh, Jeddah, and NEOM."
 };
 
-const stats = [
-  ["100%", "SASO Compliant"],
-  ["Vision 2030", "Aligned Partners"],
-  ["Custom", "LED Engineering"],
-  ["Premium", "Global Brands"]
-];
 
 const faqs = [
   { id: "ksa1", question: "Do you supply lighting for gigaprojects like NEOM and Red Sea Global?", answer: "Yes. We have the technical capability and industry connections to supply highly specialized, sustainable lighting systems that meet the rigorous environmental and dark-sky standards demanded by KSA's Vision 2030 gigaprojects." },

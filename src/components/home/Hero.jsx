@@ -64,6 +64,7 @@ export default function Hero() {
           <img
             src={bgVertical}
             alt="Luxury Interior"
+            fetchPriority="high"
             className="w-full h-full object-cover grayscale brightness-[0.25] transition-all duration-700"
           />
         </picture>
@@ -89,12 +90,7 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-6 max-w-5xl pointer-events-none flex flex-col items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="flex flex-col items-center justify-center"
-        >
+        <h1 className="flex flex-col items-center justify-center animate-hero-title">
           <span className="sr-only">Premium Lighting Solutions Dubai</span>
           <span className="text-white text-fluid-h1 font-serif" aria-hidden="true">
             Luminous
@@ -102,16 +98,11 @@ export default function Hero() {
           <span className="italic gold-gradient-text text-fluid-h1 font-serif mt-2" aria-hidden="true">
             Sophistication
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
-          className="text-white/70 mt-8 text-fluid-p tracking-wide"
-        >
+        <p className="text-white/70 mt-8 text-fluid-p tracking-wide animate-hero-subtitle">
           Where Premium Design Meets Functional Excellence
-        </motion.p>
+        </p>
       </div>
 
       {/* SCROLL INDICATOR */}

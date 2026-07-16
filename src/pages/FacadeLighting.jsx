@@ -1,4 +1,4 @@
-import { Building, Lightbulb, ShieldCheck, Settings, Sun } from "lucide-react";
+import { Building, ShieldCheck, Settings, Sun } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
 import facadeImg1 from "../assets/images/facade/1.webp"; 
 import facadeImg2 from "../assets/images/facade/2.webp"; 

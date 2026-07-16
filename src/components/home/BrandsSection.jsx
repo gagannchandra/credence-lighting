@@ -26,7 +26,7 @@ export default function BrandsSection() {
   return (
     <section
       id="brands"
-      className="relative bg-transparent z-10 py-28 overflow-hidden"
+      className="relative bg-transparent z-10 py-12 md:py-24 overflow-hidden"
     >
       <div className="relative z-10">
 
@@ -109,6 +109,8 @@ export default function BrandsSection() {
                     <img
                       src={logo}
                       alt=""
+                      width="240"
+                      height="96"
                       draggable="false"
                       className="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition duration-500 select-none"
                     />
