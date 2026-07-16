@@ -12,7 +12,7 @@ const blogs = extractSlugs('src/data/blog.js');
 // For products, it uses categories
 const categoriesList = [
     "Indoor", "Outdoor", "Hospitality", "Facade", "Entertainment",
-    "LED Screen", "Strech Ceiling", "Automation", "Retail", "Audio"
+    "LED Screen", "Stretch Ceiling", "Automation", "Retail", "Audio"
 ];
 
 const routesJs = `

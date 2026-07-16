@@ -47,7 +47,7 @@ export const productCategories = [
   "Facade",
   "Entertainment",
   "LED Screen",
-  "Strech Ceiling",
+  "Stretch Ceiling",
   "Automation",
   "Retail",
   "Audio"

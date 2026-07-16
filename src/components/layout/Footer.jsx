@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import logo2 from "../../assets/images/logo2.webp";
 import FadeUp from "../ui/motion/FadeUp";
 import TextReveal from "../ui/motion/TextReveal";
 
@@ -16,10 +15,9 @@ export default function Footer() {
             <div className="absolute inset-0 bg-[#c8a96b]/30 blur-xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
             
             <img
-              src={logo2}
+              src="/logo.svg?v=2"
               alt="Credence Lighting"
-              width="546"
-              height="457"
+              
               className="relative z-10 h-12 w-auto object-contain opacity-90 drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] group-hover:opacity-100 transition-all duration-500"
             />
           </Link>

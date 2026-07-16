@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import PageLink from "../ui/PageLink";
 import MegaMenu from "./MegaMenu";
-import logo2 from "../../assets/images/logo2.webp";
 import indoorImg from "../../assets/images/indoor/1.webp"; // Using an existing image
 import solutionsImg from "../../assets/images/hospitality/1.webp";
 import resourcesImg from "../../assets/images/blog/funtura.webp";
@@ -147,10 +146,9 @@ export default function Navbar() {
                 <div className="absolute inset-0 bg-[#c8a96b]/30 blur-xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
                 
                 <img
-                  src={logo2}
+                  src="/logo.svg?v=2"
                   alt="Credence Lighting"
-                  width="546"
-                  height="457"
+                  
                   fetchPriority="high"
                   className="relative z-10 h-8 md:h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)] group-hover:drop-shadow-[0_0_20px_rgba(200,169,107,1)] transition-all duration-500"
                 />
@@ -232,10 +230,9 @@ export default function Navbar() {
                 <div className="relative flex items-center justify-center">
                   <div className="absolute inset-0 bg-[#c8a96b]/30 blur-xl rounded-full scale-[1.5] group-hover:scale-[2] group-hover:bg-[#c8a96b]/40 transition-all duration-700 pointer-events-none"></div>
                   <img
-                    src={logo2}
+                    src="/logo.svg?v=2"
                     alt="Credence Lighting"
-                    width="546"
-                    height="457"
+                    
                     className="relative z-10 h-7 w-auto object-contain drop-shadow-[0_0_12px_rgba(200,169,107,0.8)]"
                   />
                 </div>

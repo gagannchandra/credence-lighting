@@ -72,7 +72,7 @@ export default function LightingShowroomDubai() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Credence Lighting LLC — Dubai Showroom",
-    "image": "https://credencelighting.com/logo2.webp",
+    "image": "https://credencelighting.com/logo.svg",
     "url": "https://credencelighting.com/lighting-showroom-dubai",
     "telephone": "+971564965660",
     "email": "info@credencelighting.com",

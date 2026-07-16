@@ -22,7 +22,7 @@ export default function About() {
           "@type": "Organization",
           "name": "Credence Lighting LLC",
           "url": "https://credencelighting.com",
-          "logo": "https://credencelighting.com/logo2.webp",
+          "logo": "https://credencelighting.com/logo.svg",
           "description": "Credence Lighting is a premium lighting company in Dubai providing architectural, commercial, and hospitality lighting design, supply, and installation across the UAE and GCC.",
           "foundingDate": "2014",
           "numberOfEmployees": {
