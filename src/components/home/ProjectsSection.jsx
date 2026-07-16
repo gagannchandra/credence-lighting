@@ -160,7 +160,9 @@ export default function ProjectsSection({ hideHeader = false }) {
                     className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-surface-elevated ${getBentoClasses(index)}`}
                     onClick={() => {
                       setActive(item.category);
-                      setActiveProjectIndex(filteredProjects.findIndex(p => p.id === item.id) !== -1 ? filteredProjects.findIndex(p => p.id === item.id) : 0);
+                      const newFiltered = projects.filter((p) => p.category === item.category);
+                      const newIndex = newFiltered.findIndex((p) => p.id === item.id);
+                      setActiveProjectIndex(newIndex !== -1 ? newIndex : 0);
                     }}
                   >
                     <img
