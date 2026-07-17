@@ -5,12 +5,16 @@ export default function SEO({
   title = "Credence Lighting · Premium Architectural & Commercial Lighting",
   description = "Credence Lighting provides bespoke architectural, commercial, and residential luxury lighting solutions. Elevate your spaces with premium craftsmanship.",
   type = "website",
-  image = "https://credencelighting.com/og-image.jpg",
+  image = "https://credencelighting.com/meta.png",
   schema = null,
 }) {
   const location = useLocation();
   const siteUrl = "https://credencelighting.com";
-  const currentUrl = `${siteUrl}${location.pathname}`;
+  // Strip trailing slash if present (except for root '/')
+  const cleanPath = location.pathname.endsWith('/') && location.pathname.length > 1 
+    ? location.pathname.slice(0, -1) 
+    : location.pathname;
+  const currentUrl = `${siteUrl}${cleanPath}`;
   const siteName = "Credence Lighting";
 
   return (

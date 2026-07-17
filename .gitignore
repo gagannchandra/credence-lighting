@@ -33,6 +33,7 @@ dist-ssr
 perf_report*.html
 blogs_metadata.json
 full_results.json
+seo_audit_results.json
 seodata.csv
 parse_lh.cjs
 test-*.cjs

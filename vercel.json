@@ -45,8 +45,23 @@
       "permanent": true
     },
     {
+      "source": "/blog/top-5-lighting-companies-in-dubai-for-2025-brighten-your-space-with-quality-style",
+      "destination": "/lighting-company-dubai",
+      "permanent": true
+    },
+    {
+      "source": "/2025/10/01/top-5-lighting-companies-in-dubai-for-2025-brighten-your-space-with-quality-style",
+      "destination": "/lighting-company-dubai",
+      "permanent": true
+    },
+    {
       "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug",
       "destination": "/blog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/products/strech-ceiling",
+      "destination": "/products/stretch-ceiling",
       "permanent": true
     }
   ],

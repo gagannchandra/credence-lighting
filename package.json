@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev:vite": "vite --host",
-    "dev:api": "node server.js",
+    "dev:api": "node scripts/dev-server.js",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:vite\"",
-    "prebuild": "node generate-routes.js",
-    "build": "vite build && node prerender.cjs && node fix-sitemap.cjs",
+    "prebuild": "node scripts/pre-build.js",
+    "build": "vite build && node scripts/post-build.cjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

@@ -112,13 +112,18 @@ export default function ProductDetails() {
   }
 
   const sampleProduct = categoryProducts[0];
+  // sampleProduct.image is a bundled Vite asset (/assets/xxx.webp) — relative path.
+  // og:image requires an absolute URL.
+  const seoImage = sampleProduct.image
+    ? (sampleProduct.image.startsWith('http') ? sampleProduct.image : `https://credencelighting.com${sampleProduct.image}`)
+    : 'https://credencelighting.com/meta.png';
 
   return (
     <main className="bg-transparent min-h-screen relative overflow-x-hidden text-white">
       <SEO 
         title={`${matchedCategory} Lighting Collection · Credence Lighting`}
         description={`Explore our premium ${matchedCategory.toLowerCase()} lighting collection. Discover luxury ${sampleProduct.title.toLowerCase()}s engineered for uncompromised performance and aesthetic excellence.`}
-        image={sampleProduct.image}
+        image={seoImage}
         schema={[{
           "@context": "https://schema.org",
           "@type": "Product",

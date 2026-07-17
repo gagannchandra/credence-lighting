@@ -1,207 +1,144 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function NotFound() {
   const shouldReduceMotion = useReducedMotion();
-  const [position, setPosition] = useState({
-    x: 50,
-    y: 50,
-  });
-
-  const particles = [...Array(18)].map(() => ({
-    // eslint-disable-next-line react-hooks/purity
-    left: `${Math.random() * 100}%`,
-    // eslint-disable-next-line react-hooks/purity
-    top: `${Math.random() * 100}%`,
-  }));
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
+  const [position, setPosition] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     if (shouldReduceMotion) return;
     const moveLight = (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
-
       setPosition({ x, y });
     };
-
     window.addEventListener("mousemove", moveLight);
-
-    return () => {
-      window.removeEventListener("mousemove", moveLight);
-    };
+    return () => window.removeEventListener("mousemove", moveLight);
   }, [shouldReduceMotion]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          navigate("/");
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [navigate]);
 
   return (
     <PageTransition>
       <Helmet>
-        <title>404 - Page Not Found</title>
+        <title>404 - Page Not Found | Credence Lighting</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
-      <section className="relative min-h-screen bg-transparent overflow-hidden flex items-center justify-center">
-
-      {/* INTERACTIVE LIGHT */}
-      <div
-        className="absolute inset-0 transition duration-200"
-        style={{
-          background: `radial-gradient(circle at ${position.x}% ${position.y}%, rgba(200,169,107,0.28), transparent 20%)`,
-        }}
-      />
-
-      {/* GRID */}
-      <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:60px_60px]" />
-
-      {/* FLOATING PARTICLES */}
-      {!shouldReduceMotion && particles.map((pos, i) => (
-        <motion.div
-          key={i}
-          animate={{
-            y: [0, -40, 0],
-            opacity: [0.2, 1, 0.2],
+      
+      <section className="relative min-h-screen bg-transparent flex flex-col items-center justify-center overflow-hidden">
+        
+        {/* INTERACTIVE SPOTLIGHT */}
+        <div
+          className="absolute inset-0 transition duration-700 ease-out opacity-40 mix-blend-screen pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at ${position.x}% ${position.y}%, rgba(200,169,107,0.15), transparent 40%)`,
           }}
-          transition={{
-            duration: 3 + i * 0.2,
-            repeat: Infinity,
-          }}
-          className="absolute w-1 h-1 bg-brand-gold rounded-button"
-          style={pos}
         />
-      ))}
 
-      {/* MAIN CONTENT */}
-      <div className="relative z-10 text-center px-6 max-w-5xl">
+        {/* ELEGANT GRID */}
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
 
-        {/* ERROR CODE */}
-        <motion.h1
-          initial={{
-            opacity: 0,
-            scale: 0.8,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1,
-          }}
-          className="text-[120px] md:text-[240px] font-serif leading-none text-transparent bg-clip-text bg-gradient-to-b from-white to-brand-gold"
-        >
-          404
-        </motion.h1>
-
-        {/* TITLE */}
-        <motion.h2
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 0.3,
-            duration: 1,
-          }}
-          className="text-fluid-h1 text-white font-serif "
-        >
-          Power
-          <span className="italic text-brand-gold">
-            {" "}Failure
-          </span>
-        </motion.h2>
-
-        {/* DESCRIPTION */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: 0.6,
-            duration: 1,
-          }}
-          className="mt-8 text-white/50 text-lg md:text-xl leading-[1.8] max-w-3xl mx-auto"
-        >
-          The lighting system couldn’t locate the requested
-          destination. The pathway appears disconnected from
-          the current network.
-        </motion.p>
-
-        {/* FAKE CONTROL PANEL */}
+        {/* MASSIVE BACKGROUND 404 */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 40,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            delay: 0.8,
-            duration: 1,
-          }}
-          className="mt-16 border border-white/10 bg-white/[0.03] backdrop-blur-md md:backdrop-blur-2xl rounded-[30px] p-8 md:p-10 max-w-2xl mx-auto"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
+          <h1 className="text-[40vw] font-serif leading-none text-white/[0.015] select-none tracking-tighter">
+            404
+          </h1>
+        </motion.div>
 
-          {/* LIGHT STATUS */}
-          <div className="flex items-center justify-between border-b border-white/10 pb-5">
+        {/* MAIN CONTENT CONTAINER */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-6 text-center w-full">
+          
+          {/* DECORATIVE TOP LINE */}
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 80, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.2 }}
+            className="w-px bg-gradient-to-b from-transparent via-brand-gold/40 to-transparent mb-10"
+          />
 
-            <p className="text-white/40 uppercase tracking-[0.3em] text-xs">
-              System Status
-            </p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-brand-gold tracking-[0.4em] text-xs md:text-sm uppercase mb-5"
+          >
+            Error 404
+          </motion.p>
 
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-button bg-red-500 animate-pulse" />
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            className="text-6xl md:text-[80px] text-white font-serif tracking-wide mb-6"
+          >
+            Page Not Found
+          </motion.h2>
 
-              <p className="text-red-400 text-xs uppercase tracking-[0.2em]">
-                Offline
-              </p>
-            </div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="text-white/50 text-base md:text-xl max-w-lg mx-auto leading-relaxed font-light mb-14"
+          >
+            The destination you are looking for has been moved or no longer exists in our collections.
+          </motion.p>
 
-          </div>
-
-          {/* BARS */}
-          <div className="flex items-end justify-center gap-3 h-28 mt-10">
-
-            {[40, 80, 55, 100, 70, 50, 90].map((h, i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  height: [`${h}%`, `${h - 25}%`, `${h}%`],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  delay: i * 0.1,
-                }}
-                className="w-6 rounded-button bg-gradient-to-t from-brand-gold to-white"
-              />
-            ))}
-
-          </div>
-
-          {/* BUTTON */}
-          <div className="mt-12 flex justify-center">
-
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.1 }}
+            className="flex flex-col items-center gap-8"
+          >
             <Link
               to="/"
-              className="group bg-brand-gold text-black px-10 py-5 uppercase tracking-[0.3em] text-xs hover:bg-white transition duration-500"
+              className="group relative flex items-center justify-center px-12 py-5 border border-brand-gold/30 text-brand-gold text-xs md:text-sm tracking-[0.3em] uppercase overflow-hidden hover:border-brand-gold transition-colors duration-500 bg-black/20 backdrop-blur-sm"
             >
-              Restore Connection
-
-              <span className="inline-block ml-3 group-hover:translate-x-1 transition duration-300">
-                →
+              <div className="absolute inset-0 bg-brand-gold translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+              <span className="relative z-10 group-hover:text-black transition-colors duration-500 flex items-center">
+                Return to Homepage
               </span>
             </Link>
 
-          </div>
+            {/* COUNTDOWN */}
+            <div className="flex items-center text-white/50 text-xs md:text-sm tracking-[0.2em] uppercase">
+              <svg className="w-4 h-4 mr-3 animate-spin text-brand-gold/70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeDasharray="16 48" />
+              </svg>
+              Auto-redirect in <span className="text-brand-gold ml-2 w-4 text-center">{countdown}</span>s
+            </div>
+          </motion.div>
 
-        </motion.div>
+          {/* DECORATIVE BOTTOM LINE */}
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 80, opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.2 }}
+            className="w-px bg-gradient-to-b from-transparent via-brand-gold/40 to-transparent mt-16"
+          />
 
-      </div>
-
+        </div>
       </section>
     </PageTransition>
   );

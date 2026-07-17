@@ -71,6 +71,12 @@ export default function LightingShowroomDubai() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+          "@id": "https://credencelighting.com/#organization",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "24.9788",
+            "longitude": "55.1764"
+          },
     "name": "Credence Lighting LLC — Dubai Showroom",
     "image": "https://credencelighting.com/logo.svg",
     "url": "https://credencelighting.com/lighting-showroom-dubai",

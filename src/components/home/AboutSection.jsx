@@ -19,10 +19,11 @@ export default function AboutSection({ preview = false, asPage = false }) {
 
         {/* HEADING */}
         <Heading className="flex flex-col items-center">
-          <span className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center">
+          <span className="sr-only">Credence: Aesthetics meets functionality</span>
+          <span className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center" aria-hidden="true">
             <TextReveal text="Credence: Aesthetics" />
           </span>
-          <span className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center">
+          <span className="italic gold-gradient-text text-fluid-h2 font-serif mt-3 leading-none pb-2 flex flex-wrap justify-center" aria-hidden="true">
             <TextReveal text="meets functionality" delay={2} />
           </span>
         </Heading>

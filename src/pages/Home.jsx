@@ -49,6 +49,7 @@ export default function Home() {
           {
             "@context": "https://schema.org",
             "@type": "Organization",
+          "@id": "https://credencelighting.com/#organization",
             "name": "Credence Lighting LLC",
             "url": "https://credencelighting.com",
             "logo": "https://credencelighting.com/logo.svg",
@@ -70,6 +71,10 @@ export default function Home() {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
+            "@id": "https://credencelighting.com/#localbusiness",
+            "parentOrganization": {
+              "@id": "https://credencelighting.com/#organization"
+            },
             "name": "Credence Lighting LLC",
             "image": "https://credencelighting.com/logo.svg",
             "url": "https://credencelighting.com",
@@ -81,6 +86,11 @@ export default function Home() {
               "addressLocality": "Dubai",
               "addressRegion": "Dubai",
               "addressCountry": "AE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "24.9788",
+              "longitude": "55.1764"
             },
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",

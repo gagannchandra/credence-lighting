@@ -30,6 +30,8 @@ const staticRoutes = [
   '/retail-lighting',
   '/restaurant-lighting',
   '/entertainment-lighting',
+  '/audio-solutions',
+  '/facade-lighting',
   '/lighting-suppliers-abu-dhabi',
   '/lighting-companies-sharjah',
   '/lighting-solutions-ajman',
