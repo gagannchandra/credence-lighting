@@ -23,6 +23,7 @@ const app = (
   </HelmetProvider>
 );
 
-// Since we are using Puppeteer to prerender the fully-loaded client app for SEO,
-// hydration will always fail (Error #418). We just use createRoot to take over.
+// Puppeteer prerendering produces HTML that won't match the client React tree
+// (framer-motion, dynamic state, lazy components). hydrateRoot with mismatches
+// is slower than createRoot because it compares then re-renders anyway.
 ReactDOM.createRoot(rootElement).render(app);

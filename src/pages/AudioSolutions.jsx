@@ -1,8 +1,5 @@
-import { Speaker, Volume2, Mic2, Settings2, ShieldCheck } from "lucide-react";
+import { Speaker, Mic2, Settings2, ShieldCheck } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
-import soundImg1 from "../assets/images/sound/1.webp"; 
-import soundImg2 from "../assets/images/sound/2.webp"; 
-
 const seo = {
   title: "Commercial Audio & Sound Systems | Credence Lighting",
   description: "Premium commercial audio and sound systems for hospitality, retail, and corporate environments. Integrated AV solutions across the UAE and GCC."

@@ -1,18 +1,18 @@
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect, Suspense, lazy, useRef } from "react";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
 import { scrollToSection } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
 import Hero from "../components/home/Hero";
-import AboutSection from "../components/home/AboutSection";
-import ProductsSection from "../components/home/ProductsSection";
-import BrandsSection from "../components/home/BrandsSection";
+const AboutSection = lazy(() => import("../components/home/AboutSection"));
+const ProductsSection = lazy(() => import("../components/home/ProductsSection"));
+const BrandsSection = lazy(() => import("../components/home/BrandsSection"));
 const GlobalPresence = lazy(() => import("../components/home/GlobalPresence"));
-import ProjectsSection from "../components/home/ProjectsSection";
-import ContactSection from "../components/home/ContactSection";
+const ProjectsSection = lazy(() => import("../components/home/ProjectsSection"));
+const ContactSection = lazy(() => import("../components/home/ContactSection"));
 import PageTransition from "../components/ui/motion/PageTransition";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
@@ -25,6 +25,9 @@ export default function Home() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const globalPresenceRef = useRef(null);
+  const isGlobalPresenceInView = useInView(globalPresenceRef, { once: true, margin: "200px 0px" });
 
   return (
     <PageTransition>
@@ -48,7 +51,7 @@ export default function Home() {
             "@type": "Organization",
             "name": "Credence Lighting LLC",
             "url": "https://credencelighting.com",
-            "logo": "https://credencelighting.com/logo2.webp",
+            "logo": "https://credencelighting.com/logo.svg",
             "description": "Premium architectural, commercial, and hospitality lighting design, supply, and installation across Dubai, UAE, and the GCC region.",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
@@ -68,7 +71,7 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Credence Lighting LLC",
-            "image": "https://credencelighting.com/logo2.webp",
+            "image": "https://credencelighting.com/logo.svg",
             "url": "https://credencelighting.com",
             "telephone": "+971564965660",
             "email": "info@credencelighting.com",
@@ -98,35 +101,42 @@ export default function Home() {
                 "position": 1,
                 "name": "Products",
                 "url": "https://credencelighting.com/products",
-                "description": "Explore our premium collection of indoor, outdoor, hospitality, and facade lighting."
+                "description": "Explore our premium collection of indoor, outdoor, hospitality, and facade lighting fixtures."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 2,
-                "name": "Solutions",
-                "url": "https://credencelighting.com/solutions",
-                "description": "Bespoke architectural, commercial, and hospitality lighting solutions."
+                "name": "Contact Us",
+                "url": "https://credencelighting.com/contact",
+                "description": "Get in touch with our lighting specialists in Dubai for project inquiries and quotations."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 3,
-                "name": "Projects",
-                "url": "https://credencelighting.com/projects",
-                "description": "View our featured installations across architectural, entertainment, and retail sectors."
+                "name": "Solutions",
+                "url": "https://credencelighting.com/solutions",
+                "description": "Bespoke architectural, commercial, and hospitality lighting solutions tailored to your space."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 4,
-                "name": "Resources",
-                "url": "https://credencelighting.com/blog",
-                "description": "Insights, guides, and trends in the professional lighting industry."
+                "name": "Our Clients & Brands",
+                "url": "https://credencelighting.com/brands",
+                "description": "Discover the visionary brands, architects, and developers we partner with across the UAE."
               },
               {
                 "@type": "SiteNavigationElement",
                 "position": 5,
                 "name": "About Us",
                 "url": "https://credencelighting.com/about",
-                "description": "10+ years of experience delivering premium lighting solutions in the UAE."
+                "description": "10+ years of experience delivering premium lighting solutions. Aesthetics meets functionality."
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "position": 6,
+                "name": "Featured Projects",
+                "url": "https://credencelighting.com/projects",
+                "description": "View our featured lighting installations across architectural, entertainment, and retail sectors."
               }
             ]
           }
@@ -150,16 +160,38 @@ export default function Home() {
 
         <div className="relative z-10">
           <Hero />
-          <AboutSection preview={true} />
+          
+          <Suspense fallback={<div className="min-h-[250vh]" />}>
+            <AboutSection preview={true} />
 
-          <ProjectsSection preview={true} />
-          <ProductsSection preview={true} />
-          <BrandsSection preview={true} />
-
-          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center bg-transparent"><p className="text-brand-gold uppercase tracking-widest text-xs">Loading Interactive Map...</p></div>}>
-            <GlobalPresence />
+            <div className="heavy-section-deferred">
+              <ProjectsSection preview={true} />
+            </div>
+            <div className="heavy-section-deferred">
+              <ProductsSection preview={true} />
+            </div>
+            <div className="heavy-section-deferred">
+              <BrandsSection preview={true} />
+            </div>
           </Suspense>
-          <ContactSection preview={true} />
+
+          <div ref={globalPresenceRef} className="min-h-[50vh]">
+            {isGlobalPresenceInView && (
+              <Suspense 
+                fallback={
+                  <div className="min-h-[50vh] flex flex-col items-center justify-center bg-transparent gap-4">
+                    <div className="w-12 h-12 border-2 border-brand-gold/20 border-t-brand-gold rounded-full animate-spin shadow-[0_0_15px_rgba(200,169,107,0.3)]"></div>
+                    <p className="text-brand-gold uppercase tracking-widest text-xs animate-pulse">Initializing 3D Map...</p>
+                  </div>
+                }
+              >
+                <GlobalPresence />
+              </Suspense>
+            )}
+          </div>
+          <Suspense fallback={<div className="min-h-[50vh]" />}>
+            <ContactSection preview={true} />
+          </Suspense>
         </div>
       </main>
 

@@ -53,29 +53,29 @@ export default function ContactSection({ asPage = false }) {
   return (
     <section
       id="contact"
-      className="relative bg-transparent z-10 text-white px-4 md:px-16 py-20 md:py-24 overflow-hidden"
+      className="relative bg-transparent z-10 text-white px-4 md:px-16 py-12 md:py-24 overflow-hidden"
     >
 
       <div className="relative z-10 max-w-[1500px] mx-auto">
 
         {/* TOP */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-20">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-20 text-center lg:text-left">
 
-          <div className="max-w-4xl">
+          <div className="max-w-4xl flex flex-col items-center lg:items-start mx-auto lg:mx-0">
             <FadeUp delay={0}>
               <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6">
                 Contact
               </p>
             </FadeUp>
 
-            <Heading className="text-fluid-h1 font-serif  flex flex-wrap gap-2">
+            <Heading className="text-fluid-h1 font-serif flex flex-wrap justify-center lg:justify-start gap-2">
               <TextReveal text="Let’s Create" />
-              <TextReveal text="Something Exceptional" delay={2} className="italic text-brand-gold block mt-2 w-full" />
+              <TextReveal text="Something Exceptional" delay={2} className="italic text-brand-gold block mt-2 w-full text-center lg:text-left" />
             </Heading>
           </div>
 
           <FadeUp delay={4}>
-            <p className="max-w-xl text-white/55 leading-[1.8] text-lg">
+            <p className="max-w-xl text-white/55 leading-[1.8] text-lg mx-auto lg:mx-0">
               We provide services to visionary brands, architects,
               and developers to craft premium lighting experiences
               that elevate atmosphere and redefine spatial identity.
@@ -104,7 +104,7 @@ export default function ContactSection({ asPage = false }) {
               <div className="space-y-10">
 
                 <div>
-                  <p className="text-white/30 uppercase tracking-[0.25em] text-xs mb-4">
+                  <p className="text-white/60 uppercase tracking-[0.25em] text-xs mb-4">
                     Call
                   </p>
 
@@ -116,7 +116,7 @@ export default function ContactSection({ asPage = false }) {
                 </div>
 
                 <div>
-                  <p className="text-white/30 uppercase tracking-[0.25em] text-xs mb-4">
+                  <p className="text-white/60 uppercase tracking-[0.25em] text-xs mb-4">
                     Email
                   </p>
 
@@ -126,7 +126,7 @@ export default function ContactSection({ asPage = false }) {
                 </div>
 
                 <div>
-                  <p className="text-white/30 uppercase tracking-[0.25em] text-xs mb-4">
+                  <p className="text-white/60 uppercase tracking-[0.25em] text-xs mb-4">
                     Location
                   </p>
                   <a
@@ -202,7 +202,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Your Name"
                     required
-                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/60"
                   />
 
                   <input
@@ -212,7 +212,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Email Address"
                     required
-                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/60"
                   />
 
                 </div>
@@ -225,7 +225,7 @@ export default function ContactSection({ asPage = false }) {
                     onChange={handleChange}
                     placeholder="Phone Number"
                     required
-                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/60"
                   />
 
                   <input
@@ -234,7 +234,7 @@ export default function ContactSection({ asPage = false }) {
                     value={form.company}
                     onChange={handleChange}
                     placeholder="Company Name"
-                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30"
+                    className="bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/60"
                   />
                 </div>
 
@@ -245,7 +245,7 @@ export default function ContactSection({ asPage = false }) {
                   rows="7"
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/30 resize-none"
+                  className="w-full bg-surface-base border border-border-subtle rounded-panel px-6 py-4 outline-none focus:border-brand-gold transition duration-300 placeholder:text-white/60 resize-none"
                 />
 
                 <button

@@ -16,12 +16,12 @@ export default function Contact() {
     <PageTransition>
       <SEO 
         title="Contact Credence Lighting | Lighting Experts Dubai" 
-        description="Speak with our lighting specialists at Credence Lighting. Get in touch with our experts in Dubai for premium architectural and commercial project inquiries." 
+        description="Get in touch with our lighting specialists in Dubai for project inquiries and quotations." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           "name": "Credence Lighting LLC",
-          "image": "https://credencelighting.com/logo2.webp",
+          "image": "https://credencelighting.com/logo.svg",
           "url": "https://credencelighting.com",
           "telephone": "+971564965660",
           "email": "info@credencelighting.com",

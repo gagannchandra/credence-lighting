@@ -8,12 +8,6 @@ const seo = {
   description: "Credence Lighting is one of the premier lighting companies in the UAE. We provide comprehensive LED lighting design, supply, and integration across all emirates."
 };
 
-const stats = [
-  ["10+", "Years in UAE"],
-  ["1000+", "Regional Projects"],
-  ["30+", "Global Brands"],
-  ["7", "Emirates Served"]
-];
 
 const faqs = [
   { id: "uae1", question: "Which emirates do you provide lighting services for?", answer: "We supply and execute projects across all seven emirates of the UAE: Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al Quwain, Ras Al Khaimah, and Fujairah." },

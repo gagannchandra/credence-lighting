@@ -1,6 +1,6 @@
 import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import { MapPin, Clock, Phone, Mail, Eye, Users, Palette, Settings } from "lucide-react";
+import { MapPin, Clock, Phone, Eye, Users, Palette, Settings } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
@@ -72,7 +72,7 @@ export default function LightingShowroomDubai() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Credence Lighting LLC — Dubai Showroom",
-    "image": "https://credencelighting.com/logo2.webp",
+    "image": "https://credencelighting.com/logo.svg",
     "url": "https://credencelighting.com/lighting-showroom-dubai",
     "telephone": "+971564965660",
     "email": "info@credencelighting.com",

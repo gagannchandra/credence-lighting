@@ -62,7 +62,7 @@ export default function Blog() {
         }]}
       />
       
-      <main className="pt-32 pb-24 relative">
+      <main className="pt-32 pb-24 relative overflow-hidden">
         {/* Ambient Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-gold/10 blur-[60px] md:blur-[150px] rounded-button pointer-events-none -z-10" />
 

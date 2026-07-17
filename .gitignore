@@ -27,3 +27,12 @@ dist-ssr
 .env*
 
 .temp/
+
+# Generated reports and analysis
+*.report.html
+perf_report*.html
+blogs_metadata.json
+full_results.json
+seodata.csv
+parse_lh.cjs
+test-*.cjs

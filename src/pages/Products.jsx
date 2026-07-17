@@ -14,7 +14,7 @@ const categoryDescriptions = {
   "Facade": "High-performance architectural facade lighting that highlights building structures, defines city skylines, and creates stunning nocturnal landmarks. Using advanced optics and precision controls, we illuminate exteriors to showcase architectural details while minimizing light pollution and maximizing energy efficiency.",
   "Entertainment": "Dynamic and vibrant entertainment lighting systems perfect for high-energy clubs, concert stages, and immersive live venues. Featuring rapid movement, vivid color mixing, and robust synchronization capabilities, these fixtures are built to deliver unforgettable visual spectacles night after night.",
   "LED Screen": "High-resolution LED displays offering brilliant colors, deep contrasts, and seamless integration for impactful visual communication. Whether used as dynamic digital signage or massive stage backdrops, our LED screens deliver flawless, bezel-free imagery that commands attention in any environment.",
-  "Strech Ceiling": "Elegant stretch ceiling lighting solutions providing uniform, glare-free, and perfectly diffused illumination for modern architectural designs. This innovative lighting approach transforms ordinary ceilings into luminous, seamless surfaces that create a sense of infinite space and refined luxury.",
+  "Stretch Ceiling": "Elegant stretch ceiling lighting solutions providing uniform, glare-free, and perfectly diffused illumination for modern architectural designs. This innovative lighting approach transforms ordinary ceilings into luminous, seamless surfaces that create a sense of infinite space and refined luxury.",
   "Automation": "Smart lighting control systems for seamless automation, advanced energy efficiency, and deeply personalized lighting experiences. Our intuitive automation interfaces allow you to easily manage complex lighting scenes, schedule automated transitions, and integrate with wider building management ecosystems.",
   "Retail": "Precision retail lighting designed to highlight high-value merchandise, intuitively guide customer flow, and elevate the premium shopping experience. With industry-leading color rendering and flexible track systems, our retail fixtures ensure that every product is presented in its best possible light.",
   "Audio": "Premium audio systems delivering crystal-clear sound quality, deep resonance, and reliable performance for commercial, hospitality, and residential applications. Expertly engineered to complement our visual solutions, these audio systems provide a truly immersive, multi-sensory experience for any high-end space."
@@ -37,7 +37,7 @@ export default function Products() {
     <PageTransition>
       <SEO 
         title="Lighting Products Dubai | Indoor, Outdoor & Architectural Lighting" 
-        description="Architectural, decorative, commercial & outdoor lighting." 
+        description="Explore our premium collection of indoor, outdoor, hospitality, and facade lighting fixtures." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",

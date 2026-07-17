@@ -24,8 +24,8 @@ export default function Projects() {
   return (
     <PageTransition>
       <SEO 
-        title="Lighting Projects Dubai | Commercial & Luxury Portfolio" 
-        description="Luxury villas, hotels, retail and commercial developments." 
+        title="Featured Projects | Credence Lighting Dubai" 
+        description="View our featured lighting installations across architectural, entertainment, and retail sectors." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "ItemList",
@@ -99,7 +99,7 @@ export default function Projects() {
               </div>
               
               <CategoryCarousel 
-                items={project.gallery.map((img, idx) => ({ id: idx, hero: img }))} 
+                items={project.gallery.map((img, idx) => ({ id: idx, hero: img, name: `${project.name} — Gallery Image ${idx + 1}` }))} 
                 isProduct={false} 
                 hideLinkOverlay={true} 
               />

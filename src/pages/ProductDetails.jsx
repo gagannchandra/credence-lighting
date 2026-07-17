@@ -13,7 +13,7 @@ const categoriesList = [
   "Facade",
   "Entertainment",
   "LED Screen",
-  "Strech Ceiling",
+  "Stretch Ceiling",
   "Automation",
   "Retail",
   "Audio",
@@ -26,7 +26,7 @@ const categoryDescriptions = {
   Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects.",
   Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere.",
   "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance.",
-  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
+  "Stretch Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
   Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control.",
   Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency.",
   Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
@@ -205,7 +205,7 @@ export default function ProductDetails() {
         </div>
 
         {/* BOTTOM: Gallery Format */}
-        <div className="w-full columns-1 sm:columns-2 md:columns-3 gap-4 md:gap-6 relative z-10">
+        <div className="w-full columns-1 sm:columns-2 md:columns-2 gap-4 md:gap-6 relative z-10">
           {categoryProducts.map((prod, idx) => (
             <motion.div
               key={idx}

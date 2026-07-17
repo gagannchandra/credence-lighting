@@ -83,23 +83,23 @@ export default function ProjectsSection({ hideHeader = false }) {
   };
 
   return (
-    <section id="projects" className="text-white px-4 md:px-12 py-24 md:py-32 relative overflow-hidden bg-transparent z-10">
+    <section id="projects" className="text-white px-4 md:px-12 py-12 md:py-24 relative overflow-hidden bg-transparent z-10">
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         {!hideHeader && (
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start mx-auto md:mx-0">
               <FadeUp delay={0}>
                 <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6 font-semibold">
                   Portfolio
                 </p>
               </FadeUp>
-              <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap gap-2">
-                <TextReveal text="Featured" /> <TextReveal text="Projects" delay={2} className="italic gold-gradient-text font-light" />
+              <h2 className="text-fluid-h2 font-serif text-white flex flex-wrap justify-center md:justify-start gap-2">
+                <TextReveal text="Featured" /> <TextReveal text="Projects" delay={2} className="italic gold-gradient-text font-light block w-full text-center md:text-left md:w-auto md:inline-block" />
               </h2>
             </div>
 
-            <FadeUp delay={4}>
+            <FadeUp delay={4} className="mx-auto md:mx-0 w-full md:w-auto">
               <motion.button
                 whileHover={{ scale: 1.05, backgroundColor: "#c8a96b", color: "#000", transition: { duration: 0.4, ease: ease.standard } }}
                 whileTap={{ scale: 0.95 }}
@@ -160,7 +160,9 @@ export default function ProjectsSection({ hideHeader = false }) {
                     className={`group relative overflow-hidden rounded-[2rem] cursor-pointer shadow-lg hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 bg-surface-elevated ${getBentoClasses(index)}`}
                     onClick={() => {
                       setActive(item.category);
-                      setActiveProjectIndex(filteredProjects.findIndex(p => p.id === item.id) !== -1 ? filteredProjects.findIndex(p => p.id === item.id) : 0);
+                      const newFiltered = projects.filter((p) => p.category === item.category);
+                      const newIndex = newFiltered.findIndex((p) => p.id === item.id);
+                      setActiveProjectIndex(newIndex !== -1 ? newIndex : 0);
                     }}
                   >
                     <img

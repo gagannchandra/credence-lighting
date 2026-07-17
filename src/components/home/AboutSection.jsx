@@ -13,7 +13,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
   return (
     <section
       id="about"
-      className="relative text-white flex flex-col items-center px-6 pt-36 pb-24"
+      className="relative text-white flex flex-col items-center px-6 pt-24 pb-12 md:pt-36 md:pb-24"
     >
       <div className="relative z-10 max-w-[1400px] w-full mx-auto text-center">
 
@@ -66,9 +66,9 @@ export default function AboutSection({ preview = false, asPage = false }) {
                   : ""
               }`}
             >
-              <h5 className="text-fluid-h2 font-serif text-white mb-3">
+              <p className="text-fluid-h2 font-serif text-white mb-3">
                 {number}
-              </h5>
+              </p>
               <p className="uppercase tracking-[0.3em] text-xs text-brand-gold/80">
                 {text}
               </p>

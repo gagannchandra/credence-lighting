@@ -8,12 +8,6 @@ const seo = {
   description: "Credence Lighting is a premier lighting supplier and design firm serving Abu Dhabi and Al Ain. We provide bespoke architectural, commercial, and hospitality lighting solutions."
 };
 
-const stats = [
-  ["50+", "Abu Dhabi Projects"],
-  ["100%", "ESTIDAMA Compliant"],
-  ["24/7", "Local Support"],
-  ["Premium", "Quality Brands"]
-];
 
 const faqs = [
   { id: "ad1", question: "Do you supply lighting for government and commercial projects in Abu Dhabi?", answer: "Yes, we regularly provide services to main contractors and government entities in Abu Dhabi as trusted lighting suppliers. We deliver ESTIDAMA-compliant lighting for commercial buildings, public spaces, and infrastructure projects." },

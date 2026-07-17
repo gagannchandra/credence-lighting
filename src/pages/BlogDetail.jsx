@@ -47,7 +47,7 @@ export default function BlogDetail() {
       "publisher": {
         "@type": "Organization",
         "name": "Credence Lighting",
-        "logo": { "@type": "ImageObject", "url": "https://credencelighting.com/logo2.webp" }
+        "logo": { "@type": "ImageObject", "url": "https://credencelighting.com/logo.svg" }
       }
     },
     {

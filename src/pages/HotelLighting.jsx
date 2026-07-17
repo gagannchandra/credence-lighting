@@ -1,7 +1,5 @@
 import { Lightbulb, Settings, Compass, Sparkles } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
-import indoorImg from "../assets/images/mytown/141.webp"; // Using an existing premium asset
-import outdoorImg from "../assets/images/xtremezone/136.webp"; // Using an existing premium asset
 
 const seo = {
   title: "Hotel Lighting Solutions & Suppliers | Credence Lighting",

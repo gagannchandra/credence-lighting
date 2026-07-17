@@ -13,6 +13,41 @@
       "source": "/about-us",
       "destination": "/about",
       "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/advertising-2",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-automation-control-system",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/posts-7",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/solutions",
+      "permanent": true
+    },
+    {
+      "source": "/commercial-lighting",
+      "destination": "/solutions",
+      "permanent": true
+    },
+    {
+      "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug",
+      "destination": "/blog/:slug",
+      "permanent": true
     }
   ],
   "rewrites": [

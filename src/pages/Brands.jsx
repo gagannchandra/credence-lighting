@@ -54,8 +54,8 @@ export default function Brands() {
   return (
     <PageTransition>
       <SEO 
-        title="Our Clients | Trusted Across Dubai & UAE" 
-        description="Trusted by architects, developers and leading UAE businesses." 
+        title="Our Clients & Brands | Credence Lighting Dubai" 
+        description="Discover the visionary brands, architects, and developers we partner with across the UAE." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "CollectionPage",

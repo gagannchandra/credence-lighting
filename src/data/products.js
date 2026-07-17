@@ -7,7 +7,7 @@ const categoryMap = {
   'facade': { category: 'Facade', title: 'Architectural Facade', subtitle: 'ARCHITECTURAL • EXTERIOR' },
   'entertainment': { category: 'Entertainment', title: 'Entertainment System', subtitle: 'DYNAMIC • VIBRANT' },
   'led-screen': { category: 'LED Screen', title: 'LED Screen', subtitle: 'HIGH RES • DISPLAY' },
-  'strech-ceiling': { category: 'Strech Ceiling', title: 'Stretch Ceiling', subtitle: 'ELEGANT • CEILING' },
+  'stretch-ceiling': { category: 'Stretch Ceiling', title: 'Stretch Ceiling', subtitle: 'ELEGANT • CEILING' },
   'Home Automation': { category: 'Automation', title: 'Smart Automation', subtitle: 'SMART • CONTROL' },
   'Retail Lighting': { category: 'Retail', title: 'Retail Lighting', subtitle: 'SHOWCASE • RETAIL' },
   'sound': { category: 'Audio', title: 'Audio System', subtitle: 'AUDIO • PREMIUM' }
@@ -15,7 +15,7 @@ const categoryMap = {
 
 const categoryOrder = [
   'Indoor', 'Outdoor', 'Hospitality', 'Facade', 
-  'Entertainment', 'LED Screen', 'Strech Ceiling', 
+  'Entertainment', 'LED Screen', 'Stretch Ceiling', 
   'Automation', 'Retail', 'Audio'
 ];
 

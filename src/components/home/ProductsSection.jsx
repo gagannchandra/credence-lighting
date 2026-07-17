@@ -17,7 +17,7 @@ const categories = [
   "Facade",
   "Entertainment",
   "LED Screen",
-  "Strech Ceiling",
+  "Stretch Ceiling",
   "Automation",
   "Retail",
   "Audio",
@@ -30,7 +30,7 @@ const categoryDescriptions = {
   Facade: "Facade Lighting enhances architectural identity and visual impact with a wide range of advanced lighting solutions. Powered by cutting-edge technology, our systems deliver precise illumination and dynamic effects.",
   Entertainment: "Entertainment Lighting delivers high-impact visuals and immersive experiences through a wide range of dynamic lighting solutions. Powered by advanced control technology, our systems create precision effects, movement, and atmosphere.",
   "LED Screen": "LED Screens deliver powerful visual impact with a wide range of modern display solutions for indoor, outdoor, stage, and advertising applications. Powered by advanced display technology, our screens offer high brightness, clarity, and seamless performance.",
-  "Strech Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
+  "Stretch Ceiling": "Stretch Ceiling Solutions enhance interiors with modern design, seamless finishes, and creative flexibility. Our wide range of stretch ceiling systems integrates advanced technology with precision fabrication for flawless results.",
   Automation: "Home Automation Systems bring comfort, control, and efficiency through a wide range of smart solutions. Powered by advanced technology, our systems seamlessly integrate lighting, climate, security, and AV control.",
   Retail: "Retail Lighting enhances product visibility and customer experience through a wide range of modern lighting solutions. Powered by advanced lighting technology, our systems deliver precise illumination, visual comfort, and energy efficiency.",
   Audio: "We deliver innovative audio solutions for residential, commercial, hospitality, and retail spaces. From background music and public address systems to conference and entertainment audio, our team provides complete design, supply, installation, and support.",
@@ -112,23 +112,23 @@ export default function ProductsSection({ hideHeader = false }) {
   };
 
   return (
-    <section id="products" className="text-white px-4 md:px-12 py-20 md:py-24 relative overflow-hidden bg-transparent z-10">
+    <section id="products" className="text-white px-4 md:px-12 py-12 md:py-24 relative overflow-hidden bg-transparent z-10">
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         {!hideHeader && (
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16">
-            <div>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 mb-16 text-center md:text-left">
+            <div className="flex flex-col items-center md:items-start mx-auto md:mx-0">
               <FadeUp delay={0}>
                 <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6 font-semibold">
                   Premium Collection
                 </p>
               </FadeUp>
-              <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap gap-2">
-                <TextReveal text="Our Product" /> <TextReveal text="Range" delay={2} className="italic text-brand-gold font-light" />
+              <h2 className="text-fluid-h1 font-serif text-white flex flex-wrap justify-center md:justify-start gap-2">
+                <TextReveal text="Our Product" /> <TextReveal text="Range" delay={2} className="italic text-brand-gold font-light block w-full text-center md:text-left md:w-auto md:inline-block" />
               </h2>
             </div>
 
-            <FadeUp delay={4}>
+            <FadeUp delay={4} className="mx-auto md:mx-0 w-full md:w-auto">
               <HoverLift>
                 <button
                   onClick={handleEnquireClick}

@@ -93,7 +93,7 @@ export default function Solutions() {
     <PageTransition>
       <SEO 
         title="Lighting Solutions | Credence Lighting Dubai" 
-        description="Explore our specialized lighting solutions for hospitality, residential, commercial, retail, entertainment, and office sectors across the Middle East." 
+        description="Bespoke architectural, commercial, and hospitality lighting solutions tailored to your space." 
       />
       <div className="relative min-h-screen bg-transparent overflow-hidden pt-32 pb-20">
         {/* BACKGROUND GLOW */}

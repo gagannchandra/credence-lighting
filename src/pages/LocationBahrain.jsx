@@ -8,12 +8,6 @@ const seo = {
   description: "Specialized architectural lighting supplier for Bahrain. We provide complete LED lighting solutions for commercial towers, luxury hospitality, and high-end residential projects."
 };
 
-const stats = [
-  ["GCC", "Direct Delivery"],
-  ["IP67", "Marine Grade"],
-  ["Fast", "Lead Times"],
-  ["Premium", "Quality Brands"]
-];
 
 const faqs = [
   { id: "bh1", question: "Do you supply lighting to Bahrain from the UAE?", answer: "Yes, we regularly export and supply lighting packages to Bahrain. Thanks to the GCC customs union and our established logistics providers, we ensure rapid and cost-effective delivery via the King Fahd Causeway." },

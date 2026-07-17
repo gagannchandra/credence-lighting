@@ -1,7 +1,5 @@
 import { Building, Eye, Zap, Settings } from "lucide-react";
 import IndustryTemplate from "../components/templates/IndustryTemplate";
-import indoorImg from "../assets/images/ground-control/154.webp"; 
-import officeImg from "../assets/images/Funtura/134.webp"; 
 
 const seo = {
   title: "Commercial Office Lighting Solutions | Credence",

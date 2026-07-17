@@ -16,13 +16,13 @@ export default function About() {
     <PageTransition>
       <SEO 
         title="About Credence Lighting | Premium Lighting Experts Dubai" 
-        description="Learn about our expertise and premium lighting solutions." 
+        description="10+ years of experience delivering premium lighting solutions. Aesthetics meets functionality." 
         schema={[{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Credence Lighting LLC",
           "url": "https://credencelighting.com",
-          "logo": "https://credencelighting.com/logo2.webp",
+          "logo": "https://credencelighting.com/logo.svg",
           "description": "Credence Lighting is a premium lighting company in Dubai providing architectural, commercial, and hospitality lighting design, supply, and installation across the UAE and GCC.",
           "foundingDate": "2014",
           "numberOfEmployees": {
