@@ -1,11 +1,9 @@
-import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Building2, Lightbulb, Globe, Wrench, ShieldCheck, HeadphonesIcon } from "lucide-react";
 import Footer from "../../components/layout/Footer";
 import SEO from "../../components/seo/SEO";
 import InlineFAQ from "../../components/seo/InlineFAQ";
 import FadeUp from "../../components/ui/motion/FadeUp";
-import { scrollToTop } from "../../utils/scrollUtils";
 import ArticleBody from "../../components/blog/ArticleBody";
 
 const defaultAdvantages = [
@@ -53,10 +51,6 @@ export default function LocationTemplate({
   relatedProjects,
   faqs 
 }) {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   return (
     <>

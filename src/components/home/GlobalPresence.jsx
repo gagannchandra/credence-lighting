@@ -109,41 +109,7 @@ export default function GlobalPresence() {
     const initTimer = setTimeout(() => {
       initCinematicRender();
       
-      // Intercept pointer events to allow page scrolling on empty canvas corners
-      if (globeRef.current) {
-        const renderer = globeRef.current.renderer();
-        if (renderer && renderer.domElement) {
-          const canvas = renderer.domElement;
-          
-          const handleInteraction = (e) => {
-            const rect = canvas.getBoundingClientRect();
-            // For touch events, use the first touch point
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            
-            const x = clientX - rect.left - rect.width / 2;
-            const y = clientY - rect.top - rect.height / 2;
-            const distance = Math.sqrt(x*x + y*y);
-            
-            // The globe visually occupies about 35% to 40% of the canvas radius (due to scaling)
-            const clickableRadius = rect.width * 0.35; 
-            
-            if (distance > clickableRadius) {
-              // The user touched/clicked outside the circular globe.
-              // Stop the event from reaching OrbitControls so it doesn't prevent page scrolling!
-              e.stopPropagation();
-            }
-          };
 
-          // We use capture phase (true) to intercept the event BEFORE OrbitControls gets it
-          canvas.addEventListener('pointerdown', handleInteraction, true);
-          canvas.addEventListener('touchstart', handleInteraction, true);
-          canvas.addEventListener('wheel', handleInteraction, true);
-          
-          // Store it so we can clean it up later if needed, though the canvas gets destroyed on unmount anyway
-          canvas._interactionHandler = handleInteraction;
-        }
-      }
     }, 150);
 
     return () => {
@@ -181,7 +147,7 @@ export default function GlobalPresence() {
 
   useEffect(() => {
     const updateSize = () => {
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(prev => prev === window.innerWidth ? prev : window.innerWidth);
       if (!containerRef.current) return;
       const width = containerRef.current.offsetWidth;
       const isMobile = window.innerWidth < 768;
@@ -189,7 +155,11 @@ export default function GlobalPresence() {
       // Much larger canvas scale to prevent label clipping, altitude adjusted to match
       const scale = isMobile ? 1.6 : 1.8; 
       const size = Math.min(width * scale, 1800);
-      setGlobeSize({ width: size, height: size });
+      
+      setGlobeSize(prev => {
+        if (prev.width === size && prev.height === size) return prev;
+        return { width: size, height: size };
+      });
     };
 
     updateSize();
@@ -301,7 +271,7 @@ export default function GlobalPresence() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="relative w-full h-full flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-transform duration-[800ms] ease-out group-hover:scale-105 pointer-events-auto">
                 {typeof window !== 'undefined' && window.__PRERENDER_INJECTED ? null : (
                   <Globe
                     ref={globeRef}

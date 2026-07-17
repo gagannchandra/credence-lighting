@@ -1,11 +1,9 @@
-import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Lightbulb, Ruler, Home, Building2, UtensilsCrossed, Palette } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
 import PageTransition from "../components/ui/motion/PageTransition";
-import { scrollToTop } from "../utils/scrollUtils";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const styles = [
@@ -27,10 +25,6 @@ const faqs = [
 ];
 
 export default function PendantLightsDubai() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   const faqSchema = {
     "@context": "https://schema.org",

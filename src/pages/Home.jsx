@@ -1,18 +1,18 @@
-import { useEffect, Suspense, lazy, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
 import { scrollToSection } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
 import Hero from "../components/home/Hero";
-const AboutSection = lazy(() => import("../components/home/AboutSection"));
-const ProductsSection = lazy(() => import("../components/home/ProductsSection"));
-const BrandsSection = lazy(() => import("../components/home/BrandsSection"));
-const GlobalPresence = lazy(() => import("../components/home/GlobalPresence"));
-const ProjectsSection = lazy(() => import("../components/home/ProjectsSection"));
-const ContactSection = lazy(() => import("../components/home/ContactSection"));
+import AboutSection from "../components/home/AboutSection";
+import ProductsSection from "../components/home/ProductsSection";
+import BrandsSection from "../components/home/BrandsSection";
+import GlobalPresence from "../components/home/GlobalPresence";
+import ProjectsSection from "../components/home/ProjectsSection";
+import ContactSection from "../components/home/ContactSection";
 import PageTransition from "../components/ui/motion/PageTransition";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Home() {
   useEffect(() => {
@@ -26,8 +26,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
-  const globalPresenceRef = useRef(null);
-  const isGlobalPresenceInView = useInView(globalPresenceRef, { once: true, margin: "200px 0px" });
+
 
   return (
     <PageTransition>
@@ -171,37 +170,16 @@ export default function Home() {
         <div className="relative z-10">
           <Hero />
           
-          <Suspense fallback={<div className="min-h-[250vh]" />}>
-            <AboutSection preview={true} />
+          <AboutSection preview={true} />
 
-            <div className="heavy-section-deferred">
-              <ProjectsSection preview={true} />
-            </div>
-            <div className="heavy-section-deferred">
-              <ProductsSection preview={true} />
-            </div>
-            <div className="heavy-section-deferred">
-              <BrandsSection preview={true} />
-            </div>
-          </Suspense>
+          <ProjectsSection preview={true} />
+          <ProductsSection preview={true} />
+          <BrandsSection preview={true} />
 
-          <div ref={globalPresenceRef} className="min-h-[50vh]">
-            {isGlobalPresenceInView && (
-              <Suspense 
-                fallback={
-                  <div className="min-h-[50vh] flex flex-col items-center justify-center bg-transparent gap-4">
-                    <div className="w-12 h-12 border-2 border-brand-gold/20 border-t-brand-gold rounded-full animate-spin shadow-[0_0_15px_rgba(200,169,107,0.3)]"></div>
-                    <p className="text-brand-gold uppercase tracking-widest text-xs animate-pulse">Initializing 3D Map...</p>
-                  </div>
-                }
-              >
-                <GlobalPresence />
-              </Suspense>
-            )}
+          <div className="min-h-screen md:min-h-[90vh]">
+            <GlobalPresence />
           </div>
-          <Suspense fallback={<div className="min-h-[50vh]" />}>
-            <ContactSection preview={true} />
-          </Suspense>
+          <ContactSection preview={true} />
         </div>
       </main>
 

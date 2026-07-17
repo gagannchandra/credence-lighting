@@ -1,7 +1,5 @@
-import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
-import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 import PageTransition from "../components/ui/motion/PageTransition";
 import { ArrowUpRight } from "lucide-react";
@@ -84,10 +82,6 @@ const solutionsData = [
 ];
 
 export default function Solutions() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   return (
     <PageTransition>

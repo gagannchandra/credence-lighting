@@ -16,18 +16,8 @@ export default function ReturnScrollHandler() {
 
     if (!state) return;
 
-    const applyRestore = () => {
-      restoreScrollPosition(state);
-      clearReturnState();
-    };
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(applyRestore);
-    });
-
-    const timer = setTimeout(applyRestore, 120);
-
-    return () => clearTimeout(timer);
+    restoreScrollPosition(state);
+    clearReturnState();
   }, []);
 
   return null;
