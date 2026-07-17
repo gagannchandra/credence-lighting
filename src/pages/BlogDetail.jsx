@@ -35,6 +35,11 @@ export default function BlogDetail() {
   // Schema for SEO
   const seoTitle = post.seoMetadata?.title || `${post.title} · Credence Lighting`;
   const seoDescription = post.seoMetadata?.description || post.excerpt;
+  // heroImage is a bundled Vite asset (e.g. /assets/xxx.webp) — a relative path.
+  // OG crawlers require absolute URLs, so we prepend the domain.
+  const seoImage = post.heroImage
+    ? (post.heroImage.startsWith('http') ? post.heroImage : `https://credencelighting.com${post.heroImage}`)
+    : 'https://credencelighting.com/meta.png';
 
   const schemas = [
     {
@@ -67,7 +72,7 @@ export default function BlogDetail() {
         title={seoTitle}
         description={seoDescription}
         type="article"
-        image={post.heroImage}
+        image={seoImage}
         schema={schemas}
       />
       

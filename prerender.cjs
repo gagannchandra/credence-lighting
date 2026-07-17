@@ -44,6 +44,7 @@ const staticRoutes = [
   // Industry Pages
   '/hotel-lighting', '/residential-lighting', '/office-lighting',
   '/retail-lighting', '/restaurant-lighting', '/entertainment-lighting',
+  '/audio-solutions', '/facade-lighting',
   // Location Pages
   '/lighting-suppliers-abu-dhabi', '/lighting-companies-sharjah',
   '/lighting-solutions-ajman', '/lighting-solutions-rak',
@@ -143,5 +144,14 @@ const server = app.listen(3000, async () => {
   await page.close();
   await browser.close();
   server.close();
+
+  // Restore the full robots.txt (the build process can strip Disallow rules)
+  const robotsSrc = path.join(__dirname, 'public', 'robots.txt');
+  const robotsDest = path.join(__dirname, 'dist', 'robots.txt');
+  if (fs.existsSync(robotsSrc)) {
+    fs.copyFileSync(robotsSrc, robotsDest);
+    console.log('robots.txt restored from public/');
+  }
+
   console.log('Prerendering complete!');
 });

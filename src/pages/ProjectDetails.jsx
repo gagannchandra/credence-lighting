@@ -97,17 +97,23 @@ export default function ProjectDetails() {
     );
   }
 
+  // project.hero is a bundled Vite asset (/assets/xxx.webp) — relative path.
+  // og:image requires an absolute URL.
+  const seoImage = project.hero
+    ? (project.hero.startsWith('http') ? project.hero : `https://credencelighting.com${project.hero}`)
+    : 'https://credencelighting.com/meta.png';
+
   return (
     <main className="bg-transparent min-h-screen relative overflow-x-hidden text-white">
       <SEO 
         title={`${project.name} · Luxury Lighting Project | Credence`}
         description={`Explore the architectural lighting design of ${project.name} in ${project.location} (${project.year}). Discover our bespoke ${project.category.toLowerCase()} solutions.`}
-        image={project.hero}
+        image={seoImage}
         schema={[{
           "@context": "https://schema.org",
           "@type": "CreativeWork",
           "name": project.name,
-          "image": project.hero,
+          "image": seoImage,
           "description": project.description,
           "creator": {
             "@type": "Organization",
