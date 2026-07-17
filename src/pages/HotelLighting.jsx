@@ -21,6 +21,12 @@ const schema = {
       "serviceType": "Hotel Lighting Design and Supply",
       "provider": {
         "@type": "LocalBusiness",
+          "@id": "https://credencelighting.com/#organization",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "24.9788",
+            "longitude": "55.1764"
+          },
         "name": "Credence Lighting",
         "url": "https://credencelighting.com"
       },

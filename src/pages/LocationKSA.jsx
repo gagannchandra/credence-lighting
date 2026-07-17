@@ -20,6 +20,12 @@ const schema = {
   "@graph": [
     {
       "@type": "LocalBusiness",
+          "@id": "https://credencelighting.com/#organization",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "24.9788",
+            "longitude": "55.1764"
+          },
       "name": "Credence Lighting",
       "url": "https://credencelighting.com/lighting-companies-saudi-arabia",
       "areaServed": {

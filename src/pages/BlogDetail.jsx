@@ -51,6 +51,7 @@ export default function BlogDetail() {
       "author": [{ "@type": "Person", "name": post.author }],
       "publisher": {
         "@type": "Organization",
+          "@id": "https://credencelighting.com/#organization",
         "name": "Credence Lighting",
         "logo": { "@type": "ImageObject", "url": "https://credencelighting.com/logo.svg" }
       }

@@ -6,17 +6,21 @@ export default function FaqAccordionItem({ faq, index }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
+    <motion.details
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="border-b border-white/10 last:border-0"
+      className="border-b border-white/10 last:border-0 group marker:content-none"
+      open={isOpen}
+      onToggle={(e) => setIsOpen(e.target.open)}
     >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-start justify-between gap-6 text-center md:text-left group"
-        aria-expanded={isOpen}
+      <summary
+        onClick={(e) => {
+          e.preventDefault();
+          setIsOpen(!isOpen);
+        }}
+        className="w-full py-6 flex items-start justify-between gap-6 text-center md:text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden"
       >
         <span className="text-lg md:text-xl font-medium text-white/90 group-hover:text-brand-gold transition-colors duration-300">
           {faq.question}
@@ -31,7 +35,7 @@ export default function FaqAccordionItem({ faq, index }) {
             className={`absolute text-white/60 group-hover:text-brand-gold transition-all duration-300 ${isOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}`} 
           />
         </div>
-      </button>
+      </summary>
 
       <AnimatePresence>
         {isOpen && (
@@ -48,6 +52,6 @@ export default function FaqAccordionItem({ faq, index }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </motion.details>
   );
 }

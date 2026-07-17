@@ -20,6 +20,7 @@ export default function About() {
         schema={[{
           "@context": "https://schema.org",
           "@type": "Organization",
+          "@id": "https://credencelighting.com/#organization",
           "name": "Credence Lighting LLC",
           "url": "https://credencelighting.com",
           "logo": "https://credencelighting.com/logo.svg",
@@ -52,7 +53,7 @@ export default function About() {
           ]
         }]}
       />
-      <div className="relative bg-transparent pt-10 pb-20 overflow-hidden">
+      <main className="relative bg-transparent pt-10 pb-20 overflow-hidden">
         {/* SHARED BACKGROUND GLOW */}
         <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-brand-gold/10 blur-[60px] md:blur-[200px] pointer-events-none" />
         <div className="absolute top-[60%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-brand-gold/10 blur-[60px] md:blur-[180px] pointer-events-none" />
@@ -63,7 +64,7 @@ export default function About() {
         <div className="relative z-10">
           <AboutSection asPage />
         </div>
-      </div>
+      </main>
       <Footer />
     </PageTransition>
   );

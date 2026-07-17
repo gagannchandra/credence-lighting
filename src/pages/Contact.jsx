@@ -20,6 +20,12 @@ export default function Contact() {
         schema={[{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
+          "@id": "https://credencelighting.com/#organization",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "24.9788",
+            "longitude": "55.1764"
+          },
           "name": "Credence Lighting LLC",
           "image": "https://credencelighting.com/logo.svg",
           "url": "https://credencelighting.com",

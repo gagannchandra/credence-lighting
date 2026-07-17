@@ -9,6 +9,7 @@ import CustomCursor from "./components/ui/CustomCursor";
 import AmbientBackground from "./components/layout/AmbientBackground";
 import Navbar from "./components/layout/Navbar";
 import BackButton from "./components/ui/BackButton";
+import ErrorBoundary from "./components/ui/ErrorBoundary";
 
 import Home from "./pages/Home";
 const Downloads = lazy(() => import("./pages/Downloads"));
@@ -66,57 +67,59 @@ export default function App() {
       <ScrollToTop />
       {location.pathname !== "/" && <BackButton />}
 
-      <Suspense fallback={<Loader />}>
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/projects/:slug" element={<ProjectDetails />} />
-            <Route path="/products/:slug" element={<ProductDetails />} />
-            <Route path="/downloads" element={<Downloads />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/brands" element={<Brands />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/contact" element={<Contact />} />
-            
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogDetail />} />
-            <Route path="/faq" element={<Faq />} />
+      <ErrorBoundary>
+        <Suspense fallback={<Loader />}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Navigate to="/" replace />} />
+              <Route path="/projects/:slug" element={<ProjectDetails />} />
+              <Route path="/products/:slug" element={<ProductDetails />} />
+              <Route path="/downloads" element={<Downloads />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/brands" element={<Brands />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/contact" element={<Contact />} />
+              
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogDetail />} />
+              <Route path="/faq" element={<Faq />} />
 
-            {/* Money Pages */}
-            <Route path="/lighting-company-dubai" element={<LightingCompanyDubai />} />
-            <Route path="/lighting-showroom-dubai" element={<LightingShowroomDubai />} />
-            <Route path="/ceiling-lights-dubai" element={<CeilingLightsDubai />} />
-            <Route path="/outdoor-lighting-dubai" element={<OutdoorLightingDubai />} />
-            <Route path="/pendant-lights-dubai" element={<PendantLightsDubai />} />
-            <Route path="/led-strip-lights-dubai" element={<LEDStripLightsDubai />} />
+              {/* Money Pages */}
+              <Route path="/lighting-company-dubai" element={<LightingCompanyDubai />} />
+              <Route path="/lighting-showroom-dubai" element={<LightingShowroomDubai />} />
+              <Route path="/ceiling-lights-dubai" element={<CeilingLightsDubai />} />
+              <Route path="/outdoor-lighting-dubai" element={<OutdoorLightingDubai />} />
+              <Route path="/pendant-lights-dubai" element={<PendantLightsDubai />} />
+              <Route path="/led-strip-lights-dubai" element={<LEDStripLightsDubai />} />
 
-            {/* Industry Pages */}
-            <Route path="/hotel-lighting" element={<HotelLighting />} />
-            <Route path="/residential-lighting" element={<ResidentialLighting />} />
-            <Route path="/office-lighting" element={<OfficeLighting />} />
-            <Route path="/retail-lighting" element={<RetailLighting />} />
-            <Route path="/restaurant-lighting" element={<RestaurantLighting />} />
-            <Route path="/entertainment-lighting" element={<EntertainmentLighting />} />
-            <Route path="/audio-solutions" element={<AudioSolutions />} />
-            <Route path="/facade-lighting" element={<FacadeLighting />} />
+              {/* Industry Pages */}
+              <Route path="/hotel-lighting" element={<HotelLighting />} />
+              <Route path="/residential-lighting" element={<ResidentialLighting />} />
+              <Route path="/office-lighting" element={<OfficeLighting />} />
+              <Route path="/retail-lighting" element={<RetailLighting />} />
+              <Route path="/restaurant-lighting" element={<RestaurantLighting />} />
+              <Route path="/entertainment-lighting" element={<EntertainmentLighting />} />
+              <Route path="/audio-solutions" element={<AudioSolutions />} />
+              <Route path="/facade-lighting" element={<FacadeLighting />} />
 
-            {/* Location Pages */}
-            <Route path="/lighting-suppliers-abu-dhabi" element={<LocationAbuDhabi />} />
-            <Route path="/lighting-companies-sharjah" element={<LocationSharjah />} />
-            <Route path="/lighting-solutions-ajman" element={<LocationAjman />} />
-            <Route path="/lighting-solutions-rak" element={<LocationRAK />} />
-            <Route path="/lighting-companies-uae" element={<LocationUAE />} />
-            <Route path="/lighting-companies-saudi-arabia" element={<LocationKSA />} />
-            <Route path="/lighting-companies-bahrain" element={<LocationBahrain />} />
+              {/* Location Pages */}
+              <Route path="/lighting-suppliers-abu-dhabi" element={<LocationAbuDhabi />} />
+              <Route path="/lighting-companies-sharjah" element={<LocationSharjah />} />
+              <Route path="/lighting-solutions-ajman" element={<LocationAjman />} />
+              <Route path="/lighting-solutions-rak" element={<LocationRAK />} />
+              <Route path="/lighting-companies-uae" element={<LocationUAE />} />
+              <Route path="/lighting-companies-saudi-arabia" element={<LocationKSA />} />
+              <Route path="/lighting-companies-bahrain" element={<LocationBahrain />} />
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AnimatePresence>
-      </Suspense>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </ErrorBoundary>
 
       <WhatsappFloat />
     </SmoothScroll>

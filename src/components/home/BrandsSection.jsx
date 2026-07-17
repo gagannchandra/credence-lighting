@@ -108,9 +108,10 @@ export default function BrandsSection() {
                   >
                     <img
                       src={logo}
-                      alt=""
+                      alt="Credence Lighting Partner Brand Logo"
                       width="240"
                       height="96"
+
                       draggable="false"
                       className="h-16 md:h-24 object-contain opacity-80 hover:opacity-100 transition duration-500 select-none"
                     />

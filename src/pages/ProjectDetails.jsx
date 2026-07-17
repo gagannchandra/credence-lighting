@@ -117,6 +117,7 @@ export default function ProjectDetails() {
           "description": project.description,
           "creator": {
             "@type": "Organization",
+          "@id": "https://credencelighting.com/#organization",
             "name": "Credence Lighting"
           },
           "datePublished": project.year,

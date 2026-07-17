@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Dynamically import the handler so process.env is populated first
-const { default: contactHandler } = await import("./api/contact.js");
+const { default: contactHandler } = await import("../api/contact.js");
 
 const app = express();
 const PORT = 3001;

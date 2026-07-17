@@ -90,15 +90,15 @@ export default function Hero() {
 
       {/* CONTENT */}
       <div className="relative z-20 text-center px-6 max-w-5xl pointer-events-none flex flex-col items-center">
-        <h1 className="flex flex-col items-center justify-center animate-hero-title">
-          <span className="sr-only">Premium Lighting Solutions Dubai</span>
-          <span className="text-white text-fluid-h1 font-serif" aria-hidden="true">
+        <h1 className="sr-only">Premium Lighting Solutions Dubai - Luminous Sophistication</h1>
+        <div className="flex flex-col items-center justify-center animate-hero-title" aria-hidden="true">
+          <span className="text-white text-fluid-h1 font-serif">
             Luminous
           </span>
-          <span className="italic gold-gradient-text text-fluid-h1 font-serif mt-2" aria-hidden="true">
+          <span className="italic gold-gradient-text text-fluid-h1 font-serif mt-2">
             Sophistication
           </span>
-        </h1>
+        </div>
 
         <p className="text-white/70 mt-8 text-fluid-p tracking-wide animate-hero-subtitle">
           Where Premium Design Meets Functional Excellence
