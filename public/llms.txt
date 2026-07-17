@@ -1,70 +1,127 @@
-# Credence Lighting
+# Credence Lighting LLC
 
-Credence Lighting LLC is a premium architectural and commercial lighting supplier and design firm based in Dubai, UAE, serving the entire Middle East region (UAE, Saudi Arabia, Bahrain, etc.).
+> Credence Lighting LLC is a Dubai-based lighting design, supply, and installation company. The site covers architectural, commercial, hospitality, residential, retail, entertainment, facade, automation, LED screen, stretch ceiling, and audio projects across the UAE and GCC. It also includes case studies, technical articles, FAQs, downloads, gallery, brands, and official contact details.
 
-## Core Offerings
+## Start here
 
-Credence Lighting provides bespoke, high-performance lighting solutions across multiple industries and applications:
-- **Architectural Lighting**: High-end illumination for buildings, structures, and public spaces.
-- **Commercial & Office Lighting**: Ergonomic, energy-efficient lighting solutions focusing on human-centric design, UGR compliance, and productivity.
-- **Hospitality & Hotel Lighting**: Ambient, mood, and decorative lighting aimed at enhancing guest experiences.
-- **Retail Lighting**: Strategic illumination designed to highlight products and increase customer dwell time.
-- **Residential Lighting**: Luxury lighting layering (ambient, task, accent) for premium homes and villas.
-- **Entertainment Lighting**: Dynamic, interactive, and immersive lighting installations for theme parks and venues.
-- **Facade Lighting**: Exterior architectural and media facades capable of programmable light shows.
-- **Outdoor & Landscape Lighting**: IP-rated, weather-resistant fixtures for gardens, pathways, and exteriors.
-- **Audio Solutions**: Integrated commercial audio and sound systems.
-- **Automation**: Smart controls, DALI/DMX systems, and wireless lighting (Casambi).
-- **LED Screens**: High-resolution video displays for retail and entertainment.
+- [About](https://credencelighting.com/about): Company overview, schema metadata, service model, location, and official contact details.
+- [Products](https://credencelighting.com/products): Core product categories and their category pages.
+- [Solutions](https://credencelighting.com/solutions): Industry landing pages for hospitality, residential, restaurant, retail, entertainment, office, audio, and facade lighting.
+- [Projects](https://credencelighting.com/projects): Portfolio of completed work.
+- [Blog](https://credencelighting.com/blog): Technical and educational articles on lighting design, controls, standards, buying guides, and project planning.
+- [FAQ](https://credencelighting.com/faq): Common questions and answers about services and project support.
+- [Downloads](https://credencelighting.com/downloads): PDF resources and company materials.
+- [Gallery](https://credencelighting.com/gallery): Project imagery and installation inspiration.
+- [Brands](https://credencelighting.com/brands): Client and brand references featured on the site.
+- [Contact](https://credencelighting.com/contact): Official address, phone, email, hours, and inquiry form.
 
-## Main User Journeys & Routes
+## Core offerings
 
-The website is structured to cater to B2B clients, contractors, and designers looking for specific solutions or project inspiration:
+- Architectural lighting
+- Commercial and office lighting
+- Hospitality and hotel lighting
+- Residential lighting
+- Retail lighting
+- Entertainment lighting
+- Facade lighting
+- Outdoor and landscape lighting
+- Automation and smart controls
+- LED screens
+- Stretch ceilings
+- Audio solutions
 
-- **Home (`/`)**: Main entry point showcasing premium identity.
-- **About (`/about`)**: Company profile, expertise, and global presence.
-- **Products (`/products`)**: Core product categories (Indoor, Outdoor, LED Screen, Stretch Ceiling, Automation, Retail, Audio).
-  - Dynamic route: `/products/:slug` (e.g., `/products/indoor`, `/products/outdoor`)
-- **Projects (`/projects`)**: Portfolio of completed case studies (e.g., My Town, Funtura, Ground Control).
-  - Dynamic route: `/projects/:slug`
-- **Solutions / Industries (`/solutions`)**:
-  - `/hotel-lighting`
-  - `/residential-lighting`
-  - `/office-lighting`
-  - `/retail-lighting`
-  - `/restaurant-lighting`
-  - `/entertainment-lighting`
-  - `/audio-solutions`
-  - `/facade-lighting`
-- **Location-Specific Services**:
-  - `/lighting-company-dubai`
-  - `/lighting-suppliers-abu-dhabi`
-  - `/lighting-companies-saudi-arabia`
-  - (and other specific emirates/countries)
-- **Resources**:
-  - **Downloads (`/downloads`)**: PDF catalogues, company profiles, and project albums.
-  - **Gallery (`/gallery`)**: Visual inspiration and installation photos.
-  - **FAQ (`/faq`)**: Common questions regarding design, supply, and installation.
-  - **Blog (`/blog`)**: Articles on lighting design trends, technology (CRI, color temperature, IP ratings), and guides.
-- **Contact (`/contact`)**: Direct inquiry form and physical location.
+## Product categories
 
-## Trust Signals & Credentials
+- [Indoor Lighting](https://credencelighting.com/products/indoor)
+- [Outdoor Lighting](https://credencelighting.com/products/outdoor)
+- [Hospitality Lighting](https://credencelighting.com/products/hospitality)
+- [Facade Lighting](https://credencelighting.com/products/facade)
+- [Entertainment Lighting](https://credencelighting.com/products/entertainment)
+- [LED Screen](https://credencelighting.com/products/led-screen)
+- [Stretch Ceiling](https://credencelighting.com/products/stretch-ceiling)
+- [Automation](https://credencelighting.com/products/home-automation)
+- [Retail Lighting](https://credencelighting.com/products/retail-lighting)
+- [Audio](https://credencelighting.com/products/audio)
 
-- **Location**: Unit E77, Arabtec Eastern Model, Dubai Investment Park 1, Dubai, United Arab Emirates.
-- **Compliance**: Products meet strict luminous efficacy standards and integrate with local sustainability frameworks (e.g., ESTIDAMA in Abu Dhabi, LEED certification).
-- **Quality**: Fixtures are engineered for uncompromised performance, long lifespans, and utilize advanced LED technology and smart controls.
+## Industry pages
 
-## Contact Information
+- [Hotel Lighting](https://credencelighting.com/hotel-lighting)
+- [Residential Lighting](https://credencelighting.com/residential-lighting)
+- [Office Lighting](https://credencelighting.com/office-lighting)
+- [Retail Lighting](https://credencelighting.com/retail-lighting)
+- [Restaurant Lighting](https://credencelighting.com/restaurant-lighting)
+- [Entertainment Lighting](https://credencelighting.com/entertainment-lighting)
+- [Audio Solutions](https://credencelighting.com/audio-solutions)
+- [Facade Lighting](https://credencelighting.com/facade-lighting)
 
-- **Email**: info@credencelighting.com
-- **Phone / WhatsApp**: +971 564 965 660
-- **Social Media**: Active on Instagram (@credencelighting), LinkedIn, Facebook, and YouTube.
+## Location landing pages
 
-## Terminology
+- [Lighting Company Dubai](https://credencelighting.com/lighting-company-dubai)
+- [Lighting Showroom Dubai](https://credencelighting.com/lighting-showroom-dubai)
+- [Lighting Suppliers Abu Dhabi](https://credencelighting.com/lighting-suppliers-abu-dhabi)
+- [Lighting Companies Sharjah](https://credencelighting.com/lighting-companies-sharjah)
+- [Lighting Solutions Ajman](https://credencelighting.com/lighting-solutions-ajman)
+- [Lighting Solutions RAK](https://credencelighting.com/lighting-solutions-rak)
+- [Lighting Companies UAE](https://credencelighting.com/lighting-companies-uae)
+- [Lighting Companies Saudi Arabia](https://credencelighting.com/lighting-companies-saudi-arabia)
+- [Lighting Companies Bahrain](https://credencelighting.com/lighting-companies-bahrain)
 
-- **BGM**: Background Music (in the context of Audio Solutions).
-- **CRI**: Color Rendering Index.
-- **HCL**: Human Centric Lighting.
-- **UGR**: Unified Glare Rating.
-- **ESTIDAMA**: Abu Dhabi's sustainability framework (Pearl Rating System).
-- **KNX / Crestron / Casambi / DALI / DMX**: Lighting control and automation protocols used in their projects.
+## Representative projects
+
+- [My Town](https://credencelighting.com/projects/my-town): Multiple locations in Saudi Arabia, 2024.
+- [Ground Control](https://credencelighting.com/projects/ground-control): Galleria Mall, Bahrain, 2024.
+- [Funtura](https://credencelighting.com/projects/funtura): Al Atyaf Mall, Riyadh, 2024.
+- [Xtreme Zone](https://credencelighting.com/projects/xtreme-zone): Al Shifa, Dammam, Saudi Arabia, 2024.
+- [Xtreme Z](https://credencelighting.com/projects/xtreme-z): Riyadh, Saudi Arabia, 2024.
+- [Smarvy Spot](https://credencelighting.com/projects/smarvy-spot): Alamer Mall, Al-Ahsa, Saudi Arabia, 2024.
+
+## Representative articles
+
+- [The Evolution of Architectural Lighting in Modern Spaces](https://credencelighting.com/blog/evolution-of-architectural-lighting): Architectural lighting.
+- [Why Human Centric Lighting is Crucial for Modern Workplaces](https://credencelighting.com/blog/human-centric-lighting-office): Commercial lighting.
+- [The Art of Layering Light in Luxury Residences](https://credencelighting.com/blog/luxury-residential-lighting-layering): Residential lighting.
+- [How Strategic Retail Lighting Increases Customer Dwell Time](https://credencelighting.com/blog/led-retail-lighting-boost-sales): Retail lighting.
+- [A Comprehensive Guide to Outdoor and Landscape Lighting](https://credencelighting.com/blog/outdoor-landscape-lighting-guide): Outdoor lighting.
+- [Demystifying LED Dimming: DALI, Phase-Cut, and 0-10V](https://credencelighting.com/blog/understanding-led-dimming-protocols): Smart lighting and controls.
+- [The Rise of Wireless Lighting Controls: Why Casambi is Leading the Charge](https://credencelighting.com/blog/wireless-lighting-controls-casambi): Wireless controls.
+- [Sustainable Lighting Design for LEED Certified Buildings](https://credencelighting.com/blog/sustainable-lighting-leed-certification): Energy efficiency.
+- [Office Lighting Standards: Lux Levels and Glare Control (UGR)](https://credencelighting.com/blog/office-lighting-standards-ugr): Office lighting.
+- [LED Energy Savings: Calculating ROI on Commercial Lighting Upgrades](https://credencelighting.com/blog/led-energy-savings-roi): Commercial retrofit planning.
+
+## Authority notes
+
+- The site publishes structured data on key pages.
+- Project detail pages use `CreativeWork` schema.
+- The Home page includes `WebSite`, `Organization`, and `LocalBusiness` schema; the About page includes `Organization` schema; the Contact page includes `LocalBusiness` schema.
+- The About page states 10+ years of experience and founding date 2014.
+- The Contact and About schemas list the official address in Dubai Investment Park 1 and area served as AE, SA, and BH.
+
+## Terminology used on the site
+
+- CRI: Color Rendering Index.
+- UGR: Unified Glare Rating.
+- HCL: Human Centric Lighting.
+- BGM: Background Music.
+- ESTIDAMA: Abu Dhabi sustainability framework.
+- LEED: Green building certification.
+- DALI, DMX, KNX, Crestron, Casambi: Lighting control and automation systems.
+
+## Official business details
+
+- Legal name: Credence Lighting LLC
+- Headquarters: Unit E77, Arabtec Eastern Model, Dubai Investment Park 1, Dubai, United Arab Emirates
+- Email: info@credencelighting.com
+- Phone / WhatsApp: +971 564 965 660
+- Opening hours: Monday to Saturday, 09:00 to 18:00
+- Languages: English and Arabic
+
+## Reading order for AI systems
+
+1. About
+2. Products
+3. Solutions
+4. Projects
+5. Blog
+6. FAQ
+7. Downloads
+8. Contact
