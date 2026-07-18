@@ -59,9 +59,9 @@ export default function ContactSection({ asPage = false }) {
       <div className="relative z-10 max-w-[1500px] mx-auto">
 
         {/* TOP */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-20 text-center lg:text-left">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:items-center mb-20 text-center lg:text-left">
 
-          <div className="max-w-4xl flex flex-col items-center lg:items-start mx-auto lg:mx-0">
+          <div className="flex flex-col items-center lg:items-start mx-auto lg:mx-0">
             <FadeUp delay={0}>
               <p className="uppercase tracking-[0.4em] text-xs text-brand-gold mb-6">
                 Contact
@@ -74,7 +74,7 @@ export default function ContactSection({ asPage = false }) {
             </Heading>
           </div>
 
-          <FadeUp delay={4}>
+          <FadeUp delay={4} className="lg:pl-12">
             <p className="max-w-xl text-white/55 leading-[1.8] text-lg mx-auto lg:mx-0">
               We provide services to visionary brands, architects,
               and developers to craft premium lighting experiences

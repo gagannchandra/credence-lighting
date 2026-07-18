@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Footer from "../components/layout/Footer";
 import ReturnScrollHandler from "../components/ReturnScrollHandler";
 import { scrollToSection } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
+import Loader from "../components/ui/Loader";
+import { useState } from "react";
 
 import Hero from "../components/home/Hero";
 import AboutSection from "../components/home/AboutSection";
@@ -12,10 +14,23 @@ import GlobalPresence from "../components/home/GlobalPresence";
 import ProjectsSection from "../components/home/ProjectsSection";
 import ContactSection from "../components/home/ContactSection";
 import PageTransition from "../components/ui/motion/PageTransition";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(document.readyState !== "complete");
+
   useEffect(() => {
+    // If document is already completely loaded, do nothing
+    if (document.readyState === "complete") {
+      return;
+    }
+    const handleLoad = () => setIsLoading(false);
+    window.addEventListener("load", handleLoad);
+    return () => window.removeEventListener("load", handleLoad);
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return; // Wait until loading finishes before scrolling
     const hash = window.location.hash;
 
     if (!hash) return;
@@ -24,11 +39,15 @@ export default function Home() {
     const timer = setTimeout(() => scrollToSection(sectionId), 150);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoading]);
 
 
 
   return (
+    <>
+    <AnimatePresence>
+      {isLoading && <Loader isInitial={true} key="home-loader" />}
+    </AnimatePresence>
     <PageTransition>
       <SEO
         title="Credence Lighting | Premium Lighting Solutions Dubai"
@@ -185,5 +204,6 @@ export default function Home() {
 
       <Footer />
     </PageTransition>
+    </>
   );
 }
