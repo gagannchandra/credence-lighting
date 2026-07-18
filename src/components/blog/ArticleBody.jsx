@@ -1,3 +1,38 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const renderText = (text) => {
+  if (typeof text !== 'string') return text;
+
+  // Split by bold (**...**) and links ([...](...))
+  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+  
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index} className="text-white font-semibold">{part.slice(2, -2)}</strong>;
+    }
+    
+    const linkMatch = part.match(/^\[(.*?)\]\((.*?)\)$/);
+    if (linkMatch) {
+      const label = linkMatch[1];
+      const url = linkMatch[2];
+      if (url.startsWith('/')) {
+        return <Link key={index} to={url} className="text-brand-gold hover:underline">{label}</Link>;
+      }
+      return <a key={index} href={url} target="_blank" rel="noopener noreferrer" className="text-brand-gold hover:underline">{label}</a>;
+    }
+    
+    // Handle plain text and newlines
+    const lines = part.split('\n');
+    return lines.map((line, i) => (
+      <React.Fragment key={`${index}-${i}`}>
+        {line}
+        {i < lines.length - 1 && <br />}
+      </React.Fragment>
+    ));
+  });
+};
+
 export default function ArticleBody({ blocks }) {
   if (!blocks || !Array.isArray(blocks)) return null;
 
@@ -7,8 +42,8 @@ export default function ArticleBody({ blocks }) {
         switch (block.type) {
           case "paragraph":
             return (
-              <p key={index} className="mb-6 text-white/70 text-lg leading-relaxed">
-                {block.content}
+              <p key={index} className="mb-6 text-white/70 text-base leading-relaxed">
+                {renderText(block.content)}
               </p>
             );
           case "heading2":
@@ -18,7 +53,7 @@ export default function ArticleBody({ blocks }) {
                 id={block.content.toLowerCase().replace(/[^a-z0-9]+/g, '-')} 
                 className="text-fluid-h2 font-serif text-brand-gold mt-12 mb-6"
               >
-                {block.content}
+                {renderText(block.content)}
               </h2>
             );
           case "heading3":
@@ -28,19 +63,19 @@ export default function ArticleBody({ blocks }) {
                 id={block.content.toLowerCase().replace(/[^a-z0-9]+/g, '-')} 
                 className="text-2xl md:text-3xl font-serif text-brand-gold mt-10 mb-4"
               >
-                {block.content}
+                {renderText(block.content)}
               </h3>
             );
           case "quote":
             return (
               <blockquote key={index} className="border-l-4 border-brand-gold pl-6 my-10 italic text-xl md:text-2xl font-serif text-white/90">
-                "{block.content}"
+                "{renderText(block.content)}"
               </blockquote>
             );
           case "callout":
             return (
               <div key={index} className="bg-brand-gold/10 border border-brand-gold/30 p-6 rounded-card my-8">
-                <p className="text-brand-gold m-0 font-medium text-lg">{block.content}</p>
+                <p className="text-brand-gold m-0 font-medium text-base leading-relaxed">{renderText(block.content)}</p>
               </div>
             );
           case "image":
@@ -48,15 +83,15 @@ export default function ArticleBody({ blocks }) {
               <figure key={index} className="my-10">
                 <img src={block.url} alt={block.caption || ""} className="w-full rounded-panel" />
                 {block.caption && (
-                  <figcaption className="text-center text-sm text-white/50 mt-3">{block.caption}</figcaption>
+                  <figcaption className="text-center text-sm text-white/50 mt-3">{renderText(block.caption)}</figcaption>
                 )}
               </figure>
             );
           case "list":
             return (
-              <ul key={index} className="list-disc list-inside mb-6 text-white/70 text-lg leading-relaxed space-y-2">
+              <ul key={index} className="list-disc list-inside mb-6 text-white/70 text-base leading-relaxed space-y-3">
                 {block.items.map((item, i) => (
-                  <li key={i}>{item}</li>
+                  <li key={i}>{renderText(item)}</li>
                 ))}
               </ul>
             );
@@ -67,7 +102,7 @@ export default function ArticleBody({ blocks }) {
                   <thead className="bg-white/5 border-b border-white/10">
                     <tr>
                       {block.headers.map((header, i) => (
-                        <th key={i} className="px-6 py-4 font-serif text-brand-gold">{header}</th>
+                        <th key={i} className="px-6 py-4 font-serif text-brand-gold">{renderText(header)}</th>
                       ))}
                     </tr>
                   </thead>
@@ -75,7 +110,7 @@ export default function ArticleBody({ blocks }) {
                     {block.rows.map((row, i) => (
                       <tr key={i} className="border-b border-border-subtle last:border-0 hover:bg-white/[0.02]">
                         {row.map((cell, j) => (
-                          <td key={j} className="px-6 py-4">{cell}</td>
+                          <td key={j} className="px-6 py-4">{renderText(cell)}</td>
                         ))}
                       </tr>
                     ))}

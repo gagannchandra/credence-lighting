@@ -1,16 +1,10 @@
-import { useLayoutEffect } from "react";
 import Footer from "../components/layout/Footer";
 import AboutSection from "../components/home/AboutSection";
-import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
 import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function About() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   return (
     <PageTransition>

@@ -1,9 +1,7 @@
-import { useLayoutEffect } from "react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { scrollToTop } from "../utils/scrollUtils";
 import PageTransition from "../components/ui/motion/PageTransition";
 
 const brands = [
@@ -46,10 +44,7 @@ const brands = [
 ];
 
 export default function Brands() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
+
 
   return (
     <PageTransition>

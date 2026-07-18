@@ -1,9 +1,8 @@
-import { useLayoutEffect, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import products from "../data/products";
 import CategoryCarousel from "../components/gallery/CategoryCarousel";
-import { scrollToTop } from "../utils/scrollUtils";
 import { slugify } from "../utils/routeUtils";
 import SEO from "../components/seo/SEO";
 
@@ -23,10 +22,6 @@ const categoryDescriptions = {
 import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function Products() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   const [expandedCategories, setExpandedCategories] = useState({});
   const toggleCategory = (category) => {

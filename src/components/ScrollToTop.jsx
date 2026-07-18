@@ -12,12 +12,6 @@ export default function ScrollToTop() {
     }
 
     scrollToTop(true);
-
-    requestAnimationFrame(() => scrollToTop(true));
-
-    const timer = setTimeout(() => scrollToTop(true), 50);
-
-    return () => clearTimeout(timer);
   }, [pathname]);
 
   return null;

@@ -1,9 +1,8 @@
-import { useLayoutEffect, useState } from "react";
+import {  useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import projects from "../data/projects";
 import CategoryCarousel from "../components/gallery/CategoryCarousel";
-import { scrollToTop } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 
 
@@ -16,10 +15,6 @@ export default function Projects() {
     setExpandedCategories(prev => ({ ...prev, [projectId]: !prev[projectId] }));
   };
 
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   return (
     <PageTransition>

@@ -261,11 +261,7 @@ body {
 .perf-low .md\:backdrop-blur-xl { backdrop-filter: blur(12px) !important; }
 .perf-low .md\:backdrop-blur-2xl { backdrop-filter: blur(12px) !important; }
 
-/* Defer rendering for below-the-fold heavy sections */
-.heavy-section-deferred {
-  content-visibility: auto;
-  contain-intrinsic-size: auto none auto 800px;
-}
+
 
 @keyframes slideUpFade {
   0% { opacity: 0; transform: translateY(15px); }

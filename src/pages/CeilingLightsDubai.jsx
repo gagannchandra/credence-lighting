@@ -1,11 +1,9 @@
-import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layers, Sun, Lightbulb, Ruler, Palette, Zap } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
 import PageTransition from "../components/ui/motion/PageTransition";
-import { scrollToTop } from "../utils/scrollUtils";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const ceilingTypes = [
@@ -51,10 +49,6 @@ const faqs = [
 ];
 
 export default function CeilingLightsDubai() {
-  useLayoutEffect(() => {
-    scrollToTop(true);
-    requestAnimationFrame(() => scrollToTop(true));
-  }, []);
 
   const faqSchema = {
     "@context": "https://schema.org",
