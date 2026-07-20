@@ -38,7 +38,9 @@ export const blogSlugs = [
   "hospitality-lighting-guest-experience",
   "office-lighting-standards-ugr",
   "led-energy-savings-roi",
-  "lighting-maintenance-lifespan"
+  "lighting-maintenance-lifespan",
+  "top-10-best-lighting-companies-in-dubai",
+  "comprehensive-guide-lighting-sectors-dubai"
 ];
 export const productCategories = [
   "Indoor",

@@ -3,7 +3,6 @@ import { MapPin, Clock, Phone, Eye, Users, Palette, Settings } from "lucide-reac
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const showroomFeatures = [
@@ -102,7 +101,7 @@ export default function LightingShowroomDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="Lighting Showroom Dubai · Credence Lighting"
         description="Visit Credence Lighting's showroom in Dubai Investment Park. See premium LED fixtures, control systems, and architectural lighting in working displays. Book a visit today."
@@ -379,6 +378,6 @@ export default function LightingShowroomDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }

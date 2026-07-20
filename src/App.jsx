@@ -1,15 +1,13 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Loader from "./components/ui/Loader";
-import ScrollToTop from "./components/ScrollToTop";
 import WhatsappFloat from "./components/ui/WhatsappFloat";
-import SmoothScroll from "./components/ui/SmoothScroll";
-import CustomCursor from "./components/ui/CustomCursor";
 import AmbientBackground from "./components/layout/AmbientBackground";
 import Navbar from "./components/layout/Navbar";
 import BackButton from "./components/ui/BackButton";
 import ErrorBoundary from "./components/ui/ErrorBoundary";
+import CustomCursor from "./components/ui/CustomCursor";
 
 import Home from "./pages/Home";
 const Downloads = lazy(() => import("./pages/Downloads"));
@@ -58,13 +56,15 @@ const LocationBahrain = lazy(() => import("./pages/LocationBahrain"));
 export default function App() {
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <>
-      <SmoothScroll>
+      <CustomCursor />
       <AmbientBackground />
       <Navbar />
-      <CustomCursor />
-      <ScrollToTop />
       {location.pathname !== "/" && <BackButton />}
 
       <ErrorBoundary>
@@ -122,7 +122,6 @@ export default function App() {
       </ErrorBoundary>
 
       <WhatsappFloat />
-    </SmoothScroll>
     </>
   );
 }

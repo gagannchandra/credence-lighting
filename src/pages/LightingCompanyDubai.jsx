@@ -3,7 +3,6 @@ import { Building2, Lightbulb, Globe, Wrench, ShieldCheck, HeadphonesIcon } from
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const services = [
@@ -100,7 +99,7 @@ export default function LightingCompanyDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="Lighting Company in Dubai · Credence Lighting"
         description="Credence Lighting is a leading lighting company in Dubai providing architectural, commercial, and hospitality lighting. 1000+ projects, 10+ years, GCC-wide delivery."
@@ -314,6 +313,6 @@ export default function LightingCompanyDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }

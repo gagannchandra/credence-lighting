@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
-import PageTransition from "../components/ui/motion/PageTransition";
 import { ArrowUpRight } from "lucide-react";
 import IndustriesWeServe from "../components/sections/IndustriesWeServe";
 
@@ -84,7 +83,7 @@ const solutionsData = [
 export default function Solutions() {
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Lighting Solutions | Credence Lighting Dubai" 
         description="Bespoke architectural, commercial, and hospitality lighting solutions tailored to your space." 
@@ -115,7 +114,7 @@ export default function Solutions() {
               <Link 
                 key={solution.id} 
                 to={solution.link}
-                onClick={() => scrollToTop()}
+                onClick={() => window.scrollTo(0, 0)}
                 className="group relative block overflow-hidden rounded-card break-inside-avoid border border-white/5 hover:border-brand-gold/30 transition-colors duration-500 bg-surface-base"
               >
                 {/* Image Container with variable aspect ratio for masonry effect */}
@@ -152,6 +151,6 @@ export default function Solutions() {
 
       </div>
       <Footer />
-    </PageTransition>
+    </>
   );
 }

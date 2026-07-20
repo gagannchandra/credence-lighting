@@ -6,7 +6,7 @@ export default function CustomCursor() {
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  
+
   const springConfig = { damping: 25, stiffness: 250, mass: 0.5 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
@@ -45,10 +45,10 @@ export default function CustomCursor() {
           }
         }
       `}</style>
-      
+
       {/* OUTER RING (Trailing motion) */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-button hidden md:flex items-center justify-center border"
+        className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-button hidden md:flex items-center justify-center border-2"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,

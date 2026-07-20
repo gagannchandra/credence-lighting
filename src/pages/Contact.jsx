@@ -2,12 +2,11 @@ import Footer from "../components/layout/Footer";
 import ContactSection from "../components/home/ContactSection";
 import SEO from "../components/seo/SEO";
 
-import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function Contact() {
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Contact Credence Lighting | Lighting Experts Dubai" 
         description="Get in touch with our lighting specialists in Dubai for project inquiries and quotations." 
@@ -46,6 +45,6 @@ export default function Contact() {
         <ContactSection asPage />
       </div>
       <Footer />
-    </PageTransition>
+    </>
   );
 }

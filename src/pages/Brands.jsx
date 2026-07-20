@@ -2,7 +2,6 @@ import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import PageTransition from "../components/ui/motion/PageTransition";
 
 const brands = [
   { name: "Al Othaim", logo: "/brands/al-othaim.webp" },
@@ -47,7 +46,7 @@ export default function Brands() {
 
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Our Clients & Brands | Credence Lighting Dubai" 
         description="Discover the visionary brands, architects, and developers we partner with across the UAE." 
@@ -170,6 +169,6 @@ export default function Brands() {
       </section>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }   

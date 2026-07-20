@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function NotFound() {
   const shouldReduceMotion = useReducedMotion();
@@ -36,7 +35,7 @@ export default function NotFound() {
   }, [navigate]);
 
   return (
-    <PageTransition>
+    <>
       <Helmet>
         <title>404 - Page Not Found | Credence Lighting</title>
         <meta name="robots" content="noindex, nofollow" />
@@ -140,6 +139,6 @@ export default function NotFound() {
 
         </div>
       </section>
-    </PageTransition>
+    </>
   );
 }

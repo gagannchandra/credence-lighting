@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Wrench, Monitor, ClipboardList, Settings, Headset, Briefcase } from "lucide-react";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
-import HoverLift from "../ui/motion/HoverLift";
 import { duration, ease } from "../../utils/motion";
 
 export default function AboutSection({ preview = false, asPage = false }) {
@@ -146,7 +145,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
 
           {/* PRODUCTS CARD */}
           <FadeUp delay={4} className="h-full">
-            <HoverLift className="h-full">
+            <div className="h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <button
                 type="button"
                 onClick={() => navigate("/products")}
@@ -172,12 +171,12 @@ export default function AboutSection({ preview = false, asPage = false }) {
                   </div>
 
               </button>
-            </HoverLift>
+            </div>
           </FadeUp>
 
           {/* CLIENTS CARD */}
           <FadeUp delay={5} className="h-full">
-            <HoverLift className="h-full">
+            <div className="h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <button
                 type="button"
                 onClick={() => navigate("/brands")}
@@ -203,12 +202,12 @@ export default function AboutSection({ preview = false, asPage = false }) {
                   </div>
 
               </button>
-            </HoverLift>
+            </div>
           </FadeUp>
 
           {/* PORTFOLIO CARD */}
           <FadeUp delay={6} className="h-full">
-            <HoverLift className="h-full">
+            <div className="h-full hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
               <button
                 type="button"
                 onClick={() => navigate("/projects")}
@@ -234,7 +233,7 @@ export default function AboutSection({ preview = false, asPage = false }) {
                   </div>
 
               </button>
-            </HoverLift>
+            </div>
           </FadeUp>
           </div>
         </div>

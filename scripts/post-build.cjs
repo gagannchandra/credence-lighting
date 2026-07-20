@@ -65,13 +65,15 @@ const app = express();
 const originalIndexHtml = fs.readFileSync(path.join(__dirname, '..', 'dist', 'index.html'), 'utf8');
 
 // Serve the dist directory
+app.use((req, res, next) => { console.log('REQ:', req.url); next(); });
 app.use(express.static(path.join(__dirname, '..', 'dist')));
 // Fallback to original index.html for SPA routing
 app.use((req, res) => {
+  console.log('SPA FALLBACK FOR:', req.url);
   res.send(originalIndexHtml);
 });
 
-const server = app.listen(3000, async () => {
+const server = app.listen(3000, '127.0.0.1', async () => {
   console.log('Starting custom prerenderer...');
   
   let browser;
@@ -107,7 +109,7 @@ const server = app.listen(3000, async () => {
   for (const route of routes) {
     console.log(`Prerendering ${route}...`);
     try {
-      await page.goto(`http://localhost:3000${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
+      await page.goto(`http://127.0.0.1:3000${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
       
       // Wait for the app to render real content into #root
       await page.waitForFunction(() => {
@@ -118,7 +120,7 @@ const server = app.listen(3000, async () => {
       let content = await page.content();
       
       // Fix CORS: Puppeteer sometimes bakes absolute localhost URLs into the HTML (e.g. for modulepreloads)
-      content = content.replace(/http:\/\/localhost:3000/g, '');
+      content = content.replace(/http:\/\/(localhost|127\.0\.0\.1):3000/g, '');
       
       // Inline critical CSS and defer the rest
       content = await critters.process(content);

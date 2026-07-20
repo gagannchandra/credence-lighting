@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import products from "../../data/products";
 import { useNavigate, useLocation } from "react-router-dom";
-import { saveReturnState } from "../../utils/navigationState";
+
 import { slugify } from "../../utils/routeUtils";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
-import HoverLift from "../ui/motion/HoverLift";
 import { duration, ease } from "../../utils/motion";
 
 const categories = [
@@ -129,7 +128,7 @@ export default function ProductsSection({ hideHeader = false }) {
             </div>
 
             <FadeUp delay={4} className="mx-auto md:mx-0 w-full md:w-auto">
-              <HoverLift>
+              <div className="hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <button
                   onClick={handleEnquireClick}
                   className="w-full md:w-auto border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-4 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button flex items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
@@ -137,7 +136,7 @@ export default function ProductsSection({ hideHeader = false }) {
                   Enquire Now
                   <span className="transform transition-transform duration-500 group-hover:translate-x-1">→</span>
                 </button>
-              </HoverLift>
+              </div>
             </FadeUp>
           </div>
         )}
@@ -250,7 +249,7 @@ export default function ProductsSection({ hideHeader = false }) {
                     style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(15%)" }}
                     onClick={() => {
                       if (isCenter) {
-                        saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+
                         navigate(`/products/${slugify(item.category)}`);
                       }
                       if (isLeft) handlePrev();
@@ -304,7 +303,7 @@ export default function ProductsSection({ hideHeader = false }) {
                             <div className="pointer-events-auto inline-block">
                               <button onClick={(e) => {
                                 e.stopPropagation();
-                                saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#products" : "", scrollY: window.scrollY });
+
                                 navigate(`/products/${slugify(item.category)}`);
                               }} className="text-brand-gold uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-brand-gold/30 hover:border-white pb-1">
                                 View Collection Details

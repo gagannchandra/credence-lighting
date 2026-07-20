@@ -3,7 +3,6 @@ import { Layers, Sun, Lightbulb, Ruler, Palette, Zap } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const ceilingTypes = [
@@ -71,7 +70,7 @@ export default function CeilingLightsDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="Ceiling Lights Dubai · Credence Lighting"
         description="Premium LED ceiling lights in Dubai — recessed downlights, surface panels, linear profiles, and decorative pendants. Visit our showroom or request a project quote."
@@ -317,6 +316,6 @@ export default function CeilingLightsDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }

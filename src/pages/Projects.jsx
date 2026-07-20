@@ -7,7 +7,6 @@ import SEO from "../components/seo/SEO";
 
 
 
-import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function Projects() {
   const [expandedCategories, setExpandedCategories] = useState({});
@@ -17,7 +16,7 @@ export default function Projects() {
 
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Featured Projects | Credence Lighting Dubai" 
         description="View our featured lighting installations across architectural, entertainment, and retail sectors." 
@@ -63,14 +62,14 @@ export default function Projects() {
                   <div className="flex items-center gap-4">
                     <Link 
                       to={`/projects/${project.slug}`}
-                      onClick={() => scrollToTop()}
+                      onClick={() => window.scrollTo(0, 0)}
                       className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                     >
                       View Project
                     </Link>
                     <Link 
                       to="/contact"
-                      onClick={() => scrollToTop()}
+                      onClick={() => window.scrollTo(0, 0)}
                       className="shrink-0 hidden md:inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                     >
                       Enquire Now
@@ -102,14 +101,14 @@ export default function Projects() {
               <div className="mt-8 flex flex-col sm:flex-row justify-center md:hidden w-full gap-4">
                 <Link 
                   to={`/projects/${project.slug}`}
-                  onClick={() => scrollToTop()}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                 >
                   View Project
                 </Link>
                 <Link 
                   to="/contact"
-                  onClick={() => scrollToTop()}
+                  onClick={() => window.scrollTo(0, 0)}
                   className="w-full inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                 >
                   Enquire Now
@@ -122,6 +121,6 @@ export default function Projects() {
 
       </div>
       <Footer />
-    </PageTransition>
+    </>
   );
 }

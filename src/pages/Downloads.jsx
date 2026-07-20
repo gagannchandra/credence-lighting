@@ -1,5 +1,4 @@
 import Footer from "../components/layout/Footer";
-import PageTransition from "../components/ui/motion/PageTransition";
 import SEO from "../components/seo/SEO";
 
 const resources = [
@@ -31,7 +30,7 @@ const resources = [
 
 export default function Downloads() {
   return (
-    <PageTransition>
+    <>
       <div className="bg-transparent text-white min-h-screen">
         <SEO 
           title="Lighting Catalogues & Downloads | Credence Lighting" 
@@ -89,6 +88,6 @@ export default function Downloads() {
 
       <Footer />
       </div>
-    </PageTransition>
+    </>
   );
 }

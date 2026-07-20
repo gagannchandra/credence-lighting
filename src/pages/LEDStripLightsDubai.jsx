@@ -3,7 +3,6 @@ import { Waves, Ruler, Palette, Shield, Cpu, Zap } from "lucide-react";
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const stripTypes = [
@@ -47,7 +46,7 @@ export default function LEDStripLightsDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="LED Strip Lights Dubai · Credence Lighting"
         description="Premium LED strip lights in Dubai — flexible strips, neon flex, RGBW, IP-rated outdoor strips, and high-density architectural profiles. Cut-to-length service available."
@@ -275,6 +274,6 @@ export default function LEDStripLightsDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }

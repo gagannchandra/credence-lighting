@@ -1,25 +1,12 @@
 import { ArrowLeft } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  getReturnState,
-  clearReturnState,
-  markPendingReturnScroll,
-} from "../../utils/navigationState";
 
 export default function BackButton({ fallback }) {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleBack = () => {
-    const returnState = getReturnState();
-
-    if (returnState?.pathname) {
-      markPendingReturnScroll();
-      clearReturnState(); // Clear the state so it doesn't contaminate future back clicks
-      navigate(returnState.pathname);
-      return;
-    }
 
     // location.key is "default" on the very first page load of a tab.
     // If it's not default, we have internal app history to go back to.

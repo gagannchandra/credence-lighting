@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import SEO from "../components/seo/SEO";
 import Footer from "../components/layout/Footer";
-import PageTransition from "../components/ui/motion/PageTransition";
 import BlogCard from "../components/blog/BlogCard";
 import BlogFeatured from "../components/blog/BlogFeatured";
 import { blogPosts } from "../data/blog";
@@ -34,7 +33,7 @@ export default function Blog() {
   }, [searchQuery, featuredPost]);
 
   return (
-    <PageTransition>
+    <>
       <div className="bg-transparent min-h-screen">
         <SEO 
         title="Lighting Design Insights | Credence Lighting Blog" 
@@ -154,6 +153,6 @@ export default function Blog() {
 
       <Footer />
       </div>
-    </PageTransition>
+    </>
   );
 }

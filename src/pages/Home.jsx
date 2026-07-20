@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import Footer from "../components/layout/Footer";
-import ReturnScrollHandler from "../components/ReturnScrollHandler";
-import { scrollToSection } from "../utils/scrollUtils";
 import SEO from "../components/seo/SEO";
 import Loader from "../components/ui/Loader";
 import { useState } from "react";
@@ -13,7 +11,6 @@ import BrandsSection from "../components/home/BrandsSection";
 import GlobalPresence from "../components/home/GlobalPresence";
 import ProjectsSection from "../components/home/ProjectsSection";
 import ContactSection from "../components/home/ContactSection";
-import PageTransition from "../components/ui/motion/PageTransition";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
@@ -36,7 +33,9 @@ export default function Home() {
     if (!hash) return;
 
     const sectionId = hash.replace("#", "");
-    const timer = setTimeout(() => scrollToSection(sectionId), 150);
+    const timer = setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
 
     return () => clearTimeout(timer);
   }, [isLoading]);
@@ -48,7 +47,7 @@ export default function Home() {
     <AnimatePresence>
       {isLoading && <Loader isInitial={true} key="home-loader" />}
     </AnimatePresence>
-    <PageTransition>
+    <>
       <SEO
         title="Credence Lighting | Premium Lighting Solutions Dubai"
         description="Premium architectural, commercial, hospitality, and decorative lighting solutions across Dubai and the UAE. 10+ years of expertise and 1,000+ successful projects."
@@ -170,7 +169,6 @@ export default function Home() {
           }
         ]}
       />
-      <ReturnScrollHandler />
       <main className="bg-transparent min-h-screen relative overflow-hidden">
         {/* Global Continuous Background Lighting */}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
@@ -203,7 +201,7 @@ export default function Home() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
     </>
   );
 }

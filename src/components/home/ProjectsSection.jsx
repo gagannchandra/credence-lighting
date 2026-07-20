@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import projects from "../../data/projects";
 import { useNavigate, useLocation } from "react-router-dom";
-import { saveReturnState } from "../../utils/navigationState";
+
 import { duration, ease } from "../../utils/motion";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
@@ -223,7 +223,7 @@ export default function ProjectsSection({ hideHeader = false }) {
                     style={{ filter: isCenter ? "grayscale(0%)" : "grayscale(30%)" }}
                     onClick={() => {
                       if (isCenter) {
-                        saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
+
                         navigate(`/projects/${item.slug}`);
                       }
                       if (isLeft) handlePrev();
@@ -266,7 +266,7 @@ export default function ProjectsSection({ hideHeader = false }) {
                             className="absolute inset-x-1/4 inset-y-1/4 z-10 flex items-center justify-center cursor-pointer pointer-events-auto"
                             onClick={(e) => {
                               e.stopPropagation();
-                              saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
+
                               navigate(`/projects/${item.slug}`);
                             }}
                           >
@@ -293,7 +293,7 @@ export default function ProjectsSection({ hideHeader = false }) {
                             </p>
                             <div className="mt-6 pointer-events-auto inline-block">
                               <button onClick={() => {
-                                saveReturnState({ pathname: location.pathname, hash: location.pathname === "/" ? "#projects" : "", scrollY: window.scrollY });
+
                                 navigate(`/projects/${item.slug}`);
                               }} className="text-brand-gold uppercase tracking-[0.2em] text-xs md:text-xs font-semibold hover:text-white transition-colors border-b border-brand-gold/30 hover:border-white pb-1">
                                 View Project Details

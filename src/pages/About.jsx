@@ -2,12 +2,11 @@ import Footer from "../components/layout/Footer";
 import AboutSection from "../components/home/AboutSection";
 import SEO from "../components/seo/SEO";
 
-import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function About() {
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="About Credence Lighting | Premium Lighting Experts Dubai" 
         description="10+ years of experience delivering premium lighting solutions. Aesthetics meets functionality." 
@@ -60,6 +59,6 @@ export default function About() {
         </div>
       </main>
       <Footer />
-    </PageTransition>
+    </>
   );
 }

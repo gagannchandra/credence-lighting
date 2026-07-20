@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Lightbox from "../components/ui/Lightbox";
 import SEO from "../components/seo/SEO";
-import PageTransition from "../components/ui/motion/PageTransition";
 
 import projects from "../data/projects";
 
@@ -25,7 +24,7 @@ export default function Gallery() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Lighting Gallery | Inspiration & Installations" 
         description="View our gallery of premium lighting installations and architectural lighting inspiration across Dubai and the UAE." 
@@ -128,6 +127,6 @@ export default function Gallery() {
         />
       )}
     </section>
-    </PageTransition>
+    </>
   );
 }

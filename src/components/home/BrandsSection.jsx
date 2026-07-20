@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import PageLink from "../ui/PageLink";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
-import HoverLift from "../ui/motion/HoverLift";
 import { ease } from "../../utils/motion";
 
 const featuredLogos = [
@@ -126,7 +125,7 @@ export default function BrandsSection() {
 
         {/* BUTTON */}
         <FadeUp delay={12} className="flex justify-center mt-16">
-          <HoverLift>
+          <div className="hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
             <PageLink
               to="/brands"
               returnHash="#brands"
@@ -138,7 +137,7 @@ export default function BrandsSection() {
                 →
               </span>
             </PageLink>
-          </HoverLift>
+          </div>
         </FadeUp>
 
       </div>

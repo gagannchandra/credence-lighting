@@ -3,7 +3,6 @@ import { Lightbulb, Ruler, Home, Building2, UtensilsCrossed, Palette } from "luc
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const styles = [
@@ -47,7 +46,7 @@ export default function PendantLightsDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="Pendant Lights Dubai · Credence Lighting"
         description="Premium pendant lights and hanging fixtures for Dubai homes, hotels, and commercial spaces. Statement pendants, custom designs, and kitchen island lighting."
@@ -216,6 +215,6 @@ export default function PendantLightsDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }

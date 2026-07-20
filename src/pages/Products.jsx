@@ -19,7 +19,6 @@ const categoryDescriptions = {
   "Audio": "Premium audio systems delivering crystal-clear sound quality, deep resonance, and reliable performance for commercial, hospitality, and residential applications. Expertly engineered to complement our visual solutions, these audio systems provide a truly immersive, multi-sensory experience for any high-end space."
 };
 
-import PageTransition from "../components/ui/motion/PageTransition";
 
 export default function Products() {
 
@@ -29,7 +28,7 @@ export default function Products() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO 
         title="Lighting Products Dubai | Indoor, Outdoor & Architectural Lighting" 
         description="Explore our premium collection of indoor, outdoor, hospitality, and facade lighting fixtures." 
@@ -77,14 +76,14 @@ export default function Products() {
                     <div className="flex items-center gap-4">
                       <Link 
                         to={`/products/${slugify(category)}`}
-                        onClick={() => scrollToTop()}
+                        onClick={() => window.scrollTo(0, 0)}
                         className="shrink-0 hidden md:inline-flex border border-white/20 backdrop-blur-sm text-white px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                       >
                         View Collection
                       </Link>
                       <Link 
                         to="/contact"
-                        onClick={() => scrollToTop()}
+                        onClick={() => window.scrollTo(0, 0)}
                         className="shrink-0 hidden md:inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-8 py-3 tracking-[0.2em] uppercase text-xs transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                       >
                         Enquire Now
@@ -112,14 +111,14 @@ export default function Products() {
                 <div className="mt-8 flex flex-col sm:flex-row justify-center md:hidden w-full gap-4">
                   <Link 
                     to={`/products/${slugify(category)}`}
-                    onClick={() => scrollToTop()}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="w-full inline-flex border border-white/20 backdrop-blur-sm text-white px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center hover:bg-white hover:text-black"
                   >
                     View Collection
                   </Link>
                   <Link 
                     to="/contact"
-                    onClick={() => scrollToTop()}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="w-full inline-flex border border-brand-gold/40 backdrop-blur-sm text-brand-gold px-6 py-3 tracking-[0.2em] uppercase text-xs sm:text-sm transition-all duration-500 rounded-button items-center justify-center gap-3 group hover:bg-brand-gold hover:text-black"
                   >
                     Enquire Now
@@ -133,6 +132,6 @@ export default function Products() {
 
       </div>
       <Footer />
-    </PageTransition>
+    </>
   );
 }

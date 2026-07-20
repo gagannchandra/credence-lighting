@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import SEO from "../components/seo/SEO";
 import Footer from "../components/layout/Footer";
 import FaqAccordionGroup from "../components/faq/FaqAccordionGroup";
-import PageTransition from "../components/ui/motion/PageTransition";
 import { faqData, faqCategories } from "../data/faq";
 
 export default function Faq() {
@@ -131,7 +130,7 @@ export default function Faq() {
   }, [isManualScrolling]);
 
   return (
-    <PageTransition>
+    <>
       <div className="bg-transparent min-h-screen">
         <SEO 
         title="FAQ · Lighting Questions Answered · Credence" 
@@ -264,6 +263,6 @@ export default function Faq() {
 
       <Footer />
       </div>
-    </PageTransition>
+    </>
   );
 }

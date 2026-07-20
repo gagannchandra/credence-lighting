@@ -3,7 +3,6 @@ import { Sun, TreePine, Building, Lamp, ShieldCheck, Droplets } from "lucide-rea
 import Footer from "../components/layout/Footer";
 import SEO from "../components/seo/SEO";
 import InlineFAQ from "../components/seo/InlineFAQ";
-import PageTransition from "../components/ui/motion/PageTransition";
 import FadeUp from "../components/ui/motion/FadeUp";
 
 const categories = [
@@ -71,7 +70,7 @@ export default function OutdoorLightingDubai() {
   };
 
   return (
-    <PageTransition>
+    <>
       <SEO
         title="Outdoor Lighting Dubai · Credence Lighting"
         description="Premium outdoor lighting in Dubai — garden lights, wall lights, facade fixtures, and landscape lighting. IP-rated for Gulf climate. Visit our showroom."
@@ -297,6 +296,6 @@ export default function OutdoorLightingDubai() {
       </main>
 
       <Footer />
-    </PageTransition>
+    </>
   );
 }
