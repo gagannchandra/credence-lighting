@@ -7,6 +7,35 @@ if (process.env.RESEND_API_KEY) {
 
 const rateLimitMap = new Map();
 
+function escapeHtml(str) {
+  if (!str) return "";
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function isGibberish(text) {
+  if (!text || typeof text !== 'string') return false;
+  const words = text.trim().split(/\s+/);
+  for (const word of words) {
+    const cleanWord = word.replace(/[^a-zA-Z]/g, '');
+    if (cleanWord.length >= 5) {
+      // 5+ letter word with 0 vowels
+      if (!/[aeiouyAEIOUY]/.test(cleanWord)) {
+        return true;
+      }
+      // 5 consecutive consonants
+      if (/[bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ]{5,}/.test(cleanWord)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
 export default async function handler(req, res) {
   if (!resend) {
     return res.status(500).json({
@@ -15,17 +44,40 @@ export default async function handler(req, res) {
     });
   }
 
-  // Rate Limiting Logic (In-Memory per instance)
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress || "unknown";
   const now = Date.now();
+
+  if (req.method !== "POST") {
+    return res.status(405).json({
+      success: false,
+      message: "Method not allowed",
+    });
+  }
+
+  const { name, email, phone, company, message, website_url, formLoadTime } = req.body || {};
+
+  // 1. Honeypot Check (Trap automated bots that auto-fill all form fields)
+  if (website_url && typeof website_url === "string" && website_url.trim() !== "") {
+    console.warn(`[Anti-Spam] Honeypot triggered by IP: ${ip}`);
+    return res.status(200).json({ success: true }); // Return fake success to bot
+  }
+
+  // 2. Submission Speed Check (Bots submit forms in < 2.5s)
+  if (formLoadTime && typeof formLoadTime === "number") {
+    const elapsed = now - formLoadTime;
+    if (elapsed < 2500) {
+      console.warn(`[Anti-Spam] Fast submission (${elapsed}ms) by IP: ${ip}`);
+      return res.status(200).json({ success: true }); // Return fake success to bot
+    }
+  }
+
+  // Rate Limiting Logic (In-Memory per instance)
   const windowMs = 60 * 60 * 1000; // 1 hour
-  
   if (!rateLimitMap.has(ip)) {
     rateLimitMap.set(ip, { count: 1, firstRequest: now });
   } else {
     const data = rateLimitMap.get(ip);
     if (now - data.firstRequest > windowMs) {
-      // Reset window
       rateLimitMap.set(ip, { count: 1, firstRequest: now });
     } else {
       data.count += 1;
@@ -38,15 +90,6 @@ export default async function handler(req, res) {
       rateLimitMap.set(ip, data);
     }
   }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({
-      success: false,
-      message: "Method not allowed",
-    });
-  }
-
-  const { name, email, phone, company, message } = req.body;
 
   const nameStr = typeof name === 'string' ? name.trim() : "";
   const emailStr = typeof email === 'string' ? email.trim() : "";
@@ -69,8 +112,28 @@ export default async function handler(req, res) {
     });
   }
 
+  // 3. Gibberish & Bot Heuristic Detection
+  if (isGibberish(nameStr) || isGibberish(companyStr) || isGibberish(messageStr)) {
+    console.warn(`[Anti-Spam] Gibberish text detected from IP ${ip}: name="${nameStr}", company="${companyStr}"`);
+    return res.status(200).json({ success: true }); // Return fake success to bot
+  }
+
+  const digitsOnly = phoneStr.replace(/\D/g, "");
+  if (digitsOnly.length < 6) {
+    return res.status(400).json({
+      success: false,
+      message: "Please provide a valid phone number.",
+    });
+  }
+
   const fromEmail = process.env.RESEND_FROM_EMAIL || "Credence Lighting <onboarding@resend.dev>";
   const toEmail = process.env.RESEND_TO_EMAIL || "info@credencelighting.com";
+
+  const cleanName = escapeHtml(nameStr);
+  const cleanEmail = escapeHtml(emailStr);
+  const cleanPhone = escapeHtml(phoneStr);
+  const cleanCompany = escapeHtml(companyStr);
+  const cleanMessage = escapeHtml(messageStr);
 
   try {
     const adminEmail = await resend.emails.send({
@@ -84,14 +147,14 @@ export default async function handler(req, res) {
             New Contact Form Submission
           </h2>
           <table style="width:100%;border-collapse:collapse;">
-            <tr><td style="padding:8px 0;font-weight:bold;width:120px;">Name:</td><td>${nameStr}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:bold;">Email:</td><td><a href="mailto:${emailStr}">${emailStr}</a></td></tr>
-            <tr><td style="padding:8px 0;font-weight:bold;">Phone:</td><td>${phoneStr}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:bold;">Company:</td><td>${companyStr || "N/A"}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;width:120px;">Name:</td><td>${cleanName}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;">Email:</td><td><a href="mailto:${cleanEmail}">${cleanEmail}</a></td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;">Phone:</td><td>${cleanPhone}</td></tr>
+            <tr><td style="padding:8px 0;font-weight:bold;">Company:</td><td>${cleanCompany || "N/A"}</td></tr>
           </table>
           <h3 style="margin-top:20px;color:#1a1a1a;">Message:</h3>
           <p style="background:#f9f9f9;padding:16px;border-left:4px solid #c8a96b;line-height:1.6;">
-            ${messageStr.replace(/\n/g, "<br />")}
+            ${cleanMessage.replace(/\n/g, "<br />")}
           </p>
           <p style="color:#888;font-size:12px;margin-top:24px;">
             Sent via credencelighting.com contact form

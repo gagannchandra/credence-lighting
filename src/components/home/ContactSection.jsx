@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import TextReveal from "../ui/motion/TextReveal";
 import FadeUp from "../ui/motion/FadeUp";
 
 
 export default function ContactSection({ asPage = false }) {
   const Heading = asPage ? "h1" : "h2";
+  const formLoadTime = useRef(Date.now());
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
     message: "",
+    website_url: "", // Honeypot field
   });
   const [status, setStatus] = useState({ type: "", message: "" });
 
@@ -27,14 +29,17 @@ export default function ContactSection({ asPage = false }) {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          formLoadTime: formLoadTime.current,
+        }),
       });
 
       const data = await response.json();
 
       if (response.ok && data.success) {
         setStatus({ type: "success", message: "Message sent successfully!" });
-        setForm({ name: "", email: "", phone: "", company: "", message: "" });
+        setForm({ name: "", email: "", phone: "", company: "", message: "", website_url: "" });
       } else {
         setStatus({
           type: "error",
@@ -192,6 +197,20 @@ export default function ContactSection({ asPage = false }) {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-5">
+
+                {/* Honeypot field - hidden from human users, filled by automated spambots */}
+                <div className="opacity-0 absolute -left-[9999px] h-0 w-0 overflow-hidden pointer-events-none" aria-hidden="true" tabIndex={-1}>
+                  <label htmlFor="website_url">Website URL (leave empty)</label>
+                  <input
+                    type="text"
+                    id="website_url"
+                    name="website_url"
+                    value={form.website_url}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-5">
 
